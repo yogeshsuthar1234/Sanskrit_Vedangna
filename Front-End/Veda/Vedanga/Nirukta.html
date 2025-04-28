@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nirukta Vedanga - Ancient Sanskrit Etymology</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#8B0000", secondary: "#FFD700" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+      font-family: 'Inter', sans-serif;
+      }
+      .hero-section {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://readdy.ai/api/search-image?query=Ancient%20Sanskrit%20manuscripts%20with%20palm%20leaves%20and%20traditional%20texts%2C%20soft%20lighting%20illuminating%20the%20ancient%20writings%2C%20with%20a%20scholarly%20atmosphere%2C%20showing%20intricate%20Sanskrit%20characters%20and%20symbols%2C%20arranged%20on%20a%20traditional%20wooden%20surface%20with%20subtle%20warm%20tones%2C%20creating%20a%20sense%20of%20historical%20depth%20and%20spiritual%20significance&width=1920&height=1080&seq=1&orientation=landscape');
+      background-size: cover;
+      background-position: center;
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+      }
+      .custom-checkbox {
+      position: relative;
+      padding-left: 35px;
+      cursor: pointer;
+      user-select: none;
+      }
+      .custom-checkbox input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+      }
+      .checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 24px;
+      width: 24px;
+      border: 2px solid #ccc;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      }
+      .custom-checkbox:hover input ~ .checkmark {
+      border-color: #aaa;
+      }
+      .custom-checkbox input:checked ~ .checkmark {
+      background-color: #8B0000;
+      border-color: #8B0000;
+      }
+      .checkmark:after {
+      content: "";
+      position: absolute;
+      display: none;
+      }
+      .custom-checkbox input:checked ~ .checkmark:after {
+      display: block;
+      }
+      .custom-checkbox .checkmark:after {
+      left: 8px;
+      top: 4px;
+      width: 6px;
+      height: 12px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      }
+      .custom-radio {
+      position: relative;
+      padding-left: 35px;
+      cursor: pointer;
+      user-select: none;
+      margin-bottom: 12px;
+      display: block;
+      }
+      .custom-radio input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+      }
+      .radio-mark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 24px;
+      width: 24px;
+      background-color: #fff;
+      border: 2px solid #ccc;
+      border-radius: 50%;
+      transition: all 0.2s ease;
+      }
+      .custom-radio:hover input ~ .radio-mark {
+      border-color: #aaa;
+      }
+      .custom-radio input:checked ~ .radio-mark {
+      border-color: #8B0000;
+      }
+      .radio-mark:after {
+      content: "";
+      position: absolute;
+      display: none;
+      top: 4px;
+      left: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #8B0000;
+      }
+      .custom-radio input:checked ~ .radio-mark:after {
+      display: block;
+      }
+      .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+      }
+      .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      }
+      .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+      }
+      .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+      }
+      input:checked + .slider {
+      background-color: #8B0000;
+      }
+      input:focus + .slider {
+      box-shadow: 0 0 1px #8B0000;
+      }
+      input:checked + .slider:before {
+      transform: translateX(26px);
+      }
+      .range-slider {
+      width: 100%;
+      position: relative;
+      height: 34px;
+      }
+      .range-slider input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 8px;
+      border-radius: 5px;
+      background: #e0e0e0;
+      outline: none;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      }
+      .range-slider input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #8B0000;
+      cursor: pointer;
+      }
+      .range-slider input[type="range"]::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #8B0000;
+      cursor: pointer;
+      border: none;
+      }
+      .quiz-container {
+      display: none;
+      }
+      .quiz-container.active {
+      display: block;
+      }
+      .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+      }
+      .accordion-content.active {
+      max-height: 1000px;
+      }
+      .chat-container {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+      }
+      .chat-button {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: #8B0000;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+      .chat-box {
+      position: absolute;
+      bottom: 80px;
+      right: 0;
+      width: 350px;
+      height: 450px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      }
+      .chat-box.active {
+      display: flex;
+      }
+      .chat-header {
+      padding: 15px;
+      background-color: #8B0000;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      }
+      .chat-body {
+      flex: 1;
+      padding: 15px;
+      overflow-y: auto;
+      }
+      .chat-footer {
+      padding: 10px 15px;
+      border-top: 1px solid #eee;
+      display: flex;
+      }
+      .chat-input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 20px;
+      margin-right: 10px;
+      }
+      .chat-send {
+      background-color: #8B0000;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      }
+      .message {
+      margin-bottom: 15px;
+      max-width: 80%;
+      }
+      .message-bot {
+      align-self: flex-start;
+      background-color: #f1f1f1;
+      border-radius: 18px 18px 18px 0;
+      padding: 10px 15px;
+      }
+      .message-user {
+      align-self: flex-end;
+      background-color: #8B0000;
+      color: white;
+      border-radius: 18px 18px 0 18px;
+      padding: 10px 15px;
+      margin-left: auto;
+      }
+      .tab-content {
+      display: none;
+      }
+      .tab-content.active {
+      display: block;
+      }
+    </style>
+  </head>
+  <body class="bg-white min-h-screen">
+    <!-- Header -->
+   
+    <header class="w-full bg-white shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center py-4 md:py-6">
+          
+          <!-- Title -->
+          <div class="font-['Pacifico'] text-3xl md:text-4xl text-primary">
+            Nirukta Vedanga
+          </div>
+    
+          <!-- Desktop Navigation -->
+          <nav class="hidden md:flex items-center space-x-6">
+            <a href="../../Dashboard/dashboard.html" class="text-primary font-semibold hover:text-primary/80 transition-colors">
+              Home
+            </a>
+            <a href="../../Quiz/QuizMaster.html" class="text-gray-600 font-semibold hover:text-primary transition-colors">
+              Quiz
+            </a>
+            <a href="/profile" class="p-1.5 rounded-full hover:bg-gray-100 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 text-gray-600 hover:text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A4 4 0 019 16h6a4 4 0 013.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </a>
+          </nav>
+    
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden flex items-center">
+            <button
+              type="button"
+              class="text-gray-600 hover:text-primary focus:outline-none"
+              id="mobile-menu-button"
+            >
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-menu-line ri-lg"></i>
+              </div>
+            </button>
+          </div>
+    
+        </div>
+    
+        <!-- Mobile Navigation Menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+          <div class="px-2 pt-2 pb-3 space-y-1 border-t border-b border-gray-100">
+            <a href="../../Dashboard/dashboard.html" class="block px-3 py-2 text-primary font-medium hover:text-primary/80 transition">
+              Home
+            </a>
+            <a href="../../Quiz/QuizMaster.html" class="block px-3 py-2 text-gray-600 font-medium hover:text-primary transition">
+              Quiz
+            </a>
+            <a href="/profile" class="block px-3 py-2 text-gray-600 font-medium hover:text-primary transition">
+              Profile
+            </a>
+          </div>
+        </div>
+    
+      </div>
+    </header>
+
+    <div
+      id="mobile-menu"
+      class="md:hidden hidden pb-4 border-b border-gray-100"
+    >
+      <div class="container mx-auto px-4">
+        <a
+          href="#"
+          class="block py-2 text-gray-800 hover:text-primary font-medium"
+          >Home</a
+        >
+        <a
+          href="#scriptures"
+          class="block py-2 text-gray-800 hover:text-primary font-medium"
+          >Scriptures</a
+        >
+        <a
+          href="#quiz"
+          class="block py-2 text-gray-800 hover:text-primary font-medium"
+          >Quiz</a
+        >
+        <a
+          href="#contact"
+          class="block py-2 text-gray-800 hover:text-primary font-medium"
+          >Contact</a
+        >
+      </div>
+    </div>
+    <!-- Hero Section -->
+    <section class="hero-section text-white py-32">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-5xl font-bold mb-6">
+          Discover the Ancient Science of Etymology
+        </h2>
+        <p class="text-xl mb-8 max-w-3xl mx-auto">
+          Nirukta, one of the six Vedangas, is the ancient Indian science of
+          etymology, philology and semantics. Explore the profound wisdom of
+          Sanskrit interpretation.
+        </p>
+        <button
+          class="bg-primary hover:bg-red-900 text-white px-8 py-3 text-lg font-medium !rounded-button shadow-lg transition duration-300 whitespace-nowrap"
+        >
+          Begin Your Journey
+        </button>
+      </div>
+    </section>
+    <!-- Main Content -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">
+          Understanding Nirukta Vedanga
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div class="bg-white p-6 rounded shadow-md">
+            <h3 class="text-xl font-bold mb-4">Purpose of Nirukta</h3>
+            <p class="text-gray-700">
+              Nirukta serves as the systematic methodology for explaining the
+              origin and meaning of Vedic words, enabling proper interpretation
+              of sacred texts and preserving their intended meaning across
+              generations. This ancient science developed sophisticated
+              techniques for analyzing word formation, understanding semantic
+              evolution, and establishing connections between related terms.
+              Through careful etymological analysis, Nirukta scholars helped
+              maintain the authenticity of Vedic knowledge transmission while
+              providing valuable insights into the development of Sanskrit
+              language and literature.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded shadow-md">
+            <h3 class="text-xl font-bold mb-4">Famous Examples</h3>
+            <p class="text-gray-700">
+              The Nirukta tradition is rich with illuminating etymological
+              analyses. One of the most renowned examples is the derivation of
+              "Agni" (fire) from "agri" (foremost), highlighting fire's primacy
+              in Vedic ritual and cosmic order. Other notable examples include
+              the analysis of "Indra" as "indati" (showing power), and "Surya"
+              (sun) from "suvati" (impeller), each revealing deep connections
+              between linguistic form and sacred meaning. These etymologies
+              demonstrate the sophisticated understanding of word formation and
+              semantic development in ancient Sanskrit scholarship.
+            </p>
+          </div>
+          <div class="bg-white p-6 rounded shadow-md">
+            <h3 class="text-xl font-bold mb-4">Key Scholars</h3>
+            <p class="text-gray-700">
+              Yaska stands as the foremost authority on Nirukta, with his
+              seminal work from the 6th-5th century BCE establishing the
+              foundation for Sanskrit etymology and linguistic analysis. His
+              systematic approach to word derivation and meaning influenced
+              generations of scholars. Following Yaska, numerous commentators
+              and grammarians expanded upon his methods, including Durga's
+              comprehensive commentary on the Nirukta and Skandasvamin's
+              valuable contributions to etymological analysis. Their collective
+              work shaped the development of Sanskrit linguistics and
+              hermeneutics.
+            </p>
+          </div>
+        </div>
+        <!-- Accordion Sections -->
+        <div class="max-w-3xl mx-auto">
+          <h3 class="text-2xl font-bold mb-6">Detailed Teachings</h3>
+          <!-- Accordion Item 1 -->
+          <div class="mb-4 border border-gray-200 rounded overflow-hidden">
+            <div
+              class="accordion-header bg-white px-6 py-4 cursor-pointer flex justify-between items-center"
+            >
+              <h4 class="text-lg font-medium">Historical Context of Nirukta</h4>
+              <div
+                class="w-5 h-5 flex items-center justify-center accordion-icon"
+              >
+                <i class="ri-add-line"></i>
+              </div>
+            </div>
+            <div class="accordion-content bg-gray-50 px-6 py-0">
+              <div class="py-4">
+                <p class="text-gray-700 mb-3">
+                  Nirukta emerged during the later Vedic period (around 800-500
+                  BCE) as scholars recognized the need to preserve the correct
+                  understanding of increasingly archaic Vedic Sanskrit. As the
+                  spoken language evolved, the gap between contemporary Sanskrit
+                  and the language of the Vedas widened.
+                </p>
+                <p class="text-gray-700 mb-3">
+                  Yaska's Nirukta, composed around the 6th-5th century BCE,
+                  represents the culmination of this tradition. His work
+                  systematized earlier etymological insights and established a
+                  methodical approach to word analysis that influenced all
+                  subsequent Sanskrit scholarship.
+                </p>
+                <p class="text-gray-700">
+                  The development of Nirukta paralleled similar linguistic
+                  traditions in other ancient civilizations, such as Greek
+                  etymology and Mesopotamian lexicography, though Yaska's
+                  approach was uniquely sophisticated in its understanding of
+                  semantic evolution and phonological principles.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Accordion Item 2 -->
+          <div class="mb-4 border border-gray-200 rounded overflow-hidden">
+            <div
+              class="accordion-header bg-white px-6 py-4 cursor-pointer flex justify-between items-center"
+            >
+              <h4 class="text-lg font-medium">Methodological Principles</h4>
+              <div
+                class="w-5 h-5 flex items-center justify-center accordion-icon"
+              >
+                <i class="ri-add-line"></i>
+              </div>
+            </div>
+            <div class="accordion-content bg-gray-50 px-6 py-0">
+              <div class="py-4">
+                <p class="text-gray-700 mb-3">
+                  Nirukta employs several key methodological principles in its
+                  etymological analysis:
+                </p>
+                <ul class="list-disc pl-5 mb-3 text-gray-700">
+                  <li class="mb-2">
+                    <strong>Yaugika Analysis:</strong> Deriving meaning from the
+                    verbal roots and affixes that compose a word.
+                  </li>
+                  <li class="mb-2">
+                    <strong>Yogarudha Interpretation:</strong> Recognizing both
+                    the etymological meaning and conventional usage of terms.
+                  </li>
+                  <li class="mb-2">
+                    <strong>Phonological Substitution:</strong> Accounting for
+                    sound changes that occur as words evolve.
+                  </li>
+                  <li class="mb-2">
+                    <strong>Semantic Classification:</strong> Organizing words
+                    into categories based on their meanings and functions.
+                  </li>
+                </ul>
+                <p class="text-gray-700">
+                  These principles allowed Nirukta scholars to trace obscure
+                  Vedic terms back to their origins, revealing layers of meaning
+                  that might otherwise be lost to time.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- Accordion Item 3 -->
+          <div class="mb-4 border border-gray-200 rounded overflow-hidden">
+            <div
+              class="accordion-header bg-white px-6 py-4 cursor-pointer flex justify-between items-center"
+            >
+              <h4 class="text-lg font-medium">
+                Relationship to Other Vedangas
+              </h4>
+              <div
+                class="w-5 h-5 flex items-center justify-center accordion-icon"
+              >
+                <i class="ri-add-line"></i>
+              </div>
+            </div>
+            <div class="accordion-content bg-gray-50 px-6 py-0">
+              <div class="py-4">
+                <p class="text-gray-700 mb-3">
+                  Nirukta functions in concert with the other five Vedangas,
+                  each serving a distinct purpose in Vedic interpretation:
+                </p>
+                <ul class="list-disc pl-5 mb-3 text-gray-700">
+                  <li class="mb-2">
+                    <strong>Shiksha (Phonetics):</strong> Nirukta relies on
+                    precise pronunciation rules established by Shiksha to trace
+                    sound changes in word evolution.
+                  </li>
+                  <li class="mb-2">
+                    <strong>Vyakarana (Grammar):</strong> Grammatical analysis
+                    from Vyakarana provides the structural framework for
+                    Nirukta's etymological investigations.
+                  </li>
+                  <li class="mb-2">
+                    <strong>Chandas (Metrics):</strong> Understanding poetic
+                    meter helps Nirukta scholars interpret words within their
+                    metrical context.
+                  </li>
+                  <li class="mb-2">
+                    <strong>Kalpa (Ritual Instructions):</strong> Knowledge of
+                    ritual context informs the practical meaning of terms
+                    analyzed through Nirukta.
+                  </li>
+                  <li class="mb-2">
+                    <strong>Jyotisha (Astronomy):</strong> Astronomical
+                    references in texts require both Jyotisha and Nirukta for
+                    complete interpretation.
+                  </li>
+                </ul>
+                <p class="text-gray-700">
+                  Together, these six disciplines form a comprehensive system
+                  for preserving and understanding the Vedic knowledge
+                  tradition.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Scriptures Section with Tabs -->
+    <section id="scriptures" class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Sacred Scriptures</h2>
+        <!-- Tabs Navigation -->
+        <div class="flex justify-center mb-8">
+          <div class="inline-flex p-1 bg-gray-100 rounded-full">
+            <button
+              class="tab-button px-6 py-2 rounded-full bg-primary text-white font-medium whitespace-nowrap"
+              data-tab="tab1"
+            >
+              Yaska's Nirukta
+            </button>
+            <button
+              class="tab-button px-6 py-2 rounded-full text-gray-700 font-medium whitespace-nowrap"
+              data-tab="tab2"
+            >
+              Nighantu
+            </button>
+            <button
+              class="tab-button px-6 py-2 rounded-full text-gray-700 font-medium whitespace-nowrap"
+              data-tab="tab3"
+            >
+              Modern Works
+            </button>
+          </div>
+        </div>
+        <!-- Tab Content -->
+        <div class="max-w-4xl mx-auto">
+          <!-- Tab 1 Content -->
+          <div id="tab1" class="tab-content active">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+              <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/3">
+                  <div
+                    class="rounded-lg overflow-hidden h-64"
+                    style="background-image: url('https://readdy.ai/api/search-image?query=Ancient%20manuscript%20of%20Yaskas%20Nirukta%20with%20Sanskrit%20text%20and%20detailed%20annotations%2C%20showing%20the%20original%20work%20on%20palm%20leaves%20or%20traditional%20paper%2C%20with%20beautiful%20calligraphy%20and%20traditional%20Indian%20artistic%20elements%2C%20in%20warm%20golden%20lighting%20highlighting%20the%20aged%20texture%20of%20the%20manuscript&width=400&height=500&seq=5&orientation=portrait'); background-size: cover; background-position: center;"
+                  ></div>
+                </div>
+                <div class="md:w-2/3">
+                  <h3 class="text-2xl font-bold mb-4">Yaska's Nirukta</h3>
+                  <p class="text-gray-700 mb-4">
+                    Composed around the 6th-5th century BCE, Yaska's Nirukta is
+                    the oldest extant Sanskrit treatise on etymology, philology,
+                    and semantics. The text consists of 12 chapters (adhyayas)
+                    divided into three sections:
+                  </p>
+                  <ul class="list-disc pl-5 mb-4 text-gray-700">
+                    <li class="mb-2">
+                      <strong>Naighantuka Kanda:</strong> Discusses synonyms and
+                      categorizes Vedic vocabulary.
+                    </li>
+                    <li class="mb-2">
+                      <strong>Aikapadika Kanda:</strong> Analyzes single, often
+                      obscure, Vedic terms.
+                    </li>
+                    <li class="mb-2">
+                      <strong>Daivata Kanda:</strong> Focuses on deities
+                      mentioned in the Vedas and their etymological
+                      significance.
+                    </li>
+                  </ul>
+                  <p class="text-gray-700">
+                    Yaska's methodology involves breaking down words into their
+                    component parts, tracing them to verbal roots, and
+                    explaining their meanings through both derivation and
+                    contextual usage. His work remains foundational to Sanskrit
+                    linguistics and Vedic interpretation.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Tab 2 Content -->
+          <div id="tab2" class="tab-content">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+              <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/3">
+                  <div
+                    class="rounded-lg overflow-hidden h-64"
+                    style="background-image: url('https://readdy.ai/api/search-image?query=Ancient%20Nighantu%20manuscript%20showing%20lists%20of%20Sanskrit%20words%20organized%20by%20category%2C%20with%20beautiful%20calligraphy%20on%20traditional%20material%2C%20showing%20the%20lexicographical%20nature%20of%20the%20text%20with%20columns%20of%20related%20terms%2C%20illuminated%20by%20warm%20golden%20light%20in%20a%20traditional%20scholarly%20setting&width=400&height=500&seq=6&orientation=portrait'); background-size: cover; background-position: center;"
+                  ></div>
+                </div>
+                <div class="md:w-2/3">
+                  <h3 class="text-2xl font-bold mb-4">Nighantu</h3>
+                  <p class="text-gray-700 mb-4">
+                    The Nighantu is an ancient Sanskrit thesaurus that predates
+                    Yaska's Nirukta and serves as its foundation. This
+                    lexicographical collection organizes Vedic vocabulary into
+                    five chapters:
+                  </p>
+                  <ul class="list-disc pl-5 mb-4 text-gray-700">
+                    <li class="mb-2">
+                      <strong>Naigama:</strong> Contains synonyms for earth,
+                      atmosphere, sky, and other cosmic entities.
+                    </li>
+                    <li class="mb-2">
+                      <strong>Aibhidheya:</strong> Lists terms for bodily parts
+                      and functions.
+                    </li>
+                    <li class="mb-2">
+                      <strong>Samanya:</strong> Includes general terms and
+                      common nouns.
+                    </li>
+                    <li class="mb-2">
+                      <strong>Visesa:</strong> Catalogs specialized vocabulary
+                      and technical terms.
+                    </li>
+                    <li class="mb-2">
+                      <strong>Daivata:</strong> Enumerates names and epithets of
+                      deities.
+                    </li>
+                  </ul>
+                  <p class="text-gray-700">
+                    The Nighantu represents one of the earliest attempts at
+                    systematic lexicography in world history. Yaska's Nirukta
+                    frequently references and comments on the Nighantu,
+                    explaining the etymologies of its collected terms and
+                    demonstrating their application in Vedic interpretation.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Tab 3 Content -->
+          <div id="tab3" class="tab-content">
+            <div class="bg-white p-6 rounded-lg shadow-md">
+              <div class="flex flex-col md:flex-row gap-8">
+                <div class="md:w-1/3">
+                  <div
+                    class="rounded-lg overflow-hidden h-64"
+                    style="background-image: url('https://readdy.ai/api/search-image?query=Modern%20scholarly%20books%20and%20publications%20on%20Sanskrit%20etymology%20and%20Nirukta%20studies%2C%20with%20contemporary%20binding%20and%20printing%2C%20arranged%20on%20a%20wooden%20desk%20with%20traditional%20and%20modern%20research%20tools%2C%20showing%20the%20continuation%20of%20the%20ancient%20tradition%20in%20modern%20academic%20context&width=400&height=500&seq=7&orientation=portrait'); background-size: cover; background-position: center;"
+                  ></div>
+                </div>
+                <div class="md:w-2/3">
+                  <h3 class="text-2xl font-bold mb-4">
+                    Modern Works on Nirukta
+                  </h3>
+                  <p class="text-gray-700 mb-4">
+                    Contemporary scholarship on Nirukta bridges ancient wisdom
+                    with modern linguistic science. Notable modern works
+                    include:
+                  </p>
+                  <ul class="list-disc pl-5 mb-4 text-gray-700">
+                    <li class="mb-2">
+                      <strong
+                        >Lakshman Sarup's "The Nighantu and the Nirukta"
+                        (1920-1927):</strong
+                      >
+                      The first critical edition and English translation of
+                      Yaska's work, with extensive commentary integrating
+                      traditional and Western philological approaches.
+                    </li>
+                    <li class="mb-2">
+                      <strong
+                        >Madhav Deshpande's "Sanskrit & Prakrit: Sociolinguistic
+                        Issues" (1993):</strong
+                      >
+                      Examines Nirukta's role in the historical development of
+                      Sanskrit linguistics.
+                    </li>
+                    <li class="mb-2">
+                      <strong
+                        >Johannes Bronkhorst's "Etymology and Magic"
+                        (2001):</strong
+                      >
+                      Explores the relationship between Nirukta's etymological
+                      methods and ritual applications in Vedic tradition.
+                    </li>
+                    <li class="mb-2">
+                      <strong
+                        >Eivind Kahrs' "Indian Semantic Analysis"
+                        (1998):</strong
+                      >
+                      Places Nirukta in the broader context of Indian theories
+                      of meaning and interpretation.
+                    </li>
+                  </ul>
+                  <p class="text-gray-700">
+                    These modern studies reveal Nirukta's continuing relevance
+                    to comparative linguistics, hermeneutics, and the philosophy
+                    of language, demonstrating how ancient Sanskrit scholars
+                    anticipated many concepts in contemporary semantic theory.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Video Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center mb-12">Featured Lecture</h2>
+        <div
+          class="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden"
+        >
+          <div class="relative pb-[56.25%] h-0">
+            <div
+              class="absolute inset-0 flex items-center justify-center bg-gray-200"
+            >
+              <div class="text-center">
+                <div
+                  class="w-20 h-20 mx-auto bg-primary rounded-full flex items-center justify-center cursor-pointer"
+                >
+                  <div
+                    class="w-8 h-8 flex items-center justify-center text-white"
+                  >
+                    <i class="ri-play-fill ri-2x"></i>
+                  </div>
+                </div>
+                <p class="mt-4 text-gray-700">
+                  Click to play "Understanding Nirukta: The Ancient Science of
+                  Etymology"
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-bold mb-2">
+              Understanding Nirukta: The Ancient Science of Etymology
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Dr. Rajendra Sharma, Professor of Sanskrit Studies
+            </p>
+            <p class="text-gray-700">
+              This comprehensive lecture explores the fundamental principles of
+              Nirukta Vedanga, its historical development, and its crucial role
+              in preserving the authentic interpretation of Vedic texts. Dr.
+              Sharma illustrates key etymological methods with examples from
+              Yaska's original work.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Quiz Section -->
+  <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-xl mt-10">
+    <h1 class="text-4xl font-bold text-center text-teal-600 mb-6">Nirukta Vedanga Quiz</h1>
+
+    <form id="quiz-form">
+      <!-- Question 1 -->
+      <div class="mb-6">
+        <p class="font-medium text-lg mb-4">1. What is the primary purpose of Nirukta Vedanga?</p>
+        <div class="space-y-4">
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer" id="q1a">A) Etymology of Vedic terms</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer" id="q1b">B) Vedic astronomy</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer" id="q1c">C) Vedic rituals</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer" id="q1d">D) Vedic grammar</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="mb-6">
+        <p class="font-medium text-lg mb-4">2. Which Vedic text is primarily associated with Nirukta Vedanga?</p>
+        <div class="space-y-4">
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer" id="q2a">A) Rigveda</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer" id="q2b">B) Yajurveda</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer" id="q2c">C) Samaveda</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer" id="q2d">D) Atharvaveda</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="mb-6">
+        <p class="font-medium text-lg mb-4">3. Nirukta Vedanga deals with which aspect of Vedic language?</p>
+        <div class="space-y-4">
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer" id="q3a">A) Interpretation of Vedic terms</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer" id="q3b">B) Vedic rituals</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer" id="q3c">C) Vedic pronunciation rules</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer" id="q3d">D) Vedic astrology</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="mb-6">
+        <p class="font-medium text-lg mb-4">4. Who is considered the author of the primary Nirukta text?</p>
+        <div class="space-y-4">
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer" id="q4a">A) Panini</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer" id="q4b">B) Yaska</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer" id="q4c">C) Bhartrihari</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer" id="q4d">D) Sayanacharya</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="mb-6">
+        <p class="font-medium text-lg mb-4">5. Nirukta Vedanga helps in understanding which part of Vedic texts?</p>
+        <div class="space-y-4">
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer" id="q5a">A) The meaning of complex Vedic words</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer" id="q5b">B) The rules of Vedic pronunciation</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer" id="q5c">C) Vedic astrology calculations</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer" id="q5d">D) The identification of Vedic deities</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="flex justify-center">
+        <button type="submit" class="bg-teal-600 text-white py-3 px-6 rounded-lg shadow-lg hover:bg-teal-700 transition-colors">Submit Quiz</button>
+      </div>
+    </form>
+
+    <!-- Result Section -->
+    <div id="result-section" class="mt-8 hidden">
+      <h2 class="text-3xl font-semibold text-center text-teal-600">Quiz Result</h2>
+      <p id="score" class="text-center text-lg mt-4"></p>
+      <div class="w-full mt-6">
+        <div class="relative pt-1">
+          <div class="flex mb-2 items-center justify-between">
+            <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-teal-600 bg-teal-200">
+              Score
+            </span>
+            <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-teal-600 bg-teal-200">
+              5
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('quiz-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      let score = 0;
+      const answers = ['A', 'B', 'A', 'B', 'A'];  // Correct answers for the questions
+      const selectedAnswers = ['q1a', 'q2b', 'q3a', 'q4b', 'q5a'];
+
+      selectedAnswers.forEach((answer, index) => {
+        const selectedElement = document.getElementById(answer);
+        selectedElement.classList.add('bg-teal-600', 'text-white', 'border-teal-600');
+        if (selectedElement.id === 'q1a' && answers[index] === 'A') {
+          score++;
+        }
+      });
+
+      const resultSection = document.getElementById('result-section');
+      const scoreElement = document.getElementById('score');
+
+      scoreElement.textContent = `You scored ${score} out of 5.`;
+      resultSection.classList.remove('hidden');
+      window.scrollTo({ top: resultSection.offsetTop, behavior: 'smooth' });
+    });
+  </script>
+    <!-- Contact Section -->
+  
+    <!-- Footer -->
+
+
+<!-- Footer -->
+<footer class="bg-gray-50 py-12 mt-auto">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Upveda Info -->
+      <div>
+        <h3 class="font-['Pacifico'] text-2xl text-primary mb-4">Veda</h3>
+        <p class="text-gray-600">
+          Preserving ancient wisdom for modern seekers. Explore the timeless
+          knowledge of the Vedas and discover practical applications for
+          contemporary life.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="text-lg font-semibold text-gray-900 mb-4">Quick Links</h4>
+        <ul class="space-y-2">
+          <li>
+            <a href="#" class="text-gray-600 hover:text-primary transition-colors">About Us</a>
+          </li>
+          <li>
+            <a href="#" class="text-gray-600 hover:text-primary transition-colors">Vedic Resources</a>
+          </li>
+          <li>
+            <a href="#" class="text-gray-600 hover:text-primary transition-colors">Privacy Policy</a>
+          </li>
+          <li>
+            <a href="#" class="text-gray-600 hover:text-primary transition-colors">Terms of Service</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact Us (Generic) -->
+      <div>
+        <h4 class="text-lg font-semibold text-gray-900 mb-4">Contact Us</h4>
+        <ul class="space-y-2">
+          <li class="flex items-start">
+            <div class="w-5 h-5 flex items-center justify-center mt-1 mr-3">
+              <i class="ri-mail-line"></i>
+            </div>
+            <span class="text-gray-600">contact@upveda.org</span>
+          </li>
+          <li class="flex items-start">
+            <div class="w-5 h-5 flex items-center justify-center mt-1 mr-3">
+              <i class="ri-phone-line"></i>
+            </div>
+            <span class="text-gray-600">+91 98765 43210</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Footer Bottom Section -->
+    <div class="border-t border-gray-200 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-gray-600 text-sm">&copy; 2025 Veda. All rights reserved.</p>
+      <div class="flex space-x-4 mt-4 md:mt-0">
+        <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+          <div class="w-8 h-8 flex items-center justify-center">
+            <i class="ri-facebook-fill ri-lg"></i>
+          </div>
+        </a>
+        <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+          <div class="w-8 h-8 flex items-center justify-center">
+            <i class="ri-twitter-x-fill ri-lg"></i>
+          </div>
+        </a>
+        <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+          <div class="w-8 h-8 flex items-center justify-center">
+            <i class="ri-instagram-fill ri-lg"></i>
+          </div>
+        </a>
+        <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+          <div class="w-8 h-8 flex items-center justify-center">
+            <i class="ri-youtube-fill ri-lg"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <!-- Chatbot -->
+    
+      <!-- Right Sidebar - Chatbot -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+      
+      <!-- Chat Box Trigger Button -->
+      <div class="fixed bottom-6 right-6 z-50">
+          <button id="chatToggle" class="bg-primary text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all w-16 h-16 flex items-center justify-center">
+            <i class="fas fa-comment-dots text-2xl"></i>
+          </button>
+      </div>
+      
+      <!-- Chat Container -->
+      <div id="chatContainer" class="fixed bottom-24 right-6 w-full max-w-sm hidden z-50">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-[600px]">
+          <!-- Header -->
+          <div class="bg-primary text-white p-4 flex items-center justify-between">
+            <div class="flex items-center">
+              <div class="w-10 h-10 flex items-center justify-center bg-white/20 rounded-full mr-3">
+                <i class="fas fa-robot text-white"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold">संस्कृत सहायक</h3>
+                <p class="text-xs text-white/80">संस्कृत सम्बन्धी प्रश्न पूछें</p>
+              </div>
+            </div>
+            <button id="closeChat" class="w-8 h-8 flex items-center justify-center bg-white/10 rounded-full hover:bg-white/20">
+              <i class="fas fa-times text-white"></i>
+            </button>
+          </div>
+      
+          <!-- Chat History -->
+          <div id="chatHistory" class="flex-1 p-4 overflow-y-auto space-y-4 bg-gray-50 custom-scrollbar">
+            <!-- Messages will be loaded here -->
+          </div>
+      
+          <!-- Input Box -->
+          <div class="border-t border-gray-200 p-4">
+            <div class="flex items-center">
+              <div class="flex-1 relative">
+                <input id="userInput" type="text" placeholder="Type your message..." class="w-full border-none bg-gray-100 rounded-full py-2 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-primary/50">
+                <button class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-primary">
+                  <i class="fas fa-smile"></i>
+                </button>
+              </div>
+              <button onclick="sendMessage()" class="ml-2 w-10 h-10 flex items-center justify-center bg-primary rounded-full text-white hover:bg-primary/80">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- SCRIPT -->
+      <script>
+      // Load saved chat history
+      let chatHistory = JSON.parse(localStorage.getItem('sanskritChat')) || [];
+      
+      // Toggle Chat Box
+      document.getElementById('chatToggle').addEventListener('click', () => {
+          const chatContainer = document.getElementById('chatContainer');
+          chatContainer.classList.toggle('hidden');
+          loadChatHistory();
+      });
+      
+      // Close Chat
+      document.getElementById('closeChat').addEventListener('click', () => {
+          document.getElementById('chatContainer').classList.add('hidden');
+      });
+      
+      // Load Chat History
+      function loadChatHistory() {
+          const historyDiv = document.getElementById('chatHistory');
+          historyDiv.innerHTML = chatHistory.map(msg => `
+              <div class="flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}">
+                  <div class="max-w-[80%] ${msg.role === 'user' 
+                      ? 'bg-primary/10 text-gray-700 rounded-lg rounded-tr-none p-3'
+                      : 'bg-gray-100 text-gray-700 rounded-lg rounded-tl-none p-3'}">
+                      ${marked.parse(msg.content)}
+                      <div class="text-xs text-gray-400 mt-1 ${msg.role === 'user' ? 'text-right' : 'text-left'}">
+                        ${new Date(msg.timestamp).toLocaleTimeString()}
+                      </div>
+                  </div>
+              </div>
+          `).join('');
+          historyDiv.scrollTop = historyDiv.scrollHeight;
+      }
+      
+      // Send Message
+      async function sendMessage() {
+          const input = document.getElementById('userInput');
+          const message = input.value.trim();
+          if (!message) return;
+          input.value = '';
+      
+          // Push user message
+          chatHistory.push({ role: 'user', content: message, timestamp: new Date().toISOString() });
+      
+          // Show loading message
+          chatHistory.push({ role: 'assistant', content: 'प्रतीक्षा कुरु...', timestamp: new Date().toISOString() });
+          loadChatHistory();
+      
+          try {
+              const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+                  method: 'POST',
+                  headers: {
+                      'Authorization': 'Bearer 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',
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                      model: 'deepseek/deepseek-r1:free',
+                      messages: [{ role: 'user', content: message }],
+                  }),
+              });
+      
+              const data = await response.json();
+              const botResponse = data.choices?.[0]?.message?.content || 'उत्तरं प्राप्तुं अशक्यम्';
+      
+              chatHistory.pop(); // Remove loading
+              chatHistory.push({ role: 'assistant', content: botResponse, timestamp: new Date().toISOString() });
+              localStorage.setItem('sanskritChat', JSON.stringify(chatHistory));
+              loadChatHistory();
+          } catch (error) {
+              console.error('Error:', error);
+              chatHistory.pop();
+              chatHistory.push({ role: 'assistant', content: 'त्रुटिः! पुनः प्रयत्नं कुरुत।', timestamp: new Date().toISOString() });
+              loadChatHistory();
+          }
+      }
+      
+      // Send on Enter Key
+      document.getElementById('userInput').addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') sendMessage();
+      });
+      </script>
+      
+      <style>
+      /* Custom Scrollbar */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 8px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: rgba(0,0,0,0.2);
+        border-radius: 4px;
+      }
+      </style>
+      
+
+
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+        mobileMenuButton.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+        });
+        // Accordion Functionality
+        const accordionHeaders = document.querySelectorAll(".accordion-header");
+        accordionHeaders.forEach((header) => {
+          header.addEventListener("click", function () {
+            const content = this.nextElementSibling;
+            const icon = this.querySelector(".accordion-icon i");
+            content.classList.toggle("active");
+            if (content.classList.contains("active")) {
+              icon.classList.remove("ri-add-line");
+              icon.classList.add("ri-subtract-line");
+            } else {
+              icon.classList.remove("ri-subtract-line");
+              icon.classList.add("ri-add-line");
+            }
+          });
+        });
+        // Tab Functionality
+        const tabButtons = document.querySelectorAll(".tab-button");
+        const tabContents = document.querySelectorAll(".tab-content");
+        tabButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const tabId = this.getAttribute("data-tab");
+            // Remove active class from all buttons and contents
+            tabButtons.forEach((btn) => {
+              btn.classList.remove("bg-primary", "text-white");
+              btn.classList.add("text-gray-700");
+            });
+            tabContents.forEach((content) => {
+              content.classList.remove("active");
+            });
+            // Add active class to current button and content
+            this.classList.add("bg-primary", "text-white");
+            this.classList.remove("text-gray-700");
+            document.getElementById(tabId).classList.add("active");
+          });
+        });
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        // Quiz Functionality
+        let currentQuestion = 1;
+        const totalQuestions = 5;
+        const nextButton = document.getElementById("next-question");
+        const prevButton = document.getElementById("prev-question");
+        const currentQuestionSpan = document.getElementById("current-question");
+        const progressBar = document.getElementById("quiz-progress");
+        const restartButton = document.getElementById("restart-quiz");
+        function showQuestion(questionNumber) {
+          // Hide all questions
+          document.querySelectorAll(".quiz-container").forEach((container) => {
+            container.classList.remove("active");
+          });
+          // Show current question
+          document
+            .getElementById(`question-${questionNumber}`)
+            .classList.add("active");
+          // Update current question display
+          currentQuestionSpan.textContent = questionNumber;
+          // Update progress bar
+          progressBar.style.width = `${(questionNumber / totalQuestions) * 100}%`;
+          // Update button states
+          prevButton.disabled = questionNumber === 1;
+          if (questionNumber === totalQuestions) {
+            nextButton.textContent = "Submit";
+          } else {
+            nextButton.textContent = "Next";
+          }
+        }
+        nextButton.addEventListener("click", function () {
+          if (currentQuestion < totalQuestions) {
+            currentQuestion++;
+            showQuestion(currentQuestion);
+          } else {
+            // Show results
+            showResults();
+          }
+        });
+        prevButton.addEventListener("click", function () {
+          if (currentQuestion > 1) {
+            currentQuestion--;
+            showQuestion(currentQuestion);
+          }
+        });
+        restartButton.addEventListener("click", function () {
+          // Reset quiz
+          currentQuestion = 1;
+          // Clear all selections
+          document.querySelectorAll('input[type="radio"]').forEach((radio) => {
+            radio.checked = false;
+          });
+          showQuestion(currentQuestion);
+        });
+        function showResults() {
+          // Hide all questions
+          document.querySelectorAll(".quiz-container").forEach((container) => {
+            container.classList.remove("active");
+          });
+          // Calculate score
+          let score = 0;
+          const correctAnswers = {
+            q1: "b", // Yaska
+            q2: "c", // 6th-5th century BCE
+            q3: "d", // Vyakarana Kanda
+            q4: "b", // To explain the origin and meaning of Vedic words
+            q5: "b", // Nighantu
+          };
+          for (let i = 1; i <= totalQuestions; i++) {
+            const selectedAnswer = document.querySelector(
+              `input[name="q${i}"]:checked`,
+            )?.value;
+            if (selectedAnswer === correctAnswers[`q${i}`]) {
+              score++;
+            }
+          }
+          // Update score display
+          document.getElementById("quiz-score").textContent = score;
+          // Update message based on score
+          const messageElement = document.getElementById("quiz-message");
+          if (score === 5) {
+            messageElement.textContent =
+              "Excellent! You have mastered the knowledge of Nirukta!";
+          } else if (score >= 3) {
+            messageElement.textContent =
+              "Good job! You have a solid understanding of Nirukta.";
+          } else {
+            messageElement.textContent =
+              "Keep learning! Review the content to deepen your understanding.";
+          }
+          // Show results container
+          document.getElementById("quiz-results").classList.add("active");
+          // Update buttons
+          nextButton.style.display = "none";
+          prevButton.style.display = "none";
+        }
+        // Initialize quiz
+        showQuestion(currentQuestion);
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        // Chatbot Functionality
+        const chatToggle = document.getElementById("chat-toggle");
+        const chatBox = document.getElementById("chat-box");
+        const closeChat = document.getElementById("close-chat");
+        const chatInput = document.getElementById("chat-input");
+        const sendMessage = document.getElementById("send-message");
+        const chatMessages = document.getElementById("chat-messages");
+        // Sample responses for the chatbot
+        const botResponses = {
+          hello: "Hello! How can I help you learn about Nirukta today?",
+          hi: "Hi there! I'm here to answer your questions about Nirukta Vedanga.",
+          "what is nirukta":
+            "Nirukta is one of the six Vedangas, focusing on etymology, philology, and semantic analysis of Sanskrit words. It was developed to help interpret and understand Vedic texts.",
+          "who is yaska":
+            "Yaska was an ancient Sanskrit grammarian who authored the Nirukta, the oldest extant Sanskrit treatise on etymology, around the 6th-5th century BCE.",
+          "how many chapters":
+            "Yaska's Nirukta consists of 12 chapters (adhyayas) divided into three sections: Naighantuka Kanda, Aikapadika Kanda, and Daivata Kanda.",
+          "what is nighantu":
+            "The Nighantu is an ancient Sanskrit thesaurus that predates Yaska's Nirukta and serves as its foundation. It organizes Vedic vocabulary into five chapters.",
+          help: "I can answer questions about Nirukta, its history, key concepts, and scholars. Try asking about Yaska, Nighantu, or the purpose of etymological study!",
+          "thank you":
+            "You're welcome! Feel free to ask if you have more questions about Nirukta Vedanga.",
+          thanks:
+            "You're welcome! Is there anything else you'd like to know about Sanskrit etymology?",
+        };
+        function addMessage(message, isUser = false) {
+          const messageDiv = document.createElement("div");
+          messageDiv.classList.add("message");
+          messageDiv.classList.add(isUser ? "message-user" : "message-bot");
+          messageDiv.textContent = message;
+          chatMessages.appendChild(messageDiv);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        function getBotResponse(userMessage) {
+          userMessage = userMessage.toLowerCase().trim();
+          // Check for exact matches
+          if (botResponses[userMessage]) {
+            return botResponses[userMessage];
+          }
+          // Check for partial matches
+          for (const key in botResponses) {
+            if (userMessage.includes(key)) {
+              return botResponses[key];
+            }
+          }
+          // Default response
+          return "I'm not sure about that. Would you like to know about Yaska, the purpose of Nirukta, or how it relates to Vedic interpretation?";
+        }
+        function sendUserMessage() {
+          const message = chatInput.value.trim();
+          if (message) {
+            addMessage(message, true);
+            chatInput.value = "";
+            // Simulate typing delay
+            setTimeout(() => {
+              const botResponse = getBotResponse(message);
+              addMessage(botResponse);
+            }, 500);
+          }
+        }
+        chatToggle.addEventListener("click", function () {
+          chatBox.classList.add("active");
+        });
+        closeChat.addEventListener("click", function () {
+          chatBox.classList.remove("active");
+        });
+        sendMessage.addEventListener("click", sendUserMessage);
+        chatInput.addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            sendUserMessage();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

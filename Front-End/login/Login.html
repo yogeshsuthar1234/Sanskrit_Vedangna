@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Signup Form</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="./login.css">
+    <style>
+        /* Toast Styles */
+        .Toastify__toast {
+            border-radius: 12px !important;
+            padding: 18px 24px !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1) !important;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.95) !important;
+            transition: all 0.3s ease;
+        }
+
+        .Toastify__toast--success {
+            border-left: 4px solid #4ECDC4;
+            box-shadow: 0 4px 25px rgba(78,205,196,0.3) !important;
+        }
+
+        .Toastify__toast--error {
+            border-left: 4px solid #FF6B6B;
+            box-shadow: 0 4px 25px rgba(255,107,107,0.3) !important;
+        }
+
+        .toast-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .toast-icon {
+            font-size: 24px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .toast-message {
+            font-size: 15px;
+            font-weight: 600;
+            color: #2d3748;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .toast-close {
+            background: rgba(0,0,0,0.05);
+            border-radius: 50%;
+            padding: 6px;
+            transition: all 0.3s ease;
+            margin-left: auto;
+        }
+
+        .toast-close:hover {
+            background: rgba(0,0,0,0.1);
+            transform: rotate(90deg);
+        }
+
+        .Toastify__progress-bar {
+            height: 3px;
+            border-radius: 0 0 12px 12px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Login Form -->
+        <div class="form-box login">
+            <form id="loginForm">
+                <h1>Login</h1>
+                <div class="input-box">
+                    <input type="text" id="loginUsername" placeholder="Username" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input type="password" id="loginPassword" placeholder="Password" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <button type="submit" class="btn" id="loginBtn">Login</button>
+                <p>or login with social platforms</p>
+                
+                <div class="social-icons">
+                    <a href="#"><i class='bx bxl-google'></i></a>
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-github'></i></a>
+                    <a href="#"><i class='bx bxl-linkedin'></i></a>
+                </div>
+            </form>
+        </div>
+
+        <!-- Registration Form -->
+        <div class="form-box register">
+            <form id="registerForm">
+                <h1>Registration</h1>
+                <div class="input-box">
+                    <input type="text" id="regUsername" placeholder="Username" required>
+                    <i class='bx bxs-user'></i>
+                    <span class="error-message" id="usernameError"></span>
+                </div>
+                <div class="input-box">
+                    <input type="email" id="regEmail" placeholder="Email" required>
+                    <i class='bx bxs-envelope'></i>
+                    <span class="error-message" id="emailError"></span>
+                </div>
+                <div class="input-box">
+                    <input type="password" id="regPassword" placeholder="Password" required>
+                    <i class='bx bxs-lock-alt'></i>
+                </div>
+                <button type="submit" class="btn" id="registerBtn">Register</button>
+                <p>or register with social platforms</p>
+                
+                <div class="social-icons">
+                    <a href="#"><i class='bx bxl-google'></i></a>
+                    <a href="#"><i class='bx bxl-facebook'></i></a>
+                    <a href="#"><i class='bx bxl-github'></i></a>
+                    <a href="#"><i class='bx bxl-linkedin'></i></a>
+                </div>
+            </form>
+        </div>
+        <div class="toggle-box">
+            <div class="toggle-panel toggle-left">
+                <h1>Hello, Welcome!</h1>
+                <p>Don't have an account?</p>
+                <button class="btn register-btn">Register</button>
+            </div>
+
+            <div class="toggle-panel toggle-right">
+                <h1>Welcome Back!</h1>
+                <p>Already have an account?</p>
+                <button class="btn login-btn">Login</button>
+            </div>
+        </div>
+    </div>
+
+  
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script>
+        const container = document.querySelector('.container');
+        const registerBtn = document.querySelector('.register-btn');
+        const loginBtn = document.querySelector('.login-btn');
+        let isLoading = false;
+
+        // Enhanced Toast Function
+        const showToast = (message, type = 'success') => {
+            return new Promise((resolve) => {
+                const toast = Toastify({
+                    duration: 4000,
+                    gravity: "top",
+                    position: "center",
+                    className: `Toastify__toast--${type}`,
+                    escapeMarkup: false,
+                    style: { background: "transparent", boxShadow: "none" },
+                    text: `
+                        <div class="toast-content">
+                            ${type === 'success' 
+                                ? '<i class="bx bx-check-circle toast-icon" style="color: #4ECDC4"></i>' 
+                                : '<i class="bx  toast-icon" style="color: #FF6B6B"></i>'}
+                            <span class="toast-message">${message}</span>
+                            <button class="toast-close">
+                                <i class="bx bx-x" style="color: #64748b"></i>
+                            </button>
+                        </div>
+                    `,
+                    callback: resolve
+                });
+
+                toast.showToast();
+                toast.toastElement.querySelector('.toast-close').addEventListener('click', () => {
+                    toast.hideToast();
+                    resolve();
+                });
+            });
+        };
+
+        // Prevent Back Navigation
+        function preventBackNavigation() {
+            window.history.pushState(null, null, window.location.href);
+            window.onpopstate = function() {
+                window.history.go(1);
+            };
+        }
+
+        // Enhanced Login Handler
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (isLoading) return;
+            
+            const btn = document.getElementById('loginBtn');
+            btn.disabled = true;
+            btn.textContent = 'Processing...';
+            isLoading = true;
+
+            try {
+                const response = await fetch('https://localhost:5002/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        username: document.getElementById('loginUsername').value,
+                        password: document.getElementById('loginPassword').value
+                    })
+                });
+
+                const data = await response.json();
+                
+                if (!response.ok) throw new Error('Login failed');
+                localStorage.setItem('userId', data.userId);
+                preventBackNavigation();
+                await showToast('🔒 Welcome back! Redirecting...', 'success');
+                if (response.ok) {
+    //const userData = await response.json();
+    window.location.href = '../Dashboard/dashboard.html'; // Simple redirect
+}
+              //  setTimeout(() => window.location.href = '../Dashboard/dashboard.html', 2000);
+            } catch (error) {
+                await showToast(error.message||'Login failed. Check credentials', 'error');
+            } finally {
+                if (!localStorage.getItem('authToken')) {
+                    btn.disabled = false;
+                    btn.textContent = 'Login';
+                    isLoading = false;
+                }
+            }
+        });
+
+        // Enhanced Registration Handler
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (isLoading) return;
+
+            const btn = document.getElementById('registerBtn');
+            const emailInput = document.getElementById('regEmail');
+            const usernameInput = document.getElementById('regUsername');
+            const emailError = document.getElementById('emailError');
+            const usernameError = document.getElementById('usernameError');
+            
+            btn.disabled = true;
+            btn.textContent = 'Creating Account...';
+            isLoading = true;
+
+            emailError.textContent = '';
+            usernameError.textContent = '';
+            emailInput.classList.remove('error');
+            usernameInput.classList.remove('error');
+
+            try {
+                if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailInput.value)) {
+                    throw new Error('Invalid email format');
+                }
+
+                const response = await fetch('https://localhost:5002/api/auth/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        username: usernameInput.value,
+                        email: emailInput.value,
+                        password: document.getElementById('regPassword').value
+                    })
+                });
+
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    const errorMsg = errorData.message.toLowerCase();
+                    
+                    if (errorMsg.includes('username')) {
+                        usernameError.textContent = 'Username taken';
+                        usernameInput.classList.add('error');
+                        throw new Error('Username exists');
+                    }
+                    if (errorMsg.includes('email')) {
+                        emailError.textContent = 'Email exists';
+                        emailInput.classList.add('error');
+                        throw new Error('Email exists');
+                    }
+                    throw new Error(errorData.message || 'Registration failed');
+                }
+
+                await showToast('🎉 Registration successful! Switching to login...', 'success');
+                container.classList.remove('active');
+            } catch (error) {
+                await showToast('Registration failed , Use unique Emai_id and Username ', 'error');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Register';
+                isLoading = false;
+            }
+        });
+        // Toggle between forms
+        registerBtn.addEventListener('click', () => {
+            if (isLoading) return;
+            container.classList.add('active');
+        });
+
+        loginBtn.addEventListener('click', () => {
+            if (isLoading) return;
+            container.classList.remove('active');
+        });
+    </script>
+</body>
+</html>

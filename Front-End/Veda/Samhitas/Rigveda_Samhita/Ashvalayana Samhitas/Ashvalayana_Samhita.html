@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ashvalayana Samhita</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#8B5D33", secondary: "#D4B996" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+      font-family: 'Inter', sans-serif;
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+      }
+      .hero-bg {
+      background-image: url('https://readdy.ai/api/search-image?query=ancient%20Indian%20Vedic%20manuscript%20with%20Sanskrit%20text%20on%20palm%20leaves%2C%20soft%20natural%20lighting%2C%20subtle%20warm%20tones%2C%20blurred%20background%20with%20temple%20architecture%2C%20detailed%20texture%20of%20old%20parchment%2C%20spiritual%20atmosphere%2C%20scholarly%20environment%2C%20traditional%20setting%2C%20peaceful%20ambiance&width=1920&height=1080&seq=12345&orientation=landscape');
+      background-size: cover;
+      background-position: center;
+      }
+      .chat-container {
+      height: calc(100vh - 80px);
+      top: 80px;
+      }
+      .chat-messages {
+      height: calc(100% - 60px);
+      }
+      .quiz-option:has(input:checked) {
+      border-color: #8B5D33;
+      background-color: rgba(139, 93, 51, 0.1);
+      }
+      input[type="radio"] {
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #D4B996;
+      border-radius: 50%;
+      position: relative;
+      }
+      input[type="radio"]:checked {
+      border-color: #8B5D33;
+      }
+      input[type="radio"]:checked::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 10px;
+      height: 10px;
+      background-color: #8B5D33;
+      border-radius: 50%;
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-white shadow-sm z-50">
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <h1 class="text-3xl font-['Pacifico'] text-primary">
+          Ashvalayana Samhita
+        </h1>
+        <nav class="hidden md:block">
+          <ul class="flex space-x-8">
+            <li>
+              <a
+                href="#"
+                class="text-gray-800 hover:text-primary transition-colors"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="#scriptures"
+                class="text-gray-800 hover:text-primary transition-colors"
+                >Scriptures</a
+              >
+            </li>
+            <li>
+              <a
+                href="#quiz"
+                class="text-gray-800 hover:text-primary transition-colors"
+                >Quiz</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contact"
+                class="text-gray-800 hover:text-primary transition-colors"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <button class="md:hidden w-10 h-10 flex items-center justify-center">
+          <i class="ri-menu-line ri-lg"></i>
+        </button>
+      </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero-bg relative pt-20 min-h-[600px] flex items-center">
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-black/60 to-black/30"
+      ></div>
+      <div class="container mx-auto px-4 py-16 relative z-10">
+        <div class="max-w-3xl">
+          <h2 class="text-5xl md:text-6xl font-bold text-white mb-6">
+            Discover Ancient Wisdom
+          </h2>
+          <p class="text-xl text-white/90 mb-8">
+            The Ashvalayana Samhita is one of the most revered texts of Vedic
+            literature, containing profound insights into rituals, philosophy,
+            and spiritual practices dating back thousands of years.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="#scriptures"
+              class="bg-primary text-white px-6 py-3 !rounded-button whitespace-nowrap hover:bg-primary/90 transition-colors"
+              >Explore Scriptures</a
+            >
+            <a
+              href="#video"
+              class="bg-white text-primary px-6 py-3 !rounded-button whitespace-nowrap hover:bg-white/90 transition-colors"
+              >Watch Recitation</a
+            >
+          </div>
+        </div>
+      </div>
+      <div
+        class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white animate-bounce"
+      >
+        <div class="w-10 h-10 flex items-center justify-center">
+          <i class="ri-arrow-down-line ri-lg"></i>
+        </div>
+      </div>
+    </section>
+    <!-- Main Content Section -->
+    <div class="relative">
+      <main class="container mx-auto px-4 py-16">
+        <div class="flex flex-col md:flex-row gap-8">
+          <!-- Main Content -->
+          <div class="md:w-2/3" id="scriptures">
+            <h2 class="text-4xl font-bold text-primary mb-8">
+              The Ashvalayana Samhita
+            </h2>
+            <div class="mb-12">
+              <h3 class="text-2xl font-semibold mb-4">Historical Context</h3>
+              <p class="text-gray-700 mb-4">
+                The Ashvalayana Samhita, attributed to the sage Ashvalayana, is
+                a significant text within the corpus of Vedic literature.
+                Composed approximately between 800-600 BCE, it belongs to the
+                Rigveda tradition and serves as a comprehensive guide for
+                ritualistic practices and ceremonies.
+              </p>
+              <p class="text-gray-700 mb-4">
+                As one of the Shrauta Sutras, this text provides detailed
+                instructions for performing various Vedic rituals, particularly
+                those associated with the Rigveda. The meticulous nature of
+                these instructions reflects the importance placed on precise
+                ritual performance in ancient Vedic society.
+              </p>
+            </div>
+            <div class="mb-12">
+              <h3 class="text-2xl font-semibold mb-4">Structure and Content</h3>
+              <p class="text-gray-700 mb-4">
+                The Ashvalayana Samhita is organized into several chapters
+                (adhyayas), each focusing on specific rituals or ceremonial
+                procedures. The text begins with fundamental rituals and
+                gradually progresses to more complex ceremonies.
+              </p>
+              <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                <h4 class="text-xl font-medium text-primary mb-3">
+                  Chapter 1: Agnihotra Rituals
+                </h4>
+                <p class="text-gray-700 italic mb-4">
+                  "प्रातरग्निहोत्रं जुहोति सायमग्निहोत्रं जुहोति"
+                  (prātaragnihotraṃ juhoti sāyamagnihotraṃ juhoti)
+                </p>
+                <p class="text-gray-700">
+                  This opening section details the twice-daily fire sacrifice
+                  (Agnihotra), which forms the foundation of Vedic ritual
+                  practice. The text provides precise instructions on the
+                  timing, materials, mantras, and procedural steps for this
+                  essential ritual.
+                </p>
+              </div>
+              <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                <h4 class="text-xl font-medium text-primary mb-3">
+                  Chapter 2: Darshapurnamasa
+                </h4>
+                <p class="text-gray-700">
+                  The second chapter elaborates on the new and full moon
+                  sacrifices (Darshapurnamasa), which are performed on specific
+                  lunar days. These rituals involve more complex procedures and
+                  a greater variety of offerings compared to the daily
+                  Agnihotra.
+                </p>
+              </div>
+              <div class="bg-gray-50 p-6 rounded-lg">
+                <h4 class="text-xl font-medium text-primary mb-3">
+                  Chapter 3: Chaturmasya
+                </h4>
+                <p class="text-gray-700">
+                  This section focuses on the seasonal sacrifices performed
+                  every four months. The Chaturmasya rituals mark important
+                  transitions in the agricultural calendar and involve
+                  specialized offerings to deities associated with seasonal
+                  changes.
+                </p>
+              </div>
+            </div>
+            <div class="mb-12">
+              <h3 class="text-2xl font-semibold mb-4">
+                Philosophical Insights
+              </h3>
+              <p class="text-gray-700 mb-4">
+                Beyond mere ritualistic instructions, the Ashvalayana Samhita
+                contains profound philosophical insights. The text emphasizes
+                the interconnectedness between human actions (karma) and cosmic
+                order (rita), suggesting that properly performed rituals
+                maintain harmony between the human and divine realms.
+              </p>
+              <p class="text-gray-700 mb-4">
+                The Samhita also explores the concept of sacrifice as a means of
+                self-transformation. Through ritual performance, the
+                practitioner undergoes an internal purification that parallels
+                the external ritual actions, ultimately leading to spiritual
+                growth and enlightenment.
+              </p>
+            </div>
+            <div class="mb-12">
+              <h3 class="text-2xl font-semibold mb-4">
+                Contemporary Relevance
+              </h3>
+              <p class="text-gray-700 mb-4">
+                While the elaborate rituals described in the Ashvalayana Samhita
+                are rarely performed in their entirety today, the text remains
+                valuable for understanding ancient Indian religious practices
+                and thought. Scholars continue to study this text for insights
+                into Vedic society, ritual symbolism, and the historical
+                development of Hindu traditions.
+              </p>
+              <p class="text-gray-700">
+                Additionally, certain principles and practices from the Samhita
+                have been adapted into modern Hindu rituals, particularly those
+                associated with significant life events such as marriage, birth
+                ceremonies, and funeral rites. The text thus represents a living
+                tradition that continues to influence contemporary religious
+                practice.
+              </p>
+            </div>
+          </div>
+          <!-- Chatbot Sidebar -->
+          <div class="md:w-1/3 relative">
+            <div class="sticky top-24">
+              <div
+                class="bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200"
+              >
+                <div
+                  class="bg-primary text-white p-4 flex justify-between items-center"
+                >
+                  <h3 class="font-medium">Vedic Knowledge Assistant</h3>
+                  <button
+                    class="w-8 h-8 flex items-center justify-center text-white/80 hover:text-white"
+                  >
+                    <i class="ri-close-line ri-lg"></i>
+                  </button>
+                </div>
+                <div class="h-96 overflow-y-auto p-4 bg-gray-50">
+                  <div class="flex flex-col gap-4">
+                    <div
+                      class="bg-gray-200 p-3 rounded-lg rounded-tl-none max-w-[80%] self-start"
+                    >
+                      <p class="text-gray-800">
+                        Hello! I'm your Vedic Knowledge Assistant. How can I
+                        help you understand the Ashvalayana Samhita better?
+                      </p>
+                    </div>
+                    <div
+                      class="bg-primary/10 p-3 rounded-lg rounded-tr-none max-w-[80%] self-end"
+                    >
+                      <p class="text-gray-800">
+                        What is the significance of Agnihotra ritual?
+                      </p>
+                    </div>
+                    <div
+                      class="bg-gray-200 p-3 rounded-lg rounded-tl-none max-w-[80%] self-start"
+                    >
+                      <p class="text-gray-800">
+                        The Agnihotra ritual is a fundamental Vedic fire
+                        ceremony performed at sunrise and sunset. It's
+                        considered one of the five great sacrifices (Pancha
+                        Mahayajna) and serves to purify the atmosphere, promote
+                        health, and maintain cosmic harmony. In the Ashvalayana
+                        Samhita, detailed instructions are provided for its
+                        proper performance, including specific mantras and
+                        offering procedures.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="p-4 border-t border-gray-200">
+                  <div class="flex gap-2">
+                    <input
+                      type="text"
+                      placeholder="Ask about Vedic traditions..."
+                      class="w-full px-4 py-2 rounded-button border border-gray-300 focus:outline-none focus:border-primary"
+                    />
+                    <button
+                      class="bg-primary text-white p-2 !rounded-button whitespace-nowrap hover:bg-primary/90 transition-colors"
+                    >
+                      <div class="w-8 h-8 flex items-center justify-center">
+                        <i class="ri-send-plane-fill ri-lg"></i>
+                      </div>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <!-- Video Section -->
+    <section id="video" class="bg-gray-50 py-16">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-primary text-center mb-12">
+          Vedic Recitation & Commentary
+        </h2>
+        <div class="max-w-4xl mx-auto">
+          <div
+            class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-lg overflow-hidden mb-8"
+          >
+            <div class="w-full h-0 pb-[56.25%] relative bg-gray-800 rounded-lg">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-center">
+                  <div
+                    class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4"
+                  >
+                    <div class="w-16 h-16 flex items-center justify-center">
+                      <i class="ri-play-fill ri-3x text-white"></i>
+                    </div>
+                  </div>
+                  <p class="text-white/80 text-sm">Click to play video</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <h3 class="text-2xl font-semibold mb-4">
+              Traditional Recitation of Agnihotra Mantras
+            </h3>
+            <p class="text-gray-700 mb-6">
+              Experience the authentic pronunciation and rhythm of the sacred
+              Agnihotra mantras as recited by Pandit Rajesh Sharma, a 7th
+              generation Vedic scholar from Varanasi. This video includes
+              detailed explanations of the ritual significance and proper
+              ceremonial procedures.
+            </p>
+            <div class="flex justify-center gap-4">
+              <button
+                class="flex items-center gap-2 px-4 py-2 border border-gray-300 !rounded-button whitespace-nowrap hover:bg-gray-50"
+              >
+                <div class="w-5 h-5 flex items-center justify-center">
+                  <i class="ri-download-line"></i>
+                </div>
+                <span>Download Transcript</span>
+              </button>
+              <button
+                class="flex items-center gap-2 px-4 py-2 border border-gray-300 !rounded-button whitespace-nowrap hover:bg-gray-50"
+              >
+                <div class="w-5 h-5 flex items-center justify-center">
+                  <i class="ri-share-line"></i>
+                </div>
+                <span>Share</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Quiz Section -->
+    <section id="quiz" class="py-16">
+      <div class="container mx-auto px-4">
+        <h2 class="text-4xl font-bold text-primary text-center mb-12">
+          Test Your Knowledge
+        </h2>
+        <div
+          class="max-w-3xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden"
+        >
+          <div class="p-6 border-b border-gray-200">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-xl font-semibold">Ashvalayana Samhita Quiz</h3>
+              <div class="text-sm text-gray-600">Question 1 of 5</div>
+            </div>
+            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+              <div class="h-full bg-primary w-1/5"></div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h4 class="text-lg font-medium mb-6">
+              Which Veda is the Ashvalayana Samhita primarily associated with?
+            </h4>
+            <div class="space-y-4 mb-8">
+              <label
+                class="flex items-center gap-3 p-4 border border-gray-200 rounded-lg cursor-pointer quiz-option"
+              >
+                <input type="radio" name="question1" class="border-none" />
+                <span>Rigveda</span>
+              </label>
+              <label
+                class="flex items-center gap-3 p-4 border border-gray-200 rounded-lg cursor-pointer quiz-option"
+              >
+                <input type="radio" name="question1" class="border-none" />
+                <span>Samaveda</span>
+              </label>
+              <label
+                class="flex items-center gap-3 p-4 border border-gray-200 rounded-lg cursor-pointer quiz-option"
+              >
+                <input type="radio" name="question1" class="border-none" />
+                <span>Yajurveda</span>
+              </label>
+              <label
+                class="flex items-center gap-3 p-4 border border-gray-200 rounded-lg cursor-pointer quiz-option"
+              >
+                <input type="radio" name="question1" class="border-none" />
+                <span>Atharvaveda</span>
+              </label>
+            </div>
+            <div class="flex justify-between">
+              <button
+                class="bg-gray-200 text-gray-700 px-6 py-3 !rounded-button whitespace-nowrap hover:bg-gray-300 transition-colors"
+                disabled
+              >
+                Previous
+              </button>
+              <button
+                class="bg-primary text-white px-6 py-3 !rounded-button whitespace-nowrap hover:bg-primary/90 transition-colors"
+              >
+                Next Question
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-900 text-white pt-16 pb-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div>
+            <h3 class="text-xl font-bold mb-6">Ashvalayana Samhita</h3>
+            <p class="text-gray-400 mb-6">
+              Dedicated to preserving and sharing the ancient wisdom of Vedic
+              traditions for modern seekers of knowledge and spiritual growth.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <div class="w-10 h-10 flex items-center justify-center">
+                  <i class="ri-facebook-fill ri-lg"></i>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <div class="w-10 h-10 flex items-center justify-center">
+                  <i class="ri-twitter-fill ri-lg"></i>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <div class="w-10 h-10 flex items-center justify-center">
+                  <i class="ri-instagram-fill ri-lg"></i>
+                </div>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-white transition-colors"
+              >
+                <div class="w-10 h-10 flex items-center justify-center">
+                  <i class="ri-youtube-fill ri-lg"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-6">Quick Links</h4>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Vedic Resources</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Research Publications</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Events & Workshops</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Support Our Work</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-6">Contact Information</h4>
+            <ul class="space-y-3 text-gray-400">
+              <li class="flex items-start gap-3">
+                <div class="w-5 h-5 flex items-center justify-center mt-1">
+                  <i class="ri-map-pin-line"></i>
+                </div>
+                <span
+                  >Vedic Research Institute<br />42 Spiritual Avenue<br />Varanasi,
+                  221005, India</span
+                >
+              </li>
+              <li class="flex items-center gap-3">
+                <div class="w-5 h-5 flex items-center justify-center">
+                  <i class="ri-mail-line"></i>
+                </div>
+                <span>contact@ashvalayanasamhita.org</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <div class="w-5 h-5 flex items-center justify-center">
+                  <i class="ri-phone-line"></i>
+                </div>
+                <span>+91 542 123 4567</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm"
+        >
+          <p>
+            © 2025 Ashvalayana Samhita Research Foundation. All rights
+            reserved.
+          </p>
+          <div class="flex justify-center space-x-6 mt-4">
+            <a href="#" class="hover:text-gray-400 transition-colors"
+              >Privacy Policy</a
+            >
+            <a href="#" class="hover:text-gray-400 transition-colors"
+              >Terms of Service</a
+            >
+            <a href="#" class="hover:text-gray-400 transition-colors"
+              >Cookie Policy</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Quiz functionality
+        const quizOptions = document.querySelectorAll(".quiz-option");
+        quizOptions.forEach((option) => {
+          option.addEventListener("click", function () {
+            const radio = this.querySelector('input[type="radio"]');
+            radio.checked = true;
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

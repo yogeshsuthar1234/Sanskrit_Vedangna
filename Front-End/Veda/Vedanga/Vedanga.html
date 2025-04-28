@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vedanga - Ancient Wisdom</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#7e57c2',secondary:'#ffd54f'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+body {
+font-family: 'Inter', sans-serif;
+}
+.hero-section {
+background-image: url('https://readdy.ai/api/search-image?query=ancient%20Indian%20spiritual%20background%20with%20soft%20golden%20light%2C%20sacred%20geometry%20patterns%2C%20lotus%20flowers%2C%20and%20spiritual%20symbols%2C%20peaceful%20atmosphere%2C%20high-quality%20detailed%20illustration%2C%20soft%20gradient%20colors%2C%20spiritual%20and%20mystical%2C%20elegant%20and%20serene&width=1920&height=600&seq=12345&orientation=landscape');
+background-size: cover;
+background-position: center;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+.custom-checkbox {
+display: flex;
+align-items: center;
+cursor: pointer;
+}
+.custom-checkbox input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+height: 0;
+width: 0;
+}
+.checkmark {
+height: 20px;
+width: 20px;
+background-color: #fff;
+border: 2px solid #7e57c2;
+border-radius: 4px;
+position: relative;
+}
+.custom-checkbox input:checked ~ .checkmark:after {
+content: "";
+position: absolute;
+display: block;
+left: 6px;
+top: 2px;
+width: 5px;
+height: 10px;
+border: solid #7e57c2;
+border-width: 0 2px 2px 0;
+transform: rotate(45deg);
+}
+.custom-radio {
+display: flex;
+align-items: center;
+cursor: pointer;
+}
+.custom-radio input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+height: 0;
+width: 0;
+}
+.radiomark {
+height: 20px;
+width: 20px;
+background-color: #fff;
+border: 2px solid #7e57c2;
+border-radius: 50%;
+position: relative;
+}
+.custom-radio input:checked ~ .radiomark:after {
+content: "";
+position: absolute;
+display: block;
+top: 4px;
+left: 4px;
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background: #7e57c2;
+}
+.toggle-switch {
+position: relative;
+display: inline-block;
+width: 48px;
+height: 24px;
+}
+.toggle-switch input {
+opacity: 0;
+width: 0;
+height: 0;
+}
+.toggle-slider {
+position: absolute;
+cursor: pointer;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background-color: #ccc;
+transition: .4s;
+border-radius: 24px;
+}
+.toggle-slider:before {
+position: absolute;
+content: "";
+height: 18px;
+width: 18px;
+left: 3px;
+bottom: 3px;
+background-color: white;
+transition: .4s;
+border-radius: 50%;
+}
+input:checked + .toggle-slider {
+background-color: #7e57c2;
+}
+input:checked + .toggle-slider:before {
+transform: translateX(24px);
+}
+.tab-active {
+background-color: #7e57c2;
+color: white;
+}
+.vedanga-card {
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.vedanga-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 25px -5px rgba(126, 87, 194, 0.3);
+}
+.chatbot-container {
+transition: height 0.3s ease;
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<!-- Header & Navigation -->
+<header class="w-full bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center py-4 md:py-6">
+        
+        <!-- Title -->
+        <div class="font-['Pacifico'] text-3xl md:text-4xl text-primary">
+          Vedangas
+        </div>
+  
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-6">
+          <a href="../../Dashboard/dashboard.html" class="text-primary font-semibold hover:text-primary/80 transition-colors">
+            Home
+          </a>
+          <a href="../../Quiz/QuizMaster.html" class="text-gray-600 font-semibold hover:text-primary transition-colors">
+            Quiz
+          </a>
+          <a href="/profile" class="p-1.5 rounded-full hover:bg-gray-100 transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 text-gray-600 hover:text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A4 4 0 019 16h6a4 4 0 013.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+          </a>
+        </nav>
+  
+        <!-- Mobile Menu Button -->
+        <div class="md:hidden flex items-center">
+          <button
+            type="button"
+            class="text-gray-600 hover:text-primary focus:outline-none"
+            id="mobile-menu-button"
+          >
+            <div class="w-8 h-8 flex items-center justify-center">
+              <i class="ri-menu-line ri-lg"></i>
+            </div>
+          </button>
+        </div>
+  
+      </div>
+  
+      <!-- Mobile Navigation Menu -->
+      <div class="md:hidden hidden" id="mobile-menu">
+        <div class="px-2 pt-2 pb-3 space-y-1 border-t border-b border-gray-100">
+          <a href="../../Dashboard/dashboard.html" class="block px-3 py-2 text-primary font-medium hover:text-primary/80 transition">
+            Home
+          </a>
+          <a href="../../Quiz/QuizMaster.html" class="block px-3 py-2 text-gray-600 font-medium hover:text-primary transition">
+            Quiz
+          </a>
+          <a href="/profile" class="block px-3 py-2 text-gray-600 font-medium hover:text-primary transition">
+            Profile
+          </a>
+        </div>
+      </div>
+  
+    </div>
+  </header>
+
+
+<!-- Hero Section -->
+<section class="hero-section relative">
+<div class="absolute inset-0 bg-black bg-opacity-40"></div>
+<div class="container mx-auto px-4 py-20 relative z-10">
+<div class="max-w-3xl text-center mx-auto">
+<h1 class="text-4xl md:text-5xl lg:text-6xl font-['Pacifico'] text-white mb-6">Explore the Six Vedangas</h1>
+<p class="text-xl text-white mb-8">Ancient auxiliary disciplines of Vedic study and religious practice</p>
+<a href="#vedangas" class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-opacity-90 transition duration-300 inline-flex items-center whitespace-nowrap">
+<span>Discover Now</span>
+<div class="w-5 h-5 ml-2 flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+</section>
+<!-- Main Content -->
+<div class="container mx-auto px-4 py-12">
+<div class="flex flex-col lg:flex-row">
+<!-- Main Content Area -->
+<div class="w-full lg:w-3/4 lg:pr-8">
+<!-- Introduction Section -->
+<section class="mb-16">
+<div class="bg-white p-8 rounded shadow-md">
+<h2 class="text-3xl font-semibold text-gray-800 mb-6">Understanding the Vedangas</h2>
+<div class="prose max-w-none">
+<p class="text-gray-700 mb-6">The Vedangas (Sanskrit: वेदाङ्ग) are six auxiliary disciplines essential for the study and understanding of the Vedas. These ancient Sanskrit texts provide the tools and framework necessary for proper interpretation, recitation, and application of Vedic knowledge. Each Vedanga serves a specific purpose and is metaphorically associated with a part of the cosmic body of the Vedas.</p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+<div class="bg-primary bg-opacity-5 p-6 rounded">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Historical Significance</h3>
+<p class="text-gray-700">Developed between 1000 BCE and 300 BCE, the Vedangas represent systematic efforts to standardize and preserve Vedic knowledge. They formed the foundation of classical Sanskrit education and continue to influence Indian scholarly traditions.</p>
+</div>
+<div class="bg-primary bg-opacity-5 p-6 rounded">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Modern Relevance</h3>
+<p class="text-gray-700">The principles and methodologies established in the Vedangas remain relevant in contemporary studies of linguistics, astronomy, ritual science, and phonetics. They provide valuable insights into ancient Indian scientific and cultural achievements.</p>
+</div>
+</div>
+<div class="mb-8">
+<h3 class="text-xl font-medium text-gray-800 mb-3">The Six Disciplines</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+<div class="flex items-start">
+<div class="w-8 h-8 rounded-full bg-primary bg-opacity-10 flex items-center justify-center flex-shrink-0 mt-1 mr-3">
+<i class="ri-volume-up-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-800">Shiksha</h4>
+<p class="text-gray-600 text-sm">The nose of the Vedas - Phonetics</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-8 h-8 rounded-full bg-primary bg-opacity-10 flex items-center justify-center flex-shrink-0 mt-1 mr-3">
+<i class="ri-rhythm-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-800">Chandas</h4>
+<p class="text-gray-600 text-sm">The feet of the Vedas - Metrics</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-8 h-8 rounded-full bg-primary bg-opacity-10 flex items-center justify-center flex-shrink-0 mt-1 mr-3">
+<i class="ri-book-open-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-800">Vyakarana</h4>
+<p class="text-gray-600 text-sm">The mouth of the Vedas - Grammar</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-8 h-8 rounded-full bg-primary bg-opacity-10 flex items-center justify-center flex-shrink-0 mt-1 mr-3">
+<i class="ri-translate-2-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-800">Nirukta</h4>
+<p class="text-gray-600 text-sm">The ears of the Vedas - Etymology</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-8 h-8 rounded-full bg-primary bg-opacity-10 flex items-center justify-center flex-shrink-0 mt-1 mr-3">
+<i class="ri-star-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-800">Jyotisha</h4>
+<p class="text-gray-600 text-sm">The eyes of the Vedas - Astronomy</p>
+</div>
+</div>
+<div class="flex items-start">
+<div class="w-8 h-8 rounded-full bg-primary bg-opacity-10 flex items-center justify-center flex-shrink-0 mt-1 mr-3">
+<i class="ri-file-list-3-line text-primary"></i>
+</div>
+<div>
+<h4 class="font-medium text-gray-800">Kalpa</h4>
+<p class="text-gray-600 text-sm">The hands of the Vedas - Rituals</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-primary bg-opacity-5 p-6 rounded">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Interconnected Learning</h3>
+<p class="text-gray-700">The Vedangas are deeply interconnected, each supporting and enhancing the understanding of the others. Together, they provide a comprehensive framework for Vedic study, ensuring the preservation and correct interpretation of ancient wisdom. This holistic approach to learning remains relevant in modern educational contexts.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Vedanga Cards Section -->
+<section id="vedangas" class="mb-16">
+<div class="text-center mb-12">
+<h2 class="text-3xl font-semibold text-gray-800 mb-4">The Six Vedangas</h2>
+<p class="text-gray-600 max-w-3xl mx-auto">Vedangas are the six auxiliary disciplines of Vedic study that developed in ancient India. They are essential for understanding and interpreting the Vedas properly.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Shiksha Card -->
+<div class="vedanga-card bg-white rounded shadow-md overflow-hidden border border-gray-100">
+<div class="h-40 bg-primary bg-opacity-10 flex items-center justify-center">
+<div class="w-20 h-20 flex items-center justify-center text-primary">
+<i class="ri-volume-up-line ri-3x"></i>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Shiksha</h3>
+<p class="text-gray-600 mb-4">The study of phonetics, phonology, pronunciation, and articulation required for uttering the Vedic hymns correctly.</p>
+<a href="./Shiksha.html" class="text-primary font-medium flex items-center !rounded-button whitespace-nowrap">
+<span>Learn More</span>
+<div class="w-5 h-5 ml-1 flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Chandas Card -->
+<div class="vedanga-card bg-white rounded shadow-md overflow-hidden border border-gray-100">
+<div class="h-40 bg-primary bg-opacity-10 flex items-center justify-center">
+<div class="w-20 h-20 flex items-center justify-center text-primary">
+<i class="ri-rhythm-line ri-3x"></i>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Chandas</h3>
+<p class="text-gray-600 mb-4">The study of poetic meters, verse structures, and prosody used in Vedic hymns and mantras.</p>
+<a href="Chanda.html" class="text-primary font-medium flex items-center !rounded-button whitespace-nowrap">
+<span>Learn More</span>
+<div class="w-5 h-5 ml-1 flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Vyakarana Card -->
+<div class="vedanga-card bg-white rounded shadow-md overflow-hidden border border-gray-100">
+<div class="h-40 bg-primary bg-opacity-10 flex items-center justify-center">
+<div class="w-20 h-20 flex items-center justify-center text-primary">
+<i class="ri-book-open-line ri-3x"></i>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Vyakarana</h3>
+<p class="text-gray-600 mb-4">The study of grammar, linguistic analysis, and syntax of the Sanskrit language used in the Vedas.</p>
+<a href="./Vyakarana.html" class="text-primary font-medium flex items-center !rounded-button whitespace-nowrap">
+<span>Learn More</span>
+<div class="w-5 h-5 ml-1 flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Nirukta Card -->
+<div class="vedanga-card bg-white rounded shadow-md overflow-hidden border border-gray-100">
+<div class="h-40 bg-primary bg-opacity-10 flex items-center justify-center">
+<div class="w-20 h-20 flex items-center justify-center text-primary">
+<i class="ri-translate-2-line ri-3x"></i>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Nirukta</h3>
+<p class="text-gray-600 mb-4">The study of etymology, explanation, and semantic interpretation of difficult Vedic words.</p>
+<a href="./Nirukta.html" class="text-primary font-medium flex items-center !rounded-button whitespace-nowrap">
+<span>Learn More</span>
+<div class="w-5 h-5 ml-1 flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Jyotisha Card -->
+<div class="vedanga-card bg-white rounded shadow-md overflow-hidden border border-gray-100">
+<div class="h-40 bg-primary bg-opacity-10 flex items-center justify-center">
+<div class="w-20 h-20 flex items-center justify-center text-primary">
+<i class="ri-star-line ri-3x"></i>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Jyotisha</h3>
+<p class="text-gray-600 mb-4">The study of astronomy and astrology used to determine auspicious times for Vedic rituals and ceremonies.</p>
+<a href="Jyotisha.html" class="text-primary font-medium flex items-center !rounded-button whitespace-nowrap">
+<span>Learn More</span>
+<div class="w-5 h-5 ml-1 flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+<!-- Kalpa Card -->
+<div class="vedanga-card bg-white rounded shadow-md overflow-hidden border border-gray-100">
+<div class="h-40 bg-primary bg-opacity-10 flex items-center justify-center">
+<div class="w-20 h-20 flex items-center justify-center text-primary">
+<i class="ri-file-list-3-line ri-3x"></i>
+</div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Kalpa</h3>
+<p class="text-gray-600 mb-4">The study of rituals, ceremonies, and procedural instructions for performing Vedic sacrifices correctly.</p>
+<a href="./Kalpa.html" class="text-primary font-medium flex items-center !rounded-button whitespace-nowrap">
+<span>Learn More</span>
+<div class="w-5 h-5 ml-1 flex items-center justify-center">
+<i class="ri-arrow-right-line"></i>
+</div>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Detailed Content Sections -->
+<section id="detailed-content" class="mb-16">
+<!-- Shiksha Content -->
+<div id="shiksha-content" class="vedanga-content bg-white p-8 rounded shadow-md mb-8 hidden">
+<h2 class="text-3xl font-semibold text-gray-800 mb-6 flex items-center">
+<div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+<i class="ri-volume-up-line ri-2x"></i>
+</div>
+Shiksha: The Science of Phonetics
+</h2>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Introduction</h3>
+<p class="text-gray-700 mb-4">Shiksha is considered the "nose" of the Vedas and deals with phonetics, phonology, and the correct pronunciation of Vedic mantras. It is crucial because even a slight mispronunciation can alter the meaning and efficacy of a mantra.</p>
+<p class="text-gray-700 mb-4">The word "Shiksha" comes from the Sanskrit root "शिक्ष्" (shiksh), which means "to learn" or "to teach." It is one of the oldest linguistic sciences in the world, with texts dating back to at least 800 BCE.</p>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Key Concepts</h3>
+<ul class="list-disc pl-6 text-gray-700 space-y-2">
+<li><strong>Varnas (Letters):</strong> Classification of sounds into vowels (svaras) and consonants (vyanjanas)</li>
+<li><strong>Svaras (Accents):</strong> Three primary accents - udātta (raised), anudātta (not raised), and svarita (mixed tone)</li>
+<li><strong>Mātras (Duration):</strong> Short (hrasva), long (dīrgha), and prolonged (pluta) vowel lengths</li>
+<li><strong>Bala (Strength):</strong> The force of articulation</li>
+<li><strong>Sāma (Evenness):</strong> The continuity of sound</li>
+<li><strong>Santāna (Continuity):</strong> The proper sequencing of sounds</li>
+</ul>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Historical Significance</h3>
+<p class="text-gray-700 mb-4">The most famous text on Shiksha is the "Paniniya Shiksha," attributed to the renowned grammarian Panini (4th century BCE). However, there are over 30 different Shiksha texts associated with different branches of the Vedas.</p><p class="text-gray-700 mb-4">Shiksha laid the foundation for the sophisticated understanding of phonetics in ancient India, which was far ahead of its time. The detailed classification of sounds based on their points of articulation (sthāna) and manner of articulation (prayatna) parallels modern linguistic analysis.</p>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Modern Applications</h3>
+<p class="text-gray-700 mb-4">Today, Shiksha remains relevant in:</p>
+<ul class="list-disc pl-6 text-gray-700 space-y-2">
+<li>Traditional Vedic recitation and preservation</li>
+<li>Speech therapy and pronunciation training</li>
+<li>Comparative linguistics and phonological studies</li>
+<li>Understanding the evolution of Indo-European languages</li>
+<li>Development of speech recognition technologies</li>
+</ul>
+</div>
+<div class="mt-8">
+<button class="back-to-vedangas bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded-button font-medium transition duration-300 inline-flex items-center whitespace-nowrap">
+<div class="w-5 h-5 mr-2 flex items-center justify-center">
+<i class="ri-arrow-left-line"></i>
+</div>
+<span>Back to Vedangas</span>
+</button>
+</div>
+</div>
+<!-- Chandas Content -->
+<div id="chandas-content" class="vedanga-content bg-white p-8 rounded shadow-md mb-8 hidden">
+<h2 class="text-3xl font-semibold text-gray-800 mb-6 flex items-center">
+<div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+<i class="ri-rhythm-line ri-2x"></i>
+</div>
+Chandas: The Science of Metrics
+</h2>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Introduction</h3>
+<p class="text-gray-700 mb-4">Chandas is considered the "feet" of the Vedas and deals with poetic meters, verse structures, and prosody. It provides the rhythmic framework for Vedic hymns and mantras, ensuring their proper recitation and transmission.</p>
+<p class="text-gray-700 mb-4">The word "Chandas" is derived from the Sanskrit root "छन्द्" (chand), which means "to please" or "to delight," reflecting how metrical composition enhances the aesthetic and mnemonic qualities of Vedic texts.</p>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Key Concepts</h3>
+<ul class="list-disc pl-6 text-gray-700 space-y-2">
+<li><strong>Akshara (Syllable):</strong> The basic unit of measurement in Vedic meters</li>
+<li><strong>Pada (Quarter-verse):</strong> A metrical unit consisting of a specific number of syllables</li>
+<li><strong>Gana (Metrical foot):</strong> Patterns of light and heavy syllables</li>
+<li><strong>Yati (Caesura):</strong> Pause or break within a verse</li>
+<li><strong>Varna-vrtta:</strong> Meters based on the number of syllables</li>
+<li><strong>Matra-vrtta:</strong> Meters based on the duration of syllables</li>
+</ul>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Principal Vedic Meters</h3>
+<ul class="list-disc pl-6 text-gray-700 space-y-2">
+<li><strong>Gayatri:</strong> 24 syllables (3 padas of 8 syllables each)</li>
+<li><strong>Ushnik:</strong> 28 syllables (4 padas of 7 syllables each)</li>
+<li><strong>Anushtup:</strong> 32 syllables (4 padas of 8 syllables each)</li>
+<li><strong>Brihati:</strong> 36 syllables (4 padas: 8+8+12+8)</li>
+<li><strong>Pankti:</strong> 40 syllables (5 padas of 8 syllables each)</li>
+<li><strong>Trishtup:</strong> 44 syllables (4 padas of 11 syllables each)</li>
+<li><strong>Jagati:</strong> 48 syllables (4 padas of 12 syllables each)</li>
+</ul>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Historical Significance</h3>
+<p class="text-gray-700 mb-4">The foundational text of Chandas is the "Chandah Sutra" by Pingala (c. 200 BCE), which systematically describes various meters and contains the earliest known description of the binary numeral system and Pascal's triangle.</p><p class="text-gray-700 mb-4">Chandas played a crucial role in the oral transmission of the Vedas for thousands of years before writing was widely used. The metrical patterns made the texts easier to memorize and helped preserve their integrity across generations.</p>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Modern Applications</h3>
+<p class="text-gray-700 mb-4">Today, Chandas continues to influence:</p>
+<ul class="list-disc pl-6 text-gray-700 space-y-2">
+<li>Classical Sanskrit poetry and composition</li>
+<li>Computational linguistics and pattern recognition</li>
+<li>Music theory and rhythmic structures</li>
+<li>Memory techniques and cognitive studies</li>
+<li>Modern Indian languages poetry</li>
+</ul>
+</div>
+<div class="mt-8">
+<button class="back-to-vedangas bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded-button font-medium transition duration-300 inline-flex items-center whitespace-nowrap">
+<div class="w-5 h-5 mr-2 flex items-center justify-center">
+<i class="ri-arrow-left-line"></i>
+</div>
+<span>Back to Vedangas</span>
+</button>
+</div>
+</div>
+<!-- Vyakarana Content -->
+<div id="vyakarana-content" class="vedanga-content bg-white p-8 rounded shadow-md mb-8 hidden">
+<h2 class="text-3xl font-semibold text-gray-800 mb-6 flex items-center">
+<div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+<i class="ri-book-open-line ri-2x"></i>
+</div>
+Vyakarana: The Science of Grammar
+</h2>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Introduction</h3>
+<p class="text-gray-700 mb-4">Vyakarana is considered the "mouth" of the Vedas and is the study of grammar, linguistic analysis, and the structure of Sanskrit. It is regarded as the most important of the six Vedangas, as it provides the tools for understanding all the others.</p>
+<p class="text-gray-700 mb-4">The word "Vyakarana" comes from the Sanskrit prefix "vi" (in various ways) and the root "ā-kṛ" (to do, to make), thus meaning "analysis" or "elaboration." It represents one of the world's oldest and most sophisticated grammatical traditions.</p>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Key Concepts</h3>
+<ul class="list-disc pl-6 text-gray-700 space-y-2">
+<li><strong>Dhatu (Roots):</strong> The primary meaningful units from which words are derived</li>
+<li><strong>Pratyaya (Affixes):</strong> Prefixes, suffixes, and infixes that modify roots</li>
+<li><strong>Sandhi (Junction):</strong> Rules governing the combination of sounds at word boundaries</li>
+<li><strong>Samasa (Compounds):</strong> Rules for combining words to form compound words</li>
+<li><strong>Karaka (Case relations):</strong> The semantic relationship between words in a sentence</li>
+<li><strong>Vibhakti (Case endings):</strong> Grammatical markers indicating the role of nouns in sentences</li>
+</ul>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Historical Significance</h3>
+<p class="text-gray-700 mb-4">The most influential work on Vyakarana is Panini's "Ashtadhyayi" (c. 4th century BCE), consisting of nearly 4,000 sutras (aphorisms) that describe Sanskrit grammar with unprecedented precision and economy. It is considered the world's first formal system of grammar and has been compared to a modern algorithmic programming language.</p>
+<p class="text-gray-700 mb-4">Patanjali's "Mahabhashya" (Great Commentary) on Panini's work (2nd century BCE) further developed grammatical theory and remains a cornerstone of Sanskrit scholarship. The tradition of Vyakarana has continued unbroken for over 2,500 years.</p>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Modern Applications</h3>
+<p class="text-gray-700 mb-4">Vyakarana's influence extends to:</p>
+<ul class="list-disc pl-6 text-gray-700 space-y-2">
+<li>Modern linguistic theory and computational linguistics</li>
+<li>Natural language processing and AI language models</li>
+<li>Formal language theory and computer science</li>
+<li>Cognitive science and psycholinguistics</li>
+<li>The grammar of modern Indian languages</li>
+</ul>
+<p class="text-gray-700 mt-4">The metarules, transformational grammar, and context-sensitive features of Panini's grammar anticipated developments in 20th-century linguistics by over two millennia.</p>
+</div>
+<div class="mt-8">
+<button class="back-to-vedangas bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded-button font-medium transition duration-300 inline-flex items-center whitespace-nowrap">
+<div class="w-5 h-5 mr-2 flex items-center justify-center">
+<i class="ri-arrow-left-line"></i>
+</div>
+<span>Back to Vedangas</span>
+</button>
+</div>
+</div>
+<!-- Nirukta Content -->
+<div id="nirukta-content" class="vedanga-content bg-white p-8 rounded shadow-md mb-8 hidden">
+<h2 class="text-3xl font-semibold text-gray-800 mb-6 flex items-center">
+<div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+<i class="ri-translate-2-line ri-2x"></i>
+</div>
+Nirukta: The Science of Etymology
+</h2>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Introduction</h3>
+<p class="text-gray-700 mb-4">Nirukta is considered the "ears" of the Vedas and focuses on etymology, explanation, and semantic interpretation of difficult Vedic words. It provides the methodology for understanding obscure or archaic terms in the Vedic texts.</p>
+<p class="text-gray-700 mb-4">The word "Nirukta" is derived from the Sanskrit prefix "nir" (out, away) and the root "vac" (to speak), meaning "explanation" or "interpretation." It represents one of the earliest systematic approaches to etymology in the world.</p>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Key Concepts</h3>
+<ul class="list-disc pl-6 text-gray-700 space-y-2">
+<li><strong>Yaska's Categories:</strong> Classification of words into four categories - nama (nouns), akhyata (verbs), upasarga (prefixes), and nipata (particles)</li>
+<li><strong>Nighantu:</strong> Collection of obscure Vedic words requiring explanation</li>
+<li><strong>Daivata Kanda:</strong> Section dealing with deities mentioned in the Vedas</li>
+<li><strong>Naigama Kanda:</strong> Section dealing with words used in specific Vedic contexts</li>
+<li><strong>Aikapadika Kanda:</strong> Section dealing with single, isolated words</li>
+</ul>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Historical Significance</h3>
+<p class="text-gray-700 mb-4">The principal text of Nirukta is Yaska's "Nirukta" (c. 6th-5th century BCE), which is a commentary on the "Nighantu," an even older glossary of difficult Vedic words. Yaska's work is not merely a dictionary but a sophisticated treatise on semantic theory and principles of etymology.</p>
+<p class="text-gray-700 mb-4">Nirukta established important principles for interpreting ancient texts, including the recognition that language evolves over time, that words can have multiple meanings based on context, and that etymology can reveal deeper layers of meaning in sacred texts.</p>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Methodological Approaches</h3>
+<p class="text-gray-700 mb-4">Yaska outlined several methods for deriving word meanings:</p>
+<ul class="list-disc pl-6 text-gray-700 space-y-2">
+<li><strong>Yogarūḍha:</strong> Deriving meaning from the constituent parts of a word</li>
+<li><strong>Rūḍha:</strong> Accepting conventional meaning established by usage</li>
+<li><strong>Yaugika:</strong> Deriving meaning from verbal roots</li>
+<li><strong>Contextual interpretation:</strong> Using surrounding text to determine meaning</li>
+<li><strong>Analogical reasoning:</strong> Comparing with similar words or contexts</li>
+</ul>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Modern Applications</h3>
+<p class="text-gray-700 mb-4">Nirukta's principles continue to influence:</p>
+<ul class="list-disc pl-6 text-gray-700 space-y-2">
+<li>Historical linguistics and etymology</li>
+<li>Hermeneutics and textual interpretation</li>
+<li>Semantic theory and lexicography</li>
+<li>Comparative mythology and religious studies</li>
+<li>Translation theory and practice</li>
+</ul>
+</div>
+<div class="mt-8">
+<button class="back-to-vedangas bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded-button font-medium transition duration-300 inline-flex items-center whitespace-nowrap">
+<div class="w-5 h-5 mr-2 flex items-center justify-center">
+<i class="ri-arrow-left-line"></i>
+</div>
+<span>Back to Vedangas</span>
+</button>
+</div>
+</div>
+<!-- Jyotisha Content -->
+<div id="jyotisha-content" class="vedanga-content bg-white p-8 rounded shadow-md mb-8 hidden">
+<h2 class="text-3xl font-semibold text-gray-800 mb-6 flex items-center">
+<div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+<i class="ri-star-line ri-2x"></i>
+</div>
+Jyotisha: The Science of Astronomy
+</h2>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Introduction</h3>
+<p class="text-gray-700 mb-4">Jyotisha is considered the "eyes" of the Vedas and encompasses astronomy, astrology, and mathematics. It was developed primarily to determine auspicious times for performing Vedic rituals and ceremonies.</p>
+<p class="text-gray-700 mb-4">The word "Jyotisha" is derived from the Sanskrit word "jyotis" meaning "light" or "heavenly body." It represents one of the oldest continuous astronomical traditions in the world, with observations dating back to the 2nd millennium BCE.</p>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Key Concepts</h3>
+<ul class="list-disc pl-6 text-gray-700 space-y-2">
+<li><strong>Nakshatras:</strong> The 27 or 28 lunar mansions or asterisms</li>
+<li><strong>Grahas:</strong> The "planets" (including the Sun, Moon, and shadow points Rahu and Ketu)</li>
+<li><strong>Tithi:</strong> Lunar days based on the moon's phase</li>
+<li><strong>Yoga:</strong> Combinations of lunar and solar positions</li>
+<li><strong>Karana:</strong> Half of a tithi</li>
+<li><strong>Muhurta:</strong> Auspicious time periods for activities</li>
+</ul>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Historical Development</h3>
+<p class="text-gray-700 mb-4">Jyotisha evolved through several distinct phases:</p>
+<ol class="list-decimal pl-6 text-gray-700 space-y-2">
+<li><strong>Vedanga Jyotisha (c. 1400-1200 BCE):</strong> The earliest astronomical text, focused on calendrical calculations for rituals</li>
+<li><strong>Siddhantic Period (c. 400-1200 CE):</strong> Development of sophisticated mathematical astronomy, including works like Aryabhatiya and Surya Siddhanta</li>
+<li><strong>Karana Period (c. 1200-1800 CE):</strong> Creation of practical handbooks for astronomical calculations</li>
+<li><strong>Modern Period (post-1800 CE):</strong> Integration with Western astronomy while preserving traditional methods</li>
+</ol>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Mathematical Contributions</h3>
+<p class="text-gray-700 mb-4">Jyotisha made significant contributions to mathematics, including:</p>
+<ul class="list-disc pl-6 text-gray-700 space-y-2">
+<li>Development of trigonometric functions and tables</li>
+<li>Solutions to indeterminate equations</li>
+<li>Calculation of π to high degrees of accuracy</li>
+<li>Development of infinite series expansions</li>
+<li>Use of the decimal place-value system and zero</li>
+</ul>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Modern Applications</h3>
+<p class="text-gray-700 mb-4">Today, Jyotisha continues to influence:</p>
+<ul class="list-disc pl-6 text-gray-700 space-y-2">
+<li>Traditional calendar systems in India</li>
+<li>Cultural and religious festivals and observances</li>
+<li>Historical astronomy and archaeoastronomy</li>
+<li>Study of ancient mathematical techniques</li>
+<li>Cultural astrology and psychological counseling</li>
+</ul>
+</div>
+<div class="mt-8">
+<button class="back-to-vedangas bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded-button font-medium transition duration-300 inline-flex items-center whitespace-nowrap">
+<div class="w-5 h-5 mr-2 flex items-center justify-center">
+<i class="ri-arrow-left-line"></i>
+</div>
+<span>Back to Vedangas</span>
+</button>
+</div>
+</div>
+<!-- Kalpa Content -->
+<div id="kalpa-content" class="vedanga-content bg-white p-8 rounded shadow-md mb-8 hidden">
+<h2 class="text-3xl font-semibold text-gray-800 mb-6 flex items-center">
+<div class="w-10 h-10 flex items-center justify-center text-primary mr-3">
+<i class="ri-file-list-3-line ri-2x"></i>
+</div>
+Kalpa: The Science of Rituals
+</h2>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Introduction</h3>
+<p class="text-gray-700 mb-4">Kalpa is considered the "hands" of the Vedas and deals with rituals, ceremonies, and procedural instructions for performing Vedic sacrifices correctly. It provides detailed guidelines for religious practices and sacred ceremonies.</p>
+<p class="text-gray-700 mb-4">The word "Kalpa" comes from the Sanskrit root "klṛp," meaning "to arrange" or "to perform." It represents the practical application of Vedic knowledge in daily and ceremonial life.</p>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Types of Kalpa Texts</h3>
+<p class="text-gray-700 mb-4">Kalpa literature is divided into four main categories:</p>
+<ul class="list-disc pl-6 text-gray-700 space-y-2">
+<li><strong>Shrauta Sutras:</strong> Rules for elaborate public rituals requiring multiple priests and fire altars</li>
+<li><strong>Grihya Sutras:</strong> Guidelines for domestic rituals and ceremonies (marriage, birth, death, etc.)</li>
+<li><strong>Dharma Sutras:</strong> Codes of conduct, ethics, and social responsibilities</li>
+<li><strong>Shulba Sutras:</strong> Geometric instructions for constructing ritual altars and fire pits</li>
+</ul>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Key Rituals</h3>
+<p class="text-gray-700 mb-4">Kalpa texts describe numerous rituals, including:</p>
+<ul class="list-disc pl-6 text-gray-700 space-y-2">
+<li><strong>Agnihotra:</strong> Daily fire offering performed morning and evening</li>
+<li><strong>Darshapurnamasa:</strong> New and full moon sacrifices</li>
+<li><strong>Chaturmasya:</strong> Seasonal sacrifices performed every four months</li>
+<li><strong>Somayaga:</strong> Complex ritual involving the preparation and offering of soma juice</li>
+<li><strong>Ashvamedha:</strong> Royal horse sacrifice symbolizing imperial sovereignty</li>
+<li><strong>Samskaras:</strong> Life-cycle ceremonies from conception to death</li>
+</ul>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Mathematical Innovations</h3>
+<p class="text-gray-700 mb-4">The Shulba Sutras contain remarkable mathematical knowledge, including:</p>
+<ul class="list-disc pl-6 text-gray-700 space-y-2">
+<li>The Pythagorean theorem (centuries before Pythagoras)</li>
+<li>Methods for squaring the circle and other geometric transformations</li>
+<li>Approximations of irrational numbers like √2</li>
+<li>Solutions to linear and quadratic equations</li>
+<li>Practical applications of geometry in architecture</li>
+</ul>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Historical Significance</h3>
+<p class="text-gray-700 mb-4">Kalpa texts were composed between 800-200 BCE and represent the transition from the purely revealed Vedic texts to the more systematic and rational approach of later Indian thought. They provide invaluable insights into ancient Indian society, religion, and daily life.</p>
+<p class="text-gray-700 mb-4">The emphasis on precise ritual performance in Kalpa texts led to the development of auxiliary sciences like geometry, phonetics, and time-keeping, contributing significantly to the growth of scientific thinking in ancient India.</p>
+</div>
+<div class="mb-6">
+<h3 class="text-xl font-medium text-gray-800 mb-3">Modern Applications</h3>
+<p class="text-gray-700 mb-4">Today, Kalpa continues to influence:</p>
+<ul class="list-disc pl-6 text-gray-700 space-y-2">
+<li>Traditional Hindu ceremonies and rituals</li>
+<li>Study of ancient architectural principles</li>
+<li>Anthropological research on ritual practices</li>
+<li>History of mathematics and geometry</li>
+<li>Understanding the development of legal and ethical systems</li>
+</ul>
+</div>
+<div class="mt-8">
+<button class="back-to-vedangas bg-gray-200 hover:bg-gray-300 text-gray-800 px-6 py-2 rounded-button font-medium transition duration-300 inline-flex items-center whitespace-nowrap">
+<div class="w-5 h-5 mr-2 flex items-center justify-center">
+<i class="ri-arrow-left-line"></i>
+</div>
+<span>Back to Vedangas</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Detailed Information Section -->
+<section class="mb-16">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Shiksha Details -->
+<div class="bg-white p-6 rounded shadow-md">
+<h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+<div class="w-8 h-8 flex items-center justify-center text-primary mr-3">
+<i class="ri-volume-up-line"></i>
+</div>
+Shiksha Insights
+</h3>
+<ul class="space-y-3 text-gray-700">
+<li class="flex items-start">
+<div class="w-5 h-5 mt-1 mr-2 flex-shrink-0 text-primary">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Focuses on proper pronunciation and articulation</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 mt-1 mr-2 flex-shrink-0 text-primary">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Studies accent patterns and sound variations</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 mt-1 mr-2 flex-shrink-0 text-primary">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Essential for maintaining Vedic oral tradition</span>
+</li>
+</ul>
+</div>
+<!-- Chandas Details -->
+<div class="bg-white p-6 rounded shadow-md">
+<h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+<div class="w-8 h-8 flex items-center justify-center text-primary mr-3">
+<i class="ri-rhythm-line"></i>
+</div>
+Chandas Insights
+</h3>
+<ul class="space-y-3 text-gray-700">
+<li class="flex items-start">
+<div class="w-5 h-5 mt-1 mr-2 flex-shrink-0 text-primary">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Explores metrical structures and patterns</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 mt-1 mr-2 flex-shrink-0 text-primary">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Studies rhythm and poetic composition</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 mt-1 mr-2 flex-shrink-0 text-primary">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Preserves the musical aspect of Vedas</span>
+</li>
+</ul>
+</div>
+<!-- Vyakarana Details -->
+<div class="bg-white p-6 rounded shadow-md">
+<h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+<div class="w-8 h-8 flex items-center justify-center text-primary mr-3">
+<i class="ri-book-open-line"></i>
+</div>
+Vyakarana Insights
+</h3>
+<ul class="space-y-3 text-gray-700">
+<li class="flex items-start">
+<div class="w-5 h-5 mt-1 mr-2 flex-shrink-0 text-primary">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Analyzes Sanskrit grammar and syntax</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 mt-1 mr-2 flex-shrink-0 text-primary">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Studies word formation and derivation</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 mt-1 mr-2 flex-shrink-0 text-primary">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Foundation for linguistic understanding</span>
+</li>
+</ul>
+</div>
+<!-- Nirukta Details -->
+<div class="bg-white p-6 rounded shadow-md">
+<h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+<div class="w-8 h-8 flex items-center justify-center text-primary mr-3">
+<i class="ri-translate-2-line"></i>
+</div>
+Nirukta Insights
+</h3>
+<ul class="space-y-3 text-gray-700">
+<li class="flex items-start">
+<div class="w-5 h-5 mt-1 mr-2 flex-shrink-0 text-primary">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Focuses on etymology and word meanings</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 mt-1 mr-2 flex-shrink-0 text-primary">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Interprets difficult Vedic terms</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 mt-1 mr-2 flex-shrink-0 text-primary">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Essential for textual understanding</span>
+</li>
+</ul>
+</div>
+<!-- Jyotisha Details -->
+<div class="bg-white p-6 rounded shadow-md">
+<h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+<div class="w-8 h-8 flex items-center justify-center text-primary mr-3">
+<i class="ri-star-line"></i>
+</div>
+Jyotisha Insights
+</h3>
+<ul class="space-y-3 text-gray-700">
+<li class="flex items-start">
+<div class="w-5 h-5 mt-1 mr-2 flex-shrink-0 text-primary">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Studies celestial movements and time</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 mt-1 mr-2 flex-shrink-0 text-primary">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Calculates auspicious timings</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 mt-1 mr-2 flex-shrink-0 text-primary">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Integrates astronomy and mathematics</span>
+</li>
+</ul>
+</div>
+<!-- Kalpa Details -->
+<div class="bg-white p-6 rounded shadow-md">
+<h3 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+<div class="w-8 h-8 flex items-center justify-center text-primary mr-3">
+<i class="ri-file-list-3-line"></i>
+</div>
+Kalpa Insights
+</h3>
+<ul class="space-y-3 text-gray-700">
+<li class="flex items-start">
+<div class="w-5 h-5 mt-1 mr-2 flex-shrink-0 text-primary">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Details ritual procedures and practices</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 mt-1 mr-2 flex-shrink-0 text-primary">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Guides ceremonial performances</span>
+</li>
+<li class="flex items-start">
+<div class="w-5 h-5 mt-1 mr-2 flex-shrink-0 text-primary">
+<i class="ri-checkbox-circle-line"></i>
+</div>
+<span>Preserves sacred traditions</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Video Section -->
+<section id="video-section" class="mb-16">
+<div class="bg-white p-8 rounded shadow-md">
+<h2 class="text-3xl font-semibold text-gray-800 mb-6">Video Explanations</h2>
+<div class="mb-6">
+<div id="video-tabs" class="flex border border-gray-200 rounded-full mb-6 p-1 overflow-x-auto">
+<button class="video-tab tab-active flex-1 py-2 px-4 text-sm font-medium rounded-full whitespace-nowrap transition duration-200" data-target="shiksha-video">Shiksha</button>
+<button class="video-tab flex-1 py-2 px-4 text-sm font-medium rounded-full whitespace-nowrap transition duration-200" data-target="chandas-video">Chandas</button>
+<button class="video-tab flex-1 py-2 px-4 text-sm font-medium rounded-full whitespace-nowrap transition duration-200" data-target="vyakarana-video">Vyakarana</button>
+<button class="video-tab flex-1 py-2 px-4 text-sm font-medium rounded-full whitespace-nowrap transition duration-200" data-target="nirukta-video">Nirukta</button>
+<button class="video-tab flex-1 py-2 px-4 text-sm font-medium rounded-full whitespace-nowrap transition duration-200" data-target="jyotisha-video">Jyotisha</button>
+<button class="video-tab flex-1 py-2 px-4 text-sm font-medium rounded-full whitespace-nowrap transition duration-200" data-target="kalpa-video">Kalpa</button>
+</div>
+<div id="video-content">
+<div id="shiksha-video" class="video-content">
+<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded mb-4">
+<div class="w-full h-0 pb-[56.25%] relative bg-gray-200 rounded">
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="text-center">
+<div class="w-16 h-16 mx-auto flex items-center justify-center bg-primary bg-opacity-90 rounded-full text-white mb-4">
+<i class="ri-play-fill ri-2x"></i>
+</div>
+<p class="text-gray-600">Shiksha: The Science of Phonetics</p>
+</div>
+</div>
+</div>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Understanding Vedic Pronunciation</h3>
+<p class="text-gray-700 mb-4">This video explains the intricate details of Shiksha, the Vedic science of phonetics. Learn about the correct pronunciation of Sanskrit sounds, the classification of letters, and the importance of proper articulation in Vedic recitation.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">Phonetics</span>
+<span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">Sanskrit</span>
+<span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">Vedic Recitation</span>
+</div>
+</div>
+<div id="chandas-video" class="video-content hidden">
+<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded mb-4">
+<div class="w-full h-0 pb-[56.25%] relative bg-gray-200 rounded">
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="text-center">
+<div class="w-16 h-16 mx-auto flex items-center justify-center bg-primary bg-opacity-90 rounded-full text-white mb-4">
+<i class="ri-play-fill ri-2x"></i>
+</div>
+<p class="text-gray-600">Chandas: The Science of Metrics</p>
+</div>
+</div>
+</div>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Vedic Meters and Poetic Structures</h3>
+<p class="text-gray-700 mb-4">This video explores Chandas, the Vedic science of metrics. Discover the various poetic meters used in Vedic hymns, their rhythmic patterns, and how they enhance the aesthetic and mnemonic qualities of sacred texts.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">Metrics</span>
+<span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">Poetry</span>
+<span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">Vedic Hymns</span>
+</div>
+</div>
+<div id="vyakarana-video" class="video-content hidden">
+<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded mb-4">
+<div class="w-full h-0 pb-[56.25%] relative bg-gray-200 rounded">
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="text-center">
+<div class="w-16 h-16 mx-auto flex items-center justify-center bg-primary bg-opacity-90 rounded-full text-white mb-4">
+<i class="ri-play-fill ri-2x"></i>
+</div>
+<p class="text-gray-600">Vyakarana: The Science of Grammar</p>
+</div>
+</div>
+</div>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Panini's Grammar and Sanskrit Structure</h3>
+<p class="text-gray-700 mb-4">This video delves into Vyakarana, the Vedic science of grammar. Learn about Panini's revolutionary grammatical system, the structure of Sanskrit, and how this ancient linguistic science continues to influence modern language studies.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">Grammar</span>
+<span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">Sanskrit</span>
+<span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">Linguistics</span>
+</div>
+</div>
+<div id="nirukta-video" class="video-content hidden">
+<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded mb-4">
+<div class="w-full h-0 pb-[56.25%] relative bg-gray-200 rounded">
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="text-center">
+<div class="w-16 h-16 mx-auto flex items-center justify-center bg-primary bg-opacity-90 rounded-full text-white mb-4">
+<i class="ri-play-fill ri-2x"></i>
+</div>
+<p class="text-gray-600">Nirukta: The Science of Etymology</p>
+</div>
+</div>
+</div>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Interpreting Vedic Terminology</h3>
+<p class="text-gray-700 mb-4">This video examines Nirukta, the Vedic science of etymology. Explore how Yaska's methods of word interpretation help unlock the meaning of obscure Vedic terms and provide insights into the semantic evolution of Sanskrit.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">Etymology</span>
+<span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">Semantics</span>
+<span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">Vedic Interpretation</span>
+</div>
+</div>
+<div id="jyotisha-video" class="video-content hidden">
+<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded mb-4">
+<div class="w-full h-0 pb-[56.25%] relative bg-gray-200 rounded">
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="text-center">
+<div class="w-16 h-16 mx-auto flex items-center justify-center bg-primary bg-opacity-90 rounded-full text-white mb-4">
+<i class="ri-play-fill ri-2x"></i>
+</div>
+<p class="text-gray-600">Jyotisha: The Science of Astronomy</p>
+</div>
+</div>
+</div>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Vedic Astronomy and Time Calculation</h3>
+<p class="text-gray-700 mb-4">This video explores Jyotisha, the Vedic science of astronomy. Learn about ancient Indian astronomical observations, calendrical systems, and how celestial calculations were used to determine auspicious times for rituals.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">Astronomy</span>
+<span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">Calendars</span>
+<span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">Mathematics</span>
+</div>
+</div>
+<div id="kalpa-video" class="video-content hidden">
+<div class="aspect-w-16 aspect-h-9 bg-gray-100 rounded mb-4">
+<div class="w-full h-0 pb-[56.25%] relative bg-gray-200 rounded">
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="text-center">
+<div class="w-16 h-16 mx-auto flex items-center justify-center bg-primary bg-opacity-90 rounded-full text-white mb-4">
+<i class="ri-play-fill ri-2x"></i>
+</div>
+<p class="text-gray-600">Kalpa: The Science of Rituals</p>
+</div>
+</div>
+</div>
+</div>
+<h3 class="text-xl font-semibold text-gray-800 mb-2">Vedic Rituals and Ceremonies</h3>
+<p class="text-gray-700 mb-4">This video delves into Kalpa, the Vedic science of rituals. Discover the intricate procedures for Vedic ceremonies, the geometric principles behind ritual altar construction, and the social significance of religious practices in ancient India.</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">Rituals</span>
+<span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">Sacred Geometry</span>
+<span class="bg-primary bg-opacity-10 text-primary text-sm px-3 py-1 rounded-full">Religious Practices</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Quiz Section -->
+
+
+
+      <!-- Right Sidebar - Chatbot -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+      
+      <!-- Chat Box Trigger Button -->
+      <div class="fixed bottom-6 right-6 z-50">
+          <button id="chatToggle" class="bg-primary text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all w-16 h-16 flex items-center justify-center">
+            <i class="fas fa-comment-dots text-2xl"></i>
+          </button>
+      </div>
+      
+      <!-- Chat Container -->
+      <div id="chatContainer" class="fixed bottom-24 right-6 w-full max-w-sm hidden z-50">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-[600px]">
+          <!-- Header -->
+          <div class="bg-primary text-white p-4 flex items-center justify-between">
+            <div class="flex items-center">
+              <div class="w-10 h-10 flex items-center justify-center bg-white/20 rounded-full mr-3">
+                <i class="fas fa-robot text-white"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold">संस्कृत सहायक</h3>
+                <p class="text-xs text-white/80">संस्कृत सम्बन्धी प्रश्न पूछें</p>
+              </div>
+            </div>
+            <button id="closeChat" class="w-8 h-8 flex items-center justify-center bg-white/10 rounded-full hover:bg-white/20">
+              <i class="fas fa-times text-white"></i>
+            </button>
+          </div>
+      
+          <!-- Chat History -->
+          <div id="chatHistory" class="flex-1 p-4 overflow-y-auto space-y-4 bg-gray-50 custom-scrollbar">
+            <!-- Messages will be loaded here -->
+          </div>
+      
+          <!-- Input Box -->
+          <div class="border-t border-gray-200 p-4">
+            <div class="flex items-center">
+              <div class="flex-1 relative">
+                <input id="userInput" type="text" placeholder="Type your message..." class="w-full border-none bg-gray-100 rounded-full py-2 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-primary/50">
+                <button class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-primary">
+                  <i class="fas fa-smile"></i>
+                </button>
+              </div>
+              <button onclick="sendMessage()" class="ml-2 w-10 h-10 flex items-center justify-center bg-primary rounded-full text-white hover:bg-primary/80">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- SCRIPT -->
+      <script>
+      // Load saved chat history
+      let chatHistory = JSON.parse(localStorage.getItem('sanskritChat')) || [];
+      
+      // Toggle Chat Box
+      document.getElementById('chatToggle').addEventListener('click', () => {
+          const chatContainer = document.getElementById('chatContainer');
+          chatContainer.classList.toggle('hidden');
+          loadChatHistory();
+      });
+      
+      // Close Chat
+      document.getElementById('closeChat').addEventListener('click', () => {
+          document.getElementById('chatContainer').classList.add('hidden');
+      });
+      
+      // Load Chat History
+      function loadChatHistory() {
+          const historyDiv = document.getElementById('chatHistory');
+          historyDiv.innerHTML = chatHistory.map(msg => `
+              <div class="flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}">
+                  <div class="max-w-[80%] ${msg.role === 'user' 
+                      ? 'bg-primary/10 text-gray-700 rounded-lg rounded-tr-none p-3'
+                      : 'bg-gray-100 text-gray-700 rounded-lg rounded-tl-none p-3'}">
+                      ${marked.parse(msg.content)}
+                      <div class="text-xs text-gray-400 mt-1 ${msg.role === 'user' ? 'text-right' : 'text-left'}">
+                        ${new Date(msg.timestamp).toLocaleTimeString()}
+                      </div>
+                  </div>
+              </div>
+          `).join('');
+          historyDiv.scrollTop = historyDiv.scrollHeight;
+      }
+      
+      // Send Message
+      async function sendMessage() {
+          const input = document.getElementById('userInput');
+          const message = input.value.trim();
+          if (!message) return;
+          input.value = '';
+      
+          // Push user message
+          chatHistory.push({ role: 'user', content: message, timestamp: new Date().toISOString() });
+      
+          // Show loading message
+          chatHistory.push({ role: 'assistant', content: 'प्रतीक्षा कुरु...', timestamp: new Date().toISOString() });
+          loadChatHistory();
+      
+          try {
+              const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+                  method: 'POST',
+                  headers: {
+                      'Authorization': 'Bearer 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',
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                      model: 'deepseek/deepseek-r1:free',
+                      messages: [{ role: 'user', content: message }],
+                  }),
+              });
+      
+              const data = await response.json();
+              const botResponse = data.choices?.[0]?.message?.content || 'उत्तरं प्राप्तुं अशक्यम्';
+      
+              chatHistory.pop(); // Remove loading
+              chatHistory.push({ role: 'assistant', content: botResponse, timestamp: new Date().toISOString() });
+              localStorage.setItem('sanskritChat', JSON.stringify(chatHistory));
+              loadChatHistory();
+          } catch (error) {
+              console.error('Error:', error);
+              chatHistory.pop();
+              chatHistory.push({ role: 'assistant', content: 'त्रुटिः! पुनः प्रयत्नं कुरुत।', timestamp: new Date().toISOString() });
+              loadChatHistory();
+          }
+      }
+      
+      // Send on Enter Key
+      document.getElementById('userInput').addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') sendMessage();
+      });
+      </script>
+      
+      <style>
+      /* Custom Scrollbar */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 8px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: rgba(0,0,0,0.2);
+        border-radius: 4px;
+      }
+      </style>
+      
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer class="bg-gray-50 py-12 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Upveda Info -->
+        <div>
+          <h3 class="font-['Pacifico'] text-2xl text-primary mb-4">Veda</h3>
+          <p class="text-gray-600">
+            Preserving ancient wisdom for modern seekers. Explore the timeless
+            knowledge of the Vedas and discover practical applications for
+            contemporary life.
+          </p>
+        </div>
+  
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-lg font-semibold text-gray-900 mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li>
+              <a href="#" class="text-gray-600 hover:text-primary transition-colors">About Us</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-600 hover:text-primary transition-colors">Vedic Resources</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-600 hover:text-primary transition-colors">Privacy Policy</a>
+            </li>
+            <li>
+              <a href="#" class="text-gray-600 hover:text-primary transition-colors">Terms of Service</a>
+            </li>
+          </ul>
+        </div>
+  
+        <!-- Contact Us (Generic) -->
+        <div>
+          <h4 class="text-lg font-semibold text-gray-900 mb-4">Contact Us</h4>
+          <ul class="space-y-2">
+            <li class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center mt-1 mr-3">
+                <i class="ri-mail-line"></i>
+              </div>
+              <span class="text-gray-600">contact@upveda.org</span>
+            </li>
+            <li class="flex items-start">
+              <div class="w-5 h-5 flex items-center justify-center mt-1 mr-3">
+                <i class="ri-phone-line"></i>
+              </div>
+              <span class="text-gray-600">+91 98765 43210</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+  
+      <!-- Footer Bottom Section -->
+      <div class="border-t border-gray-200 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-gray-600 text-sm">&copy; 2025 Veda. All rights reserved.</p>
+        <div class="flex space-x-4 mt-4 md:mt-0">
+          <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+            <div class="w-8 h-8 flex items-center justify-center">
+              <i class="ri-facebook-fill ri-lg"></i>
+            </div>
+          </a>
+          <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+            <div class="w-8 h-8 flex items-center justify-center">
+              <i class="ri-twitter-x-fill ri-lg"></i>
+            </div>
+          </a>
+          <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+            <div class="w-8 h-8 flex items-center justify-center">
+              <i class="ri-instagram-fill ri-lg"></i>
+            </div>
+          </a>
+          <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+            <div class="w-8 h-8 flex items-center justify-center">
+              <i class="ri-youtube-fill ri-lg"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+// Mobile Menu Toggle
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+});
+// Vedanga Content Toggle
+const vedangaBtns = document.querySelectorAll('.vedanga-btn');
+const vedangaContents = document.querySelectorAll('.vedanga-content');
+const backBtns = document.querySelectorAll('.back-to-vedangas');
+vedangaBtns.forEach(btn => {
+btn.addEventListener('click', function() {
+const target = this.getAttribute('data-target');
+document.getElementById('vedangas').classList.add('hidden');
+vedangaContents.forEach(content => {
+content.classList.add('hidden');
+});
+document.getElementById(target).classList.remove('hidden');
+window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+});
+backBtns.forEach(btn => {
+btn.addEventListener('click', function() {
+vedangaContents.forEach(content => {
+content.classList.add('hidden');
+});
+document.getElementById('vedangas').classList.remove('hidden');
+window.scrollTo({ top: document.getElementById('vedangas').offsetTop - 100, behavior: 'smooth' });
+});
+});
+// Video Tabs
+const videoTabs = document.querySelectorAll('.video-tab');
+const videoContents = document.querySelectorAll('.video-content');
+videoTabs.forEach(tab => {
+tab.addEventListener('click', function() {
+const target = this.getAttribute('data-target');
+videoTabs.forEach(t => {
+t.classList.remove('tab-active');
+});
+videoContents.forEach(content => {
+content.classList.add('hidden');
+});
+this.classList.add('tab-active');
+document.getElementById(target).classList.remove('hidden');
+});
+});
+// Chatbot Toggle
+const toggleChatbot = document.getElementById('toggle-chatbot');
+const chatbotContainer = document.getElementById('chatbot-container');
+const chatbotToggleIcon = document.getElementById('chatbot-toggle-icon');
+toggleChatbot.addEventListener('click', function() {
+if (chatbotContainer.classList.contains('h-96')) {
+chatbotContainer.classList.remove('h-96');
+chatbotContainer.classList.add('h-0');
+chatbotToggleIcon.classList.remove('ri-arrow-up-s-line');
+chatbotToggleIcon.classList.add('ri-arrow-down-s-line');
+} else {
+chatbotContainer.classList.remove('h-0');
+chatbotContainer.classList.add('h-96');
+chatbotToggleIcon.classList.remove('ri-arrow-down-s-line');
+chatbotToggleIcon.classList.add('ri-arrow-up-s-line');
+}
+});
+// Chatbot Functionality
+const chatInput = document.getElementById('chat-input');
+const sendMessage = document.getElementById('send-message');
+const chatMessages = document.getElementById('chat-messages');
+function addMessage(message, isUser = false) {
+const messageDiv = document.createElement('div');
+messageDiv.className = 'flex mb-4';
+if (isUser) {
+messageDiv.innerHTML = `
+<div class="ml-auto"></div>
+<div class="bg-primary bg-opacity-10 rounded-lg p-3 max-w-[80%]">
+<p class="text-gray-800">${message}</p>
+</div>
+<div class="w-8 h-8 rounded-full bg-gray-300 text-gray-600 flex items-center justify-center flex-shrink-0 ml-3">
+<i class="ri-user-line"></i>
+</div>
+`;
+} else {
+messageDiv.innerHTML = `
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center flex-shrink-0 mr-3">
+<i class="ri-robot-line"></i>
+</div>
+<div class="bg-gray-200 rounded-lg p-3 max-w-[80%]">
+<p class="text-gray-800">${message}</p>
+</div>
+`;
+}
+chatMessages.appendChild(messageDiv);
+chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+function getBotResponse(message) {
+message = message.toLowerCase();
+if (message.includes('shiksha') || message.includes('phonetics')) {
+return "Shiksha is the Vedanga focused on phonetics and correct pronunciation. It's considered the 'nose' of the Vedas and ensures mantras are recited with proper articulation, accent, and rhythm. The most famous text is the Paniniya Shiksha.";
+} else if (message.includes('chandas') || message.includes('meter')) {
+return "Chandas is the Vedanga dealing with poetic meters and verse structures. It's considered the 'feet' of the Vedas and provides the rhythmic framework for Vedic hymns. The foundational text is Pingala's Chandah Sutra, which systematically describes various meters.";
+} else if (message.includes('vyakarana') || message.includes('grammar')) {
+return "Vyakarana is the Vedanga focused on grammar and linguistic analysis. It's considered the 'mouth' of the Vedas and is regarded as the most important Vedanga. Panini's Ashtadhyayi is the most influential work, consisting of nearly 4,000 sutras describing Sanskrit grammar with unprecedented precision.";
+} else if (message.includes('nirukta') || message.includes('etymology')) {
+return "Nirukta is the Vedanga dealing with etymology and semantic interpretation. It's considered the 'ears' of the Vedas and helps understand obscure Vedic terms. Yaska's Nirukta is the principal text, which establishes important principles for interpreting ancient texts.";
+} else if (message.includes('jyotisha') || message.includes('astronomy')) {
+return "Jyotisha is the Vedanga encompassing astronomy, astrology, and mathematics. It's considered the 'eyes' of the Vedas and was developed to determine auspicious times for Vedic rituals. It represents one of the oldest continuous astronomical traditions in the world.";
+} else if (message.includes('kalpa') || message.includes('ritual')) {
+return "Kalpa is the Vedanga dealing with rituals and ceremonial procedures. It's considered the 'hands' of the Vedas and provides detailed guidelines for religious practices. Kalpa literature is divided into Shrauta Sutras, Grihya Sutras, Dharma Sutras, and Shulba Sutras.";
+} else if (message.includes('hello') || message.includes('hi') || message.includes('hey')) {
+return "Hello! I'm your Vedanga Assistant. How can I help you learn about the six Vedangas today?";
+} else if (message.includes('thank')) {
+return "You're welcome! If you have any more questions about the Vedangas, feel free to ask.";
+} else {
+return "I'm not sure I understand. Could you ask about a specific Vedanga? For example, you can ask about Shiksha, Chandas, Vyakarana, Nirukta, Jyotisha, or Kalpa.";
+}
+}
+function handleSendMessage() {
+const message = chatInput.value.trim();
+if (message) {
+addMessage(message, true);
+chatInput.value = '';
+setTimeout(() => {
+const response = getBotResponse(message);
+addMessage(response);
+}, 500);
+}
+}
+sendMessage.addEventListener('click', handleSendMessage);
+chatInput.addEventListener('keypress', function(e) {
+if (e.key === 'Enter') {
+handleSendMessage();
+}
+});
+});
+document.addEventListener('DOMContentLoaded', function() {
+// Quiz Functionality
+const quizQuestions = document.querySelectorAll('.quiz-question');
+const progressBar = document.getElementById('progress-bar');
+const prevButton = document.getElementById('prev-question');
+const nextButton = document.getElementById('next-question');
+const submitButton = document.getElementById('submit-quiz');
+const quizResults = document.getElementById('quiz-results');
+const scoreElement = document.getElementById('score');
+const scoreMessage = document.getElementById('score-message');
+const retakeQuiz = document.getElementById('retake-quiz');
+let currentQuestion = 1;
+const totalQuestions = quizQuestions.length;
+function updateProgressBar() {
+const progress = ((currentQuestion - 1) / totalQuestions) * 100;
+progressBar.style.width = `${progress}%`;
+}
+function showQuestion(questionNumber) {
+quizQuestions.forEach(question => {
+question.classList.add('hidden');
+});
+document.querySelector(`.quiz-question[data-question="${questionNumber}"]`).classList.remove('hidden');
+// Update buttons
+if (questionNumber === 1) {
+prevButton.classList.add('hidden');
+} else {
+prevButton.classList.remove('hidden');
+}
+if (questionNumber === totalQuestions) {
+nextButton.classList.add('hidden');
+submitButton.classList.remove('hidden');
+} else {
+nextButton.classList.remove('hidden');
+submitButton.classList.add('hidden');
+}
+updateProgressBar();
+}
+function calculateScore() {
+const correctAnswers = {
+q1: 'b', // Vyakarana
+q2: 'b', // Chandas
+q3: 'c', // Panini
+q4: 'a', // Jyotisha
+q5: 'b'  // Kalpa
+};
+let score = 0;
+for (const question in correctAnswers) {
+const selectedAnswer = document.querySelector(`input[name="${question}"]:checked`);
+if (selectedAnswer && selectedAnswer.value === correctAnswers[question]) {
+score++;
+}
+}
+return score;
+}
+nextButton.addEventListener('click', function() {
+const currentRadios = document.querySelectorAll(`input[name="q${currentQuestion}"]:checked`);
+if (currentRadios.length === 0) {
+alert('Please select an answer before proceeding.');
+return;
+}
+currentQuestion++;
+showQuestion(currentQuestion);
+});
+prevButton.addEventListener('click', function() {
+currentQuestion--;
+showQuestion(currentQuestion);
+});
+submitButton.addEventListener('click', function() {
+const currentRadios = document.querySelectorAll(`input[name="q${currentQuestion}"]:checked`);
+if (currentRadios.length === 0) {
+alert('Please select an answer before submitting.');
+return;
+}
+const score = calculateScore();
+scoreElement.textContent = score;
+// Set score message
+if (score === 5) {
+scoreMessage.textContent = "Perfect! You're a Vedanga expert!";
+} else if (score >= 3) {
+scoreMessage.textContent = "Well done! You have good knowledge of the Vedangas.";
+} else {
+scoreMessage.textContent = "Keep learning! Review the content to improve your knowledge.";
+}
+// Hide questions, show results
+quizQuestions.forEach(question => {
+question.classList.add('hidden');
+});
+prevButton.classList.add('hidden');
+submitButton.classList.add('hidden');
+quizResults.classList.remove('hidden');
+// Update progress bar to 100%
+progressBar.style.width = '100%';
+});
+retakeQuiz.addEventListener('click', function() {
+// Reset form
+document.getElementById('quiz-form').reset();
+// Hide results
+quizResults.classList.add('hidden');
+// Show first question
+currentQuestion = 1;
+showQuestion(currentQuestion);
+});
+// Initialize quiz
+showQuestion(currentQuestion);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,1317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shaunka Samhita - Ancient Vedic Scripture</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#8B5D33", secondary: "#D4B996" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+      
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      html {
+      scroll-behavior: smooth;
+      }
+      body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      }
+      .chat-container {
+      height: calc(100vh - 150px);
+      }
+      .quiz-option:has(input:checked) {
+      border-color: #8B5D33;
+      background-color: rgba(139, 93, 51, 0.1);
+      }
+      input[type="radio"], input[type="checkbox"] {
+      appearance: none;
+      -webkit-appearance: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #D4B996;
+      border-radius: 50%;
+      outline: none;
+      position: relative;
+      }
+      input[type="radio"]:checked::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 10px;
+      height: 10px;
+      background-color: #8B5D33;
+      border-radius: 50%;
+      }
+      input[type="checkbox"] {
+      border-radius: 4px;
+      }
+      input[type="checkbox"]:checked::before {
+      content: "✓";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #8B5D33;
+      font-size: 14px;
+      font-weight: bold;
+      }
+      .range-slider {
+     
+      width: 100%;
+      height: 8px;
+      border-radius: 5px;
+      background: #e0e0e0;
+      outline: none;
+      }
+      .range-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #8B5D33;
+      cursor: pointer;
+      }
+      .range-slider::-moz-range-thumb {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #8B5D33;
+      cursor: pointer;
+      border: none;
+      }
+      .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 24px;
+      }
+      .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+      }
+      .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+      }
+      .slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+      }
+      input:checked + .slider {
+      background-color: #8B5D33;
+      }
+      input:checked + .slider:before {
+      transform: translateX(26px);
+      } .mcq-option:hover {
+            background-color: #F0E6D2;
+        }
+        .mcq-option.selected {
+            background-color: #D2B48C;
+            border-color: #8B4513;
+        }
+        .mcq-option.correct {
+            background-color: rgba(72, 187, 120, 0.2);
+            border-color: #48bb78;
+        }
+        .mcq-option.incorrect {
+            background-color: rgba(245, 101, 101, 0.2);
+            border-color: #f56565;
+        }
+    </style>
+  </head>
+  <body class="bg-[#FAFAFA]">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+      <div
+        class="container mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between"
+      >
+        <h1 class="font-['Pacifico'] text-3xl text-primary mb-4 md:mb-0">
+          Shaunka Samhita
+        </h1>
+        <nav class="flex space-x-6">
+          <a
+            href="#home"
+            class="text-gray-800 hover:text-primary transition-colors whitespace-nowrap"
+            >Home</a
+          >
+          <a
+            href="#scriptures"
+            class="text-gray-800 hover:text-primary transition-colors whitespace-nowrap"
+            >Scriptures</a
+          >
+          <a
+            href="#quiz"
+            class="text-gray-800 hover:text-primary transition-colors whitespace-nowrap"
+            >Quiz</a
+          >
+          <a
+            href="#contact"
+            class="text-gray-800 hover:text-primary transition-colors whitespace-nowrap"
+            >Contact</a
+          >
+        </nav>
+      </div>
+    </header>
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="relative h-[60vh] flex items-center justify-center overflow-hidden"
+    >
+      <div
+        style="background-image: url('https://readdy.ai/api/search-image?query=Ancient%20Indian%20manuscript%20with%20Sanskrit%20text%2C%20Vedic%20scriptures%20on%20palm%20leaves%2C%20golden%20ornate%20decorations%2C%20spiritual%20atmosphere%2C%20soft%20lighting%2C%20detailed%20textures%20of%20aged%20palm%20leaves%20with%20Sanskrit%20writing%2C%20traditional%20Indian%20manuscript&width=1280&height=720&seq=1&orientation=landscape');"
+        class="absolute inset-0 bg-cover bg-center object-top"
+      ></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40"
+      ></div>
+      <div class="container mx-auto px-4 relative z-10 text-center">
+        <h2 class="text-4xl md:text-5xl text-white mb-6 font-medium">
+          Ancient Wisdom of the Vedas
+        </h2>
+        <p class="text-white text-lg md:text-xl max-w-2xl mx-auto mb-8">
+          Explore the profound teachings and timeless knowledge of the Shaunka
+          Samhita, one of the most revered texts in Vedic literature.
+        </p>
+        <a
+          href="#scriptures"
+          class="bg-primary text-white px-8 py-3 rounded-button hover:bg-primary/90 transition-colors shadow-lg !rounded-button whitespace-nowrap"
+          >Discover More</a
+        >
+      </div>
+      <div
+        class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce"
+      >
+        <div class="w-10 h-10 flex items-center justify-center text-white">
+          <i class="ri-arrow-down-line ri-xl"></i>
+        </div>
+      </div>
+    </section>
+    <!-- Main Content Section -->
+    <section id="scriptures" class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row gap-8">
+          <!-- Main Content -->
+          <div class="lg:w-8/12">
+            <h2 class="text-3xl text-primary mb-6 font-medium">
+              The Shaunka Samhita
+            </h2>
+            <div class="prose max-w-none">
+              <p class="text-gray-700 mb-6">
+                The Shaunka Samhita, also known as the Śaunakīya Samhita, is one
+                of the most significant recensions of the Atharvaveda, one of
+                the four Vedas that form the foundation of Hindu philosophy and
+                spiritual practice. Named after the sage Shaunaka, this ancient
+                text dates back to approximately 1000-800 BCE and represents a
+                comprehensive collection of hymns, mantras, and ritual
+                instructions.
+              </p>
+              <h3 class="text-2xl text-gray-800 mt-8 mb-4">
+                Historical Context
+              </h3>
+              <p class="text-gray-700 mb-6">
+                The Shaunka Samhita emerged during a pivotal period in ancient
+                Indian history when Vedic knowledge was being systematically
+                compiled and organized. As one of the two primary recensions of
+                the Atharvaveda (the other being the Paippalāda), the Shaunka
+                Samhita gained prominence in the northern and western regions of
+                ancient India. Sage Shaunaka, a renowned Vedic scholar and
+                teacher, is credited with its compilation and organization.
+              </p>
+              <div class="bg-secondary/10 p-6 border-l-4 border-primary my-8">
+                <p class="text-gray-800 italic">
+                  "The Shaunka Samhita contains profound knowledge that bridges
+                  the material and spiritual realms, offering insights into
+                  healing, protection, and the cosmic order that remain relevant
+                  even in our modern world."
+                </p>
+                <p class="text-right text-gray-600 mt-2">
+                  — Dr. Rajendra Prasad, Vedic Scholar
+                </p>
+              </div>
+              <h3 class="text-2xl text-gray-800 mt-8 mb-4">
+                Structure and Content
+              </h3>
+              <p class="text-gray-700 mb-6">
+                The Shaunka Samhita consists of 20 books (kāṇḍas) containing
+                approximately 730 hymns (sūktas) and about 6,000 verses
+                (mantras). Each book focuses on specific themes and
+                applications:
+              </p>
+              <ul class="list-disc pl-6 mb-6 text-gray-700">
+                <li class="mb-2">
+                  <strong>Books 1-7:</strong> Primarily contain charms and
+                  spells for healing diseases, protection from evil forces, and
+                  promoting well-being.
+                </li>
+                <li class="mb-2">
+                  <strong>Books 8-12:</strong> Focus on philosophical concepts,
+                  mystical speculations, and prayers addressing cosmic
+                  principles.
+                </li>
+                <li class="mb-2">
+                  <strong>Books 13-18:</strong> Contain hymns related to
+                  life-cycle rituals, royal ceremonies, and social harmony.
+                </li>
+                <li class="mb-2">
+                  <strong>Books 19-20:</strong> Comprise supplementary
+                  materials, including hymns borrowed from the Rigveda and
+                  specialized ritual instructions.
+                </li>
+              </ul>
+              <h3 class="text-2xl text-gray-800 mt-8 mb-4">
+                Spiritual Significance
+              </h3>
+              <p class="text-gray-700 mb-6">
+                Unlike the other three Vedas (Rig, Sama, and Yajur) which
+                primarily focus on ritual worship of deities, the Shaunka
+                Samhita addresses practical concerns of daily life while
+                connecting them to deeper spiritual principles. It represents a
+                unique integration of spiritual knowledge with practical
+                applications for health, prosperity, and protection.
+              </p>
+              <p class="text-gray-700 mb-6">
+                The text is particularly noted for its detailed understanding of
+                healing practices, which combine herbal remedies with mantras
+                and ritual procedures. Many scholars consider it an early
+                foundation for Ayurvedic medicine and psychological healing
+                techniques.
+              </p>
+              <h3 class="text-2xl text-gray-800 mt-8 mb-4">Modern Relevance</h3>
+              <p class="text-gray-700 mb-6">
+                In contemporary times, the Shaunka Samhita continues to be
+                studied for its insights into ancient Indian medicine,
+                psychology, and spiritual practices. Researchers have found
+                remarkable parallels between some of its healing approaches and
+                modern holistic health concepts. The text's emphasis on the
+                interconnection between mind, body, and cosmic forces resonates
+                with current integrative medicine approaches.
+              </p>
+              <p class="text-gray-700">
+                Scholars and practitioners of Vedic traditions continue to draw
+                inspiration from this ancient text, finding in it timeless
+                wisdom that speaks to fundamental human concerns across cultures
+                and eras.
+              </p>
+            </div>
+          </div>
+          <!-- Chatbot Sidebar -->
+          
+        </div>
+      </div>
+    </section>
+    <!-- Video Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl text-primary text-center mb-10 font-medium">
+          Explore the Wisdom
+        </h2>
+        <div
+          class="max-w-4xl mx-auto bg-white rounded-lg shadow-lg overflow-hidden"
+        >
+          <div
+            class="aspect-w-16 aspect-h-9 relative"
+            style="padding-bottom: 56.25%;"
+          >
+            <div
+              class="absolute inset-0 bg-gray-200 flex items-center justify-center"
+            >
+              <img
+                src="https://readdy.ai/api/search-image?query=Vedic%20scholar%20explaining%20ancient%20texts%2C%20Indian%20spiritual%20teacher%20in%20traditional%20attire%2C%20teaching%20about%20Sanskrit%20manuscripts%2C%20peaceful%20educational%20setting%2C%20soft%20lighting%2C%20scholarly%20atmosphere&width=1280&height=720&seq=2&orientation=landscape"
+                alt="Vedic scholar explaining Shaunka Samhita"
+                class="w-full h-full object-cover object-top"
+              />
+              <div
+                class="absolute inset-0 bg-black/30 flex items-center justify-center"
+              >
+                <button
+                  class="w-16 h-16 flex items-center justify-center bg-primary/90 hover:bg-primary rounded-full text-white transition-colors"
+                >
+                  <i class="ri-play-fill ri-2x"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">
+              Understanding the Shaunka Samhita: A Comprehensive Guide
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Dr. Aarav Sharma explains the historical context, structure, and
+              spiritual significance of the Shaunka Samhita in this enlightening
+              lecture.
+            </p>
+            <div class="flex items-center text-sm text-gray-500">
+              <span class="flex items-center mr-4"
+                ><i class="ri-time-line mr-1"></i> 32:15</span
+              >
+              <span class="flex items-center"
+                ><i class="ri-eye-line mr-1"></i> 24,873 views</span
+              >
+            </div>
+          </div>
+        </div>
+        <div
+          class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto"
+        >
+          <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+            <div
+              class="aspect-w-16 aspect-h-9 relative"
+              style="padding-bottom: 56.25%;"
+            >
+              <img
+                src="https://readdy.ai/api/search-image?query=Sanskrit%20chanting%20ceremony%2C%20Vedic%20priests%20performing%20rituals%2C%20traditional%20setting%20with%20fire%20altar%2C%20ceremonial%20atmosphere%2C%20ancient%20Indian%20ritual&width=400&height=225&seq=3&orientation=landscape"
+                alt="Sanskrit Chanting"
+                class="absolute inset-0 w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <h4 class="font-medium text-gray-800">
+                Traditional Chanting of Shaunka Mantras
+              </h4>
+              <p class="text-sm text-gray-600 mt-1">18:42</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+            <div
+              class="aspect-w-16 aspect-h-9 relative"
+              style="padding-bottom: 56.25%;"
+            >
+              <img
+                src="https://readdy.ai/api/search-image?query=Ayurvedic%20healing%20ceremony%20with%20herbs%20and%20traditional%20instruments%2C%20Vedic%20healing%20practices%2C%20ancient%20Indian%20medical%20traditions%2C%20herbal%20remedies%20preparation&width=400&height=225&seq=4&orientation=landscape"
+                alt="Healing Practices"
+                class="absolute inset-0 w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <h4 class="font-medium text-gray-800">
+                Healing Practices in the Atharvaveda
+              </h4>
+              <p class="text-sm text-gray-600 mt-1">24:15</p>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+            <div
+              class="aspect-w-16 aspect-h-9 relative"
+              style="padding-bottom: 56.25%;"
+            >
+              <img
+                src="https://readdy.ai/api/search-image?query=Modern%20scholars%20analyzing%20ancient%20Sanskrit%20texts%2C%20academic%20discussion%20about%20Vedic%20literature%2C%20university%20setting%20with%20professors%20examining%20manuscripts%2C%20scholarly%20research%20environment&width=400&height=225&seq=5&orientation=landscape"
+                alt="Modern Interpretations"
+                class="absolute inset-0 w-full h-full object-cover object-top"
+              />
+            </div>
+            <div class="p-4">
+              <h4 class="font-medium text-gray-800">
+                Modern Interpretations and Relevance
+              </h4>
+              <p class="text-sm text-gray-600 mt-1">41:30</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Quiz Section -->
+         <!-- MCQ Test Section -->
+         <section class="py-16 bg-white">
+          <div class="container mx-auto px-4">
+              <h2 class="text-4xl font-bold text-primary text-center mb-6">Test Your Knowledge</h2>
+              <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Challenge yourself with these questions about Prashnopanishad to deepen your understanding of this ancient text.</p>
+              
+              <div class="max-w-3xl mx-auto">
+                  <div class="bg-[#FFF9F0] p-8 rounded-lg shadow-md">
+                      <div class="flex justify-between items-center mb-6">
+                          <h3 class="text-xl font-semibold text-primary">Prashnopanishad Quiz</h3>
+                          <div class="text-gray-600">Question <span id="current-question">1</span> of <span id="total-questions">5</span></div>
+                      </div>
+                      
+                      <div class="mb-6">
+                          <div class="h-2 bg-gray-200 rounded-full">
+                              <div id="progress-bar" class="h-2 bg-primary rounded-full" style="width: 20%"></div>
+                          </div>
+                      </div>
+                      
+                      <div id="quiz-container">
+                          <!-- Question 1 -->
+                          <div class="question-slide active" data-question="1">
+                              <h4 class="text-lg font-medium text-gray-800 mb-4">Who is the sage that answers the six questions in Prashnopanishad?</h4>
+                              <div class="space-y-3">
+                                  <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer" data-correct="true">
+                                      <p class="text-gray-700">Sage Pippalada</p>
+                                  </div>
+                                  <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                      <p class="text-gray-700">Sage Yajnavalkya</p>
+                                  </div>
+                                  <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                      <p class="text-gray-700">Sage Uddalaka</p>
+                                  </div>
+                                  <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                      <p class="text-gray-700">Sage Gautama</p>
+                                  </div>
+                              </div>
+                          </div>
+                          
+                          <!-- Question 2 -->
+                          <div class="question-slide hidden" data-question="2">
+                              <h4 class="text-lg font-medium text-gray-800 mb-4">Which Veda is Prashnopanishad associated with?</h4>
+                              <div class="space-y-3">
+                                  <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                      <p class="text-gray-700">Rigveda</p>
+                                  </div>
+                                  <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                      <p class="text-gray-700">Yajurveda</p>
+                                  </div>
+                                  <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                      <p class="text-gray-700">Samaveda</p>
+                                  </div>
+                                  <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer" data-correct="true">
+                                      <p class="text-gray-700">Atharvaveda</p>
+                                  </div>
+                              </div>
+                          </div>
+                          
+                          <!-- Question 3 -->
+                          <div class="question-slide hidden" data-question="3">
+                              <h4 class="text-lg font-medium text-gray-800 mb-4">What is the main subject of the third question in Prashnopanishad?</h4>
+                              <div class="space-y-3">
+                                  <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                      <p class="text-gray-700">The origin of creation</p>
+                                  </div>
+                                  <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                      <p class="text-gray-700">The nature of deities</p>
+                                  </div>
+                                  <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer" data-correct="true">
+                                      <p class="text-gray-700">The origin and nature of Prana</p>
+                                  </div>
+                                  <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                      <p class="text-gray-700">The states of consciousness</p>
+                                  </div>
+                              </div>
+                          </div>
+                          
+                          <!-- Question 4 -->
+                          <div class="question-slide hidden" data-question="4">
+                              <h4 class="text-lg font-medium text-gray-800 mb-4">According to Prashnopanishad, what are the two principles responsible for creation?</h4>
+                              <div class="space-y-3">
+                                  <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                      <p class="text-gray-700">Purusha and Prakriti</p>
+                                  </div>
+                                  <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer" data-correct="true">
+                                      <p class="text-gray-700">Rayi (matter) and Prana (energy)</p>
+                                  </div>
+                                  <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                      <p class="text-gray-700">Sat and Asat</p>
+                                  </div>
+                                  <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                      <p class="text-gray-700">Brahman and Maya</p>
+                                  </div>
+                              </div>
+                          </div>
+                          
+                          <!-- Question 5 -->
+                          <div class="question-slide hidden" data-question="5">
+                              <h4 class="text-lg font-medium text-gray-800 mb-4">Who wrote the most influential commentary on Prashnopanishad in the 8th century CE?</h4>
+                              <div class="space-y-3">
+                                  <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer" data-correct="true">
+                                      <p class="text-gray-700">Adi Shankaracharya</p>
+                                  </div>
+                                  <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                      <p class="text-gray-700">Ramanuja</p>
+                                  </div>
+                                  <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                      <p class="text-gray-700">Madhvacharya</p>
+                                  </div>
+                                  <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                      <p class="text-gray-700">Vallabhacharya</p>
+                                  </div>
+                              </div>
+                          </div>
+                          
+                          <!-- Results -->
+                          <!-- Results -->
+<div class="question-slide hidden" data-question="results">
+  <div class="text-center py-6">
+      <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4" id="result-icon">
+          <!-- Icon will be added dynamically -->
+      </div>
+      <h4 class="text-xl font-semibold text-primary mb-2" id="result-title">Quiz Completed!</h4>
+      <p class="text-gray-700 mb-4">You scored <span id="score">0</span> out of 5</p>
+      
+      <!-- Progress message for perfect score -->
+      <div id="perfect-score-message" class="hidden mb-4">
+          <div class="bg-green-100 text-green-800 p-3 rounded-lg inline-block">
+              <i class="ri-checkbox-circle-fill text-green-500 mr-2"></i>
+              <span>Congratulations! You've completed this course.</span>
+          </div>
+      </div>
+      
+      <!-- Retake suggestion for imperfect scores -->
+      <div id="retake-message" class="hidden mb-4">
+          <div class="bg-orange-100 text-orange-800 p-3 rounded-lg inline-block">
+              <i class="ri-error-warning-fill text-orange-500 mr-2"></i>
+              <span>Review the material and try again to improve your score.</span>
+          </div>
+      </div>
+      
+      <div class="mb-6">
+          <p class="text-gray-600 mb-2">Your understanding of Prashnopanishad:</p>
+          <div class="h-4 bg-gray-200 rounded-full w-64 mx-auto">
+              <div id="score-bar" class="h-4 rounded-full" style="width: 0%"></div>
+          </div>
+      </div>
+      <button id="restart-quiz" class="bg-primary text-white px-6 py-3 !rounded-button whitespace-nowrap font-medium hover:bg-primary/90 transition">Retake Quiz</button>
+  </div>
+</div>
+                      </div>
+                      
+                      <div class="flex justify-between mt-8">
+                          <button id="prev-btn" class="px-6 py-2 border border-primary text-primary !rounded-button whitespace-nowrap font-medium hover:bg-primary/10 transition disabled:opacity-50 disabled:cursor-not-allowed" disabled>Previous</button>
+                          <button id="next-btn" class="px-6 py-2 bg-primary text-white !rounded-button whitespace-nowrap font-medium hover:bg-primary/90 transition">Next</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl text-primary text-center mb-10 font-medium">
+          Connect With Us
+        </h2>
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="bg-white rounded-lg shadow-lg p-8">
+            <h3 class="text-xl font-semibold text-gray-800 mb-6">
+              Send a Message
+            </h3>
+            <form>
+              <div class="mb-4">
+                <label for="name" class="block text-gray-700 mb-2"
+                  >Your Name</label
+                >
+                <input
+                  type="text"
+                  id="name"
+                  class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                />
+              </div>
+              <div class="mb-4">
+                <label for="email" class="block text-gray-700 mb-2"
+                  >Email Address</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                />
+              </div>
+              <div class="mb-4">
+                <label for="subject" class="block text-gray-700 mb-2"
+                  >Subject</label
+                >
+                <select
+                  id="subject"
+                  class="w-full p-3 pr-8 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary appearance-none bg-white relative"
+                >
+                  <option>General Inquiry</option>
+                  <option>Research Collaboration</option>
+                  <option>Study Materials</option>
+                  <option>Other</option>
+                </select>
+                <div
+                  class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700"
+                >
+                  <i class="ri-arrow-down-s-line"></i>
+                </div>
+              </div>
+              <div class="mb-6">
+                <label for="message" class="block text-gray-700 mb-2"
+                  >Your Message</label
+                >
+                <textarea
+                  id="message"
+                  rows="4"
+                  class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full bg-primary text-white py-3 rounded hover:bg-primary/90 transition-colors !rounded-button whitespace-nowrap"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+          <div>
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+              <h3 class="text-xl font-semibold text-gray-800 mb-6">
+                Contact Information
+              </h3>
+              <div class="space-y-4">
+                <div class="flex items-start">
+                  <div
+                    class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-4 flex-shrink-0"
+                  >
+                    <i class="ri-map-pin-line text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-gray-800">Address</h4>
+                    <p class="text-gray-600 mt-1">
+                      42 Vedic Studies Center, Varanasi, Uttar Pradesh, India
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div
+                    class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-4 flex-shrink-0"
+                  >
+                    <i class="ri-mail-line text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-gray-800">Email</h4>
+                    <p class="text-gray-600 mt-1">info@shaunkasamhita.org</p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div
+                    class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full mr-4 flex-shrink-0"
+                  >
+                    <i class="ri-phone-line text-primary"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-medium text-gray-800">Phone</h4>
+                    <p class="text-gray-600 mt-1">+91 542 123 4567</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white rounded-lg shadow-lg p-8">
+              <h3 class="text-xl font-semibold text-gray-800 mb-6">
+                Subscribe to Newsletter
+              </h3>
+              <p class="text-gray-600 mb-4">
+                Stay updated with the latest research and events related to
+                Vedic studies.
+              </p>
+              <div class="flex">
+                <input
+                  type="email"
+                  placeholder="Your email address"
+                  class="flex-grow p-3 border border-gray-300 rounded-l focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+                />
+                <button
+                  class="bg-primary text-white px-6 py-3 rounded-r hover:bg-primary/90 transition-colors !rounded-button whitespace-nowrap"
+                >
+                  Subscribe
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-2xl mb-4 font-medium">Shaunka Samhita</h3>
+            <p class="text-gray-400 mb-6">
+              Preserving and promoting the ancient wisdom of Vedic literature
+              for the modern world.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center bg-gray-700 hover:bg-primary rounded-full transition-colors"
+              >
+                <i class="ri-facebook-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center bg-gray-700 hover:bg-primary rounded-full transition-colors"
+              >
+                <i class="ri-twitter-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center bg-gray-700 hover:bg-primary rounded-full transition-colors"
+              >
+                <i class="ri-instagram-fill"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center bg-gray-700 hover:bg-primary rounded-full transition-colors"
+              >
+                <i class="ri-youtube-fill"></i>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#home"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#scriptures"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Scriptures</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#quiz"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Knowledge Quiz</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Research Papers</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Events & Workshops</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold mb-4">Resources</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Digital Library</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Sanskrit Learning</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Vedic Chanting</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Academic Research</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-400 hover:text-white transition-colors"
+                  >Terms of Service</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400">
+            © 2025 Shaunka Samhita Research Institute. All rights reserved.
+          </p>
+          <div class="mt-4 md:mt-0 flex space-x-4">
+            <img
+              src="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/icons/Logos/visa-fill.svg"
+              alt="Visa"
+              class="h-8"
+            />
+            <img
+              src="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/icons/Logos/mastercard-fill.svg"
+              alt="Mastercard"
+              class="h-8"
+            />
+            <img
+              src="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/icons/Logos/paypal-fill.svg"
+              alt="PayPal"
+              class="h-8"
+            />
+          </div>
+        </div>
+      </div>
+    </footer><!-- Right Sidebar - Chatbot -->
+      
+    <!-- Chat Box Trigger Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button id="chatToggle" class="bg-primary text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all w-16 h-16 flex items-center justify-center">
+          <i class="fas fa-comment-dots text-2xl"></i>
+        </button>
+    </div>
+    
+    <!-- Chat Container -->
+    <div id="chatContainer" class="fixed bottom-24 right-6 w-full max-w-sm hidden z-50">
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-[600px]">
+        <!-- Header -->
+        <div class="bg-primary text-white p-4 flex items-center justify-between">
+          <div class="flex items-center">
+            <div class="w-10 h-10 flex items-center justify-center bg-white/20 rounded-full mr-3">
+              <i class="fas fa-robot text-white"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold">संस्कृत सहायक</h3>
+              <p class="text-xs text-white/80">संस्कृत सम्बन्धी प्रश्न पूछें</p>
+            </div>
+          </div>
+          <button id="closeChat" class="w-8 h-8 flex items-center justify-center bg-white/10 rounded-full hover:bg-white/20">
+            <i class="fas fa-times text-white"></i>
+          </button>
+        </div>
+    
+        <!-- Chat History -->
+        <div id="chatHistory" class="flex-1 p-4 overflow-y-auto space-y-4 bg-gray-50 custom-scrollbar">
+          <!-- Messages will be loaded here -->
+        </div>
+    
+        <!-- Input Box -->
+        <div class="border-t border-gray-200 p-4">
+          <div class="flex items-center">
+            <div class="flex-1 relative">
+              <input id="userInput" type="text" placeholder="Type your message..." class="w-full border-none bg-gray-100 rounded-full py-2 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-primary/50">
+              <button class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-primary">
+                <i class="fas fa-smile"></i>
+              </button>
+            </div>
+            <button onclick="sendMessage()" class="ml-2 w-10 h-10 flex items-center justify-center bg-primary rounded-full text-white hover:bg-primary/80">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- SCRIPT -->
+    <script>
+    // Load saved chat history
+    let chatHistory = JSON.parse(localStorage.getItem('sanskritChat')) || [];
+    
+    // Toggle Chat Box
+    document.getElementById('chatToggle').addEventListener('click', () => {
+        const chatContainer = document.getElementById('chatContainer');
+        chatContainer.classList.toggle('hidden');
+        loadChatHistory();
+    });
+    
+    // Close Chat
+    document.getElementById('closeChat').addEventListener('click', () => {
+        document.getElementById('chatContainer').classList.add('hidden');
+    });
+    
+    // Load Chat History
+    function loadChatHistory() {
+        const historyDiv = document.getElementById('chatHistory');
+        historyDiv.innerHTML = chatHistory.map(msg => `
+            <div class="flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}">
+                <div class="max-w-[80%] ${msg.role === 'user' 
+                    ? 'bg-primary/10 text-gray-700 rounded-lg rounded-tr-none p-3'
+                    : 'bg-gray-100 text-gray-700 rounded-lg rounded-tl-none p-3'}">
+                    ${marked.parse(msg.content)}
+                    <div class="text-xs text-gray-400 mt-1 ${msg.role === 'user' ? 'text-right' : 'text-left'}">
+                      ${new Date(msg.timestamp).toLocaleTimeString()}
+                    </div>
+                </div>
+            </div>
+        `).join('');
+        historyDiv.scrollTop = historyDiv.scrollHeight;
+    }
+    
+    // Send Message
+    async function sendMessage() {
+        const input = document.getElementById('userInput');
+        const message = input.value.trim();
+        if (!message) return;
+        input.value = '';
+    
+        // Push user message
+        chatHistory.push({ role: 'user', content: message, timestamp: new Date().toISOString() });
+    
+        // Show loading message
+        chatHistory.push({ role: 'assistant', content: 'प्रतीक्षा कुरु...', timestamp: new Date().toISOString() });
+        loadChatHistory();
+    
+        try {
+            const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer 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',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    model: 'deepseek/deepseek-r1:free',
+                    messages: [{ role: 'user', content: message }],
+                }),
+            });
+    
+            const data = await response.json();
+            const botResponse = data.choices?.[0]?.message?.content || 'उत्तरं प्राप्तुं अशक्यम्';
+    
+            chatHistory.pop(); // Remove loading
+            chatHistory.push({ role: 'assistant', content: botResponse, timestamp: new Date().toISOString() });
+            localStorage.setItem('sanskritChat', JSON.stringify(chatHistory));
+            loadChatHistory();
+        } catch (error) {
+            console.error('Error:', error);
+            chatHistory.pop();
+            chatHistory.push({ role: 'assistant', content: 'त्रुटिः! पुनः प्रयत्नं कुरुत।', timestamp: new Date().toISOString() });
+            loadChatHistory();
+        }
+    }
+    
+    // Send on Enter Key
+    document.getElementById('userInput').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') sendMessage();
+    });
+    </script>
+    
+    <style>
+    /* Custom Scrollbar */
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 8px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background-color: rgba(0,0,0,0.2);
+      border-radius: 4px;
+    }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute("href"));
+            if (target) {
+              window.scrollTo({
+                top: target.offsetTop - 80,
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        // Quiz options selection
+        const quizOptions = document.querySelectorAll(".quiz-option");
+        quizOptions.forEach((option) => {
+          option.addEventListener("click", function () {
+            const input = this.querySelector("input");
+            if (input.type === "radio") {
+              const name = input.getAttribute("name");
+              document.querySelectorAll(`input[name="${name}"]`).forEach((radio) => {
+                radio.checked = false;
+              });
+              input.checked = true;
+            } else if (input.type === "checkbox") {
+              input.checked = !input.checked;
+            }
+          });
+        });
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        // Chat functionality
+        const chatInput = document.querySelector(".chat-container + div input");
+        const chatSendButton = document.querySelector(".chat-container + div button");
+        const chatContainer = document.querySelector(".chat-container");
+        function sendMessage() {
+          const message = chatInput.value.trim();
+          if (message) {
+            // Add user message
+            const userMessageHtml = `
+      <div class="flex items-start self-end">
+      <div class="bg-primary/10 rounded-lg p-3 max-w-[80%]">
+      <p class="text-gray-800">${message}</p>
+      </div>
+      <div class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full ml-2 flex-shrink-0">
+      <i class="ri-user-line text-gray-600"></i>
+      </div>
+      </div>
+      `;
+            chatContainer.insertAdjacentHTML("beforeend", userMessageHtml);
+            chatInput.value = "";
+            // Simulate bot response after a short delay
+            setTimeout(() => {
+              const botResponses = [
+                "Thank you for your question about the Shaunka Samhita. This text is one of the most important recensions of the Atharvaveda.",
+                "The Shaunka Samhita contains approximately 730 hymns organized into 20 books.",
+                "Many scholars believe the text was compiled between 1000-800 BCE, during the later Vedic period.",
+                "I'd be happy to provide more specific information about any aspect of the Shaunka Samhita you're interested in.",
+              ];
+              const randomResponse =
+                botResponses[Math.floor(Math.random() * botResponses.length)];
+              const botMessageHtml = `
+      <div class="flex items-start">
+      <div class="w-8 h-8 flex items-center justify-center bg-primary/10 rounded-full mr-2 flex-shrink-0">
+      <i class="ri-robot-line text-primary"></i>
+      </div>
+      <div class="bg-gray-100 rounded-lg p-3 max-w-[80%]">
+      <p class="text-gray-800">${randomResponse}</p>
+      </div>
+      </div>
+      `;
+              chatContainer.insertAdjacentHTML("beforeend", botMessageHtml);
+              chatContainer.scrollTop = chatContainer.scrollHeight;
+            }, 1000);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+          }
+        }
+        chatSendButton.addEventListener("click", sendMessage);
+        chatInput.addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            sendMessage();
+          }
+        });
+        // Quick question buttons
+        const quickQuestionButtons = document.querySelectorAll(".mt-4 button");
+        quickQuestionButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            chatInput.value = this.textContent;
+            sendMessage();
+          });
+        });
+      });
+      document.addEventListener('DOMContentLoaded', function() {
+            // Quiz functionality
+            const quizContainer = document.getElementById('quiz-container');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const currentQuestionEl = document.getElementById('current-question');
+            const progressBar = document.getElementById('progress-bar');
+            const scoreEl = document.getElementById('score');
+            const scoreBar = document.getElementById('score-bar');
+            const restartBtn = document.getElementById('restart-quiz');
+            
+            let currentQuestion = 1;
+            const totalQuestions = 5;
+            let score = 0;
+            let answered = {};
+            
+            function updateQuestion() {
+    // Hide all questions
+    document.querySelectorAll('.question-slide').forEach(slide => {
+        slide.classList.add('hidden');
+    });
+    
+    // Show current question
+    const currentSlide = currentQuestion > totalQuestions 
+        ? document.querySelector('[data-question="results"]')
+        : document.querySelector(`[data-question="${currentQuestion}"]`);
+    currentSlide.classList.remove('hidden');
+    
+    // Update progress
+    if (currentQuestion <= totalQuestions) {
+        currentQuestionEl.textContent = currentQuestion;
+        progressBar.style.width = `${(currentQuestion / totalQuestions) * 100}%`;
+    }
+    
+    // Update buttons
+    prevBtn.disabled = currentQuestion === 1;
+    if (currentQuestion > totalQuestions) {
+        nextBtn.style.display = 'none';
+        
+        // Update score
+        scoreEl.textContent = score;
+        scoreBar.style.width = `${(score / totalQuestions) * 100}%`;
+        
+        // Get result elements
+        const resultIcon = document.getElementById('result-icon');
+        const resultTitle = document.getElementById('result-title');
+        const perfectMsg = document.getElementById('perfect-score-message');
+        const retakeMsg = document.getElementById('retake-message');
+        const restartBtn = document.getElementById('restart-quiz');
+        
+        // Clear previous classes
+        resultIcon.className = 'w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4';
+        scoreBar.className = 'h-4 rounded-full';
+        
+        if (score === totalQuestions) {
+            // Perfect score - show success message and hide retake button
+            resultIcon.innerHTML = '<i class="ri-checkbox-circle-fill text-green-500 text-4xl"></i>';
+            resultIcon.classList.add('bg-green-100');
+            resultTitle.textContent = 'Perfect Score! Course Completed!';
+            scoreBar.classList.add('bg-green-500');
+            perfectMsg.classList.remove('hidden');
+            retakeMsg.classList.add('hidden');
+            restartBtn.classList.add('hidden'); // Hide retake button
+        } else if (score >= totalQuestions * 0.6) { // 60% or above
+            // Good score - show retake button
+            resultIcon.innerHTML = '<i class="ri-emotion-happy-fill text-blue-500 text-4xl"></i>';
+            resultIcon.classList.add('bg-blue-100');
+            resultTitle.textContent = 'Good Job!';
+            scoreBar.classList.add('bg-primary');
+            perfectMsg.classList.add('hidden');
+            retakeMsg.classList.add('hidden');
+            restartBtn.classList.remove('hidden');
+        } else {
+            // Needs improvement - show retake button
+            resultIcon.innerHTML = '<i class="ri-emotion-unhappy-fill text-orange-500 text-4xl"></i>';
+            resultIcon.classList.add('bg-orange-100');
+            resultTitle.textContent = 'Keep Practicing!';
+            scoreBar.classList.add('bg-orange-500');
+            perfectMsg.classList.add('hidden');
+            retakeMsg.classList.remove('hidden');
+            restartBtn.classList.remove('hidden');
+        }
+    } else {
+        nextBtn.style.display = 'block';
+        nextBtn.textContent = currentQuestion === totalQuestions ? 'Finish' : 'Next';
+    }
+}
+            
+            prevBtn.addEventListener('click', function() {
+                if (currentQuestion > 1) {
+                    currentQuestion--;
+                    updateQuestion();
+                }
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                if (currentQuestion <= totalQuestions) {
+                    // If not answered, show alert
+                    if (!answered[currentQuestion]) {
+                        alert('Please select an answer before proceeding.');
+                        return;
+                    }
+                    
+                    currentQuestion++;
+                    updateQuestion();
+                }
+            });
+            
+            restartBtn.addEventListener('click', function() {
+                currentQuestion = 1;
+                score = 0;
+                answered = {};
+                
+                // Reset all options
+                document.querySelectorAll('.mcq-option').forEach(option => {
+                    option.classList.remove('selected', 'correct', 'incorrect');
+                });
+                
+                updateQuestion();
+            });
+            
+            // Handle option selection
+            document.querySelectorAll('.mcq-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const questionNumber = parseInt(this.closest('.question-slide').dataset.question);
+                    
+                    // If already answered, return
+                    if (answered[questionNumber]) return;
+                    
+                    // Mark as answered
+                    answered[questionNumber] = true;
+                    
+                    // Get all options for this question
+                    const options = this.closest('.question-slide').querySelectorAll('.mcq-option');
+                    
+                    // Select this option
+                    this.classList.add('selected');
+                    
+                    // Check if correct
+                    const isCorrect = this.hasAttribute('data-correct');
+                    if (isCorrect) {
+                        score++;
+                        this.classList.add('correct');
+                    } else {
+                        this.classList.add('incorrect');
+                        
+                        // Show correct answer
+                        options.forEach(opt => {
+                            if (opt.hasAttribute('data-correct')) {
+                                opt.classList.add('correct');
+                            }
+                        });
+                    }
+                });
+            });
+            
+            // Initialize
+            updateQuestion();
+        });
+    </script>
+  </body>
+</html>

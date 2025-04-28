@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shakala Samhita</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#6d4c41", secondary: "#8d6e63" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+      font-family: 'Inter', sans-serif;
+      }
+      h1, h2, h3, h4, h5, h6 {
+      font-family: 'Inter', sans-serif;
+      }
+      .progress-ring {
+      transform: rotate(-90deg);
+      }
+      .progress-ring-circle {
+      stroke-dasharray: 283;
+      transition: stroke-dashoffset 0.5s ease;
+      }
+      input[type="range"] {
+      -webkit-appearance: none;
+      width: 100%;
+      height: 6px;
+      background: #e5e7eb;
+      border-radius: 5px;
+      outline: none;
+      }
+      input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px;
+      height: 18px;
+      background: #6d4c41;
+      border-radius: 50%;
+      cursor: pointer;
+      }
+      .chat-container {
+      transition: transform 0.3s ease;
+      }
+      .chat-container.minimized {
+      transform: translateY(calc(100% - 50px));
+      }
+      .quiz-option {
+      transition: all 0.2s ease;
+      }
+      .quiz-option:hover {
+      background-color: #f3f4f6;
+      }
+      .quiz-option.selected {
+      background-color: rgba(109, 76, 65, 0.1);
+      border-color: #6d4c41;
+      }
+      .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      }
+      .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <header class="bg-white shadow-sm">
+      <div class="container mx-auto px-4">
+        <div class="flex items-center justify-between h-16">
+          <a href="#" class="text-2xl font-['Pacifico'] text-primary">Shakala Samhita</a>
+          <nav class="hidden md:flex space-x-8">
+            <a href="#" class="text-gray-700 hover:text-primary">Home</a>
+            <a href="#" class="text-gray-700 hover:text-primary">About</a>
+            <a href="#" class="text-gray-700 hover:text-primary">Courses</a>
+            <a href="#" class="text-gray-700 hover:text-primary">Resources</a>
+            <a href="#" class="text-gray-700 hover:text-primary">Contact</a>
+          </nav>
+          <div class="flex items-center space-x-4">
+            <button class="text-gray-700 hover:text-primary">
+              <div class="w-6 h-6 flex items-center justify-center">
+                <i class="ri-search-line"></i>
+              </div>
+            </button>
+            <button
+              class="bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap"
+            >
+              Sign In
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- Hero Image Section -->
+    <div class="relative w-full h-[400px] overflow-hidden">
+      <div
+        style="background-image: url('https://readdy.ai/api/search-image?query=Ancient%20Vedic%20manuscript%20with%20Sanskrit%20text%2C%20detailed%20view%20of%20aged%20palm%20leaf%20or%20paper%20with%20intricate%20calligraphy%2C%20warm%20golden%20light%20illuminating%20the%20sacred%20text%2C%20rich%20texture%20and%20patina%20showing%20age%20and%20reverence%2C%20spiritual%20and%20historical%20artifact&width=1200&height=400&seq=1&orientation=landscape');"
+        class="absolute inset-0 bg-cover bg-center"
+      ></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent"
+      ></div>
+      <div
+        class="container mx-auto px-4 h-full flex items-center relative z-10"
+      >
+        <div class="max-w-2xl">
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">
+            Shakala Samhita
+          </h1>
+          <p class="text-xl text-white/90">
+            Explore the ancient wisdom of the Rigveda's most comprehensive
+            recension
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="container mx-auto px-4 py-8 flex flex-col lg:flex-row gap-8">
+      <!-- Main Content Area -->
+      <div class="w-full lg:w-3/4">
+        <!-- Main Content Section -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h2 class="text-3xl font-semibold text-gray-800 mb-6">
+            The Shakala Samhita: Foundation of Rigvedic Tradition
+          </h2>
+          <div class="prose max-w-none">
+            <p class="mb-4">
+              The Shakala Samhita stands as the most complete and widely studied
+              recension of the Rigveda, one of the four sacred texts that form
+              the foundation of Vedic literature. Dating back to approximately
+              1500-1200 BCE, this ancient collection has been meticulously
+              preserved through an unbroken oral tradition for millennia before
+              being committed to writing.
+            </p>
+            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">
+              Structure and Organization
+            </h3>
+            <p class="mb-4">
+              The Shakala Samhita is organized in two distinct systems:
+            </p>
+            <div class="mb-6">
+              <h4 class="text-xl font-medium text-gray-800 mb-2">
+                Astaka Krama (Eight-Part Division)
+              </h4>
+              <p class="mb-4">
+                This arrangement divides the text into 8 Ashtakas (eighths),
+                each containing 8 Adhyayas (chapters), which are further
+                subdivided into Vargas (groups of verses). This system was
+                primarily used for memorization and recitation purposes.
+              </p>
+            </div>
+            <div class="mb-6">
+              <h4 class="text-xl font-medium text-gray-800 mb-2">
+                Mandala Krama (Circle Division)
+              </h4>
+              <p class="mb-4">
+                The more commonly referenced organization consists of 10
+                Mandalas (books or circles), containing a total of 1,028 Suktas
+                (hymns) and 10,600 Mantras (verses). Each Mandala is associated
+                with specific rishi families and deities:
+              </p>
+              <ul class="list-disc pl-6 mb-4">
+                <li class="mb-2">
+                  Mandalas 2-7: The "family books" attributed to specific rishi
+                  lineages
+                </li>
+                <li class="mb-2">
+                  Mandala 1 & 8: Collections from various families
+                </li>
+                <li class="mb-2">Mandala 9: Dedicated to Soma hymns</li>
+                <li class="mb-2">
+                  Mandala 10: Later additions with philosophical inquiries
+                </li>
+              </ul>
+            </div>
+            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">
+              Cultural and Historical Significance
+            </h3>
+            <p class="mb-4">
+              The Shakala Samhita provides invaluable insights into the
+              religious practices, social structures, and philosophical concepts
+              of ancient Vedic society. Its hymns address a pantheon of deities
+              including Indra, Agni, Varuna, and many others, while also
+              containing some of the earliest recorded philosophical
+              speculations about the nature of existence, creation, and cosmic
+              order (rta).
+            </p>
+            <p class="mb-4">
+              As the most complete surviving recension of the Rigveda, the
+              Shakala Samhita has been crucial for understanding the development
+              of Hindu thought and practice. Its influence extends beyond
+              religious contexts into linguistics, history, and comparative
+              mythology.
+            </p>
+            <h3 class="text-2xl font-semibold text-gray-800 mt-6 mb-3">
+              Preservation and Transmission
+            </h3>
+            <p class="mb-4">
+              The remarkable preservation of the Shakala Samhita over thousands
+              of years was achieved through sophisticated memorization
+              techniques and strict recitation rules. The text was transmitted
+              with such precision that scholars have noted minimal variations
+              despite its vast scope and the lengthy period of oral
+              transmission.
+            </p>
+            <p>
+              Today, the study of the Shakala Samhita continues to be an
+              important aspect of Vedic scholarship, offering insights into one
+              of humanity's oldest religious and philosophical traditions.
+            </p>
+          </div>
+        </div>
+        <!-- Progress Tracker Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <!-- Astaka Krama Card -->
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-semibold text-gray-800">Astaka Krama</h3>
+              <div class="w-20 h-20 relative">
+                <svg class="progress-ring" width="80" height="80">
+                  <circle
+                    class="progress-ring-circle"
+                    stroke="#e5e7eb"
+                    stroke-width="6"
+                    fill="transparent"
+                    r="35"
+                    cx="40"
+                    cy="40"
+                  />
+                  <circle
+                    class="progress-ring-circle"
+                    stroke="#6d4c41"
+                    stroke-width="6"
+                    fill="transparent"
+                    r="35"
+                    cx="40"
+                    cy="40"
+                    stroke-dashoffset="177"
+                  />
+                </svg>
+                <div
+                  class="absolute inset-0 flex items-center justify-center text-lg font-semibold"
+                >
+                  37%
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 mb-4">
+              You've completed 3 of 8 Ashtakas in the traditional eight-part
+              division of the Rigveda.
+            </p>
+            <div
+              class="flex justify-between items-center text-sm text-gray-500 mb-4"
+            >
+              <span>Ashtaka 3 of 8</span>
+              <span>24 Adhyayas completed</span>
+            </div>
+            <button
+              class="w-full bg-primary hover:bg-primary/90 text-white py-2 px-4 !rounded-button flex items-center justify-center whitespace-nowrap"
+            >
+              <span>Continue Learning</span>
+              <div class="w-5 h-5 ml-2 flex items-center justify-center">
+                <i class="ri-arrow-right-line"></i>
+              </div>
+            </button>
+          </div>
+          <!-- Mandala Krama Card -->
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="text-xl font-semibold text-gray-800">Mandala Krama</h3>
+              <div class="w-20 h-20 relative">
+                <svg class="progress-ring" width="80" height="80">
+                  <circle
+                    class="progress-ring-circle"
+                    stroke="#e5e7eb"
+                    stroke-width="6"
+                    fill="transparent"
+                    r="35"
+                    cx="40"
+                    cy="40"
+                  />
+                  <circle
+                    class="progress-ring-circle"
+                    stroke="#8d6e63"
+                    stroke-width="6"
+                    fill="transparent"
+                    r="35"
+                    cx="40"
+                    cy="40"
+                    stroke-dashoffset="113"
+                  />
+                </svg>
+                <div
+                  class="absolute inset-0 flex items-center justify-center text-lg font-semibold"
+                >
+                  60%
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 mb-4">
+              You've studied 6 of 10 Mandalas in the circle-based organization
+              of the Rigveda.
+            </p>
+            <div
+              class="flex justify-between items-center text-sm text-gray-500 mb-4"
+            >
+              <span>Mandala 6 of 10</span>
+              <span>412 Suktas completed</span>
+            </div>
+            <button
+              class="w-full bg-secondary hover:bg-secondary/90 text-white py-2 px-4 !rounded-button flex items-center justify-center whitespace-nowrap"
+            >
+              <span>Review Progress</span>
+              <div class="w-5 h-5 ml-2 flex items-center justify-center">
+                <i class="ri-file-list-3-line"></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <!-- Video Section -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+            Vedic Recitation Demonstration
+          </h3>
+          <div class="video-container mb-4">
+            <div
+              class="absolute inset-0 flex items-center justify-center bg-gray-200 rounded"
+            >
+              <div class="text-center">
+                <div
+                  class="w-16 h-16 mx-auto bg-primary/90 rounded-full flex items-center justify-center cursor-pointer"
+                >
+                  <div class="w-6 h-6 flex items-center justify-center">
+                    <i class="ri-play-fill text-white ri-2x"></i>
+                  </div>
+                </div>
+                <p class="mt-3 text-gray-700">Click to play video</p>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-600">
+            This video demonstrates the traditional method of Shakala Samhita
+            recitation, highlighting the precise pronunciation, rhythm, and
+            tonal variations essential for preserving the integrity of the
+            sacred text.
+          </p>
+          <div class="mt-4">
+            <p class="text-sm text-gray-500 mb-2">Video Progress</p>
+            <input type="range" min="0" max="100" value="45" class="w-full" />
+            <div class="flex justify-between text-xs text-gray-500 mt-1">
+              <span>0:00</span>
+              <span>7:32</span>
+            </div>
+          </div>
+        </div>
+        <!-- Quiz Section -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <h3 class="text-2xl font-semibold text-gray-800 mb-6">
+            Test Your Knowledge
+          </h3>
+          <div class="mb-8">
+            <h4 class="text-lg font-medium text-gray-800 mb-3">
+              Question 1 of 5
+            </h4>
+            <p class="text-gray-700 mb-4">
+              Which of the following Mandalas in the Shakala Samhita is
+              dedicated specifically to Soma hymns?
+            </p>
+            <div class="space-y-3">
+              <div
+                class="quiz-option border border-gray-200 rounded p-3 cursor-pointer"
+              >
+                <label class="flex items-center cursor-pointer">
+                  <input type="radio" name="q1" class="hidden" />
+                  <div
+                    class="w-5 h-5 border border-gray-300 rounded-full mr-3 flex items-center justify-center"
+                  >
+                    <div class="w-3 h-3 rounded-full bg-primary hidden"></div>
+                  </div>
+                  <span>Mandala 1</span>
+                </label>
+              </div>
+              <div
+                class="quiz-option border border-gray-200 rounded p-3 cursor-pointer"
+              >
+                <label class="flex items-center cursor-pointer">
+                  <input type="radio" name="q1" class="hidden" />
+                  <div
+                    class="w-5 h-5 border border-gray-300 rounded-full mr-3 flex items-center justify-center"
+                  >
+                    <div class="w-3 h-3 rounded-full bg-primary hidden"></div>
+                  </div>
+                  <span>Mandala 5</span>
+                </label>
+              </div>
+              <div
+                class="quiz-option border border-gray-200 rounded p-3 cursor-pointer selected"
+              >
+                <label class="flex items-center cursor-pointer">
+                  <input type="radio" name="q1" class="hidden" checked />
+                  <div
+                    class="w-5 h-5 border border-primary rounded-full mr-3 flex items-center justify-center"
+                  >
+                    <div class="w-3 h-3 rounded-full bg-primary"></div>
+                  </div>
+                  <span>Mandala 9</span>
+                </label>
+              </div>
+              <div
+                class="quiz-option border border-gray-200 rounded p-3 cursor-pointer"
+              >
+                <label class="flex items-center cursor-pointer">
+                  <input type="radio" name="q1" class="hidden" />
+                  <div
+                    class="w-5 h-5 border border-gray-300 rounded-full mr-3 flex items-center justify-center"
+                  >
+                    <div class="w-3 h-3 rounded-full bg-primary hidden"></div>
+                  </div>
+                  <span>Mandala 10</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="mb-8">
+            <h4 class="text-lg font-medium text-gray-800 mb-3">
+              Question 2 of 5
+            </h4>
+            <p class="text-gray-700 mb-4">
+              How many total Suktas (hymns) are contained in the Shakala
+              Samhita?
+            </p>
+            <div class="space-y-3">
+              <div
+                class="quiz-option border border-gray-200 rounded p-3 cursor-pointer"
+              >
+                <label class="flex items-center cursor-pointer">
+                  <input type="radio" name="q2" class="hidden" />
+                  <div
+                    class="w-5 h-5 border border-gray-300 rounded-full mr-3 flex items-center justify-center"
+                  >
+                    <div class="w-3 h-3 rounded-full bg-primary hidden"></div>
+                  </div>
+                  <span>864</span>
+                </label>
+              </div>
+              <div
+                class="quiz-option border border-gray-200 rounded p-3 cursor-pointer selected"
+              >
+                <label class="flex items-center cursor-pointer">
+                  <input type="radio" name="q2" class="hidden" checked />
+                  <div
+                    class="w-5 h-5 border border-primary rounded-full mr-3 flex items-center justify-center"
+                  >
+                    <div class="w-3 h-3 rounded-full bg-primary"></div>
+                  </div>
+                  <span>1,028</span>
+                </label>
+              </div>
+              <div
+                class="quiz-option border border-gray-200 rounded p-3 cursor-pointer"
+              >
+                <label class="flex items-center cursor-pointer">
+                  <input type="radio" name="q2" class="hidden" />
+                  <div
+                    class="w-5 h-5 border border-gray-300 rounded-full mr-3 flex items-center justify-center"
+                  >
+                    <div class="w-3 h-3 rounded-full bg-primary hidden"></div>
+                  </div>
+                  <span>1,549</span>
+                </label>
+              </div>
+              <div
+                class="quiz-option border border-gray-200 rounded p-3 cursor-pointer"
+              >
+                <label class="flex items-center cursor-pointer">
+                  <input type="radio" name="q2" class="hidden" />
+                  <div
+                    class="w-5 h-5 border border-gray-300 rounded-full mr-3 flex items-center justify-center"
+                  >
+                    <div class="w-3 h-3 rounded-full bg-primary hidden"></div>
+                  </div>
+                  <span>10,600</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <button
+            class="bg-primary hover:bg-primary/90 text-white py-2 px-6 !rounded-button whitespace-nowrap"
+          >
+            Submit Answers
+          </button>
+        </div>
+      </div>
+      <!-- Chatbot Sidebar -->
+      <div class="w-full lg:w-1/4 relative">
+        <div class="sticky top-4">
+          <div
+            class="chat-container bg-white rounded-lg shadow-md overflow-hidden"
+          >
+            <div
+              class="bg-primary text-white p-4 flex justify-between items-center"
+            >
+              <h3 class="font-medium">Vedic Guide Assistant</h3>
+              <div class="flex">
+                <button
+                  id="minimizeChat"
+                  class="w-6 h-6 flex items-center justify-center text-white"
+                >
+                  <i class="ri-subtract-line"></i>
+                </button>
+              </div>
+            </div>
+            <div class="h-80 overflow-y-auto p-4 bg-gray-50">
+              <div class="flex flex-col gap-3">
+                <div class="bg-gray-200 rounded-lg p-3 max-w-[80%] self-start">
+                  <p class="text-sm">
+                    Welcome to your Shakala Samhita study guide! How can I
+                    assist you today?
+                  </p>
+                </div>
+                <div class="bg-primary/10 rounded-lg p-3 max-w-[80%] self-end">
+                  <p class="text-sm">
+                    Can you explain the difference between Astaka and Mandala
+                    organization?
+                  </p>
+                </div>
+                <div class="bg-gray-200 rounded-lg p-3 max-w-[80%] self-start">
+                  <p class="text-sm">
+                    Certainly! The Astaka system divides the text into 8 parts
+                    for memorization purposes, while the Mandala system
+                    organizes it into 10 books based on authorship and content
+                    themes. The Mandala system is more commonly used for
+                    scholarly analysis.
+                  </p>
+                </div>
+                <div class="bg-primary/10 rounded-lg p-3 max-w-[80%] self-end">
+                  <p class="text-sm">
+                    Which Mandala should I study next after completing Mandala
+                    6?
+                  </p>
+                </div>
+                <div class="bg-gray-200 rounded-lg p-3 max-w-[80%] self-start">
+                  <p class="text-sm">
+                    I recommend proceeding to Mandala 7, which contains hymns
+                    attributed to the sage Vasishtha and his descendants. It has
+                    important hymns to Agni, Indra, and the Maruts that build on
+                    concepts you've already studied in Mandala 6.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="p-3 border-t border-gray-200">
+              <div class="flex">
+                <input
+                  type="text"
+                  placeholder="Type your question..."
+                  class="w-full border-none bg-gray-100 rounded-l-lg py-2 px-3 focus:outline-none text-sm"
+                />
+                <button
+                  class="bg-primary text-white rounded-r-lg px-3 flex items-center justify-center"
+                >
+                  <div class="w-5 h-5 flex items-center justify-center">
+                    <i class="ri-send-plane-fill"></i>
+                  </div>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Chatbot minimize functionality
+        const minimizeButton = document.getElementById("minimizeChat");
+        const chatContainer = document.querySelector(".chat-container");
+        minimizeButton.addEventListener("click", function () {
+          chatContainer.classList.toggle("minimized");
+          minimizeButton.innerHTML = chatContainer.classList.contains("minimized")
+            ? '<i class="ri-fullscreen-line"></i>'
+            : '<i class="ri-subtract-line"></i>';
+        });
+        // Quiz option selection
+        const quizOptions = document.querySelectorAll(".quiz-option");
+        quizOptions.forEach((option) => {
+          option.addEventListener("click", function () {
+            // Get the name of the question group
+            const radioInput = this.querySelector('input[type="radio"]');
+            const name = radioInput.getAttribute("name");
+            // Remove selected class from all options in this question group
+            document
+              .querySelectorAll(`.quiz-option input[name="${name}"]`)
+              .forEach((input) => {
+                input.closest(".quiz-option").classList.remove("selected");
+                input.checked = false;
+                const circle = input.nextElementSibling.querySelector("div");
+                circle.classList.add("hidden");
+                input.nextElementSibling.classList.remove("border-primary");
+                input.nextElementSibling.classList.add("border-gray-300");
+              });
+            // Add selected class to this option
+            this.classList.add("selected");
+            radioInput.checked = true;
+            const circle = radioInput.nextElementSibling.querySelector("div");
+            circle.classList.remove("hidden");
+            radioInput.nextElementSibling.classList.add("border-primary");
+            radioInput.nextElementSibling.classList.remove("border-gray-300");
+          });
+        });
+      });
+    </script>
+    <footer class="bg-white border-t mt-12">
+      <div class="container mx-auto px-4 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <a
+              href="#"
+              class="text-2xl font-['Pacifico'] text-primary mb-4 block"
+              >logo</a
+            >
+            <p class="text-gray-600 text-sm">
+              Explore the ancient wisdom of Vedic literature through our
+              comprehensive learning platform.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-900 mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary">Courses</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary"
+                  >Resources</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-900 mb-4">Resources</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary"
+                  >Study Materials</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary"
+                  >Video Lectures</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary"
+                  >Research Papers</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary"
+                  >Community</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold text-gray-900 mb-4">Connect With Us</h4>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-600 hover:text-primary">
+                <div class="w-8 h-8 flex items-center justify-center">
+                  <i class="ri-facebook-fill"></i>
+                </div>
+              </a>
+              <a href="#" class="text-gray-600 hover:text-primary">
+                <div class="w-8 h-8 flex items-center justify-center">
+                  <i class="ri-twitter-fill"></i>
+                </div>
+              </a>
+              <a href="#" class="text-gray-600 hover:text-primary">
+                <div class="w-8 h-8 flex items-center justify-center">
+                  <i class="ri-instagram-fill"></i>
+                </div>
+              </a>
+              <a href="#" class="text-gray-600 hover:text-primary">
+                <div class="w-8 h-8 flex items-center justify-center">
+                  <i class="ri-linkedin-fill"></i>
+                </div>
+              </a>
+            </div>
+            <div class="mt-4">
+              <h5 class="font-semibold text-gray-900 mb-2">
+                Subscribe to Newsletter
+              </h5>
+              <div class="flex">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  class="flex-1 border border-gray-300 rounded-l-lg px-3 py-2 focus:outline-none focus:border-primary text-sm"
+                />
+                <button
+                  class="bg-primary text-white px-4 py-2 rounded-r-lg whitespace-nowrap"
+                >
+                  Subscribe
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-t mt-8 pt-8 text-center text-gray-600">
+          <p>&copy; 2025 Shakala Samhita. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

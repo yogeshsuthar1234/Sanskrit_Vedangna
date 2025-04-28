@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dhanurveda - Ancient Military Science</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#FF6B6B',
+secondary: '#4ECDC4'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+.video-card {
+transition: transform 0.3s ease;
+}
+.video-card:hover {
+transform: translateY(-5px);
+}
+.skill-progress {
+transition: width 1s ease-in-out;
+}
+</style>
+</head>
+<body class="bg-white min-h-screen">
+<header class="bg-gradient-to-r from-primary/10 to-secondary/10">
+<nav class="container mx-auto px-4 py-4 flex items-center justify-between">
+<a href="https://readdy.ai/home/1e2d850a-250b-461c-85e8-b8b7b1ee110f/ea5f5fd3-c5f9-4d28-8f90-91c91074091d" data-readdy="true" class="flex items-center gap-2 text-gray-700 hover:text-primary transition-colors">
+<i class="ri-arrow-left-line text-xl"></i>
+<span>Back to Dashboard</span>
+</a>
+<h1 class="text-2xl font-bold">Dhanurveda</h1>
+<button class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20">
+<i class="ri-search-line text-primary"></i>
+</button>
+</nav>
+</header>
+<main class="container mx-auto px-4 py-8">
+<section class="relative h-[500px] mb-16 rounded-2xl overflow-hidden">
+<img src="https://public.readdy.ai/ai/img_res/9de9e731a2479ee242d035806e93fcf7.jpg" class="absolute inset-0 w-full h-full object-cover">
+<div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent">
+<div class="h-full flex flex-col justify-center max-w-2xl px-8">
+<h2 class="text-5xl font-bold text-white mb-6">Master the Art of Dhanurveda</h2>
+<p class="text-xl text-white/90 mb-8">Explore the ancient military science of India through comprehensive training in martial arts, warfare strategy, and weapon mastery.</p>
+<a href="https://readdy.ai/home/1e2d850a-250b-461c-85e8-b8b7b1ee110f/1b211732-df73-45d5-9efd-144d7e05a685" data-readdy="true" class="bg-primary text-white px-8 py-3 rounded-button text-lg font-semibold hover:bg-primary/90 transition-colors inline-flex items-center gap-2 w-fit">
+Start Learning
+<i class="ri-arrow-right-line"></i>
+</a>
+</div>
+</div>
+</section>
+<section class="mb-16">
+<div class="grid grid-cols-2 gap-8">
+<div class="p-6 bg-white rounded-lg shadow-lg border border-gray-100">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+<i class="ri-sword-line text-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold">Martial Arts Techniques</h3>
+</div>
+<p class="text-gray-600 mb-4">Master ancient combat forms and self-defense techniques passed down through generations.</p>
+<div class="h-2 bg-gray-100 rounded-full mb-2">
+<div class="skill-progress h-full w-[75%] bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+</div>
+<button class="text-primary hover:text-primary/80 font-medium flex items-center gap-2">
+Continue Learning
+<i class="ri-arrow-right-line"></i>
+</button>
+</div>
+<div class="p-6 bg-white rounded-lg shadow-lg border border-gray-100">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+<i class="ri-flag-line text-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold">Military Strategies</h3>
+</div>
+<p class="text-gray-600 mb-4">Learn battlefield tactics, formation techniques, and strategic warfare planning.</p>
+<div class="h-2 bg-gray-100 rounded-full mb-2">
+<div class="skill-progress h-full w-[60%] bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+</div>
+<button class="text-primary hover:text-primary/80 font-medium flex items-center gap-2">
+Continue Learning
+<i class="ri-arrow-right-line"></i>
+</button>
+</div>
+<div class="p-6 bg-white rounded-lg shadow-lg border border-gray-100">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+<i class="ri-bow-arrow-line text-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold">Weapon Mastery</h3>
+</div>
+<p class="text-gray-600 mb-4">Develop proficiency in traditional weapons including archery, swordsmanship, and spear fighting.</p>
+<div class="h-2 bg-gray-100 rounded-full mb-2">
+<div class="skill-progress h-full w-[85%] bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+</div>
+<button class="text-primary hover:text-primary/80 font-medium flex items-center gap-2">
+Continue Learning
+<i class="ri-arrow-right-line"></i>
+</button>
+</div>
+<div class="p-6 bg-white rounded-lg shadow-lg border border-gray-100">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+<i class="ri-book-2-line text-xl text-primary"></i>
+</div>
+<h3 class="text-xl font-semibold">Historical Context</h3>
+</div>
+<p class="text-gray-600 mb-4">Understand the rich history and cultural significance of Dhanurveda in ancient India.</p>
+<div class="h-2 bg-gray-100 rounded-full mb-2">
+<div class="skill-progress h-full w-[70%] bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+</div>
+<button class="text-primary hover:text-primary/80 font-medium flex items-center gap-2">
+Continue Learning
+<i class="ri-arrow-right-line"></i>
+</button>
+</div>
+</div>
+</section>
+<section class="mb-16">
+<h2 class="text-2xl font-bold mb-8">Featured Technique</h2>
+<div class="grid grid-cols-3 gap-8">
+<div class="col-span-2 bg-white rounded-lg shadow-lg overflow-hidden">
+<div class="aspect-video bg-gray-100 relative">
+<img src="https://public.readdy.ai/ai/img_res/3dc0c3e194c0f2b07386f40db39cc1b0.jpg" class="w-full h-full object-cover">
+<button class="absolute inset-0 w-full h-full flex items-center justify-center bg-black/20 hover:bg-black/40 transition-colors group">
+<div class="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center group-hover:scale-110 transition-transform">
+<i class="ri-play-fill text-2xl text-primary"></i>
+</div>
+</button>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-semibold mb-4">Advanced Archery Technique: The Divine Shot</h3>
+<p class="text-gray-600">Master the ancient art of precise archery through proper stance, breathing, and focus techniques.</p>
+</div>
+</div>
+<div class="space-y-4">
+<div class="video-card p-4 bg-white rounded-lg shadow-lg border border-gray-100 flex gap-4">
+<img src="https://public.readdy.ai/ai/img_res/06c5cbe19fbc6229ee59fb88654f2cb4.jpg" class="w-24 h-24 rounded object-cover">
+<div>
+<h4 class="font-semibold mb-2">Sword Fighting Basics</h4>
+<p class="text-sm text-gray-600">Foundation techniques for mastering the sword</p>
+</div>
+</div>
+<div class="video-card p-4 bg-white rounded-lg shadow-lg border border-gray-100 flex gap-4">
+<img src="https://public.readdy.ai/ai/img_res/877b2c1e8fa2b0203b378fa5b204a660.jpg" class="w-24 h-24 rounded object-cover">
+<div>
+<h4 class="font-semibold mb-2">Spear Combat Forms</h4>
+<p class="text-sm text-gray-600">Essential spear fighting movements</p>
+</div>
+</div>
+<div class="video-card p-4 bg-white rounded-lg shadow-lg border border-gray-100 flex gap-4">
+<img src="https://public.readdy.ai/ai/img_res/c360c38f9ac97c05a13aff19cbc04037.jpg" class="w-24 h-24 rounded object-cover">
+<div>
+<h4 class="font-semibold mb-2">Unarmed Combat</h4>
+<p class="text-sm text-gray-600">Hand-to-hand fighting techniques</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="mb-16">
+<h2 class="text-2xl font-bold mb-8">Your Progress</h2>
+<div class="grid grid-cols-3 gap-8">
+<div class="bg-white rounded-lg shadow-lg p-6 border border-gray-100">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-xl font-semibold">Skills Overview</h3>
+<span class="text-sm text-gray-500">Last updated: March 18, 2025</span>
+</div>
+<div id="skillsChart" class="w-full h-[300px]"></div>
+</div>
+<div class="bg-white rounded-lg shadow-lg p-6 border border-gray-100">
+<h3 class="text-xl font-semibold mb-6">Recent Achievements</h3>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+<i class="ri-medal-line text-xl text-primary"></i>
+</div>
+<div>
+<h4 class="font-semibold">Master Archer Level 2</h4>
+<p class="text-sm text-gray-600">Completed advanced archery training</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+<i class="ri-sword-line text-xl text-primary"></i>
+</div>
+<div>
+<h4 class="font-semibold">Sword Fighting Expert</h4>
+<p class="text-sm text-gray-600">Mastered 10 sword fighting forms</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+<i class="ri-book-2-line text-xl text-primary"></i>
+</div>
+<div>
+<h4 class="font-semibold">Theory Master</h4>
+<p class="text-sm text-gray-600">Completed historical studies</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-lg p-6 border border-gray-100">
+<h3 class="text-xl font-semibold mb-6">Upcoming Lessons</h3>
+<div class="space-y-4">
+<div class="p-4 rounded bg-primary/5 border border-primary/10">
+<div class="flex items-center justify-between mb-2">
+<h4 class="font-semibold">Advanced Archery</h4>
+<span class="text-sm text-gray-500">Tomorrow</span>
+</div>
+<p class="text-sm text-gray-600">Master the art of curved shots</p>
+</div>
+<div class="p-4 rounded bg-gray-50 border border-gray-100">
+<div class="flex items-center justify-between mb-2">
+<h4 class="font-semibold">Battle Formations</h4>
+<span class="text-sm text-gray-500">March 21</span>
+</div>
+<p class="text-sm text-gray-600">Learn advanced military formations</p>
+</div>
+<div class="p-4 rounded bg-gray-50 border border-gray-100">
+<div class="flex items-center justify-between mb-2">
+<h4 class="font-semibold">Weapon Care</h4>
+<span class="text-sm text-gray-500">March 23</span>
+</div>
+<p class="text-sm text-gray-600">Maintenance of traditional weapons</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-gradient-to-r from-primary/10 to-secondary/10 py-8">
+<div class="container mx-auto px-4 grid grid-cols-3 gap-8">
+<div>
+<h3 class="text-xl font-semibold mb-4">About Dhanurveda</h3>
+<p class="text-gray-600">Ancient Indian military science encompassing martial arts, warfare strategy, and weapon mastery.</p>
+</div>
+<div>
+<h3 class="text-xl font-semibold mb-4">Quick Links</h3>
+<ul class="space-y-2">
+<li><a href="#" class="text-gray-600 hover:text-primary">Courses</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Resources</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Instructors</a></li>
+<li><a href="#" class="text-gray-600 hover:text-primary">Support</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-xl font-semibold mb-4">Connect</h3>
+<div class="flex gap-4">
+<button class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20">
+<i class="ri-facebook-fill text-primary"></i>
+</button>
+<button class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20">
+<i class="ri-twitter-fill text-primary"></i>
+</button>
+<button class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center hover:bg-primary/20">
+<i class="ri-instagram-fill text-primary"></i>
+</button>
+</div>
+</div>
+</div>
+</footer>
+<script>
+const skillsChart = echarts.init(document.getElementById('skillsChart'));
+const option = {
+animation: false,
+radar: {
+indicator: [
+{ name: 'Archery', max: 100 },
+{ name: 'Sword Fighting', max: 100 },
+{ name: 'Spear Combat', max: 100 },
+{ name: 'Strategy', max: 100 },
+{ name: 'Physical Training', max: 100 },
+{ name: 'Theory', max: 100 }
+],
+radius: '65%'
+},
+series: [{
+type: 'radar',
+data: [{
+value: [85, 70, 65, 80, 75, 90],
+areaStyle: {
+color: 'rgba(255, 107, 107, 0.1)'
+},
+lineStyle: {
+color: '#FF6B6B'
+},
+itemStyle: {
+color: '#FF6B6B'
+}
+}]
+}]
+};
+skillsChart.setOption(option);
+window.addEventListener('resize', () => {
+skillsChart.resize();
+});
+document.querySelectorAll('.video-card').forEach(card => {
+card.addEventListener('click', () => {
+const videoTitle = card.querySelector('h4').textContent;
+const videoDesc = card.querySelector('p').textContent;
+const mainVideo = document.querySelector('.col-span-2');
+mainVideo.querySelector('h3').textContent = videoTitle;
+mainVideo.querySelector('p').textContent = videoDesc;
+});
+});
+</script>
+</body>
+</html>

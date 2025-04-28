@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rigveda Samhita</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#8B4513", secondary: "#D2B48C" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+          font-family: 'Poppins', sans-serif;
+      }
+      h1, h2, h3, h4, h5, h6 {
+          font-family: 'Cormorant Garamond', serif;
+      }
+      .progress-ring {
+          transform: rotate(-90deg);
+      }
+      .progress-ring-circle {
+          transition: stroke-dashoffset 0.3s;
+          stroke-width: 8;
+          stroke-linecap: round;
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+      }
+      .custom-checkbox {
+          position: relative;
+          cursor: pointer;
+      }
+      .custom-checkbox input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+      }
+      .checkmark {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 20px;
+          width: 20px;
+          background-color: #fff;
+          border: 2px solid #8B4513;
+          border-radius: 4px;
+      }
+      .custom-checkbox input:checked ~ .checkmark {
+          background-color: #8B4513;
+      }
+      .checkmark:after {
+          content: "";
+          position: absolute;
+          display: none;
+      }
+      .custom-checkbox input:checked ~ .checkmark:after {
+          display: block;
+      }
+      .custom-checkbox .checkmark:after {
+          left: 6px;
+          top: 2px;
+          width: 5px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+      }
+      .custom-radio {
+          position: relative;
+          cursor: pointer;
+      }
+      .custom-radio input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+      }
+      .radiomark {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 20px;
+          width: 20px;
+          background-color: #fff;
+          border: 2px solid #8B4513;
+          border-radius: 50%;
+      }
+      .custom-radio input:checked ~ .radiomark {
+          background-color: #fff;
+      }
+      .radiomark:after {
+          content: "";
+          position: absolute;
+          display: none;
+      }
+      .custom-radio input:checked ~ .radiomark:after {
+          display: block;
+      }
+      .custom-radio .radiomark:after {
+          top: 3px;
+          left: 3px;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: #8B4513;
+      }
+      .switch {
+          position: relative;
+          display: inline-block;
+          width: 48px;
+          height: 24px;
+      }
+      .switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+      }
+      .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          transition: .3s;
+          border-radius: 24px;
+      }
+      .slider:before {
+          position: absolute;
+          content: "";
+          height: 18px;
+          width: 18px;
+          left: 3px;
+          bottom: 3px;
+          background-color: white;
+          transition: .3s;
+          border-radius: 50%;
+      }
+      input:checked + .slider {
+          background-color: #8B4513;
+      }
+      input:checked + .slider:before {
+          transform: translateX(24px);
+      }
+      .range-slider {
+          -webkit-appearance: none;
+          width: 100%;
+          height: 6px;
+          border-radius: 5px;
+          background: #d7dcdf;
+          outline: none;
+      }
+      .range-slider::-webkit-slider-thumb {
+          -webkit-appearance: none;
+          appearance: none;
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          background: #8B4513;
+          cursor: pointer;
+      }
+      .range-slider::-moz-range-thumb {
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          background: #8B4513;
+          cursor: pointer;
+      }
+    </style>
+  </head>
+  <body class="bg-white min-h-screen">
+    <!-- Header -->
+    <header class="w-full bg-white shadow-sm sticky top-0 z-50">
+      <div
+        class="container mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between"
+      >
+        <div class="flex items-center mb-4 md:mb-0">
+          <h1 class="text-3xl font-bold text-primary">Rigveda Samhita</h1>
+        </div>
+        <nav class="flex">
+          <ul class="flex space-x-8">
+            <li>
+              <a
+                href="#"
+                class="text-gray-800 hover:text-primary font-medium transition-colors"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-gray-800 hover:text-primary font-medium transition-colors"
+                >Learnings</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-gray-800 hover:text-primary font-medium transition-colors"
+                >Quiz</a
+              >
+            </li>
+            <li>
+              <a
+                href="#"
+                class="text-gray-800 hover:text-primary font-medium transition-colors"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative w-full h-[400px] overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-black/20">
+        <img
+          src="https://readdy.ai/api/search-image?query=Ancient%20Sanskrit%20manuscript%20on%20palm%20leaf%2C%20Rigveda%20text%2C%20ancient%20Indian%20scriptures%2C%20ornate%20decorations%2C%20golden%20accents%2C%20sacred%20text%2C%20vedic%20symbols%2C%20warm%20lighting%2C%20high%20detail%2C%20professional%20photography%2C%20museum%20quality&width=1920&height=800&seq=1&orientation=landscape"
+          class="w-full h-full object-cover object-top"
+          alt="Rigveda manuscript"
+        />
+      </div>
+      <div
+        class="container mx-auto px-4 h-full flex items-center relative z-10"
+      >
+        <div class="max-w-2xl">
+          <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">
+            Ancient Wisdom of the Rigveda
+          </h2>
+          <p class="text-xl text-white mb-6">
+            Explore the oldest of the Vedas, a collection of hymns and mantras
+            that form the foundation of ancient Indian knowledge and
+            spirituality.
+          </p>
+          <button
+            class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+          >
+            Begin Your Journey
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+      <div class="flex flex-col lg:flex-row gap-8">
+        <!-- Left Content Area -->
+        <div class="w-full lg:w-3/4">
+          <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">
+              Introduction to Rigveda Samhita
+            </h2>
+            <p class="text-gray-700 mb-4">
+              The Rigveda is an ancient Indian collection of Vedic Sanskrit
+              hymns. It is one of the four sacred canonical texts (śruti) of
+              Hinduism known as the Vedas. The text is a collection of 1,028
+              hymns and 10,600 verses, organized into ten books (mandalas).
+            </p>
+            <p class="text-gray-700 mb-4">
+              The Rigveda was composed between approximately 1700–1100 BCE,
+              making it one of the oldest religious texts still in use. The
+              hymns are dedicated to Rigvedic deities and discuss cosmology,
+              praise deities, and contain philosophical speculations.
+            </p>
+            <p class="text-gray-700 mb-4">
+              The Rigveda Samhita is available in several recensions (shakhas),
+              of which the Shakala and the Ashvalayana are the most prominent.
+              Each recension has its own unique features and interpretations of
+              the hymns.
+            </p>
+
+            <h3 class="text-2xl font-bold text-gray-800 mt-8 mb-4">
+              Structure of the Rigveda
+            </h3>
+            <p class="text-gray-700 mb-4">
+              The Rigveda is organized into ten mandalas (books), which contain
+              hymns called suktas. Each sukta consists of individual stanzas
+              called riks, which give the Rigveda its name. The organization of
+              the Rigveda is as follows:
+            </p>
+
+            <ul class="list-disc list-inside text-gray-700 mb-6 ml-4">
+              <li class="mb-2">
+                Mandalas 2-7: Each mandala contains hymns attributed to a single
+                rishi (sage) family
+              </li>
+              <li class="mb-2">
+                Mandala 1: Collection of hymns from various authors
+              </li>
+              <li class="mb-2">Mandala 8: Contains the Valakhilya hymns</li>
+              <li class="mb-2">Mandala 9: Dedicated to Soma Pavamana</li>
+              <li class="mb-2">
+                Mandala 10: Contains philosophical hymns and speculations
+              </li>
+            </ul>
+
+            <h3 class="text-2xl font-bold text-gray-800 mt-8 mb-4">
+              Important Hymns and Concepts
+            </h3>
+            <p class="text-gray-700 mb-4">
+              Some of the most significant hymns in the Rigveda include:
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+              <div class="bg-secondary/10 p-6 rounded-lg">
+                <h4 class="text-xl font-semibold text-primary mb-2">
+                  Purusha Sukta
+                </h4>
+                <p class="text-gray-700">
+                  This hymn describes the sacrifice of the cosmic being Purusha,
+                  from whose body the world and the four varnas (social classes)
+                  were created.
+                </p>
+              </div>
+              <div class="bg-secondary/10 p-6 rounded-lg">
+                <h4 class="text-xl font-semibold text-primary mb-2">
+                  Nasadiya Sukta
+                </h4>
+                <p class="text-gray-700">
+                  Also known as the "Hymn of Creation," it questions the origin
+                  of the universe and introduces philosophical concepts about
+                  existence.
+                </p>
+              </div>
+              <div class="bg-secondary/10 p-6 rounded-lg">
+                <h4 class="text-xl font-semibold text-primary mb-2">
+                  Gayatri Mantra
+                </h4>
+                <p class="text-gray-700">
+                  One of the most sacred mantras in Hinduism, dedicated to
+                  Savitr, the sun deity, asking for illumination of the
+                  intellect.
+                </p>
+              </div>
+              <div class="bg-secondary/10 p-6 rounded-lg">
+                <h4 class="text-xl font-semibold text-primary mb-2">
+                  Agni Sukta
+                </h4>
+                <p class="text-gray-700">
+                  The very first hymn of the Rigveda, dedicated to Agni, the
+                  fire deity who acts as a messenger between humans and gods.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Progress Tracker Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            <!-- Shakala Samhita Card -->
+            <div class="bg-white rounded-lg shadow-md p-6 flex flex-col">
+              <div class="flex items-center mb-4">
+                <div class="w-16 h-16 flex items-center justify-center mr-4">
+                  <svg class="progress-ring" width="60" height="60">
+                    <circle
+                      class="progress-ring-circle"
+                      stroke="#D2B48C"
+                      fill="transparent"
+                      r="24"
+                      cx="30"
+                      cy="30"
+                      stroke-dasharray="150.8"
+                      stroke-dashoffset="60.32"
+                    ></circle>
+                    <circle
+                      class="progress-ring-circle"
+                      stroke="#8B4513"
+                      fill="transparent"
+                      r="24"
+                      cx="30"
+                      cy="30"
+                      stroke-dasharray="150.8"
+                      stroke-dashoffset="90.48"
+                    ></circle>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-gray-800">
+                    Shakala Samhita
+                  </h3>
+                  <p class="text-gray-600">40% Complete</p>
+                </div>
+              </div>
+              <p class="text-gray-700 mb-4">
+                The most widely available recension of the Rigveda, containing
+                all 10 mandalas with 1,028 hymns.
+              </p>
+              <button
+                class="mt-auto bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+              >
+                Continue Learning
+              </button>
+            </div>
+
+            <!-- Ashvalayana Samhita Card -->
+            <div class="bg-white rounded-lg shadow-md p-6 flex flex-col">
+              <div class="flex items-center mb-4">
+                <div class="w-16 h-16 flex items-center justify-center mr-4">
+                  <svg class="progress-ring" width="60" height="60">
+                    <circle
+                      class="progress-ring-circle"
+                      stroke="#D2B48C"
+                      fill="transparent"
+                      r="24"
+                      cx="30"
+                      cy="30"
+                      stroke-dasharray="150.8"
+                      stroke-dashoffset="60.32"
+                    ></circle>
+                    <circle
+                      class="progress-ring-circle"
+                      stroke="#8B4513"
+                      fill="transparent"
+                      r="24"
+                      cx="30"
+                      cy="30"
+                      stroke-dasharray="150.8"
+                      stroke-dashoffset="120.64"
+                    ></circle>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="text-xl font-bold text-gray-800">
+                    Ashvalayana Samhita
+                  </h3>
+                  <p class="text-gray-600">20% Complete</p>
+                </div>
+              </div>
+              <p class="text-gray-700 mb-4">
+                A less common recension with unique interpretations and
+                arrangement of the hymns.
+              </p>
+              <button
+                class="mt-auto bg-primary text-white px-4 py-2 rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+              >
+                Continue Learning
+              </button>
+            </div>
+          </div>
+
+          <!-- Video Section -->
+          <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">
+              Vedic Chanting Demonstration
+            </h3>
+            <div
+              class="aspect-w-16 aspect-h-9 bg-gray-100 rounded-lg overflow-hidden"
+            >
+              <div
+                class="w-full h-0 pb-[56.25%] relative bg-gray-200 rounded-lg"
+              >
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <div class="text-center">
+                    <div
+                      class="w-16 h-16 bg-primary/90 rounded-full flex items-center justify-center mx-auto mb-4 cursor-pointer"
+                    >
+                      <i class="ri-play-fill ri-2x text-white"></i>
+                    </div>
+                    <p class="text-gray-700">
+                      Rigveda Chanting: Mandala 1, Hymn 1
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-700 mt-4">
+              This video demonstrates the traditional method of chanting the
+              first hymn of the Rigveda, dedicated to Agni, the fire deity. The
+              correct pronunciation and intonation are essential for preserving
+              the sacred sounds of the Vedas.
+            </p>
+          </div>
+
+          <!-- Quiz Section -->
+          <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+            <h3 class="text-2xl font-bold text-gray-800 mb-6">
+              Test Your Knowledge
+            </h3>
+            <div class="quiz-container">
+              <div class="quiz-question mb-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-4">
+                  1. Which deity is addressed in the first hymn of the Rigveda?
+                </h4>
+                <div class="space-y-3">
+                  <label class="custom-radio flex items-center">
+                    <input type="radio" name="q1" value="a" />
+                    <span class="radiomark"></span>
+                    <span class="ml-8">Indra</span>
+                  </label>
+                  <label class="custom-radio flex items-center">
+                    <input type="radio" name="q1" value="b" />
+                    <span class="radiomark"></span>
+                    <span class="ml-8">Agni</span>
+                  </label>
+                  <label class="custom-radio flex items-center">
+                    <input type="radio" name="q1" value="c" />
+                    <span class="radiomark"></span>
+                    <span class="ml-8">Soma</span>
+                  </label>
+                  <label class="custom-radio flex items-center">
+                    <input type="radio" name="q1" value="d" />
+                    <span class="radiomark"></span>
+                    <span class="ml-8">Varuna</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="quiz-question mb-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-4">
+                  2. How many mandalas (books) are there in the Rigveda?
+                </h4>
+                <div class="space-y-3">
+                  <label class="custom-radio flex items-center">
+                    <input type="radio" name="q2" value="a" />
+                    <span class="radiomark"></span>
+                    <span class="ml-8">8</span>
+                  </label>
+                  <label class="custom-radio flex items-center">
+                    <input type="radio" name="q2" value="b" />
+                    <span class="radiomark"></span>
+                    <span class="ml-8">9</span>
+                  </label>
+                  <label class="custom-radio flex items-center">
+                    <input type="radio" name="q2" value="c" />
+                    <span class="radiomark"></span>
+                    <span class="ml-8">10</span>
+                  </label>
+                  <label class="custom-radio flex items-center">
+                    <input type="radio" name="q2" value="d" />
+                    <span class="radiomark"></span>
+                    <span class="ml-8">12</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="quiz-question mb-8">
+                <h4 class="text-xl font-semibold text-gray-800 mb-4">
+                  3. Which of the following hymns discusses the origin of the
+                  universe?
+                </h4>
+                <div class="space-y-3">
+                  <label class="custom-radio flex items-center">
+                    <input type="radio" name="q3" value="a" />
+                    <span class="radiomark"></span>
+                    <span class="ml-8">Purusha Sukta</span>
+                  </label>
+                  <label class="custom-radio flex items-center">
+                    <input type="radio" name="q3" value="b" />
+                    <span class="radiomark"></span>
+                    <span class="ml-8">Nasadiya Sukta</span>
+                  </label>
+                  <label class="custom-radio flex items-center">
+                    <input type="radio" name="q3" value="c" />
+                    <span class="radiomark"></span>
+                    <span class="ml-8">Gayatri Mantra</span>
+                  </label>
+                  <label class="custom-radio flex items-center">
+                    <input type="radio" name="q3" value="d" />
+                    <span class="radiomark"></span>
+                    <span class="ml-8">Agni Sukta</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="flex justify-center">
+                <button
+                  class="bg-primary text-white px-6 py-3 rounded-button font-medium hover:bg-primary/90 transition-colors whitespace-nowrap"
+                >
+                  Submit Answers
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Sidebar - Chatbot -->
+        <div class="w-full lg:w-1/4">
+          <div
+            class="sticky top-24 bg-white rounded-lg shadow-md overflow-hidden"
+          >
+            <div class="bg-primary text-white p-4">
+              <h3 class="text-lg font-semibold">Vedic Knowledge Assistant</h3>
+            </div>
+            <div class="h-80 overflow-y-auto p-4 bg-gray-50">
+              <div class="flex flex-col space-y-4">
+                <div class="bg-gray-200 rounded-lg p-3 max-w-[80%] self-start">
+                  <p class="text-sm text-gray-800">
+                    Welcome to the Rigveda Samhita learning platform! How can I
+                    assist you today?
+                  </p>
+                </div>
+                <div class="bg-primary/10 rounded-lg p-3 max-w-[80%] self-end">
+                  <p class="text-sm text-gray-800">
+                    What is the significance of the Gayatri Mantra?
+                  </p>
+                </div>
+                <div class="bg-gray-200 rounded-lg p-3 max-w-[80%] self-start">
+                  <p class="text-sm text-gray-800">
+                    The Gayatri Mantra is one of the most sacred verses in the
+                    Rigveda (Mandala 3, Hymn 62, Verse 10). It's dedicated to
+                    Savitr, a solar deity, and is considered a prayer for
+                    illumination of the intellect. Many Hindus recite it daily
+                    as part of their spiritual practice.
+                  </p>
+                </div>
+                <div class="bg-primary/10 rounded-lg p-3 max-w-[80%] self-end">
+                  <p class="text-sm text-gray-800">
+                    Can you explain what "riks" are?
+                  </p>
+                </div>
+                <div class="bg-gray-200 rounded-lg p-3 max-w-[80%] self-start">
+                  <p class="text-sm text-gray-800">
+                    Riks are individual verses or stanzas in the Rigveda. The
+                    term "Rigveda" itself derives from "rik" (praise) and "veda"
+                    (knowledge). Each hymn (sukta) consists of multiple riks,
+                    and there are approximately 10,600 riks in the entire
+                    Rigveda Samhita.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 border-t">
+              <div class="flex">
+                <input
+                  type="text"
+                  placeholder="Ask a question..."
+                  class="w-full px-4 py-2 rounded-l-button border-none focus:outline-none bg-gray-100 text-sm"
+                />
+                <button
+                  class="bg-primary text-white px-4 py-2 rounded-r-button whitespace-nowrap"
+                >
+                  <i class="ri-send-plane-fill"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 pt-12 pb-8 border-t">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div>
+            <h4 class="text-lg font-bold text-gray-800 mb-4">
+              About Rigveda Samhita
+            </h4>
+            <p class="text-gray-600 mb-4">
+              Our platform is dedicated to making the ancient wisdom of the
+              Rigveda accessible to modern learners through interactive content
+              and scholarly resources.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-600 hover:text-primary">
+                <div class="w-8 h-8 flex items-center justify-center">
+                  <i class="ri-facebook-fill"></i>
+                </div>
+              </a>
+              <a href="#" class="text-gray-600 hover:text-primary">
+                <div class="w-8 h-8 flex items-center justify-center">
+                  <i class="ri-twitter-fill"></i>
+                </div>
+              </a>
+              <a href="#" class="text-gray-600 hover:text-primary">
+                <div class="w-8 h-8 flex items-center justify-center">
+                  <i class="ri-instagram-fill"></i>
+                </div>
+              </a>
+              <a href="#" class="text-gray-600 hover:text-primary">
+                <div class="w-8 h-8 flex items-center justify-center">
+                  <i class="ri-youtube-fill"></i>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold text-gray-800 mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary"
+                  >Our Scholars</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary"
+                  >Learning Resources</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary"
+                  >Terms of Service</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary">Sitemap</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold text-gray-800 mb-4">Contact Us</h4>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <div class="w-5 h-5 flex items-center justify-center mt-1 mr-2">
+                  <i class="ri-map-pin-line text-primary"></i>
+                </div>
+                <span class="text-gray-600"
+                  >123 Vedic Knowledge Center, Varanasi, Uttar Pradesh,
+                  India</span
+                >
+              </li>
+              <li class="flex items-center">
+                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                  <i class="ri-mail-line text-primary"></i>
+                </div>
+                <span class="text-gray-600">contact@rigvedasamhita.org</span>
+              </li>
+              <li class="flex items-center">
+                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                  <i class="ri-phone-line text-primary"></i>
+                </div>
+                <span class="text-gray-600">+91 9876543210</span>
+              </li>
+            </ul>
+            <div class="mt-6">
+              <h5 class="font-medium text-gray-800 mb-2">
+                Subscribe to our newsletter
+              </h5>
+              <div class="flex">
+                <input
+                  type="email"
+                  placeholder="Your email address"
+                  class="w-full px-4 py-2 rounded-l-button border-none focus:outline-none bg-gray-100 text-sm"
+                />
+                <button
+                  class="bg-primary text-white px-4 py-2 rounded-r-button whitespace-nowrap"
+                >
+                  Subscribe
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="border-t pt-6">
+          <p class="text-center text-gray-600 text-sm">
+            © 2025 Rigveda Samhita Learning Platform. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Quiz interaction
+        const radioButtons = document.querySelectorAll('input[type="radio"]');
+        radioButtons.forEach((button) => {
+          button.addEventListener("change", function () {
+            const name = this.getAttribute("name");
+            const radios = document.querySelectorAll(`input[name="${name}"]`);
+            radios.forEach((radio) => {
+              const label = radio.closest(".custom-radio");
+              if (radio.checked) {
+                label.classList.add("text-primary");
+              } else {
+                label.classList.remove("text-primary");
+              }
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mandala Krama - Sacred Geometry</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#6d28d9", secondary: "#8b5cf6" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+          font-family: 'Poppins', sans-serif;
+          background-color: #f9f7ff;
+      }
+      .mandala-bg {
+          background-image: radial-gradient(circle, rgba(109, 40, 217, 0.05) 1px, transparent 1px);
+          background-size: 20px 20px;
+      }
+      .chat-message {
+          max-width: 80%;
+      }
+      .quiz-option:hover {
+          border-color: #6d28d9;
+      }
+      .quiz-option.selected {
+          border-color: #6d28d9;
+          background-color: rgba(109, 40, 217, 0.1);
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+          width: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+          background: #f1f1f1;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: #d4d4d8;
+          border-radius: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: #a1a1aa;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="bg-white shadow-sm py-4">
+      <div class="container mx-auto px-6 flex items-center justify-between">
+        <a href="#" class="text-2xl font-['Pacifico'] text-primary">Mandala</a>
+        <nav class="hidden md:flex space-x-8">
+          <a href="#" class="text-gray-700 hover:text-primary font-medium"
+            >Home</a
+          >
+          <a href="#" class="text-primary font-medium border-b-2 border-primary"
+            >Mandala Krama</a
+          >
+          <a href="#" class="text-gray-700 hover:text-primary font-medium"
+            >Courses</a
+          >
+          <a href="#" class="text-gray-700 hover:text-primary font-medium"
+            >Resources</a
+          >
+          <a href="#" class="text-gray-700 hover:text-primary font-medium"
+            >About</a
+          >
+        </nav>
+        <div class="flex items-center space-x-4">
+          <button class="text-gray-700 hover:text-primary">
+            <div class="w-10 h-10 flex items-center justify-center">
+              <i class="ri-search-line ri-lg"></i>
+            </div>
+          </button>
+          <button
+            class="bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap"
+          >
+            Sign In
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-8 flex flex-col lg:flex-row gap-8">
+      <!-- Main Content Area -->
+      <div class="w-full lg:w-8/12">
+        <div class="mandala-bg bg-white rounded-lg shadow-sm p-8 mb-10">
+          <h1 class="text-3xl font-bold text-gray-800 mb-6">
+            The Mandala Krama: Sacred Geometry of Consciousness
+          </h1>
+
+          <div class="flex justify-center mb-8">
+            <img
+              src="https://readdy.ai/api/search-image?query=beautiful%20detailed%20mandala%20with%20intricate%20geometric%20patterns%2C%20sacred%20geometry%2C%20cosmic%20design%2C%20spiritual%20symbols%2C%20meditation%20art%2C%20high%20detail%2C%20symmetrical%20pattern%2C%20vibrant%20yet%20harmonious%20colors%2C%20ornate%20circular%20design%20with%20lotus%20flower%20center&width=800&height=500&seq=mandala1&orientation=landscape"
+              alt="Mandala Krama Diagram"
+              class="rounded-lg shadow-md object-cover object-top"
+            />
+          </div>
+
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            The Mandala Krama represents one of the most profound systems of
+            sacred geometry in Eastern spiritual traditions. Dating back
+            thousands of years, this intricate geometric pattern serves as both
+            a meditation tool and a symbolic representation of the cosmos and
+            consciousness itself.
+          </p>
+
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+            Origins and Meaning
+          </h2>
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            The word "Mandala" comes from Sanskrit, meaning "circle" or
+            "completion." "Krama" refers to sequence or progression. Together,
+            they describe the systematic unfolding of consciousness through
+            geometric patterns. These patterns are believed to map the journey
+            from the individual self to universal awareness.
+          </p>
+
+          <div class="bg-gray-50 p-6 rounded-lg mb-6">
+            <h3 class="text-xl font-semibold text-gray-800 mb-3">
+              The Five Elements of Mandala Krama
+            </h3>
+            <ul class="space-y-3">
+              <li class="flex items-start">
+                <div
+                  class="w-6 h-6 flex items-center justify-center mr-2 mt-0.5 bg-primary/10 rounded-full"
+                >
+                  <i class="ri-fire-line text-primary"></i>
+                </div>
+                <div>
+                  <span class="font-medium text-gray-800"
+                    >Earth (Prithvi):</span
+                  >
+                  <span class="text-gray-700">
+                    Represented by the square, symbolizing stability and
+                    foundation.</span
+                  >
+                </div>
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-6 h-6 flex items-center justify-center mr-2 mt-0.5 bg-primary/10 rounded-full"
+                >
+                  <i class="ri-water-flash-line text-primary"></i>
+                </div>
+                <div>
+                  <span class="font-medium text-gray-800">Water (Jala):</span>
+                  <span class="text-gray-700">
+                    Depicted as a crescent, representing flow and
+                    adaptability.</span
+                  >
+                </div>
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-6 h-6 flex items-center justify-center mr-2 mt-0.5 bg-primary/10 rounded-full"
+                >
+                  <i class="ri-sun-line text-primary"></i>
+                </div>
+                <div>
+                  <span class="font-medium text-gray-800">Fire (Agni):</span>
+                  <span class="text-gray-700">
+                    Shown as a triangle pointing upward, symbolizing
+                    transformation.</span
+                  >
+                </div>
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-6 h-6 flex items-center justify-center mr-2 mt-0.5 bg-primary/10 rounded-full"
+                >
+                  <i class="ri-cloud-windy-line text-primary"></i>
+                </div>
+                <div>
+                  <span class="font-medium text-gray-800">Air (Vayu):</span>
+                  <span class="text-gray-700">
+                    Represented by a circle, indicating movement and
+                    expansion.</span
+                  >
+                </div>
+              </li>
+              <li class="flex items-start">
+                <div
+                  class="w-6 h-6 flex items-center justify-center mr-2 mt-0.5 bg-primary/10 rounded-full"
+                >
+                  <i class="ri-space-ship-line text-primary"></i>
+                </div>
+                <div>
+                  <span class="font-medium text-gray-800">Ether (Akasha):</span>
+                  <span class="text-gray-700">
+                    Depicted as a point or bindu at the center, representing
+                    pure consciousness.</span
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+            Practical Applications
+          </h2>
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            The Mandala Krama is not merely a theoretical concept but a
+            practical tool for spiritual development. Practitioners use it in
+            various ways:
+          </p>
+
+          <div class="grid md:grid-cols-2 gap-6 mb-8">
+            <div
+              class="bg-white border border-gray-100 rounded-lg p-6 shadow-sm"
+            >
+              <div
+                class="w-12 h-12 flex items-center justify-center mb-4 bg-primary/10 rounded-full"
+              >
+                <i class="ri-mental-health-line text-primary ri-xl"></i>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                Meditation
+              </h3>
+              <p class="text-gray-700">
+                Used as a focal point during meditation to calm the mind and
+                facilitate deeper states of awareness.
+              </p>
+            </div>
+            <div
+              class="bg-white border border-gray-100 rounded-lg p-6 shadow-sm"
+            >
+              <div
+                class="w-12 h-12 flex items-center justify-center mb-4 bg-primary/10 rounded-full"
+              >
+                <i class="ri-psychotherapy-line text-primary ri-xl"></i>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-800 mb-2">Healing</h3>
+              <p class="text-gray-700">
+                The balanced geometric patterns are believed to restore harmony
+                to the mind and body.
+              </p>
+            </div>
+            <div
+              class="bg-white border border-gray-100 rounded-lg p-6 shadow-sm"
+            >
+              <div
+                class="w-12 h-12 flex items-center justify-center mb-4 bg-primary/10 rounded-full"
+              >
+                <i class="ri-focus-3-line text-primary ri-xl"></i>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                Concentration
+              </h3>
+              <p class="text-gray-700">
+                The complex patterns require focused attention, training the
+                mind to remain present.
+              </p>
+            </div>
+            <div
+              class="bg-white border border-gray-100 rounded-lg p-6 shadow-sm"
+            >
+              <div
+                class="w-12 h-12 flex items-center justify-center mb-4 bg-primary/10 rounded-full"
+              >
+                <i class="ri-compass-discover-line text-primary ri-xl"></i>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-800 mb-2">
+                Self-Discovery
+              </h3>
+              <p class="text-gray-700">
+                Working with mandalas reveals insights about one's inner
+                landscape and unconscious patterns.
+              </p>
+            </div>
+          </div>
+
+          <h2 class="text-2xl font-semibold text-gray-800 mb-4">
+            Contemporary Relevance
+          </h2>
+          <p class="text-gray-700 mb-6 leading-relaxed">
+            In today's fast-paced world, the Mandala Krama offers a timeless
+            method for finding inner peace and expanding awareness. Modern
+            psychologists, including Carl Jung, have recognized the therapeutic
+            value of mandalas in psychological integration and wholeness.
+          </p>
+
+          <div class="border-l-4 border-primary pl-6 italic text-gray-600 mb-8">
+            "The mandala is an archetypal image whose occurrence is attested
+            throughout the ages. It signifies the wholeness of the Self." — Carl
+            Jung
+          </div>
+
+          <p class="text-gray-700 mb-8 leading-relaxed">
+            Whether approached as a spiritual practice, artistic expression, or
+            psychological tool, the Mandala Krama continues to offer profound
+            insights into the nature of consciousness and our place in the
+            cosmos.
+          </p>
+        </div>
+
+        <!-- Video Section -->
+        <div class="bg-white rounded-lg shadow-sm p-8 mb-10">
+          <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+            Explore the Mandala Krama
+          </h2>
+
+          <div class="aspect-w-16 aspect-h-9 mb-6">
+            <div class="w-full h-0 pb-[56.25%] relative bg-gray-100 rounded-lg">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-center">
+                  <div
+                    class="w-16 h-16 flex items-center justify-center mx-auto mb-4 bg-primary/10 rounded-full"
+                  >
+                    <i class="ri-video-line text-primary ri-2x"></i>
+                  </div>
+                  <p class="text-gray-600">Video Player</p>
+                  <button
+                    class="mt-4 bg-primary text-white px-6 py-2 !rounded-button whitespace-nowrap"
+                  >
+                    Play Video
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="text-xl font-semibold text-gray-800 mb-3">
+            Understanding Sacred Geometry in Daily Practice
+          </h3>
+          <p class="text-gray-700 mb-6">
+            This comprehensive guide explores how the principles of the Mandala
+            Krama can be applied to everyday meditation and mindfulness
+            practices, with expert insights from Dr. Amara Patel.
+          </p>
+
+          <div class="flex flex-wrap gap-3 mb-6">
+            <span
+              class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+              >Sacred Geometry</span
+            >
+            <span
+              class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+              >Meditation</span
+            >
+            <span
+              class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+              >Consciousness</span
+            >
+            <span
+              class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
+              >Spiritual Practice</span
+            >
+          </div>
+
+          <div class="flex items-center justify-between">
+            <div class="flex items-center">
+              <img
+                src="https://readdy.ai/api/search-image?query=professional%20headshot%20of%20a%20female%20spiritual%20teacher%20with%20warm%20expression%2C%20neutral%20background%2C%20high%20quality%20portrait%2C%20professional%20lighting&width=100&height=100&seq=teacher1&orientation=squarish"
+                alt="Dr. Amara Patel"
+                class="w-12 h-12 rounded-full object-cover object-top mr-3"
+              />
+              <div>
+                <p class="font-medium text-gray-800">Dr. Amara Patel</p>
+                <p class="text-sm text-gray-600">Sacred Geometry Expert</p>
+              </div>
+            </div>
+            <div class="flex space-x-2">
+              <button
+                class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full"
+              >
+                <i class="ri-share-line text-gray-700"></i>
+              </button>
+              <button
+                class="w-10 h-10 flex items-center justify-center bg-gray-100 hover:bg-gray-200 rounded-full"
+              >
+                <i class="ri-bookmark-line text-gray-700"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quiz Section -->
+        <div class="bg-white rounded-lg shadow-sm p-8 mb-10">
+          <h2 class="text-2xl font-semibold text-gray-800 mb-6">
+            Test Your Knowledge: Mandala Krama Quiz
+          </h2>
+
+          <div class="mb-8">
+            <div class="h-2 w-full bg-gray-200 rounded-full mb-2">
+              <div class="h-2 bg-primary rounded-full" style="width: 20%"></div>
+            </div>
+            <div class="flex justify-between text-sm text-gray-600">
+              <span>Question 1 of 5</span>
+              <span>20% Complete</span>
+            </div>
+          </div>
+
+          <div class="mb-8">
+            <h3 class="text-xl font-medium text-gray-800 mb-4">
+              What does the Sanskrit word "Mandala" literally mean?
+            </h3>
+
+            <div class="space-y-3">
+              <div
+                class="quiz-option border border-gray-200 rounded-lg p-4 cursor-pointer hover:shadow-sm transition"
+              >
+                <div class="flex items-center">
+                  <div
+                    class="w-6 h-6 flex items-center justify-center mr-3 border border-gray-300 rounded-full"
+                  >
+                    <div class="w-3 h-3 rounded-full"></div>
+                  </div>
+                  <span class="text-gray-700">Sacred Pattern</span>
+                </div>
+              </div>
+
+              <div
+                class="quiz-option border border-gray-200 rounded-lg p-4 cursor-pointer hover:shadow-sm transition"
+              >
+                <div class="flex items-center">
+                  <div
+                    class="w-6 h-6 flex items-center justify-center mr-3 border border-gray-300 rounded-full"
+                  >
+                    <div class="w-3 h-3 rounded-full"></div>
+                  </div>
+                  <span class="text-gray-700">Circle or Completion</span>
+                </div>
+              </div>
+
+              <div
+                class="quiz-option border border-gray-200 rounded-lg p-4 cursor-pointer hover:shadow-sm transition"
+              >
+                <div class="flex items-center">
+                  <div
+                    class="w-6 h-6 flex items-center justify-center mr-3 border border-gray-300 rounded-full"
+                  >
+                    <div class="w-3 h-3 rounded-full"></div>
+                  </div>
+                  <span class="text-gray-700">Divine Light</span>
+                </div>
+              </div>
+
+              <div
+                class="quiz-option border border-gray-200 rounded-lg p-4 cursor-pointer hover:shadow-sm transition"
+              >
+                <div class="flex items-center">
+                  <div
+                    class="w-6 h-6 flex items-center justify-center mr-3 border border-gray-300 rounded-full"
+                  >
+                    <div class="w-3 h-3 rounded-full"></div>
+                  </div>
+                  <span class="text-gray-700">Cosmic Dance</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-between">
+            <button
+              class="bg-gray-100 text-gray-700 px-6 py-2 !rounded-button whitespace-nowrap"
+              disabled
+            >
+              Previous
+            </button>
+            <button
+              class="bg-primary text-white px-6 py-2 !rounded-button whitespace-nowrap"
+            >
+              Next Question
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Sidebar - Chatbot -->
+      <div class="w-full lg:w-4/12">
+        <div class="sticky top-8">
+          <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+            <div class="bg-primary text-white p-4">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                  <div
+                    class="w-10 h-10 flex items-center justify-center bg-white/20 rounded-full mr-3"
+                  >
+                    <i class="ri-robot-line text-white"></i>
+                  </div>
+                  <div>
+                    <h3 class="font-semibold">Mandala Guide</h3>
+                    <p class="text-xs text-white/80">
+                      Ask questions about Mandala Krama
+                    </p>
+                  </div>
+                </div>
+                <button
+                  class="w-8 h-8 flex items-center justify-center bg-white/10 rounded-full"
+                >
+                  <i class="ri-settings-3-line text-white"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="h-[500px] p-4 overflow-y-auto custom-scrollbar">
+              <div class="space-y-4">
+                <div class="flex items-start">
+                  <div
+                    class="w-8 h-8 flex items-center justify-center bg-primary/10 rounded-full mr-2 mt-1 flex-shrink-0"
+                  >
+                    <i class="ri-robot-line text-primary"></i>
+                  </div>
+                  <div
+                    class="chat-message bg-gray-100 rounded-lg rounded-tl-none p-3"
+                  >
+                    <p class="text-gray-700">
+                      Hello! I'm your Mandala Guide. I can help answer questions
+                      about the Mandala Krama, sacred geometry, and meditation
+                      practices. What would you like to know?
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-start justify-end">
+                  <div
+                    class="chat-message bg-primary/10 rounded-lg rounded-tr-none p-3"
+                  >
+                    <p class="text-gray-700">
+                      What's the significance of the center point in a mandala?
+                    </p>
+                  </div>
+                  <div
+                    class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full ml-2 mt-1 flex-shrink-0"
+                  >
+                    <i class="ri-user-line text-gray-600"></i>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div
+                    class="w-8 h-8 flex items-center justify-center bg-primary/10 rounded-full mr-2 mt-1 flex-shrink-0"
+                  >
+                    <i class="ri-robot-line text-primary"></i>
+                  </div>
+                  <div
+                    class="chat-message bg-gray-100 rounded-lg rounded-tl-none p-3"
+                  >
+                    <p class="text-gray-700">
+                      Great question! The center point, or "bindu," is one of
+                      the most important elements in a mandala. It represents:
+                    </p>
+                    <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-700">
+                      <li>The source of all creation and energy</li>
+                      <li>Pure consciousness or awareness</li>
+                      <li>The void from which all forms emerge</li>
+                      <li>The ultimate unity that transcends duality</li>
+                    </ul>
+                    <p class="mt-2 text-gray-700">
+                      During meditation, focusing on the bindu helps draw
+                      awareness inward toward your own center of consciousness.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="flex items-start justify-end">
+                  <div
+                    class="chat-message bg-primary/10 rounded-lg rounded-tr-none p-3"
+                  >
+                    <p class="text-gray-700">
+                      How can I create my own mandala for meditation?
+                    </p>
+                  </div>
+                  <div
+                    class="w-8 h-8 flex items-center justify-center bg-gray-200 rounded-full ml-2 mt-1 flex-shrink-0"
+                  >
+                    <i class="ri-user-line text-gray-600"></i>
+                  </div>
+                </div>
+
+                <div class="flex items-start">
+                  <div
+                    class="w-8 h-8 flex items-center justify-center bg-primary/10 rounded-full mr-2 mt-1 flex-shrink-0"
+                  >
+                    <i class="ri-robot-line text-primary"></i>
+                  </div>
+                  <div
+                    class="chat-message bg-gray-100 rounded-lg rounded-tl-none p-3"
+                  >
+                    <p class="text-gray-700">
+                      Creating your own mandala can be a deeply meditative
+                      practice! Here's a simple process:
+                    </p>
+                    <ol class="list-decimal pl-5 mt-2 space-y-1 text-gray-700">
+                      <li>Start with a circle on paper</li>
+                      <li>Mark the center point</li>
+                      <li>
+                        Divide the circle into equal sections (4, 8, or 16
+                        parts)
+                      </li>
+                      <li>Begin drawing patterns from the center outward</li>
+                      <li>Use symbols that have personal meaning</li>
+                      <li>Add color if desired</li>
+                    </ol>
+                    <p class="mt-2 text-gray-700">
+                      The process itself is meditative, and the finished mandala
+                      becomes a tool for future practice.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="border-t border-gray-200 p-4">
+              <div class="flex items-center">
+                <div class="flex-1 relative">
+                  <input
+                    type="text"
+                    placeholder="Type your question..."
+                    class="w-full border-none bg-gray-100 rounded-full py-2 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-primary/50"
+                  />
+                  <button
+                    class="absolute right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 flex items-center justify-center text-gray-500 hover:text-primary"
+                  >
+                    <i class="ri-emotion-line"></i>
+                  </button>
+                </div>
+                <button
+                  class="ml-2 w-10 h-10 flex items-center justify-center bg-primary rounded-full text-white"
+                >
+                  <i class="ri-send-plane-fill"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 bg-white rounded-lg shadow-sm p-6">
+            <h3 class="text-lg font-semibold text-gray-800 mb-4">
+              Related Resources
+            </h3>
+
+            <div class="space-y-4">
+              <a href="#" class="block group">
+                <div class="flex items-start">
+                  <div
+                    class="w-16 h-16 bg-gray-100 rounded flex-shrink-0 overflow-hidden mr-3"
+                  >
+                    <img
+                      src="https://readdy.ai/api/search-image?query=simple%20mandala%20pattern%20with%20geometric%20shapes%2C%20minimal%20design%2C%20clean%20lines%2C%20meditation%20focus&width=100&height=100&seq=mandala2&orientation=squarish"
+                      alt="Beginner's Guide"
+                      class="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                  <div>
+                    <h4
+                      class="font-medium text-gray-800 group-hover:text-primary transition"
+                    >
+                      Beginner's Guide to Mandala Meditation
+                    </h4>
+                    <p class="text-sm text-gray-600 mt-1">
+                      10-minute daily practice
+                    </p>
+                  </div>
+                </div>
+              </a>
+
+              <a href="#" class="block group">
+                <div class="flex items-start">
+                  <div
+                    class="w-16 h-16 bg-gray-100 rounded flex-shrink-0 overflow-hidden mr-3"
+                  >
+                    <img
+                      src="https://readdy.ai/api/search-image?query=colorful%20mandala%20art%20supplies%2C%20drawing%20tools%2C%20colored%20pencils%2C%20geometric%20templates%2C%20creative%20workspace&width=100&height=100&seq=mandala3&orientation=squarish"
+                      alt="Art Therapy"
+                      class="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                  <div>
+                    <h4
+                      class="font-medium text-gray-800 group-hover:text-primary transition"
+                    >
+                      Mandala Art Therapy Workshop
+                    </h4>
+                    <p class="text-sm text-gray-600 mt-1">
+                      Express through sacred geometry
+                    </p>
+                  </div>
+                </div>
+              </a>
+
+              <a href="#" class="block group">
+                <div class="flex items-start">
+                  <div
+                    class="w-16 h-16 bg-gray-100 rounded flex-shrink-0 overflow-hidden mr-3"
+                  >
+                    <img
+                      src="https://readdy.ai/api/search-image?query=ancient%20sanskrit%20text%20with%20mandala%20diagrams%2C%20old%20manuscript%2C%20spiritual%20teachings%2C%20historical%20document&width=100&height=100&seq=mandala4&orientation=squarish"
+                      alt="Advanced Study"
+                      class="w-full h-full object-cover object-top"
+                    />
+                  </div>
+                  <div>
+                    <h4
+                      class="font-medium text-gray-800 group-hover:text-primary transition"
+                    >
+                      Advanced Mandala Krama Studies
+                    </h4>
+                    <p class="text-sm text-gray-600 mt-1">
+                      Sanskrit texts and interpretations
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </div>
+
+            <button
+              class="w-full mt-4 border border-primary text-primary hover:bg-primary/5 px-4 py-2 !rounded-button whitespace-nowrap"
+            >
+              View All Resources
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-12">
+      <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div>
+            <a href="#" class="text-2xl font-['Pacifico'] text-white mb-4 block"
+              >Mandala</a
+            >
+            <p class="text-gray-400 mb-6">
+              Exploring sacred geometry and consciousness through ancient wisdom
+              and modern practice.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center bg-gray-700 hover:bg-primary rounded-full transition"
+              >
+                <i class="ri-facebook-fill text-white"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center bg-gray-700 hover:bg-primary rounded-full transition"
+              >
+                <i class="ri-instagram-line text-white"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center bg-gray-700 hover:bg-primary rounded-full transition"
+              >
+                <i class="ri-youtube-line text-white"></i>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 flex items-center justify-center bg-gray-700 hover:bg-primary rounded-full transition"
+              >
+                <i class="ri-spotify-line text-white"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Explore</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Mandala Library</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Meditation Courses</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Sacred Geometry</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Teacher Training</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Community Events</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Resources</h3>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Free Guides</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Research Papers</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Podcast</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >Blog</a
+                >
+              </li>
+              <li>
+                <a href="#" class="text-gray-400 hover:text-white transition"
+                  >FAQ</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Subscribe</h3>
+            <p class="text-gray-400 mb-4">
+              Join our newsletter for meditation tips and exclusive content.
+            </p>
+            <form>
+              <div class="flex mb-2">
+                <input
+                  type="email"
+                  placeholder="Your email"
+                  class="flex-1 bg-gray-700 border-none rounded-l-button py-2 px-4 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+                <button
+                  type="submit"
+                  class="bg-primary text-white px-4 py-2 !rounded-r-button whitespace-nowrap"
+                >
+                  Subscribe
+                </button>
+              </div>
+              <p class="text-xs text-gray-500">
+                We respect your privacy. Unsubscribe at any time.
+              </p>
+            </form>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-700 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center"
+        >
+          <p class="text-gray-400 text-sm mb-4 md:mb-0">
+            © 2025 Mandala Krama Institute. All rights reserved.
+          </p>
+          <div class="flex space-x-6">
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white text-sm transition"
+              >Privacy Policy</a
+            >
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white text-sm transition"
+              >Terms of Service</a
+            >
+            <a
+              href="#"
+              class="text-gray-400 hover:text-white text-sm transition"
+              >Cookie Policy</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const quizOptions = document.querySelectorAll(".quiz-option");
+
+        quizOptions.forEach((option) => {
+          option.addEventListener("click", function () {
+            // Remove selected class from all options
+            quizOptions.forEach((opt) => {
+              opt.classList.remove("selected");
+              const circle = opt.querySelector(".w-3.h-3");
+              circle.classList.remove("bg-primary");
+            });
+
+            // Add selected class to clicked option
+            this.classList.add("selected");
+            const circle = this.querySelector(".w-3.h-3");
+            circle.classList.add("bg-primary");
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

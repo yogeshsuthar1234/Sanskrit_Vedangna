@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Profile | Vedic Scriptures Learning</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#D4AF37", secondary: "#7E9EE6" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=Poppins:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.5.0/echarts.min.js"></script>
+    <style>
+      @keyframes float {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+      }
+      @keyframes glow {
+        0% { box-shadow: 0 0 5px rgba(212, 175, 55, 0.2); }
+        50% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.4); }
+        100% { box-shadow: 0 0 5px rgba(212, 175, 55, 0.2); }
+      }
+      @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, #f6f0ff 0%, #fff5f5 50%, #f0f7ff 100%);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+      }
+      .heading-font {
+        font-family: 'Cormorant Garamond', serif;
+      }
+      .quote-text {
+        font-family: 'Cormorant Garamond', serif;
+        font-style: italic;
+      }
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .floating {
+        animation: float 6s ease-in-out infinite;
+      }
+      .glowing {
+        animation: glow 3s ease-in-out infinite;
+      }
+      input[type="number"]::-webkit-inner-spin-button,
+      input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      .progress-category:hover .category-details {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .category-details {
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+      }
+      .ornament {
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0C45 0 45 10 40 10C35 10 35 0 30 0C25 0 25 10 20 10C15 10 15 0 10 0C5 0 5 10 0 10V11C5 11 5 20 10 20C15 20 15 11 20 11C25 11 25 20 30 20C35 20 35 11 40 11C45 11 45 20 50 20C55 20 55 11 60 11C65 11 65 20 70 20C75 20 75 11 80 11C85 11 85 20 90 20C95 20 95 11 100 11V10C95 10 95 0 90 0C85 0 85 10 80 10C75 10 75 0 70 0C65 0 65 10 60 10C55 10 55 0 50 0Z' fill='%23D4AF37' fill-opacity='0.3'/%3E%3C/svg%3E");
+        background-repeat: repeat-x;
+        background-position: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loading" class="hidden fixed inset-0 bg-gray-100/50 flex items-center justify-center z-50">
+      <div class="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+    </div>
+    <div class="min-h-screen flex flex-col">
+      <header class="bg-white shadow-sm py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+          <div class="text-2xl font-['Pacifico'] text-primary">Vedangana</div>
+          <nav class="hidden md:flex space-x-6">
+            <a href="../Dashboard/dashboard.html" class="text-gray-700 hover:text-primary transition-colors">Dashboard</a>
+            <a href="../Dashboard/user.html" class="text-primary font-medium">My Profile</a>
+          </nav>
+          <div class="flex items-center space-x-4">
+            <div class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100">
+              <i class="ri-notification-3-line text-gray-600"></i>
+            </div>
+            <div class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200">
+              <i class="ri-user-line text-gray-600 text-xl"></i>
+            </div>
+            <button
+              id="logoutButton"
+              class="px-4 py-2 bg-primary text-white font-medium rounded-button hover:bg-primary/90 transition-colors shadow-sm"
+              aria-label="Log out"
+            >
+              Logout
+            </button>
+          </div>
+        </div>
+      </header>
+      <main class="flex-grow py-8 px-4">
+        <div class="container mx-auto max-w-5xl">
+          <div class="text-center mb-12 floating">
+            <h1 class="heading-font text-4xl md:text-5xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-primary mb-2">
+              My Spiritual Journey
+            </h1>
+            <p class="text-gray-600 max-w-2xl mx-auto mt-6 leading-relaxed">
+              Track your progress, manage your profile, and continue your exploration of ancient wisdom on this sacred path of knowledge.
+            </p>
+          </div>
+          <div class="glass-effect rounded-lg shadow-md p-6 md:p-8 mb-12 glowing">
+            <div class="flex flex-col md:flex-row gap-8">
+              <div class="md:w-1/3 flex flex-col items-center">
+                <div class="w-40 h-40 rounded-full bg-gray-200 flex items-center justify-center mb-4 border-4 border-primary/20">
+                  <i class="ri-user-line text-gray-600 text-6xl"></i>
+                </div>
+                <h2 id="profileName" class="text-xl font-medium text-gray-800">Loading...</h2>
+                <p class="text-gray-500 text-sm">Member since April 2023</p>
+                <div class="mt-4 flex flex-col gap-2 w-full">
+                  <div class="flex items-center justify-between">
+                    <span class="text-sm text-gray-600">Learning Streak</span>
+                    <span class="text-sm font-medium">78 days</span>
+                  </div>
+                  <div class="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
+                    <div class="h-full bg-primary rounded-full" style="width: 78%"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="md:w-2/3">
+                <h3 class="text-xl font-medium text-gray-800 mb-6">Profile Information</h3>
+                <div class="space-y-5">
+                  <div>
+                    <label for="username" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+                    <div class="relative">
+                      <input
+                        type="text"
+                        id="username"
+                        value="Loading..."
+                        class="w-full px-4 py-3 border border-gray-300 rounded focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all"
+                        readonly
+                      />
+                      </div>
+                  </div>
+                  <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                    <input
+                      type="email"
+                      id="email"
+                      value="Loading..."
+                      class="w-full px-4 py-3 border border-gray-300 rounded bg-gray-50 cursor-not-allowed"
+                      readonly
+                    />
+                  </div>
+                  <div class="pt-2">
+                
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="glass-effect rounded-lg shadow-md p-6 md:p-8 mb-12 glowing">
+            <h3 class="heading-font text-2xl font-semibold text-gray-800 mb-6">Course Progress</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6" id="courseProgress"></div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div class="md:col-span-2 glass-effect rounded-lg shadow-md p-6 md:p-8 glowing">
+              <h3 class="heading-font text-2xl font-semibold text-gray-800 mb-6">Learning Progress</h3>
+              <div id="progressChart" class="w-full h-[400px]"></div>
+            </div>
+            <div class="glass-effect rounded-lg shadow-md p-6 md:p-8 flex flex-col glowing">
+              <h3 class="heading-font text-2xl font-semibold text-gray-800 mb-6">Daily Wisdom</h3>
+              <div id="quoteContainer" class="flex-grow flex flex-col justify-center relative">
+                <div class="absolute top-0 left-4 text-6xl text-primary/20">"</div>
+                <div class="quote-slide active">
+                  <p class="quote-text text-xl text-gray-700 text-center px-8 mb-4">
+                    The mind is everything. What you think you become.
+                  </p>
+                  <p class="text-sm text-gray-500 text-center">— Upanishads</p>
+                </div>
+                <div class="quote-slide hidden">
+                  <p class="quote-text text-xl text-gray-700 text-center px-8 mb-4">
+                    Knowledge is the greatest wealth that one can possess.
+                  </p>
+                  <p class="text-sm text-gray-500 text-center">— Rig Veda</p>
+                </div>
+                <div class="quote-slide hidden">
+                  <p class="quote-text text-xl text-gray-700 text-center px-8 mb-4">
+                    Truth is one, sages call it by various names.
+                  </p>
+                  <p class="text-sm text-gray-500 text-center">— Rig Veda</p>
+                </div>
+                <div class="quote-slide hidden">
+                  <p class="quote-text text-xl text-gray-700 text-center px-8 mb-4">
+                    Let good thoughts come to us from all directions.
+                  </p>
+                  <p class="text-sm text-gray-500 text-center">— Yajur Veda</p>
+                </div>
+                <div class="absolute bottom-0 right-4 text-6xl text-primary/20 rotate-180">"</div>
+              </div>
+              <div class="flex justify-center space-x-4 mt-6">
+                <button
+                  id="prevQuote"
+                  class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 hover:bg-gray-50 transition-colors"
+                  aria-label="Previous quote"
+                >
+                  <i class="ri-arrow-left-s-line"></i>
+                </button>
+                <button
+                  id="nextQuote"
+                  class="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 hover:bg-gray-50 transition-colors"
+                  aria-label="Next quote"
+                >
+                  <i class="ri-arrow-right-s-line"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="glass-effect rounded-lg shadow-md p-6 md:p-8 mb-12 glowing">
+            <h3 class="heading-font text-2xl font-semibold text-gray-800 mb-6">Learning Categories</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6" id="learningCategories"></div>
+          </div>
+          <div class="glass-effect rounded-lg shadow-md p-6 md:p-8 mb-12 glowing">
+            <h3 class="heading-font text-2xl font-semibold text-gray-800 mb-6">Quiz History</h3>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-sm text-gray-700">
+                <thead>
+                  <tr class="border-b border-gray-200">
+                    <th class="py-3 px-4 font-medium">Topic</th>
+                    <th class="py-3 px-4 font-medium">Score</th>
+                    <th class="py-3 px-4 font-medium">Completion Time</th>
+                  </tr>
+                </thead>
+                <tbody id="quizHistory"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="glass-effect rounded-lg shadow-md p-6 md:p-8 glowing">
+            <h3 class="heading-font text-2xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-primary mb-6">
+              Recommended Paths
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="flex gap-4 p-4 border border-gray-100 rounded-lg hover:shadow-md transition-shadow">
+                <div class="w-16 h-16 flex items-center justify-center rounded-lg bg-primary/10">
+                  <i class="ri-book-open-line text-primary text-2xl"></i>
+                </div>
+                <div>
+                  <h4 class="text-lg font-medium text-gray-800">Upanishad Mastery</h4>
+                  <p class="text-sm text-gray-600 mb-2">Complete your journey through the philosophical texts</p>
+                  <a href="#" class="text-primary text-sm font-medium">Continue (3 lessons left)</a>
+                </div>
+              </div>
+              <div class="flex gap-4 p-4 border border-gray-100 rounded-lg hover:shadow-md transition-shadow">
+                <div class="w-16 h-16 flex items-center justify-center rounded-lg bg-secondary/10">
+                  <i class="ri-fire-line text-secondary text-2xl"></i>
+                </div>
+                <div>
+                  <h4 class="text-lg font-medium text-gray-800">Vedic Rituals</h4>
+                  <p class="text-sm text-gray-600 mb-2">Explore the practical applications of Brahmanas</p>
+                  <a href="#" class="text-primary text-sm font-medium">Start this path</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <div class="text-2xl font-['Pacifico'] text-primary mb-4">Vedangana</div>
+              <p class="text-gray-400 text-sm">
+                Illuminating ancient wisdom for the modern seeker. Join us on a journey through the timeless teachings of Vedic knowledge.
+              </p>
+            </div>
+            <div>
+              <h4 class="text-lg font-medium mb-4">Quick Links</h4>
+              <ul class="space-y-2">
+                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Courses</a></li>
+                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Resources</a></li>
+                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-lg font-medium mb-4">Learning Paths</h4>
+              <ul class="space-y-2">
+                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Vedic Foundations</a></li>
+                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Advanced Philosophy</a></li>
+                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Practical Wisdom</a></li>
+                <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Sanskrit Studies</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 class="text-lg font-medium mb-4">Connect With Us</h4>
+              <div class="flex space-x-4 mb-4">
+                <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary/80 transition-colors">
+                  <i class="ri-facebook-fill"></i>
+                </a>
+                <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary/80 transition-colors">
+                  <i class="ri-twitter-fill"></i>
+                </a>
+                <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary/80 transition-colors">
+                  <i class="ri-instagram-line"></i>
+                </a>
+                <a href="#" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 hover:bg-primary/80 transition-colors">
+                  <i class="ri-youtube-fill"></i>
+                </a>
+              </div>
+              <p class="text-gray-400 text-sm">
+                Subscribe to our newsletter for updates on new courses and Vedic insights.
+              </p>
+            </div>
+          </div>
+          <div class="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p class="text-gray-400 text-sm">© 2025 Vedic Scriptures Learning. All rights reserved.</p>
+            <div class="flex space-x-4 mt-4 md:mt-0">
+              <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Privacy Policy</a>
+              <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Terms of Service</a>
+              <a href="#" class="text-gray-400 hover:text-white transition-colors text-sm">Cookie Policy</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+      // Check user authentication
+      let userId = localStorage.getItem('userId');
+      if (!userId) {
+        window.location.href = '../Auth/login.html';
+      }
+
+      // Fetch user data
+      async function fetchUserData() {
+        try {
+          const response = await fetch('https://localhost:5002/api/Auth/user', {
+            headers: { 'X-User-Id': userId }
+          });
+          if (!response.ok) {
+            if (response.status === 401) throw new Error('Authorization required');
+            if (response.status === 404) throw new Error('User not found');
+            throw new Error('Failed to fetch user data');
+          }
+          const userData = await response.json();
+          return userData;
+        } catch (error) {
+          throw error;
+        }
+      }
+
+      // Fetch progress data
+      async function fetchProgressData() {
+        try {
+          const response = await fetch('https://localhost:5002/api/progress/current-progress', {
+            headers: { 'X-User-Id': userId }
+          });
+          if (!response.ok) throw new Error('Failed to fetch progress: ' + response.statusText);
+          const progressData = await response.json();
+          return progressData;
+        } catch (error) {
+          throw error;
+        }
+      }
+
+      // Update profile information
+      function updateProfile(userData) {
+        document.getElementById('profileName').textContent = userData.username;
+        document.getElementById('username').value = userData.username;
+        document.getElementById('email').value = userData.email;
+      }
+
+      // Update course progress section
+      function updateCourseProgress(courses) {
+        const courseContainer = document.getElementById('courseProgress');
+        courseContainer.innerHTML = '';
+        Object.values(courses).forEach(course => {
+          const courseHTML = `
+            <div class="flex gap-4 p-4 border border-gray-100 rounded-lg hover:shadow-md transition-shadow">
+              <div class="w-16 h-16 flex items-center justify-center rounded-lg bg-primary/10">
+                <i class="ri-book-open-line text-primary text-2xl"></i>
+              </div>
+              <div>
+                <h4 class="text-lg font-medium text-gray-800">${course.courseName}</h4>
+                <p class="text-sm text-gray-600 mb-2">Progress: ${course.progressPercentage.toFixed(2)}%</p>
+                <p class="text-sm text-gray-500">Last Accessed: ${new Date(course.lastAccessed).toLocaleDateString()}</p>
+              </div>
+            </div>
+          `;
+          courseContainer.insertAdjacentHTML('beforeend', courseHTML);
+        });
+      }
+
+      // Update radar chart with Veda progress
+      function updateRadarChart(vedaData) {
+        const chartDom = document.getElementById('progressChart');
+        const myChart = echarts.init(chartDom);
+        const indicators = [
+          { name: 'Samhitas', max: 100 },
+          { name: 'Brahmanas', max: 100 },
+          { name: 'Aranyakas', max: 100 },
+          { name: 'Upanishads', max: 100 },
+          { name: 'Vedangas', max: 100 },
+          { name: 'Upvedas', max: 100 },
+          { name: 'Natya', max: 100 },
+          { name: 'Ayurveda', max: 100 },
+          { name: 'Dhanurveda', max: 100 },
+          { name: 'Shilpa', max: 100 }
+        ];
+        const progressValues = [
+          0, // Samhitas (not in JSON)
+          vedaData['Brahmanas']?.progressPercentage || 0,
+          vedaData['Aranyakas']?.progressPercentage || 0,
+          vedaData['Upanishad']?.progressPercentage || 0,
+          vedaData['Vedanga']?.progressPercentage || 0,
+          vedaData['Upveda']?.progressPercentage || 0,
+          vedaData['Natya']?.progressPercentage || 0,
+          vedaData['Ayurveda']?.progressPercentage || 0,
+          vedaData['Dhanurveda']?.progressPercentage || 0,
+          vedaData['Shilpa']?.progressPercentage || 0
+        ];
+
+        const option = {
+          animation: false,
+          radar: {
+            indicator: indicators,
+            radius: '65%',
+            splitNumber: 4,
+            axisName: { color: '#666', fontSize: 12 },
+            splitArea: {
+              areaStyle: {
+                color: ['#FDF6E9', '#FEF9F0', '#FFFCF7', '#FFFFFF'],
+                shadowColor: 'rgba(0, 0, 0, 0.05)',
+                shadowBlur: 10
+              }
+            },
+            axisLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.2)' } },
+            splitLine: { lineStyle: { color: 'rgba(212, 175, 55, 0.2)' } }
+          },
+          tooltip: {
+            trigger: 'item',
+            backgroundColor: 'rgba(255, 255, 255, 0.9)',
+            borderColor: '#D4AF37',
+            textStyle: { color: '#333' },
+            formatter: params => `${params.name}<br/>${params.marker}${params.value}% Complete`
+          },
+          series: [{
+            name: 'Learning Progress',
+            type: 'radar',
+            data: [{
+              value: progressValues,
+              name: 'Your Progress',
+              symbol: 'circle',
+              symbolSize: 8,
+              lineStyle: { width: 2, color: '#D4AF37' },
+              areaStyle: {
+                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                  { offset: 0, color: 'rgba(212, 175, 55, 0.3)' },
+                  { offset: 1, color: 'rgba(212, 175, 55, 0.1)' }
+                ])
+              },
+              itemStyle: { color: '#D4AF37' }
+            }]
+          }]
+        };
+        myChart.setOption(option);
+        window.addEventListener('resize', () => myChart.resize());
+      }
+
+      // Update learning categories with course and Veda progress
+      function updateLearningCategories(courses, vedaData) {
+        const categoriesContainer = document.getElementById('learningCategories');
+        categoriesContainer.innerHTML = '';
+
+        const categoryData = [
+          {
+            key: 'Vedic Studies',
+            type: 'course',
+            title: 'Vedic Studies',
+            description: 'Core collection of mantras and hymns',
+            color: '#E6B17E',
+            gradient: 'from-[#FDF6E9] to-[#F9EFD9]',
+            border: 'border-primary/10'
+          },
+          {
+            key: 'Meditation Techniques',
+            type: 'course',
+            title: 'Meditation Techniques',
+            description: 'Ancient practices for inner peace',
+            color: '#7EE6B1',
+            gradient: 'from-[#F0FFF7] to-[#E6FCF1]',
+            border: 'border-[#7EE6B1]/10'
+          },
+          {
+            key: 'Yoga Philosophy',
+            type: 'course',
+            title: 'Yoga Philosophy',
+            description: 'Spiritual aspects of yoga',
+            color: '#E67E7E',
+            gradient: 'from-[#FFF0F0] to-[#FCE6E6]',
+            border: 'border-[#E67E7E]/10'
+          },
+          {
+            key: 'Spiritual Counseling',
+            type: 'course',
+            title: 'Spiritual Counseling',
+            description: 'Guidance for spiritual growth',
+            color: '#B17EE6',
+            gradient: 'from-[#F7F0FF] to-[#F1E6FC]',
+            border: 'border-[#B17EE6]/10'
+          },
+          {
+            key: 'Temple Rituals',
+            type: 'course',
+            title: 'Temple Rituals',
+            description: 'Sacred ceremonies and significance',
+            color: '#E6D47E',
+            gradient: 'from-[#FFFDF0] to-[#FCF9E6]',
+            border: 'border-[#E6D47E]/10'
+          },
+          {
+            key: 'Energy Healing',
+            type: 'course',
+            title: 'Energy Healing',
+            description: 'Balancing life energies',
+            color: '#7E9EE6',
+            gradient: 'from-[#F0F5FF] to-[#E6EDFC]',
+            border: 'border-secondary/10'
+          },
+          {
+            key: 'Brahmanas',
+            type: 'veda',
+            title: 'Brahmanas',
+            description: 'Ritual texts for mantras',
+            color: '#7E9EE6',
+            gradient: 'from-[#F0F5FF] to-[#E6EDFC]',
+            border: 'border-secondary/10'
+          },
+          {
+            key: 'Aranyakas',
+            type: 'veda',
+            title: 'Aranyakas',
+            description: 'Forest texts for meditation',
+            color: '#E67E7E',
+            gradient: 'from-[#FFF0F0] to-[#FCE6E6]',
+            border: 'border-[#E67E7E]/10'
+          },
+          {
+            key: 'Upanishad',
+            type: 'veda',
+            title: 'Upanishads',
+            description: 'Philosophical texts on reality',
+            color: '#7EE6B1',
+            gradient: 'from-[#F0FFF7] to-[#E6FCF1]',
+            border: 'border-[#7EE6B1]/10'
+          },
+          {
+            key: 'Vedanga',
+            type: 'veda',
+            title: 'Vedangas',
+            description: 'Auxiliary disciplines for Vedas',
+            color: '#B17EE6',
+            gradient: 'from-[#F7F0FF] to-[#F1E6FC]',
+            border: 'border-[#B17EE6]/10'
+          },
+          {
+            key: 'Upveda',
+            type: 'veda',
+            title: 'Upvedas',
+            description: 'Applied knowledge (medicine, music)',
+            color: '#E6D47E',
+            gradient: 'from-[#FFFDF0] to-[#FCF9E6]',
+            border: 'border-[#E6D47E]/10'
+          },
+          {
+            key: 'Natya',
+            type: 'veda',
+            title: 'Natya',
+            description: 'Art of dance and drama',
+            color: '#E6B17E',
+            gradient: 'from-[#FDF6E9] to-[#F9EFD9]',
+            border: 'border-primary/10'
+          },
+          {
+            key: 'Ayurveda',
+            type: 'veda',
+            title: 'Ayurveda',
+            description: 'Science of life and healing',
+            color: '#7EE6B1',
+            gradient: 'from-[#F0FFF7] to-[#E6FCF1]',
+            border: 'border-[#7EE6B1]/10'
+          },
+          {
+            key: 'Dhanurveda',
+            type: 'veda',
+            title: 'Dhanurveda',
+            description: 'Science of archery and warfare',
+            color: '#E67E7E',
+            gradient: 'from-[#FFF0F0] to-[#FCE6E6]',
+            border: 'border-[#E67E7E]/10'
+          },
+          {
+            key: 'Shilpa',
+            type: 'veda',
+            title: 'Shilpa',
+            description: 'Art and architecture',
+            color: '#B17EE6',
+            gradient: 'from-[#F7F0FF] to-[#F1E6FC]',
+            border: 'border-[#B17EE6]/10'
+          }
+        ];
+
+        categoryData.forEach(category => {
+          const progress = category.type === 'course'
+            ? courses[category.key]?.progressPercentage || 0
+            : vedaData[category.key]?.progressPercentage || 0;
+          const details = category.type === 'course'
+            ? `You've completed ${Math.round(progress / 10)} of 10 lessons in ${category.title}`
+            : `You've completed ${Math.round(progress / 10)} of 10 lessons in ${category.title}`;
+          let subtypeDetails = '';
+          if (category.type === 'veda' && vedaData[category.key]?.subtypes) {
+            subtypeDetails = '<ul class="text-sm text-gray-600 mt-2">';
+            vedaData[category.key].subtypes.forEach(subtype => {
+              const status = subtype.result === true ? 'Completed' : subtype.result === null ? 'Not Started' : 'In Progress';
+              subtypeDetails += `<li>${subtype.subtypeName}: ${status} (Last Attempted: ${new Date(subtype.lastAttempted).toLocaleDateString()})</li>`;
+            });
+            subtypeDetails += '</ul>';
+          }
+
+          const categoryHTML = `
+            <div class="progress-category bg-gradient-to-br ${category.gradient} p-6 rounded-lg border ${category.border} relative overflow-hidden group">
+              <div class="absolute top-0 right-0 w-20 h-20 bg-[${category.color}]/10 rounded-bl-[40px]"></div>
+              <h4 class="text-lg font-medium text-gray-800 mb-2">${category.title}</h4>
+              <p class="text-sm text-gray-600 mb-4">${category.description}</p>
+              <div class="w-full bg-gray-100 h-2 rounded-full mb-2">
+                <div class="bg-[${category.color}] h-full rounded-full" style="width: ${progress}%"></div>
+              </div>
+              <div class="flex justify-between text-sm">
+                <span>Progress</span>
+                <span class="font-medium">${progress.toFixed(2)}%</span>
+              </div>
+              <div class="category-details absolute bottom-0 left-0 right-0 bg-white p-4 shadow-lg rounded-t-lg transition-all">
+                <p class="text-sm text-gray-700 mb-2">${details}</p>
+                ${subtypeDetails}
+                <a href="#" class="text-primary text-sm font-medium">Continue Learning →</a>
+              </div>
+            </div>
+          `;
+          categoriesContainer.insertAdjacentHTML('beforeend', categoryHTML);
+        });
+      }
+
+      // Update quiz history section
+      function updateQuizHistory(services) {
+        const quizTable = document.getElementById('quizHistory');
+        quizTable.innerHTML = '';
+        const quizAttempts = services['QuizMaster']?.quizAttempts || [];
+        quizAttempts.forEach(attempt => {
+          const attemptHTML = `
+            <tr class="border-b border-gray-100">
+              <td class="py-3 px-4">${attempt.topicName}</td>
+              <td class="py-3 px-4">${attempt.score.toFixed(1)}%</td>
+              <td class="py-3 px-4">${new Date(attempt.completionTime).toLocaleString()}</td>
+            </tr>
+          `;
+          quizTable.insertAdjacentHTML('beforeend', attemptHTML);
+        });
+      }
+
+      // Profile editing
+      function enableProfileEditing() {
+        const usernameInput = document.getElementById('username');
+        const editButton = document.querySelector('#username + div');
+        const saveButton = document.getElementById('saveChanges');
+
+        editButton.addEventListener('click', () => {
+          usernameInput.removeAttribute('readonly');
+          usernameInput.focus();
+          saveButton.removeAttribute('disabled');
+        });
+
+       
+    }
+      // Logout functionality
+      function enableLogout() {
+        document.getElementById('logoutButton').addEventListener('click', () => {
+          localStorage.removeItem('userId');
+          window.location.href = '../Auth/login.html';
+        });
+      }
+
+      // Initialize on page load
+      document.addEventListener('DOMContentLoaded', async () => {
+        document.getElementById('loading').classList.remove('hidden');
+        try {
+          const [userData, progressData] = await Promise.all([
+            fetchUserData(),
+            fetchProgressData()
+          ]);
+          updateProfile(userData);
+          updateCourseProgress(progressData.courses);
+          updateRadarChart(progressData.veda);
+          updateLearningCategories(progressData.courses, progressData.veda);
+          updateQuizHistory(progressData.services);
+          enableProfileEditing();
+          enableLogout();
+        } catch (error) {
+        } finally {
+          document.getElementById('loading').classList.add('hidden');
+        }
+
+        // Quote rotation
+        const quoteSlides = document.querySelectorAll('.quote-slide');
+        const prevButton = document.getElementById('prevQuote');
+        const nextButton = document.getElementById('nextQuote');
+        let currentQuoteIndex = 0;
+
+        function showQuote(index) {
+          quoteSlides.forEach(slide => slide.classList.add('hidden'));
+          quoteSlides[index].classList.remove('hidden');
+        }
+
+        prevButton.addEventListener('click', () => {
+          currentQuoteIndex = (currentQuoteIndex - 1 + quoteSlides.length) % quoteSlides.length;
+          showQuote(currentQuoteIndex);
+        });
+
+        nextButton.addEventListener('click', () => {
+          currentQuoteIndex = (currentQuoteIndex + 1) % quoteSlides.length;
+          showQuote(currentQuoteIndex);
+        });
+
+        setInterval(() => {
+          currentQuoteIndex = (currentQuoteIndex + 1) % quoteSlides.length;
+          showQuote(currentQuoteIndex);
+        }, 10000);
+      });
+    </script>
+  </body>
+</html>

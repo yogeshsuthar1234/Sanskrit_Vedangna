@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temple Rituals - Daily Sanskrit Practice</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#7c4dff',secondary:'#42a5f5'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fcfcff;
+        }
+        .breathing-circle {
+            transition: transform 0.5s ease-in-out;
+            box-shadow: 0 0 30px rgba(124, 77, 255, 0.2);
+        }
+        .breathing-animation {
+            animation: breathe 10s infinite ease-in-out;
+        }
+        @keyframes breathe {
+            0%, 100% { transform: scale(0.8); background-color: rgba(124, 77, 255, 0.1); }
+            50% { transform: scale(1.2); background-color: rgba(124, 77, 255, 0.3); }
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #7c4dff;
+            cursor: pointer;
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #7c4dff;
+            cursor: pointer;
+            border: none;
+        }
+        .custom-checkbox {
+            position: relative;
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 2px solid #d1d5db;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+        .custom-checkbox.checked {
+            background-color: #7c4dff;
+            border-color: #7c4dff;
+        }
+        .custom-checkbox.checked::after {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+        .custom-switch {
+            position: relative;
+            display: inline-block;
+            width: 48px;
+            height: 24px;
+        }
+        .custom-switch-input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .custom-switch-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #e5e7eb;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        .custom-switch-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        .custom-switch-input:checked + .custom-switch-slider {
+            background-color: #7c4dff;
+        }
+        .custom-switch-input:checked + .custom-switch-slider:before {
+            transform: translateX(24px);
+        }
+        #loading-overlay {
+            backdrop-filter: blur(4px);
+        }
+        .loader {
+            border-top-color: #4ECDC4;
+            border-left-color: #4ECDC4;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .animate-spin {
+            animation: spin 1s linear infinite;
+        }
+        .progress-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            padding: 0.75rem 0;
+        }
+        .progress-bar {
+            flex: 1;
+            height: 12px;
+            background-color: #e5e7eb;
+            border-radius: 6px;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(to right, #7c4dff, #42a5f5);
+            transition: width 0.6s ease-in-out;
+            max-width: 100%;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading-overlay" class="fixed inset-0 bg-white/90 z-[999] flex items-center justify-center transition-opacity duration-300 opacity-0 pointer-events-none">
+        <div class="flex flex-col items-center gap-4">
+            <div class="loader animate-spin rounded-full border-4 border-t-4 border-gray-200 h-12 w-12"></div>
+            <p class="text-gray-600 font-medium">Generating AI Content...</p>
+        </div>
+    </div>
+
+    <!-- Completion Modal -->
+    <div id="completion-modal" data-modal-backdrop="static" tabindex="-1" class="hidden fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto flex items-center justify-center min-h-screen">
+        <div class="relative w-full max-w-md max-h-full">
+            <div class="relative bg-white rounded-lg shadow">
+                <div class="p-6 text-center">
+                    <svg class="mx-auto mb-4 text-primary w-12 h-12" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                    </svg>
+                    <h3 class="mb-5 text-2xl font-semibold text-gray-800">Ritual Exercise Completed!</h3>
+                    <p class="mb-6 text-gray-600">Well done! You have successfully completed the ritual exercise.</p>
+                    <button data-modal-hide="completion-modal" type="button" class="bg-primary text-white hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-primary/50 font-medium rounded-button px-5 py-2.5 text-center transition-colors">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="relative bg-gradient-to-r from-indigo-50 to-blue-50 overflow-hidden">
+        <div class="absolute inset-0 bg-center bg-cover opacity-20" style="background-image: url('https://readdy.ai/api/search-image?query=beautiful%2520sacred%2520geometry%2520mandala%2520pattern%2520with%2520soft%2520purple%2520and%2520blue%2520colors%252C%2520zen%2520meditation%2520background%252C%2520spiritual%2520and%2520peaceful%2520design%252C%2520subtle%2520lotus%2520flower%2520elements%252C%2520minimalist%2520and%2520elegant%2520style%252C%2520high%2520quality%2520digital%2520art&width=1200&height=400&seq=1&orientation=landscape')"></div>
+        <div class="container mx-auto px-6 py-12 relative z-10">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <a href="../Dashboard/dashboard.html"><h1 class="font-['Pacifico'] text-3xl text-primary">Vedangana</h1></a>
+                </div>
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="./Yoga.html" class="text-gray-700 hover:text-primary transition-colors font-medium">Meditation</a>
+                    <a href="./yogaphilo.html" class="text-gray-700 hover:text-primary transition-colors font-medium">Yoga Philosophy</a>
+                    <a href="./VedicStudies.html" class="text-gray-700 hover:text-primary transition-colors font-medium">Vedic Studies</a>
+                    <a href="./spiritual.html" class="text-gray-700 hover:text-primary transition-colors font-medium">Spiritual Counseling</a>
+                    <a href="./TempleRituals.html" class="text-primary font-medium">Temple Rituals</a>
+                    <a href="./energyhealing.html" class="text-gray-700 hover:text-primary transition-colors font-medium">Energy Healing</a>
+                    <button id="user-icon" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-primary hover:text-white transition-colors">
+                        <i class="ri-user-line"></i>
+                    </button>
+                </nav>
+                <button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-700">
+                    <i class="ri-menu-line ri-lg"></i>
+                </button>
+            </div>
+            <div class="mt-16 mb-12 text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Daily Temple Rituals</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">Immerse yourself in the sacred traditions of Temple Rituals through guided practices and ancient ceremonies</p>
+                <div id="ai-status-message" class="hidden text-center text-red-600 mt-4"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-lg shadow-lg p-6 sticky top-8">
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Temple Rituals Practices</h3>
+                    <div id="techniques-list" class="space-y-3">
+                        <!-- Practices will be loaded here -->
+                    </div>
+                    <div class="progress-section bg-white p-6 rounded-lg shadow-md mb-8">
+                        <h3 class="text-xl font-semibold mb-4">Temple Rituals Progress</h3>
+                        <div class="total-progress mb-6">
+                            <p class="text-lg">Total Practice Time: 
+                                <span id="total-minutes" class="font-bold text-primary">0</span> minutes
+                            </p>
+                        </div>
+                        <div id="course-progress" class="space-y-4"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:col-span-2">
+                <div id="technique-content" class="mb-12">
+                    <!-- Practice content will be loaded here -->
+                </div>
+                <div id="breathing-exercise" class="bg-white rounded-lg shadow-lg p-8 mb-12">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6 text-center">Guided Ritual Exercise</h3>
+                    <div class="flex flex-col items-center justify-center mb-8">
+                        <div id="breathing-circle" class="breathing-circle w-48 h-48 rounded-full bg-primary bg-opacity-10 flex items-center justify-center mb-6">
+                            <span id="breath-action" class="text-xl font-medium text-primary">Ready</span>
+                        </div>
+                        <div id="instruction" class="text-center mb-4">
+                            <p class="text-lg text-gray-700">Press start to begin the ritual exercise</p>
+                        </div>
+                        <div id="timer" class="text-3xl font-semibold text-gray-800 mb-6">00:00</div>
+                        <div class="w-full max-w-md bg-gray-200 rounded-full h-2.5 mb-6">
+                            <div id="progress-bar" class="bg-primary h-2.5 rounded-full" style="width: 0%"></div>
+                        </div>
+                        <div class="flex space-x-4">
+                            <button id="start-btn" class="bg-primary text-white px-6 py-2 !rounded-button flex items-center whitespace-nowrap">
+                                <i class="ri-play-line mr-2"></i> Start
+                            </button>
+                            <button id="pause-btn" class="bg-gray-200 text-gray-700 px-6 py-2 !rounded-button flex items-center whitespace-nowrap hidden">
+                                <i class="ri-pause-line mr-2"></i> Pause
+                            </button>
+                            <button id="reset-btn" class="bg-gray-200 text-gray-700 px-6 py-2 !rounded-button flex items-center whitespace-nowrap">
+                                <i class="ri-restart-line mr-2"></i> Reset
+                            </button>
+                        </div>
+                    </div>
+                    <div id="exercise-steps" class="space-y-4">
+                        <!-- Exercise steps will be loaded here -->
+                    </div>
+                </div>
+                <div id="benefits" class="bg-white rounded-lg shadow-lg p-8">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Benefits of Regular Practice</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Benefits will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-50 border-t border-gray-200 mt-16">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-['Pacifico'] text-2xl text-primary mb-4">Vedangana</h3>
+                    <p class="text-gray-600">Bringing ancient wisdom to modern practice through daily Sanskrit studies and meditation techniques.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-4">Explore</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Meditation</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Yoga Philosophy</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Vedic Studies</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Sanskrit Lessons</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-4">Resources</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Beginner's Guide</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Teacher Directory</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Community Forum</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-gray-800 mb-4">Connect</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Newsletter</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary transition-colors">Events</a></li>
+                    </ul>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-primary hover:text-white transition-colors">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-primary hover:text-white transition-colors">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-primary hover:text-white transition-colors">
+                            <i class="ri-youtube-fill"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-600 text-sm">© 2025 Daily Sanskrit Practice. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-600 hover:text-primary text-sm transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-600 hover:text-primary text-sm transition-colors">Terms of Service</a>
+                    <a href="#" class="text-gray-600 hover:text-primary text-sm transition-colors">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let ritualData = {
+            practices: [],
+            breathingExercise: {}
+        };
+        let progressData = {
+            activeSession: {
+                startTime: null,
+                elapsedSeconds: 0,
+                course: "Temple Rituals"
+            },
+            savedProgress: {
+                totalMinutes: 0,
+                courses: {}
+            }
+        };
+        const userId = localStorage.getItem('userId');
+        const API_BASE_URL = 'https://localhost:5002';
+        const COURSE_DURATIONS = {
+            "Temple Rituals": 600
+        };
+        const FALLBACK_IMAGE = 'https://readdy.ai/api/search-image?query=Hindu%20temple%20aarti%20ceremony%20with%20multiple%20oil%20lamps%2C%20priests%20in%20traditional%20attire%2C%20sacred%20ritual%20performance%2C%20devotional%20atmosphere%2C%20golden%20light%20illumination%2C%20spiritual%20worship%20ceremony&width=800&height=600&seq=35&orientation=landscape';
+        const DEFAULT_RITUAL_PRACTICE = {
+            id: 1,
+            name: "Daily Puja Ritual",
+            description: "A traditional Hindu temple ritual involving offerings and prayers to connect with the divine.",
+            history: "Puja rituals have been practiced for thousands of years in Hindu temples, rooted in Vedic traditions to honor deities.",
+            benefits: [
+                "Fosters spiritual connection",
+                "Promotes inner peace",
+                "Encourages mindfulness",
+                "Strengthens devotion"
+            ],
+            instructions: "Set up a small altar with an image or idol of a deity. Light a lamp and offer flowers, incense, and a small portion of food while chanting a mantra like 'Om Namah Shivaya' for 15-20 minutes daily.",
+            image: "https://readdy.ai/api/search-image?query=traditional%2520hindu%2520temple%2520puja%2520ritual%252C%2520altar%2520with%2520flowers%2520and%2520lamp%252C%2520serene%2520atmosphere%252C%2520high%2520quality%2520photography&width=600&height=400&seq=3&orientation=landscape"
+        };
+        const DEFAULT_BREATHING_EXERCISE = {
+            name: "Ritual Breathing",
+            description: "A calming breathing technique used in Temple Rituals to prepare the mind and body for sacred practices.",
+            steps: [
+                {
+                    instruction: "Inhale deeply through your nose for 4 seconds.",
+                    duration: 4,
+                    action: "Inhale"
+                },
+                {
+                    instruction: "Hold your breath for 7 seconds.",
+                    duration: 7,
+                    action: "Hold"
+                },
+                {
+                    instruction: "Exhale slowly through your mouth for 8 seconds.",
+                    duration: 8,
+                    action: "Exhale"
+                }
+            ],
+            totalCycles: 4,
+            benefits: [
+                {
+                    title: "Mental Clarity",
+                    description: "Clears the mind, preparing it for sacred rituals.",
+                    icon: "ri-heart-line"
+                },
+                {
+                    title: "Spiritual Focus",
+                    description: "Enhances concentration during temple practices.",
+                    icon: "ri-moon-line"
+                }
+            ]
+        };
+
+        function showLoader() {
+            const loader = document.getElementById('loading-overlay');
+            if (loader) {
+                loader.style.opacity = '1';
+                loader.style.pointerEvents = 'auto';
+            }
+        }
+
+        function hideLoader() {
+            const loader = document.getElementById('loading-overlay');
+            if (loader) {
+                loader.style.opacity = '0';
+                loader.style.pointerEvents = 'none';
+            }
+        }
+
+        async function initializeApp() {
+            if (!userId) {
+                alert('Please log in to continue.');
+                window.location.href = 'login.html';
+                return;
+            }
+            showLoader();
+            try {
+                await Promise.all([
+                    fetchRitualPractice().catch(error => {
+                        console.error('Ritual practice error:', error);
+                        throw error;
+                    }),
+                    fetchBreathingExercise().catch(error => {
+                        console.error('Breathing exercise error:', error);
+                        throw error;
+                    }),
+                    fetchProgress().then(updateProgressBars).catch(error => {
+                        console.error('Progress fetch failed:', error);
+                        return null;
+                    })
+                ]);
+                setupUI();
+            } catch (error) {
+                console.error('Initialization failed:', error);
+                const aiStatusMessage = document.getElementById('ai-status-message');
+                if (aiStatusMessage) {
+                    aiStatusMessage.textContent = 'AI shutdown, showing default info';
+                    aiStatusMessage.classList.remove('hidden');
+                }
+                ritualData.practices = [DEFAULT_RITUAL_PRACTICE];
+                ritualData.breathingExercise = DEFAULT_BREATHING_EXERCISE;
+                setupUI();
+            } finally {
+                setTimeout(hideLoader, 500);
+            }
+        }
+
+        async function fetchRitualPractice() {
+            try {
+                const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer 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'
+                    },
+                    body: JSON.stringify({
+                        model: 'deepseek/deepseek-r1:free',
+                        messages: [{
+                            role: 'user',
+                            content: `Generate 1 detailed Temple Ritual practice in JSON format matching this structure:
+                            {
+                                "id": 1,
+                                "name": "string",
+                                "description": "string",
+                                "history": "string",
+                                "benefits": ["string"],
+                                "instructions": "string"
+                            }`
+                        }],
+                        temperature: 0.7
+                    })
+                });
+                if (!response.ok) throw new Error(`API request failed: ${response.status}`);
+                const data = await response.json();
+                const content = data.choices[0].message.content;
+                const parsedData = JSON.parse(content.match(/\{.*\}/s)[0]);
+                ritualData.practices = [parsedData];
+            } catch (error) {
+                console.error('Failed to fetch Ritual practice, using default:', error);
+                ritualData.practices = [DEFAULT_RITUAL_PRACTICE];
+            }
+        }
+
+        async function fetchBreathingExercise() {
+            try {
+                const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer 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'
+                    },
+                    body: JSON.stringify({
+                        model: 'deepseek/deepseek-r1:free',
+                        messages: [{
+                            role: 'user',
+                            content: `Generate a exercise to pray commonly used in Temple Rituals in this exact JSON format:
+                            {
+                                "name": "string",
+                                "description": "string",
+                                "steps": [
+                                    {
+                                        "instruction": "string",
+                                        "duration": number,
+                                        "action": "string"
+                                    }
+                                ],
+                                "totalCycles": number,
+                                "benefits": [
+                                    {
+                                        "title": "string",
+                                        "description": "string",
+                                        "icon": "ri-icon-class"
+                                    }
+                                ]
+                            }`
+                        }],
+                        temperature: 0.7
+                    })
+                });
+                if (!response.ok) throw new Error(`API request failed: ${response.status}`);
+                const data = await response.json();
+                const content = data.choices[0].message.content;
+                ritualData.breathingExercise = JSON.parse(content.match(/\{.*\}/s)[0]);
+            } catch (error) {
+                console.error('Failed to fetch breathing exercise, using default:', error);
+                alert("AI Shutdown!! Using default data");
+                ritualData.breathingExercise = DEFAULT_BREATHING_EXERCISE;
+            }
+        }
+
+        async function fetchProgress() {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/progress/current-progress`, {
+                    headers: {
+                        'X-User-Id': userId
+                    }
+                });
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.message || `Failed to fetch progress: ${response.status}`);
+                }
+                const data = await response.json();
+                if (!data || !data.courses) {
+                    console.warn('No courses in progress data.');
+                    return progressData.savedProgress;
+                }
+                progressData.savedProgress = {
+                    totalMinutes: Object.values(data.courses).reduce((sum, course) => {
+                        const totalMins = COURSE_DURATIONS[course.courseName] || 600;
+                        return sum + (course.progressPercentage / 100) * totalMins;
+                    }, 0),
+                    courses: data.courses || {}
+                };
+                return progressData.savedProgress;
+            } catch (error) {
+                console.error('Failed to fetch progress:', error);
+                alert('Failed to load progress data.');
+                return progressData.savedProgress;
+            }
+        }
+
+        async function recordPractice(courseName, minutesPracticed) {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/Progress/update`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-User-Id': userId
+                    },
+                    body: JSON.stringify({
+                        CourseName: courseName,
+                        MinutesPracticed: minutesPracticed
+                    })
+                });
+                if (!response.ok) {
+                    const errorData = await response.json();
+                    throw new Error(errorData.message || 'Progress update failed');
+                }
+                const updatedProgress = await fetchProgress();
+                updateProgressBars(updatedProgress);
+            } catch (error) {
+                console.error('Error recording progress:', error);
+                alert('Failed to save progress.');
+            }
+        }
+
+        function updateProgressBars(progressData) {
+            const totalProgress = document.getElementById('total-minutes');
+            if (totalProgress) {
+                gsap.to(totalProgress, {
+                    textContent: Math.round(progressData.totalMinutes),
+                    duration: 0.5,
+                    snap: { textContent: 1 }
+                });
+            }
+            const courseProgress = document.getElementById('course-progress');
+            if (courseProgress) {
+                if (!progressData.courses || Object.keys(progressData.courses).length === 0) {
+                    courseProgress.innerHTML = '<p class="text-gray-600">No progress yet. Start practicing!</p>';
+                    return;
+                }
+                courseProgress.innerHTML = Object.entries(progressData.courses)
+                    .map(([courseName, course]) => {
+                        const cappedPercentage = Math.min(course.progressPercentage, 100);
+                        return `
+                            <div class="progress-item">
+                                <span>${courseName}</span>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: ${cappedPercentage}%"></div>
+                                </div>
+                                <span>${cappedPercentage.toFixed(1)}%</span>
+                            </div>
+                        `;
+                    }).join('');
+                gsap.from('.progress-fill', {
+                    width: 0,
+                    duration: 0.8,
+                    ease: 'power2.out',
+                    stagger: 0.1,
+                    onUpdate: function() {
+                        const fill = this.targets()[0];
+                        if (parseFloat(fill.style.width) > 100) {
+                            fill.style.width = '100%';
+                        }
+                    }
+                });
+            }
+        }
+
+        function setupUI() {
+            const practicesList = document.getElementById('techniques-list');
+            if (practicesList && ritualData.practices.length > 0) {
+                practicesList.innerHTML = '';
+                ritualData.practices.forEach(practice => {
+                    const practiceItem = document.createElement('div');
+                    practiceItem.className = 'p-3 rounded-md cursor-pointer hover:bg-gray-100 transition-colors';
+                    practiceItem.dataset.id = practice.id;
+                    practiceItem.innerHTML = `
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 flex items-center justify-center rounded-full bg-primary bg-opacity-10 text-primary">
+                                <i class="ri-book-line"></i>
+                            </div>
+                            <span class="ml-3 font-medium">${practice.name}</span>
+                        </div>
+                    `;
+                    practiceItem.addEventListener('click', () => {
+                        document.querySelectorAll('#techniques-list > div').forEach(item => {
+                            item.classList.remove('bg-primary', 'bg-opacity-10', 'text-primary');
+                        });
+                        practiceItem.classList.add('bg-primary', 'bg-opacity-10', 'text-primary');
+                        loadPracticeContent(practice.id);
+                    });
+                    practicesList.appendChild(practiceItem);
+                });
+                loadPracticeContent(1);
+            }
+            if (ritualData.breathingExercise.steps) {
+                const exerciseSteps = document.getElementById('exercise-steps');
+                if (exerciseSteps) {
+                    exerciseSteps.innerHTML = '';
+                    ritualData.breathingExercise.steps.forEach((step, index) => {
+                        const stepItem = document.createElement('div');
+                        stepItem.className = 'flex items-start p-4 rounded-md bg-gray-50';
+                        stepItem.innerHTML = `
+                            <div class="w-8 h-8 flex items-center justify-center rounded-full bg-primary bg-opacity-20 text-primary flex-shrink-0">
+                                ${index + 1}
+                            </div>
+                            <div class="ml-4">
+                                <p class="font-medium text-gray-800">${step.instruction}</p>
+                                <p class="text-sm text-gray-600">${step.duration} seconds - ${step.action}</p>
+                            </div>
+                        `;
+                        exerciseSteps.appendChild(stepItem);
+                    });
+                }
+                const benefitsContainer = document.getElementById('benefits');
+                if (benefitsContainer) {
+                    const benefitsGrid = benefitsContainer.querySelector('.grid');
+                    benefitsGrid.innerHTML = '';
+                    ritualData.breathingExercise.benefits.forEach(benefit => {
+                        const benefitItem = document.createElement('div');
+                        benefitItem.className = 'flex items-start';
+                        benefitItem.innerHTML = `
+                            <div class="w-12 h-12 flex items-center justify-center rounded-full bg-primary bg-opacity-10 text-primary flex-shrink-0">
+                                <i class="${benefit.icon} ri-lg"></i>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="font-semibold text-gray-800">${benefit.title}</h4>
+                                <p class="text-gray-600">${benefit.description}</p>
+                            </div>
+                        `;
+                        benefitsGrid.appendChild(benefitItem);
+                    });
+                }
+            }
+            const startBtn = document.getElementById('start-btn');
+            const pauseBtn = document.getElementById('pause-btn');
+            const resetBtn = document.getElementById('reset-btn');
+            const breathingCircle = document.getElementById('breathing-circle');
+            const breathAction = document.getElementById('breath-action');
+            const instruction = document.getElementById('instruction');
+            const timer = document.getElementById('timer');
+            const progressBar = document.getElementById('progress-bar');
+            const completionModal = document.getElementById('completion-modal');
+            let currentStep = 0;
+            let currentCycle = 0;
+            let timeRemaining = 0;
+            let totalTime = 0;
+            let elapsedTime = 0;
+            let timerInterval = null;
+            let isPaused = false;
+            let startTime = null;
+            let wasReset = false; // Flag to track if reset was clicked
+            var m="Inhale";
+            if (ritualData.breathingExercise.steps) {
+                ritualData.breathingExercise.steps.forEach(step => {
+                    totalTime += step.duration;
+                });
+                totalTime *= ritualData.breathingExercise.totalCycles || 1;
+            }
+            function updateTimer() {
+                const minutes = Math.floor(elapsedTime / 60);
+                const seconds = elapsedTime % 60;
+                if (timer) {
+                    timer.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                }
+                if (progressBar) {
+                    const progress = totalTime ? (elapsedTime / totalTime) * 100 : 0;
+                    progressBar.style.width = `${Math.min(progress, 100)}%`;
+                }
+            }
+            function showCompletionModal() {
+                console.log('Showing completion modal');
+                if (completionModal) {
+                    completionModal.classList.remove('hidden');
+                    gsap.from(completionModal, { opacity: 0, scale: 0.8, duration: 0.3 });
+                } else {
+                    console.error('Completion modal not found');
+                }
+            }
+            function hideCompletionModal() {
+                console.log('Hiding completion modal');
+                if (completionModal) {
+                    gsap.to(completionModal, {
+                        opacity: 0,
+                        scale: 0.8,
+                        duration: 0.3,
+                        onComplete: () => completionModal.classList.add('hidden')
+                    });
+                }
+            }
+            function startExercise() {
+                if (!ritualData.breathingExercise.steps) return;
+                console.log('Starting exercise, isPaused:', isPaused);
+                wasReset = false; // Reset the flag when starting
+                if (isPaused) {
+                    isPaused = false;
+                    startTime = Date.now() - elapsedTime * 1000;
+                } else {
+                    currentStep = 0;
+                    currentCycle = 0;
+                    elapsedTime = 0;
+                    timeRemaining = totalTime;
+                    startTime = Date.now();
+                    if (breathingCircle) breathingCircle.classList.add('breathing-animation');
+                }
+                if (startBtn) startBtn.classList.add('hidden');
+                if (pauseBtn) pauseBtn.classList.remove('hidden');
+                const steps = ritualData.breathingExercise.steps;
+                const totalCycles = ritualData.breathingExercise.totalCycles || 1;
+                function nextStep() {
+                    console.log(`Next step: currentStep=${currentStep}, currentCycle=${currentCycle}, totalCycles=${totalCycles}`);
+                    if (currentCycle >= totalCycles) {
+                        console.log('Exercise complete, calling completeExercise');
+                        completeExercise();
+                        return;
+                    }
+                    const step = steps[currentStep];
+                    if (instruction) instruction.innerHTML = `<p class="text-lg text-gray-700">${step.instruction}</p>`;
+                    if (breathAction) breathAction.textContent = step.action;
+                    if (breathingCircle) {
+                        breathingCircle.classList.remove('breathing-animation');
+                        void breathingCircle.offsetWidth;
+                        switch(m) {
+                            case "Inhale":
+                                breathingCircle.style.transform = "scale(1.2)";
+                                breathingCircle.style.backgroundColor = "rgba(124, 77, 255, 0.3)"; m="Exhale";
+                                break;
+                            case "Exhale":
+                                breathingCircle.style.transform = "scale(0.8)";
+                                breathingCircle.style.backgroundColor = "rgba(124, 77, 255, 0.1)";m="Hold";
+                                break;
+                            case "Hold":
+                                breathingCircle.style.transform = "scale(1.2)";
+                                breathingCircle.style.backgroundColor = "rgba(124, 77, 255, 0.2)";m="Inhale";
+                                break;
+                            default:
+                                breathingCircle.style.transform = "scale(1)";
+                                breathingCircle.style.backgroundColor = "rgba(124, 77, 255, 0.15)";
+                        }
+                    }
+                    let stepTime = step.duration;
+                    if (timerInterval) clearInterval(timerInterval); // Ensure no duplicate intervals
+                    timerInterval = setInterval(() => {
+                        elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+                        timeRemaining--;
+                        progressData.activeSession.elapsedSeconds++;
+                        updateTimer();
+                        if (stepTime > 0) {
+                            stepTime--;
+                        } else {
+                            clearInterval(timerInterval);
+                            currentStep = (currentStep + 1) % steps.length;
+                            if (currentStep === 0) currentCycle++;
+                            nextStep();
+                        }
+                    }, 1000);
+                }
+                nextStep();
+            }
+            function pauseExercise() {
+                clearInterval(timerInterval);
+                timerInterval = null;
+                isPaused = true;
+                if (pauseBtn) pauseBtn.classList.add('hidden');
+                if (startBtn) startBtn.classList.remove('hidden');
+                if (breathingCircle) breathingCircle.classList.remove('breathing-animation');
+            }
+            function resetExercise() {
+                if (timerInterval) clearInterval(timerInterval);
+                timerInterval = null;
+                isPaused = false;
+                wasReset = true; // Set flag to prevent database update
+                currentStep = 0;
+                currentCycle = 0;
+                elapsedTime = 0;
+                timeRemaining = totalTime;
+                if (startBtn) {
+                    startBtn.classList.remove('hidden');
+                    startBtn.textContent = "Start";
+                }
+                if (pauseBtn) pauseBtn.classList.add('hidden');
+                if (breathingCircle) {
+                    breathingCircle.classList.remove('breathing-animation');
+                    breathingCircle.style.transform = "scale(1)";
+                    breathingCircle.style.backgroundColor = "rgba(124, 77, 255, 0.1)";
+                }
+                if (breathAction) breathAction.textContent = "Ready";
+                if (instruction) instruction.innerHTML = `<p class="text-lg text-gray-700">Press start to begin the ritual exercise</p>`;
+                updateTimer();
+            }
+            async function completeExercise() {
+                if (timerInterval) clearInterval(timerInterval);
+                timerInterval = null;
+                if (breathingCircle) {
+                    breathingCircle.classList.remove('breathing-animation');
+                    breathingCircle.style.transform = "scale(1)";
+                    breathingCircle.style.backgroundColor = "rgba(124, 77, 255, 0.1)";
+                }
+                if (breathAction) breathAction.textContent = "Complete";
+                if (startBtn) {
+                    startBtn.classList.remove('hidden');
+                    startBtn.textContent = "Restart";
+                }
+                if (pauseBtn) pauseBtn.classList.add('hidden');
+                showCompletionModal();
+                const minutesPracticed = Math.ceil(elapsedTime / 60);
+                console.log(`Recording practice: ${minutesPracticed} minutes, wasReset: ${wasReset}`);
+                if (minutesPracticed > 0 && !wasReset) {
+                    await recordPractice("Temple Rituals", minutesPracticed);
+                }
+            }
+            if (startBtn) startBtn.addEventListener('click', startExercise);
+            if (pauseBtn) pauseBtn.addEventListener('click', pauseExercise);
+            if (resetBtn) resetBtn.addEventListener('click', resetExercise);
+            document.querySelectorAll('[data-modal-hide="completion-modal"]').forEach(btn => {
+                btn.addEventListener('click', hideCompletionModal);
+            });
+            updateTimer();
+            const userIcon = document.getElementById('user-icon');
+            if (userIcon) {
+                userIcon.addEventListener('click', () => window.location.href = "../Dashboard/user.html"); // Placeholder action
+            }
+        }
+        function loadPracticeContent(id) {
+            const practice = ritualData.practices.find(t => t.id === id);
+            const practiceContent = document.getElementById('technique-content');
+            if (practice && practiceContent) {
+                practiceContent.innerHTML = `
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <div class="relative h-64">
+                            <img src="https://readdy.ai/api/search-image?query=Hindu%20temple%20aarti%20ceremony%20with%20multiple%20oil%20lamps%2C%20priests%20in%20traditional%20attire%2C%20sacred%20ritual%20performance%2C%20devotional%20atmosphere%2C%20golden%20light%20illumination%2C%20spiritual%20worship%20ceremony&width=800&height=600&seq=35&orientation=landscape" alt="${practice.name}" class="w-full h-full object-cover object-top" onerror="this.src='${FALLBACK_IMAGE}'">
+                        </div>
+                        <div class="p-8">
+                            <h2 class="text-3xl font-bold text-gray-800 mb-4">${practice.name}</h2>
+                            <p class="text-gray-700 mb-6">${practice.description}</p>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Historical Background</h3>
+                            <p class="text-gray-700 mb-6">${practice.history}</p>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">How to Practice</h3>
+                            <p class="text-gray-700 mb-6">${practice.instructions}</p>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-3">Benefits</h3>
+                            <ul class="list-disc pl-5 space-y-2 mb-6">
+                                ${practice.benefits.map(benefit => `<li class="text-gray-700">${benefit}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+        window.addEventListener('beforeunload', () => {
+            if (progressData.activeSession.elapsedSeconds > 0) {
+                const minutes = progressData.activeSession.elapsedSeconds / 60;
+                const data = new Blob([JSON.stringify({
+                    courseName: progressData.activeSession.course,
+                    minutesPracticed: minutes,
+                    userId: localStorage.getItem('userId')
+                })], {type: 'application/json'});
+                navigator.sendBeacon('https://localhost:5002/api/Progress/update', data);
+            }
+        });
+        document.addEventListener('DOMContentLoaded', initializeApp);
+    </script>
+</body>
+</html>

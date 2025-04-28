@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kauthuma Samhita - Vedic Wisdom</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#8B4513", secondary: "#D2691E" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+      
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+      font-family: 'Inter', sans-serif;
+      }
+      .hero-section {
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 40%, rgba(255, 255, 255, 0.5) 70%, rgba(255, 255, 255, 0.3) 100%), url('https://readdy.ai/api/search-image?query=Ancient%20Sanskrit%20manuscript%20on%20palm%20leaf%20with%20Vedic%20hymns%2C%20soft%20golden%20light%2C%20spiritual%20atmosphere%2C%20detailed%20texture%20of%20old%20palm%20leaves%20with%20Sanskrit%20writing%2C%20peaceful%20and%20serene%2C%20high%20resolution%20detailed%20image&width=1600&height=800&seq=1&orientation=landscape');
+      background-size: cover;
+      background-position: center;
+      }
+      .chat-container {
+      transition: all 0.3s ease;
+      }
+      .mcq-option:hover {
+            background-color: #F0E6D2;
+        }
+        .mcq-option.selected {
+            background-color: #D2B48C;
+            border-color: #8B4513;
+        }
+        .mcq-option.correct {
+            background-color: rgba(72, 187, 120, 0.2);
+            border-color: #48bb78;
+        }
+        .mcq-option.incorrect {
+            background-color: rgba(245, 101, 101, 0.2);
+            border-color: #f56565;
+        }
+      .nav-link {
+      position: relative;
+      }
+      .nav-link::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background-color: #4F46E5;
+      transition: width 0.3s ease;
+      }
+      .nav-link:hover::after {
+      width: 100%;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Header -->
+    <header class="w-full bg-white shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center py-4 md:py-6">
+          
+          <!-- Title -->
+          <div class="font-['Pacifico'] text-3xl md:text-4xl text-primary">
+            Upveda
+          </div>
+    
+          <!-- Desktop Navigation -->
+          <nav class="hidden md:flex items-center space-x-6">
+            <a href="../../Dashboard/dashboard.html" class="text-primary font-semibold hover:text-primary/80 transition-colors">
+              Home
+            </a>
+            <a href="../../Quiz/QuizMaster.html" class="text-gray-600 font-semibold hover:text-primary transition-colors">
+              Quiz
+            </a>
+            <a href="/profile" class="p-1.5 rounded-full hover:bg-gray-100 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 text-gray-600 hover:text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A4 4 0 019 16h6a4 4 0 013.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </a>
+          </nav>
+    
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden flex items-center">
+            <button
+              type="button"
+              class="text-gray-600 hover:text-primary focus:outline-none"
+              id="mobile-menu-button"
+            >
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-menu-line ri-lg"></i>
+              </div>
+            </button>
+          </div>
+    
+        </div>
+    
+        <!-- Mobile Navigation Menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+          <div class="px-2 pt-2 pb-3 space-y-1 border-t border-b border-gray-100">
+            <a href="../../Dashboard/dashboard.html" class="block px-3 py-2 text-primary font-medium hover:text-primary/80 transition">
+              Home
+            </a>
+            <a href="../../Quiz/QuizMaster.html" class="block px-3 py-2 text-gray-600 font-medium hover:text-primary transition">
+              Quiz
+            </a>
+            <a href="/profile" class="block px-3 py-2 text-gray-600 font-medium hover:text-primary transition">
+              Profile
+            </a>
+          </div>
+        </div>
+    
+      </div>
+    </header>
+    <!-- Hero Section -->
+    <section class="hero-section w-full pt-32 pb-20">
+      <div class="container mx-auto px-4">
+        <div class="max-w-2xl">
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Discover the Ancient Wisdom of Kauthuma Samhita
+          </h1>
+          <p class="text-xl text-gray-700 mb-8">
+            Explore one of the most significant recensions of the Sama Veda,
+            preserving millennia of Vedic knowledge and sacred chants.
+          </p>
+          <div class="flex flex-wrap gap-4">
+            <a
+              href="#content"
+              class="bg-primary text-white px-6 py-3 !rounded-button font-medium hover:bg-primary/90 transition whitespace-nowrap"
+              >Explore Now</a
+            >
+            <a
+              href="#video"
+              class="bg-white text-primary border border-primary px-6 py-3 !rounded-button font-medium hover:bg-gray-50 transition whitespace-nowrap"
+              >Watch Video</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Main Content Section -->
+    <section id="content" class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <div class="flex flex-col lg:flex-row gap-12">
+          <!-- Main Content -->
+          <div class="lg:w-8/12">
+            <h2
+              class="text-3xl font-bold text-gray-900 mb-8 pb-3 border-b border-gray-200"
+            >
+              The Kauthuma Samhita: A Sacred Vedic Text
+            </h2>
+            <!-- Origin & History Section -->
+            <div class="mb-12">
+              <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+                Origin & Historical Context
+              </h3>
+              <p class="text-gray-700 mb-4">
+                The Kauthuma Samhita represents one of the most prominent
+                recensions (versions) of the Sama Veda, one of the four sacred
+                texts that comprise the Vedas. Dating back to approximately
+                1200-1000 BCE, this particular compilation is attributed to the
+                sage Kauthuma, from whom it derives its name.
+              </p>
+              <p class="text-gray-700 mb-4">
+                This sacred text emerged during the later Vedic period when the
+                oral tradition of Vedic knowledge was being systematically
+                organized into different schools (shakhas). The Kauthuma
+                tradition became one of the most influential and widely
+                practiced schools of Sama Vedic recitation and ritual
+                performance.
+              </p>
+              <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                <h4 class="text-lg font-semibold text-gray-800 mb-3">
+                  Historical Timeline
+                </h4>
+                <ul class="space-y-3">
+                  <li class="flex items-start">
+                    <span
+                      class="w-6 h-6 flex items-center justify-center rounded-full bg-primary text-white text-xs mr-3 mt-0.5"
+                      >1</span
+                    >
+                    <div>
+                      <span class="font-medium">1500-1200 BCE:</span> Early
+                      development of Sama Vedic chanting traditions
+                    </div>
+                  </li>
+                  <li class="flex items-start">
+                    <span
+                      class="w-6 h-6 flex items-center justify-center rounded-full bg-primary text-white text-xs mr-3 mt-0.5"
+                      >2</span
+                    >
+                    <div>
+                      <span class="font-medium">1200-1000 BCE:</span>
+                      Formalization of the Kauthuma recension
+                    </div>
+                  </li>
+                  <li class="flex items-start">
+                    <span
+                      class="w-6 h-6 flex items-center justify-center rounded-full bg-primary text-white text-xs mr-3 mt-0.5"
+                      >3</span
+                    >
+                    <div>
+                      <span class="font-medium">800-600 BCE:</span> Development
+                      of associated Brahmana texts
+                    </div>
+                  </li>
+                  <li class="flex items-start">
+                    <span
+                      class="w-6 h-6 flex items-center justify-center rounded-full bg-primary text-white text-xs mr-3 mt-0.5"
+                      >4</span
+                    >
+                    <div>
+                      <span class="font-medium">500 BCE-500 CE:</span>
+                      Widespread adoption across Northern India
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="relative h-64 rounded-lg overflow-hidden mb-6">
+                <img
+                  src="https://readdy.ai/api/search-image?query=Ancient%20Indian%20sages%20in%20traditional%20dress%20performing%20Vedic%20rituals%2C%20peaceful%20forest%20setting%2C%20morning%20light%20filtering%20through%20trees%2C%20detailed%20depiction%20of%20ritual%20objects%20and%20sacred%20fire%2C%20spiritual%20atmosphere%2C%20realistic%20style&width=800&height=400&seq=2&orientation=landscape"
+                  alt="Ancient Vedic ritual scene"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+            </div>
+            <!-- Structure & Components Section -->
+            <div class="mb-12">
+              <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+                Structure & Components
+              </h3>
+              <p class="text-gray-700 mb-4">
+                The Kauthuma Samhita is meticulously structured and contains
+                approximately 1,875 verses, many of which are adapted from the
+                Rigveda but set to specific melodies for ritual chanting. The
+                text is primarily divided into two major sections:
+              </p>
+              <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-gray-50 p-6 rounded-lg">
+                  <h4 class="text-lg font-semibold text-gray-800 mb-3">
+                    Purvarchika (First Part)
+                  </h4>
+                  <p class="text-gray-700">
+                    Contains the Gramageyagana (village songs) and Aranyagana
+                    (forest songs) collections. These are primarily verses
+                    adapted from the Rigveda but modified for melodic chanting
+                    during various rituals.
+                  </p>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg">
+                  <h4 class="text-lg font-semibold text-gray-800 mb-3">
+                    Uttararchika (Second Part)
+                  </h4>
+                  <p class="text-gray-700">
+                    Comprises the Uhagana and Uhyagana collections, which
+                    contain more elaborate melodies and are specifically used in
+                    the Soma sacrifice rituals, considered among the most sacred
+                    Vedic ceremonies.
+                  </p>
+                </div>
+              </div>
+              <p class="text-gray-700 mb-6">
+                The text also includes various auxiliary components that provide
+                guidance on proper pronunciation, melody, and ritual
+                application:
+              </p>
+              <div class="overflow-x-auto mb-6">
+                <table class="min-w-full border border-gray-200 rounded-lg">
+                  <thead>
+                    <tr class="bg-gray-50">
+                      <th
+                        class="px-6 py-3 text-left text-sm font-semibold text-gray-800 border-b"
+                      >
+                        Component
+                      </th>
+                      <th
+                        class="px-6 py-3 text-left text-sm font-semibold text-gray-800 border-b"
+                      >
+                        Description
+                      </th>
+                      <th
+                        class="px-6 py-3 text-left text-sm font-semibold text-gray-800 border-b"
+                      >
+                        Ritual Usage
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-gray-200">
+                    <tr>
+                      <td class="px-6 py-4 text-sm text-gray-700">
+                        Prakriti Mantras
+                      </td>
+                      <td class="px-6 py-4 text-sm text-gray-700">
+                        Original verses from Rigveda
+                      </td>
+                      <td class="px-6 py-4 text-sm text-gray-700">
+                        Foundation for melodic adaptations
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-6 py-4 text-sm text-gray-700">
+                        Vikriti Mantras
+                      </td>
+                      <td class="px-6 py-4 text-sm text-gray-700">
+                        Modified versions with musical notations
+                      </td>
+                      <td class="px-6 py-4 text-sm text-gray-700">
+                        Actual chanting during rituals
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-6 py-4 text-sm text-gray-700">Stobhas</td>
+                      <td class="px-6 py-4 text-sm text-gray-700">
+                        Musical syllables without literal meaning
+                      </td>
+                      <td class="px-6 py-4 text-sm text-gray-700">
+                        Enhance melodic quality of chants
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="px-6 py-4 text-sm text-gray-700">Svaras</td>
+                      <td class="px-6 py-4 text-sm text-gray-700">
+                        Tonal notations (udatta, anudatta, svarita)
+                      </td>
+                      <td class="px-6 py-4 text-sm text-gray-700">
+                        Guide proper intonation
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- Significance in Sama Veda Section -->
+            <div class="mb-12">
+              <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+                Significance in Sama Veda
+              </h3>
+              <p class="text-gray-700 mb-4">
+                The Kauthuma Samhita holds a position of paramount importance
+                within the Sama Vedic tradition for several key reasons:
+              </p>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div
+                  class="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-lg shadow-sm"
+                >
+                  <div
+                    class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-full mb-4"
+                  >
+                    <i class="ri-music-line ri-lg"></i>
+                  </div>
+                  <h4 class="text-lg font-semibold text-gray-800 mb-2">
+                    Musical Foundation
+                  </h4>
+                  <p class="text-gray-700">
+                    It is considered the primary source of ancient Indian
+                    musical traditions, with its melodic patterns forming the
+                    basis for later classical music development.
+                  </p>
+                </div>
+                <div
+                  class="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-lg shadow-sm"
+                >
+                  <div
+                    class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-full mb-4"
+                  >
+                    <i class="ri-fire-line ri-lg"></i>
+                  </div>
+                  <h4 class="text-lg font-semibold text-gray-800 mb-2">
+                    Ritual Authority
+                  </h4>
+                  <p class="text-gray-700">
+                    It provides the authoritative chants for major Vedic
+                    sacrifices, particularly the Soma ritual, which was central
+                    to ancient Indo-Aryan religious practice.
+                  </p>
+                </div>
+                <div
+                  class="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-lg shadow-sm"
+                >
+                  <div
+                    class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-full mb-4"
+                  >
+                    <i class="ri-book-open-line ri-lg"></i>
+                  </div>
+                  <h4 class="text-lg font-semibold text-gray-800 mb-2">
+                    Textual Preservation
+                  </h4>
+                  <p class="text-gray-700">
+                    As the most widely practiced recension, it has played a
+                    crucial role in preserving the Sama Vedic tradition through
+                    generations of oral transmission.
+                  </p>
+                </div>
+                <div
+                  class="bg-gradient-to-br from-gray-50 to-gray-100 p-6 rounded-lg shadow-sm"
+                >
+                  <div
+                    class="w-12 h-12 flex items-center justify-center bg-primary/10 text-primary rounded-full mb-4"
+                  >
+                    <i class="ri-earth-line ri-lg"></i>
+                  </div>
+                  <h4 class="text-lg font-semibold text-gray-800 mb-2">
+                    Cultural Influence
+                  </h4>
+                  <p class="text-gray-700">
+                    Its influence extends beyond religious contexts into broader
+                    cultural practices, including traditional education systems
+                    and artistic expressions.
+                  </p>
+                </div>
+              </div>
+              <p class="text-gray-700 mb-6">
+                Among the various recensions of the Sama Veda, the Kauthuma
+                tradition has emerged as the most enduring, with an unbroken
+                lineage of practitioners that continues to the present day,
+                particularly in parts of Maharashtra, Gujarat, and South India.
+              </p>
+              <div class="relative h-64 rounded-lg overflow-hidden mb-6">
+                <img
+                  src="https://readdy.ai/api/search-image?query=Group%20of%20traditional%20Vedic%20scholars%20in%20white%20dhoti%20performing%20a%20Sama%20Veda%20chanting%20ceremony%2C%20ancient%20temple%20setting%2C%20morning%20light%2C%20sacred%20fire%2C%20detailed%20depiction%20of%20ritual%20objects%2C%20realistic%20style&width=800&height=400&seq=3&orientation=landscape"
+                  alt="Sama Veda chanting ceremony"
+                  class="w-full h-full object-cover object-top"
+                />
+              </div>
+            </div>
+            <!-- Key Features Section -->
+            <div class="mb-12">
+              <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+                Key Features
+              </h3>
+              <p class="text-gray-700 mb-4">
+                The Kauthuma Samhita is distinguished by several unique
+                characteristics that set it apart from other Vedic texts:
+              </p>
+              <div class="space-y-4 mb-6">
+                <div class="flex items-start">
+                  <div
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-primary text-white mr-4 mt-0.5 flex-shrink-0"
+                  >
+                    <i class="ri-music-2-line"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-medium text-gray-800 mb-1">
+                      Musical Notation System
+                    </h4>
+                    <p class="text-gray-700">
+                      Unlike other Vedic texts, the Kauthuma Samhita
+                      incorporates a sophisticated system of musical notation
+                      using seven primary notes (saptasvaras) that form the
+                      foundation of Indian classical music.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-primary text-white mr-4 mt-0.5 flex-shrink-0"
+                  >
+                    <i class="ri-file-list-3-line"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-medium text-gray-800 mb-1">
+                      Elaborate Ritual Instructions
+                    </h4>
+                    <p class="text-gray-700">
+                      The text provides detailed guidelines for the performance
+                      of various rituals, including precise instructions on
+                      vocal techniques, body postures, and ritual implements
+                      required for effective chanting.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-primary text-white mr-4 mt-0.5 flex-shrink-0"
+                  >
+                    <i class="ri-translate-2-line"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-medium text-gray-800 mb-1">
+                      Linguistic Adaptations
+                    </h4>
+                    <p class="text-gray-700">
+                      The Kauthuma tradition features specific linguistic
+                      modifications to enhance musical quality, including
+                      elongation of vowels, insertion of additional syllables,
+                      and alteration of certain consonants to facilitate
+                      melodious recitation.
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start">
+                  <div
+                    class="w-8 h-8 flex items-center justify-center rounded-full bg-primary text-white mr-4 mt-0.5 flex-shrink-0"
+                  >
+                    <i class="ri-group-line"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-lg font-medium text-gray-800 mb-1">
+                      Specialized Priesthood
+                    </h4>
+                    <p class="text-gray-700">
+                      The text establishes the role of the udgatar priests, who
+                      are specifically trained in the complex melodic patterns
+                      of Sama Vedic chanting and hold a distinct position within
+                      the Vedic ritual hierarchy.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="bg-gray-50 p-6 rounded-lg mb-6">
+                <h4 class="text-lg font-semibold text-gray-800 mb-3">
+                  Contemporary Relevance
+                </h4>
+                <p class="text-gray-700 mb-4">
+                  Despite its ancient origins, the Kauthuma Samhita continues to
+                  hold significance in several contexts:
+                </p>
+                <ul class="space-y-2 text-gray-700">
+                  <li class="flex items-start">
+                    <span class="text-primary mr-2">•</span>
+                    <span
+                      >Cultural heritage preservation through traditional
+                      gurukula education systems</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-primary mr-2">•</span>
+                    <span
+                      >Influence on classical Indian musical traditions,
+                      particularly Carnatic and Hindustani systems</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-primary mr-2">•</span>
+                    <span
+                      >Ongoing performance of traditional Vedic rituals in
+                      temples and religious ceremonies</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-primary mr-2">•</span>
+                    <span
+                      >Academic study in fields of musicology, religious
+                      studies, and historical linguistics</span
+                    >
+                  </li>
+                  <li class="flex items-start">
+                    <span class="text-primary mr-2">•</span>
+                    <span
+                      >UNESCO recognition as part of the intangible cultural
+                      heritage of humanity</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Sidebar -->
+         
+        </div>
+      </div>
+    </section>
+    <!-- Video Section -->
+    <section id="video" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-gray-900 mb-8 text-center">
+          Experience Sama Vedic Chanting
+        </h2>
+        <p class="text-gray-700 max-w-3xl mx-auto text-center mb-10">
+          Watch this scholarly presentation on the Kauthuma Samhita tradition,
+          featuring authentic chanting demonstrations and expert commentary on
+          its historical significance and musical structure.
+        </p>
+        <div class="max-w-4xl mx-auto bg-white p-4 rounded-lg shadow-sm">
+          <div class="relative pt-[56.25%] bg-gray-100 rounded overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center">
+              <div class="text-center">
+                <div
+                  class="w-20 h-20 bg-primary/90 rounded-full flex items-center justify-center mx-auto mb-4 cursor-pointer hover:bg-primary transition"
+                >
+                  <i class="ri-play-fill ri-2x text-white"></i>
+                </div>
+                <p class="text-gray-700 font-medium">Click to play video</p>
+                <p class="text-sm text-gray-500">
+                  Kauthuma Samhita: Sacred Chants of the Sama Veda
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="p-4">
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">
+              The Living Tradition of Kauthuma Samhita
+            </h3>
+            <p class="text-gray-700 mb-4">
+              This video features Dr. Anand Sharma, a renowned Vedic scholar,
+              demonstrating the authentic chanting techniques preserved in the
+              Kauthuma tradition for over three millennia.
+            </p>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <div
+                  class="w-10 h-10 flex items-center justify-center bg-gray-100 rounded-full mr-3"
+                >
+                  <i class="ri-user-3-line text-gray-700"></i>
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-gray-800">
+                    Dr. Anand Sharma
+                  </p>
+                  <p class="text-xs text-gray-600">Vedic Research Institute</p>
+                </div>
+              </div>
+              <div class="flex space-x-2">
+                <button
+                  class="w-8 h-8 flex items-center justify-center text-gray-700 hover:text-primary"
+                >
+                  <i class="ri-heart-line"></i>
+                </button>
+                <button
+                  class="w-8 h-8 flex items-center justify-center text-gray-700 hover:text-primary"
+                >
+                  <i class="ri-share-line"></i>
+                </button>
+                <button
+                  class="w-8 h-8 flex items-center justify-center text-gray-700 hover:text-primary"
+                >
+                  <i class="ri-download-line"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Quiz Section -->
+           <!-- MCQ Test Section -->
+           <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-4xl font-bold text-primary text-center mb-6">Test Your Knowledge</h2>
+                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">Challenge yourself with these questions about Prashnopanishad to deepen your understanding of this ancient text.</p>
+                
+                <div class="max-w-3xl mx-auto">
+                    <div class="bg-[#FFF9F0] p-8 rounded-lg shadow-md">
+                        <div class="flex justify-between items-center mb-6">
+                            <h3 class="text-xl font-semibold text-primary">Prashnopanishad Quiz</h3>
+                            <div class="text-gray-600">Question <span id="current-question">1</span> of <span id="total-questions">5</span></div>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <div class="h-2 bg-gray-200 rounded-full">
+                                <div id="progress-bar" class="h-2 bg-primary rounded-full" style="width: 20%"></div>
+                            </div>
+                        </div>
+                        
+                        <div id="quiz-container">
+                            <!-- Question 1 -->
+                            <div class="question-slide active" data-question="1">
+                                <h4 class="text-lg font-medium text-gray-800 mb-4">Who is the sage that answers the six questions in Prashnopanishad?</h4>
+                                <div class="space-y-3">
+                                    <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer" data-correct="true">
+                                        <p class="text-gray-700">Sage Pippalada</p>
+                                    </div>
+                                    <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                        <p class="text-gray-700">Sage Yajnavalkya</p>
+                                    </div>
+                                    <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                        <p class="text-gray-700">Sage Uddalaka</p>
+                                    </div>
+                                    <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                        <p class="text-gray-700">Sage Gautama</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Question 2 -->
+                            <div class="question-slide hidden" data-question="2">
+                                <h4 class="text-lg font-medium text-gray-800 mb-4">Which Veda is Prashnopanishad associated with?</h4>
+                                <div class="space-y-3">
+                                    <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                        <p class="text-gray-700">Rigveda</p>
+                                    </div>
+                                    <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                        <p class="text-gray-700">Yajurveda</p>
+                                    </div>
+                                    <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                        <p class="text-gray-700">Samaveda</p>
+                                    </div>
+                                    <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer" data-correct="true">
+                                        <p class="text-gray-700">Atharvaveda</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Question 3 -->
+                            <div class="question-slide hidden" data-question="3">
+                                <h4 class="text-lg font-medium text-gray-800 mb-4">What is the main subject of the third question in Prashnopanishad?</h4>
+                                <div class="space-y-3">
+                                    <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                        <p class="text-gray-700">The origin of creation</p>
+                                    </div>
+                                    <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                        <p class="text-gray-700">The nature of deities</p>
+                                    </div>
+                                    <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer" data-correct="true">
+                                        <p class="text-gray-700">The origin and nature of Prana</p>
+                                    </div>
+                                    <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                        <p class="text-gray-700">The states of consciousness</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Question 4 -->
+                            <div class="question-slide hidden" data-question="4">
+                                <h4 class="text-lg font-medium text-gray-800 mb-4">According to Prashnopanishad, what are the two principles responsible for creation?</h4>
+                                <div class="space-y-3">
+                                    <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                        <p class="text-gray-700">Purusha and Prakriti</p>
+                                    </div>
+                                    <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer" data-correct="true">
+                                        <p class="text-gray-700">Rayi (matter) and Prana (energy)</p>
+                                    </div>
+                                    <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                        <p class="text-gray-700">Sat and Asat</p>
+                                    </div>
+                                    <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                        <p class="text-gray-700">Brahman and Maya</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Question 5 -->
+                            <div class="question-slide hidden" data-question="5">
+                                <h4 class="text-lg font-medium text-gray-800 mb-4">Who wrote the most influential commentary on Prashnopanishad in the 8th century CE?</h4>
+                                <div class="space-y-3">
+                                    <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer" data-correct="true">
+                                        <p class="text-gray-700">Adi Shankaracharya</p>
+                                    </div>
+                                    <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                        <p class="text-gray-700">Ramanuja</p>
+                                    </div>
+                                    <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                        <p class="text-gray-700">Madhvacharya</p>
+                                    </div>
+                                    <div class="mcq-option border border-gray-300 p-4 rounded cursor-pointer">
+                                        <p class="text-gray-700">Vallabhacharya</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Results -->
+                            <!-- Results -->
+<div class="question-slide hidden" data-question="results">
+    <div class="text-center py-6">
+        <div class="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4" id="result-icon">
+            <!-- Icon will be added dynamically -->
+        </div>
+        <h4 class="text-xl font-semibold text-primary mb-2" id="result-title">Quiz Completed!</h4>
+        <p class="text-gray-700 mb-4">You scored <span id="score">0</span> out of 5</p>
+        
+        <!-- Progress message for perfect score -->
+        <div id="perfect-score-message" class="hidden mb-4">
+            <div class="bg-green-100 text-green-800 p-3 rounded-lg inline-block">
+                <i class="ri-checkbox-circle-fill text-green-500 mr-2"></i>
+                <span>Congratulations! You've completed this course.</span>
+            </div>
+        </div>
+        
+        <!-- Retake suggestion for imperfect scores -->
+        <div id="retake-message" class="hidden mb-4">
+            <div class="bg-orange-100 text-orange-800 p-3 rounded-lg inline-block">
+                <i class="ri-error-warning-fill text-orange-500 mr-2"></i>
+                <span>Review the material and try again to improve your score.</span>
+            </div>
+        </div>
+        
+        <div class="mb-6">
+            <p class="text-gray-600 mb-2">Your understanding of Prashnopanishad:</p>
+            <div class="h-4 bg-gray-200 rounded-full w-64 mx-auto">
+                <div id="score-bar" class="h-4 rounded-full" style="width: 0%"></div>
+            </div>
+        </div>
+        <button id="restart-quiz" class="bg-primary text-white px-6 py-3 !rounded-button whitespace-nowrap font-medium hover:bg-primary/90 transition">Retake Quiz</button>
+    </div>
+</div>
+                        </div>
+                        
+                        <div class="flex justify-between mt-8">
+                            <button id="prev-btn" class="px-6 py-2 border border-primary text-primary !rounded-button whitespace-nowrap font-medium hover:bg-primary/10 transition disabled:opacity-50 disabled:cursor-not-allowed" disabled>Previous</button>
+                            <button id="next-btn" class="px-6 py-2 bg-primary text-white !rounded-button whitespace-nowrap font-medium hover:bg-primary/90 transition">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <!-- Footer -->
+    <!-- Footer -->
+    <footer class="bg-gray-50 py-12 mt-auto">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Upveda Info -->
+          <div>
+            <h3 class="font-['Pacifico'] text-2xl text-primary mb-4">Veda</h3>
+            <p class="text-gray-600">
+              Preserving ancient wisdom for modern seekers. Explore the timeless
+              knowledge of the Vedas and discover practical applications for
+              contemporary life.
+            </p>
+          </div>
+    
+          <!-- Quick Links -->
+          <div>
+            <h4 class="text-lg font-semibold text-gray-900 mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary transition-colors">About Us</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary transition-colors">Vedic Resources</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary transition-colors">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary transition-colors">Terms of Service</a>
+              </li>
+            </ul>
+          </div>
+    
+          <!-- Contact Us (Generic) -->
+          <div>
+            <h4 class="text-lg font-semibold text-gray-900 mb-4">Contact Us</h4>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <div class="w-5 h-5 flex items-center justify-center mt-1 mr-3">
+                  <i class="ri-mail-line"></i>
+                </div>
+                <span class="text-gray-600">contact@upveda.org</span>
+              </li>
+              <li class="flex items-start">
+                <div class="w-5 h-5 flex items-center justify-center mt-1 mr-3">
+                  <i class="ri-phone-line"></i>
+                </div>
+                <span class="text-gray-600">+91 98765 43210</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+    
+        <!-- Footer Bottom Section -->
+        <div class="border-t border-gray-200 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-600 text-sm">&copy; 2025 Veda. All rights reserved.</p>
+          <div class="flex space-x-4 mt-4 md:mt-0">
+            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-facebook-fill ri-lg"></i>
+              </div>
+            </a>
+            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-twitter-x-fill ri-lg"></i>
+              </div>
+            </a>
+            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-instagram-fill ri-lg"></i>
+              </div>
+            </a>
+            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-youtube-fill ri-lg"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer><!-- Right Sidebar - Chatbot -->
+      
+    <!-- Chat Box Trigger Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button id="chatToggle" class="bg-primary text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all w-16 h-16 flex items-center justify-center">
+          <i class="fas fa-comment-dots text-2xl"></i>
+        </button>
+    </div>
+    
+    <!-- Chat Container -->
+    <div id="chatContainer" class="fixed bottom-24 right-6 w-full max-w-sm hidden z-50">
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-[600px]">
+        <!-- Header -->
+        <div class="bg-primary text-white p-4 flex items-center justify-between">
+          <div class="flex items-center">
+            <div class="w-10 h-10 flex items-center justify-center bg-white/20 rounded-full mr-3">
+              <i class="fas fa-robot text-white"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold">संस्कृत सहायक</h3>
+              <p class="text-xs text-white/80">संस्कृत सम्बन्धी प्रश्न पूछें</p>
+            </div>
+          </div>
+          <button id="closeChat" class="w-8 h-8 flex items-center justify-center bg-white/10 rounded-full hover:bg-white/20">
+            <i class="fas fa-times text-white"></i>
+          </button>
+        </div>
+    
+        <!-- Chat History -->
+        <div id="chatHistory" class="flex-1 p-4 overflow-y-auto space-y-4 bg-gray-50 custom-scrollbar">
+          <!-- Messages will be loaded here -->
+        </div>
+    
+        <!-- Input Box -->
+        <div class="border-t border-gray-200 p-4">
+          <div class="flex items-center">
+            <div class="flex-1 relative">
+              <input id="userInput" type="text" placeholder="Type your message..." class="w-full border-none bg-gray-100 rounded-full py-2 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-primary/50">
+              <button class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-primary">
+                <i class="fas fa-smile"></i>
+              </button>
+            </div>
+            <button onclick="sendMessage()" class="ml-2 w-10 h-10 flex items-center justify-center bg-primary rounded-full text-white hover:bg-primary/80">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- SCRIPT -->
+    <script>
+    // Load saved chat history
+    let chatHistory = JSON.parse(localStorage.getItem('sanskritChat')) || [];
+    
+    // Toggle Chat Box
+    document.getElementById('chatToggle').addEventListener('click', () => {
+        const chatContainer = document.getElementById('chatContainer');
+        chatContainer.classList.toggle('hidden');
+        loadChatHistory();
+    });
+    
+    // Close Chat
+    document.getElementById('closeChat').addEventListener('click', () => {
+        document.getElementById('chatContainer').classList.add('hidden');
+    });
+    
+    // Load Chat History
+    function loadChatHistory() {
+        const historyDiv = document.getElementById('chatHistory');
+        historyDiv.innerHTML = chatHistory.map(msg => `
+            <div class="flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}">
+                <div class="max-w-[80%] ${msg.role === 'user' 
+                    ? 'bg-primary/10 text-gray-700 rounded-lg rounded-tr-none p-3'
+                    : 'bg-gray-100 text-gray-700 rounded-lg rounded-tl-none p-3'}">
+                    ${marked.parse(msg.content)}
+                    <div class="text-xs text-gray-400 mt-1 ${msg.role === 'user' ? 'text-right' : 'text-left'}">
+                      ${new Date(msg.timestamp).toLocaleTimeString()}
+                    </div>
+                </div>
+            </div>
+        `).join('');
+        historyDiv.scrollTop = historyDiv.scrollHeight;
+    }
+    
+    // Send Message
+    async function sendMessage() {
+        const input = document.getElementById('userInput');
+        const message = input.value.trim();
+        if (!message) return;
+        input.value = '';
+    
+        // Push user message
+        chatHistory.push({ role: 'user', content: message, timestamp: new Date().toISOString() });
+    
+        // Show loading message
+        chatHistory.push({ role: 'assistant', content: 'प्रतीक्षा कुरु...', timestamp: new Date().toISOString() });
+        loadChatHistory();
+    
+        try {
+            const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Authorization': 'Bearer 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',
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    model: 'deepseek/deepseek-r1:free',
+                    messages: [{ role: 'user', content: message }],
+                }),
+            });
+    
+            const data = await response.json();
+            const botResponse = data.choices?.[0]?.message?.content || 'उत्तरं प्राप्तुं अशक्यम्';
+    
+            chatHistory.pop(); // Remove loading
+            chatHistory.push({ role: 'assistant', content: botResponse, timestamp: new Date().toISOString() });
+            localStorage.setItem('sanskritChat', JSON.stringify(chatHistory));
+            loadChatHistory();
+        } catch (error) {
+            console.error('Error:', error);
+            chatHistory.pop();
+            chatHistory.push({ role: 'assistant', content: 'त्रुटिः! पुनः प्रयत्नं कुरुत।', timestamp: new Date().toISOString() });
+            loadChatHistory();
+        }
+    }
+    
+    // Send on Enter Key
+    document.getElementById('userInput').addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') sendMessage();
+    });
+    </script>
+    
+    <style>
+    /* Custom Scrollbar */
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 8px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background-color: rgba(0,0,0,0.2);
+      border-radius: 4px;
+    }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mobile menu toggle
+        const menuButton = document.querySelector(".md\\:hidden");
+        const mobileMenu = document.querySelector(".hidden.md\\:hidden");
+        if (menuButton && mobileMenu) {
+          menuButton.addEventListener("click", function () {
+            mobileMenu.classList.toggle("hidden");
+          });
+        }
+      });
+      document.addEventListener("DOMContentLoaded", function () {
+        // Chatbot toggle
+        const chatToggleBtn = document.querySelector(".chat-toggle-btn");
+        const chatContainer = document.querySelector(".chat-container");
+        const chatCloseBtn = document.querySelector(".chat-close-btn");
+        if (chatToggleBtn && chatContainer && chatCloseBtn) {
+          chatToggleBtn.addEventListener("click", function () {
+            chatContainer.classList.toggle("hidden");
+          });
+          chatCloseBtn.addEventListener("click", function () {
+            chatContainer.classList.add("hidden");
+          });
+        }
+      });
+      document.addEventListener('DOMContentLoaded', function() {
+            // Quiz functionality
+            const quizContainer = document.getElementById('quiz-container');
+            const prevBtn = document.getElementById('prev-btn');
+            const nextBtn = document.getElementById('next-btn');
+            const currentQuestionEl = document.getElementById('current-question');
+            const progressBar = document.getElementById('progress-bar');
+            const scoreEl = document.getElementById('score');
+            const scoreBar = document.getElementById('score-bar');
+            const restartBtn = document.getElementById('restart-quiz');
+            
+            let currentQuestion = 1;
+            const totalQuestions = 5;
+            let score = 0;
+            let answered = {};
+            
+            function updateQuestion() {
+    // Hide all questions
+    document.querySelectorAll('.question-slide').forEach(slide => {
+        slide.classList.add('hidden');
+    });
+    
+    // Show current question
+    const currentSlide = currentQuestion > totalQuestions 
+        ? document.querySelector('[data-question="results"]')
+        : document.querySelector(`[data-question="${currentQuestion}"]`);
+    currentSlide.classList.remove('hidden');
+    
+    // Update progress
+    if (currentQuestion <= totalQuestions) {
+        currentQuestionEl.textContent = currentQuestion;
+        progressBar.style.width = `${(currentQuestion / totalQuestions) * 100}%`;
+    }
+    
+    // Update buttons
+    prevBtn.disabled = currentQuestion === 1;
+    if (currentQuestion > totalQuestions) {
+        nextBtn.style.display = 'none';
+        
+        // Update score
+        scoreEl.textContent = score;
+        scoreBar.style.width = `${(score / totalQuestions) * 100}%`;
+        
+        // Get result elements
+        const resultIcon = document.getElementById('result-icon');
+        const resultTitle = document.getElementById('result-title');
+        const perfectMsg = document.getElementById('perfect-score-message');
+        const retakeMsg = document.getElementById('retake-message');
+        const restartBtn = document.getElementById('restart-quiz');
+        
+        // Clear previous classes
+        resultIcon.className = 'w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4';
+        scoreBar.className = 'h-4 rounded-full';
+        
+        if (score === totalQuestions) {
+            // Perfect score - show success message and hide retake button
+            resultIcon.innerHTML = '<i class="ri-checkbox-circle-fill text-green-500 text-4xl"></i>';
+            resultIcon.classList.add('bg-green-100');
+            resultTitle.textContent = 'Perfect Score! Course Completed!';
+            scoreBar.classList.add('bg-green-500');
+            perfectMsg.classList.remove('hidden');
+            retakeMsg.classList.add('hidden');
+            restartBtn.classList.add('hidden'); // Hide retake button
+        } else if (score >= totalQuestions * 0.6) { // 60% or above
+            // Good score - show retake button
+            resultIcon.innerHTML = '<i class="ri-emotion-happy-fill text-blue-500 text-4xl"></i>';
+            resultIcon.classList.add('bg-blue-100');
+            resultTitle.textContent = 'Good Job!';
+            scoreBar.classList.add('bg-primary');
+            perfectMsg.classList.add('hidden');
+            retakeMsg.classList.add('hidden');
+            restartBtn.classList.remove('hidden');
+        } else {
+            // Needs improvement - show retake button
+            resultIcon.innerHTML = '<i class="ri-emotion-unhappy-fill text-orange-500 text-4xl"></i>';
+            resultIcon.classList.add('bg-orange-100');
+            resultTitle.textContent = 'Keep Practicing!';
+            scoreBar.classList.add('bg-orange-500');
+            perfectMsg.classList.add('hidden');
+            retakeMsg.classList.remove('hidden');
+            restartBtn.classList.remove('hidden');
+        }
+    } else {
+        nextBtn.style.display = 'block';
+        nextBtn.textContent = currentQuestion === totalQuestions ? 'Finish' : 'Next';
+    }
+}
+            
+            prevBtn.addEventListener('click', function() {
+                if (currentQuestion > 1) {
+                    currentQuestion--;
+                    updateQuestion();
+                }
+            });
+            
+            nextBtn.addEventListener('click', function() {
+                if (currentQuestion <= totalQuestions) {
+                    // If not answered, show alert
+                    if (!answered[currentQuestion]) {
+                        alert('Please select an answer before proceeding.');
+                        return;
+                    }
+                    
+                    currentQuestion++;
+                    updateQuestion();
+                }
+            });
+            
+            restartBtn.addEventListener('click', function() {
+                currentQuestion = 1;
+                score = 0;
+                answered = {};
+                
+                // Reset all options
+                document.querySelectorAll('.mcq-option').forEach(option => {
+                    option.classList.remove('selected', 'correct', 'incorrect');
+                });
+                
+                updateQuestion();
+            });
+            
+            // Handle option selection
+            document.querySelectorAll('.mcq-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    const questionNumber = parseInt(this.closest('.question-slide').dataset.question);
+                    
+                    // If already answered, return
+                    if (answered[questionNumber]) return;
+                    
+                    // Mark as answered
+                    answered[questionNumber] = true;
+                    
+                    // Get all options for this question
+                    const options = this.closest('.question-slide').querySelectorAll('.mcq-option');
+                    
+                    // Select this option
+                    this.classList.add('selected');
+                    
+                    // Check if correct
+                    const isCorrect = this.hasAttribute('data-correct');
+                    if (isCorrect) {
+                        score++;
+                        this.classList.add('correct');
+                    } else {
+                        this.classList.add('incorrect');
+                        
+                        // Show correct answer
+                        options.forEach(opt => {
+                            if (opt.hasAttribute('data-correct')) {
+                                opt.classList.add('correct');
+                            }
+                        });
+                    }
+                });
+            });
+            
+            // Initialize
+            updateQuestion();
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href");
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              const headerOffset = 80;
+              const elementPosition = targetElement.getBoundingClientRect().top;
+              const offsetPosition =
+                elementPosition + window.pageYOffset - headerOffset;
+              window.scrollTo({
+                top: offsetPosition,
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

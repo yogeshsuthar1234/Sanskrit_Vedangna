@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aranyakas - Ancient Vedic Forest Texts</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#8B4513',secondary:'#D2B48C'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B4513',
+                        secondary: '#D2B48C'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+    :where([class^="ri-"])::before { content: "\f3c2"; }
+    body {
+    font-family: 'Merriweather', serif;
+    }
+    .hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://readdy.ai/api/search-image?query=ancient%2520Indian%2520manuscript%2520with%2520Sanskrit%2520text%2520on%2520palm%2520leaves%2520with%2520warm%2520golden%2520light%2520falling%2520on%2520it%252C%2520showing%2520detailed%2520texture%2520of%2520aged%2520palm%2520leaves%2520with%2520Sanskrit%2520characters%2520inscribed%2520on%2520them%252C%2520atmospheric%2520lighting%2520creating%2520a%2520sacred%2520ambiance&width=1280&height=600&seq=123&orientation=landscape');
+    background-size: cover;
+    background-position: center;
+    }
+    .aranyaka-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .aranyaka-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    .mcq-option:hover {
+            background-color: #F0E6D2;
+        }
+        .mcq-option.selected {
+            background-color: #D2B48C;
+            border-color: #8B4513;
+        }
+        .mcq-option.correct {
+            background-color: rgba(72, 187, 120, 0.2);
+            border-color: #48bb78;
+        }
+        .mcq-option.incorrect {
+            background-color: rgba(245, 101, 101, 0.2);
+            border-color: #f56565;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+         <!-- Header Navigation -->
+    <header class="bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <h1 class="text-2xl font-['Pacifico'] text-primary">Vedangana</h1>
+            </div>
+            <!-- Hamburger Icon for Mobile -->
+            <button id="menu-toggle" class="md:hidden text-gray-600 focus:outline-none">
+                <i id="menu-icon" class="ri-menu-line text-2xl"></i>
+            </button>
+            <!-- Navigation Menu -->
+            <nav id="nav-menu" class="hidden md:flex md:items-center md:space-x-8 absolute md:static top-16 left-0 w-full md:w-auto bg-white md:bg-transparent shadow-md md:shadow-none p-4 md:p-0 transition-all duration-300">
+                <a href="../../Dashboard/dashboard.html" class="block md:inline-block text-gray-700 hover:text-primary transition-colors py-2 md:py-0">Home</a>
+                <a href="#" class="block md:inline-block text-gray-700 hover:text-primary transition-colors py-2 md:py-0">Contact</a>
+                <a href="../../Dashboard/user.html">
+                    <button id="user-icon" class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-200 text-gray-600 hover:bg-primary hover:text-white transition-colors">
+                        <i class="ri-user-line"></i>
+                    </button>
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section py-20 text-white">
+    <div class="container mx-auto px-4 w-full">
+    <div class="max-w-3xl">
+    <h1 class="text-5xl font-bold mb-4">Aranyakas</h1>
+    <p class="text-xl mb-8">Explore the mystical forest texts of the Vedic tradition, composed for hermits and ascetics who retreated to the wilderness for spiritual contemplation.</p>
+    <button class="bg-primary text-white px-6 py-3 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-colors">Begin Your Journey</button>
+    </div>
+    </div>
+    </section>
+    <!-- Main Content -->
+    <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+    <div class="max-w-4xl mx-auto mb-16">
+    <h2 class="text-3xl font-bold text-gray-800 mb-6">The Aranyakas: Forest Texts of Vedic Wisdom</h2>
+    <p class="text-gray-700 mb-6">The Aranyakas (Sanskrit: आरण्यक) are ancient Indian sacred texts that form an integral part of the Vedic corpus. The word "Aranyaka" is derived from "Aranya" meaning "forest," as these texts were composed and studied in the seclusion of forests by ascetics and sages who had retreated from society for spiritual contemplation.</p>
+    <p class="text-gray-700 mb-6">These texts serve as a bridge between the ritual-focused Brahmanas and the philosophical Upanishads, containing both ritualistic symbolism and philosophical speculations. They were meant for those who had withdrawn from worldly life to pursue spiritual knowledge, offering esoteric interpretations of Vedic rituals and early forms of meditation practices.</p>
+    <p class="text-gray-700">There are five principal Aranyakas, each associated with a particular Veda and recension. Each offers unique insights into the transition from external ritual to internal contemplation that characterized the evolution of Vedic thought.</p>
+    </div>
+    <h3 class="text-2xl font-bold text-center text-gray-800 mb-12">The Four Principal Aranyakas</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <!-- Aitareya Aranyaka -->
+    <div class="aranyaka-card bg-white rounded shadow-md overflow-hidden border border-gray-100">
+    <div class="h-48 overflow-hidden">
+    <img src="https://readdy.ai/api/search-image?query=ancient%2520manuscript%2520with%2520Sanskrit%2520text%2520on%2520palm%2520leaves%2520in%2520warm%2520golden%2520light%252C%2520showing%2520detailed%2520texture%2520of%2520aged%2520palm%2520leaves%2520with%2520Sanskrit%2520characters%2520inscribed%2520on%2520them%252C%2520atmospheric%2520lighting%2520creating%2520a%2520sacred%2520ambiance&width=600&height=400&seq=124&orientation=landscape" alt="Aitareya Aranyaka" class="w-full h-full object-cover object-top">
+    </div>
+    <div class="p-6">
+      <h4 class="text-xl font-bold text-gray-800 mb-1">Aitareya Aranyaka</h4>
+    <p class="text-sm text-gray-500 mb-3">ऐतरेय आरण्यक</p>
+    <p class="text-gray-700 mb-4">Associated with the Rigveda, this Aranyaka contains philosophical discussions on the nature of reality and consciousness. It is divided into five books that explore the symbolic meaning of rituals and the concept of Atman.</p>
+    <div class="flex items-center justify-between">
+        <div class="flex-1 mr-4">
+          <div class="h-2 bg-gray-200 rounded-full">
+            <div class="h-2 bg-primary rounded-full" id="aitareya-progress"></div>
+          </div>
+        </div>
+        <span class="text-sm text-gray-600" id="aitareya-progress-text">0% Complete</span>
+      </div>
+      <a href="Aitareya Aranyaka/Aitareya.html" class="inline-block mt-4 bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-colors">Learn More</a>
+    </div>
+    </div>
+    <!-- Sankhyayana Aranyaka -->
+    <div class="aranyaka-card bg-white rounded shadow-md overflow-hidden border border-gray-100">
+    <div class="h-48 overflow-hidden">
+    <img src="https://readdy.ai/api/search-image?query=ancient%2520manuscript%2520with%2520Sanskrit%2520text%2520on%2520palm%2520leaves%2520in%2520warm%2520golden%2520light%252C%2520showing%2520detailed%2520texture%2520of%2520aged%2520palm%2520leaves%2520with%2520Sanskrit%2520characters%2520inscribed%2520on%2520them%252C%2520atmospheric%2520lighting%2520creating%2520a%2520sacred%2520ambiance&width=600&height=400&seq=125&orientation=landscape" alt="Sankhyayana Aranyaka" class="w-full h-full object-cover object-top">
+    </div>
+    <div class="p-6">
+    <h4 class="text-xl font-bold text-gray-800 mb-1">Sankhyayana Aranyaka</h4>
+    <p class="text-sm text-gray-500 mb-3">शाङ्खायन आरण्यक</p>
+    <p class="text-gray-700 mb-4">Also known as Kaushitaki Aranyaka, this text is associated with the Rigveda. It contains discussions on prana (vital breath), the soul, and ritualistic symbolism, emphasizing the internalization of Vedic rituals.</p>
+    <div class="flex items-center justify-between">
+        <div class="flex-1 mr-4">
+          <div class="h-2 bg-gray-200 rounded-full">
+            <div class="h-2 bg-primary rounded-full" id="sankhyayana-progress"></div>
+          </div>
+        </div>
+        <span class="text-sm text-gray-600" id="sankhyayana-progress-text">0% Complete</span>
+      </div>
+      <a href="Sankhyayana Aranyaka/sankhyayana.html" class="inline-block mt-4 bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-colors">Learn More</a>
+    </div>
+    </div>
+    <!-- Brihadaranyaka -->
+    <div class="aranyaka-card bg-white rounded shadow-md overflow-hidden border border-gray-100">
+    <div class="h-48 overflow-hidden">
+    <img src="https://readdy.ai/api/search-image?query=ancient%2520manuscript%2520with%2520Sanskrit%2520text%2520on%2520palm%2520leaves%2520in%2520warm%2520golden%2520light%252C%2520showing%2520detailed%2520texture%2520of%2520aged%2520palm%2520leaves%2520with%2520Sanskrit%2520characters%2520inscribed%2520on%2520them%252C%2520atmospheric%2520lighting%2520creating%2520a%2520sacred%2520ambiance&width=600&height=400&seq=126&orientation=landscape" alt="Brihadaranyaka" class="w-full h-full object-cover object-top">
+    </div>
+    <div class="p-6">
+    <h4 class="text-xl font-bold text-gray-800 mb-1">Brihadaranyaka</h4>
+    <p class="text-sm text-gray-500 mb-3">बृहदारण्यक</p>
+    <p class="text-gray-700 mb-4">The "Great Forest Text" is part of the Shukla Yajurveda. It is one of the most important Upanishadic texts, containing profound philosophical discussions on the nature of reality, self, and the universe, as well as famous dialogues.</p>
+    <div class="flex items-center justify-between">
+        <div class="flex-1 mr-4">
+          <div class="h-2 bg-gray-200 rounded-full">
+            <div class="h-2 bg-primary rounded-full" id="brihadaranyaka-progress"></div>
+          </div>
+        </div>
+        <span class="text-sm text-gray-600" id="brihadaranyaka-progress-text">0% Complete</span>
+      </div>
+      <a href="Brihadaranyaka/Brihad.html" class="inline-block mt-4 bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-colors">Learn More</a>
+    </div>
+    </div>
+    <!-- Taittiriya Aranyaka -->
+    <div class="aranyaka-card bg-white rounded shadow-md overflow-hidden border border-gray-100">
+    <div class="h-48 overflow-hidden">
+    <img src="https://readdy.ai/api/search-image?query=ancient%2520manuscript%2520with%2520Sanskrit%2520text%2520on%2520palm%2520leaves%2520in%2520warm%2520golden%2520light%252C%2520showing%2520detailed%2520texture%2520of%2520aged%2520palm%2520leaves%2520with%2520Sanskrit%2520characters%2520inscribed%2520on%2520them%252C%2520atmospheric%2520lighting%2520creating%2520a%2520sacred%2520ambiance&width=600&height=400&seq=127&orientation=landscape" alt="Taittiriya Aranyaka" class="w-full h-full object-cover object-top">
+    </div>
+    <div class="p-6">
+    <h4 class="text-xl font-bold text-gray-800 mb-1">Tittiri Aranyaka</h4>
+    <p class="text-sm text-gray-500 mb-3">तैत्तिरीय आरण्यक</p>
+    <p class="text-gray-700 mb-4">Associated with the Krishna Yajurveda, this text consists of ten chapters dealing with various aspects of rituals, mantras, and philosophical concepts. It includes the Mahanarayana Upanishad, which discusses the nature of Brahman.</p>
+    <div class="flex items-center justify-between">
+        <div class="flex-1 mr-4">
+          <div class="h-2 bg-gray-200 rounded-full">
+            <div class="h-2 bg-primary rounded-full" id="taittiri-progress"></div>
+          </div>
+        </div>
+        <span class="text-sm text-gray-600" id="taittiri-progress-text">0% Complete</span>
+      </div>
+      <a href="Taittiri Aranyaka/Taittiri.html" class="inline-block mt-4 bg-primary text-white px-4 py-2 !rounded-button whitespace-nowrap hover:bg-opacity-90 transition-colors">Learn More</a>
+    </div>
+    </div>
+    </section>
+    <!-- Study Resources Section -->
+    <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Study Resources</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Audio Recitations -->
+    <div class="bg-white p-6 rounded shadow-md">
+    <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4">
+    <i class="ri-volume-up-line text-primary ri-2x"></i>
+    </div>
+    <h3 class="text-xl font-bold text-gray-800 mb-3">Audio Recitations</h3>
+    <p class="text-gray-700 mb-4">Listen to authentic recitations of Aranyaka texts by traditional Vedic scholars, preserving the oral tradition that has been maintained for millennia.</p>
+    </div>
+    <!-- Sanskrit Texts -->
+    <div class="bg-white p-6 rounded shadow-md">
+    <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4">
+    <i class="ri-book-open-line text-primary ri-2x"></i>
+    </div>
+    <h3 class="text-xl font-bold text-gray-800 mb-3">Sanskrit Texts</h3>
+    <p class="text-gray-700 mb-4">Access original Sanskrit texts with transliteration, allowing scholars and students to engage with the primary sources in their authentic form.</p>
+    </div>
+    <!-- Commentaries -->
+    <div class="bg-white p-6 rounded shadow-md">
+    <div class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-full mb-4">
+    <i class="ri-file-text-line text-primary ri-2x"></i>
+    </div>
+    <h3 class="text-xl font-bold text-gray-800 mb-3">Scholarly Commentaries</h3>
+    <p class="text-gray-700 mb-4">Explore traditional and modern commentaries on the Aranyakas, providing deeper insights into these complex and profound texts.</p>
+    </div>
+    </div>
+    </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+    <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div>
+    <h3 class="text-xl font-['Pacifico'] mb-4">logo</h3>
+    <p class="text-gray-400 mb-4">Preserving and promoting the ancient wisdom of Vedic traditions through authentic scholarship and accessible resources.</p>
+    <div class="flex space-x-4">
+    <a href="#" class="text-gray-400 hover:text-white">
+    <div class="w-10 h-10 flex items-center justify-center">
+    <i class="ri-facebook-fill"></i>
+    </div>
+    </a>
+    <a href="#" class="text-gray-400 hover:text-white">
+    <div class="w-10 h-10 flex items-center justify-center">
+    <i class="ri-twitter-fill"></i>
+    </div>
+    </a>
+    <a href="#" class="text-gray-400 hover:text-white">
+    <div class="w-10 h-10 flex items-center justify-center">
+    <i class="ri-instagram-fill"></i>
+    </div>
+    </a>
+    <a href="#" class="text-gray-400 hover:text-white">
+    <div class="w-10 h-10 flex items-center justify-center">
+    <i class="ri-youtube-fill"></i>
+    </div>
+    </a>
+    </div>
+    </div>
+    <div>
+    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+    <ul class="space-y-2">
+    <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+    <li><a href="#" class="text-gray-400 hover:text-white">About</a></li>
+    <li><a href="#" class="text-gray-400 hover:text-white">Courses</a></li>
+    <li><a href="#" class="text-gray-400 hover:text-white">Resources</a></li>
+    <li><a href="#" class="text-gray-400 hover:text-white">Contact</a></li>
+    </ul>
+    </div>
+    <div>
+    <h4 class="text-lg font-bold mb-4">Vedic Texts</h4>
+    <ul class="space-y-2">
+    <li><a href="#" class="text-gray-400 hover:text-white">Rigveda</a></li>
+    <li><a href="#" class="text-gray-400 hover:text-white">Samaveda</a></li>
+    <li><a href="#" class="text-gray-400 hover:text-white">Yajurveda</a></li>
+    <li><a href="#" class="text-gray-400 hover:text-white">Atharvaveda</a></li>
+    <li><a href="#" class="text-gray-400 hover:text-white">Upanishads</a></li>
+    </ul>
+    </div>
+    <div>
+    <h4 class="text-lg font-bold mb-4">Subscribe</h4>
+    <p class="text-gray-400 mb-4">Join our newsletter to receive updates on new resources and upcoming events.</p>
+    <div class="flex">
+    <input type="email" placeholder="Your email address" class="px-4 py-2 w-full rounded-l-lg focus:outline-none text-gray-800">
+    <button class="bg-primary px-4 py-2 rounded-r-lg whitespace-nowrap">Subscribe</button>
+    </div>
+    </div>
+    </div>
+    <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+    <p class="text-gray-400">© 2025 logo. All rights reserved.</p>
+    <div class="flex space-x-6 mt-4 md:mt-0">
+    <a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a>
+    <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a>
+    <a href="#" class="text-gray-400 hover:text-white">Cookie Policy</a>
+    </div>
+    </div>
+    </div>
+    </footer>
+   <!-- chat box -->
+<div class="fixed bottom-6 right-6 z-50">
+  <button id="chatToggle" class="bg-gradient-to-tr from-amber-800 to-yellow-600 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all duration-300 w-16 h-16 flex items-center justify-center backdrop-blur-md">
+    <i class="fas fa-comment-dots text-2xl"></i>
+  </button>
+</div>
+
+<!-- Chat Container -->
+<div id="chatContainer" class="fixed bottom-24 right-6 w-[360px] max-w-full bg-gradient-to-br from-amber-50 to-yellow-100 rounded-3xl shadow-2xl hidden flex flex-col overflow-hidden backdrop-blur-lg border border-yellow-300/50" style="height: 75vh;">
+  <div class="bg-gradient-to-r from-amber-800 to-yellow-700 text-white p-4 flex justify-between items-center">
+    <h2 class="text-lg font-semibold tracking-wide">संस्कृत सहायक</h2>
+    <button id="closeChat" class="hover:text-yellow-300 transition">
+      <i class="fas fa-times text-xl"></i>
+    </button>
+  </div>
+
+  <div id="chatHistory" class="flex-1 overflow-y-auto p-4 space-y-4 bg-opacity-30" style="backdrop-filter: blur(8px);">
+    <!-- Chat Messages Will Appear Here -->
+  </div>
+
+  <div class="p-4 border-t border-amber-300/60 bg-gradient-to-r from-yellow-50 to-amber-100">
+    <div class="flex items-center gap-2">
+      <input id="userInput" type="text"
+        class="flex-1 p-2 rounded-2xl bg-white/60 placeholder-brown-900 text-brown-900 border border-yellow-300 focus:ring-2 focus:ring-amber-600 backdrop-blur-md focus:outline-none"
+        placeholder="Type a message...">
+      <button onclick="sendMessage()" class="p-3 bg-gradient-to-tr from-amber-700 to-yellow-500 rounded-full text-white shadow-lg hover:scale-110 transition-all">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+let userId = localStorage.getItem('userId');
+if (!userId) {
+    window.location.href = '../Auth/login.html';
+}
+
+async function fetchAndUpdateProgress() {
+    try {
+        const response = await fetch('https://localhost:5002/api/progress/current-progress', {
+            headers: { 'X-User-Id': userId }
+        });
+
+        if (!response.ok) throw new Error('Failed to fetch progress: ' + response.statusText);
+        const progressData = await response.json();
+
+        // Update progress for each Aranyaka card
+        updateAranyakaProgress(progressData.veda['Aranyakas']);
+    } catch (error) {
+        console.error('Progress error:', error);
+        alert('Failed to load progress data: ' + error.message);
+    }
+}
+
+function updateAranyakaProgress(vedaData) {
+    if (!vedaData || !vedaData.subtypes) return;
+
+    const aranyakaProgressMap = {
+        'Aitareya Aranyaka': { progress: document.getElementById('aitareya-progress'), text: document.getElementById('aitareya-progress-text') },
+        'Sankhyayana Aranyaka': { progress: document.getElementById('sankhyayana-progress'), text: document.getElementById('sankhyayana-progress-text') },
+        'Brihadaranyaka': { progress: document.getElementById('brihadaranyaka-progress'), text: document.getElementById('brihadaranyaka-progress-text') },
+        'Tittiri Aranyaka': { progress: document.getElementById('taittiri-progress'), text: document.getElementById('taittiri-progress-text') }
+    };
+
+    vedaData.subtypes.forEach(subtype => {
+        const progressData = aranyakaProgressMap[subtype.subtypeName];
+        if (progressData) {
+            const percentage = subtype.result === true ? 100 : (subtype.result === false ? 0 : 0); // 100% if true, 0% if false or null
+            progressData.progress.style.width = `${percentage}%`;
+            progressData.text.textContent = `${percentage}% Complete`;
+        }
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    fetchAndUpdateProgress();
+
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+});
+
+// Chat Functionality
+let chatHistory = JSON.parse(localStorage.getItem('sanskritChat')) || [];
+
+document.getElementById('chatToggle').addEventListener('click', () => {
+    const chatContainer = document.getElementById('chatContainer');
+    chatContainer.classList.toggle('hidden');
+    loadChatHistory();
+});
+
+document.getElementById('closeChat').addEventListener('click', () => {
+    document.getElementById('chatContainer').classList.add('hidden');
+});
+
+function loadChatHistory() {
+    const historyDiv = document.getElementById('chatHistory');
+    historyDiv.innerHTML = chatHistory.map(msg => `
+        <div class="${msg.role === 'user' ? 'flex justify-end' : 'flex justify-start'}">
+            <div class="${msg.role === 'user' 
+                ? 'bg-gradient-to-tr from-brown-200 to-brown-300 text-brown-900' 
+                : 'bg-gradient-to-tr from-yellow-100 to-amber-100 text-amber-900'
+            } p-3 rounded-2xl max-w-[80%] shadow-md">
+                ${marked.parse(msg.content)}
+                <div class="text-xs text-gray-500 mt-1 text-right">${new Date(msg.timestamp).toLocaleTimeString()}</div>
+            </div>
+        </div>
+    `).join('');
+    historyDiv.scrollTo(0, historyDiv.scrollHeight);
+}
+
+async function sendMessage() {
+    const input = document.getElementById('userInput');
+    const message = input.value.trim();
+    if (!message) return;
+    input.value = '';
+
+    // Add user message
+    chatHistory.push({ role: 'user', content: message, timestamp: new Date().toISOString() });
+
+    // Add loading state
+    chatHistory.push({ role: 'assistant', content: 'प्रतीक्षा कुरु...', timestamp: new Date().toISOString() });
+    loadChatHistory();
+
+    try {
+        const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer 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',
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                model: 'deepseek/deepseek-r1:free',
+                messages: [{ role: 'user', content: message }],
+            }),
+        });
+
+        const data = await response.json();
+        const botResponse = data.choices?.[0]?.message?.content || 'उत्तरं प्राप्तुं अशक्यम्';
+
+        chatHistory.pop();
+        chatHistory.push({ role: 'assistant', content: botResponse, timestamp: new Date().toISOString() });
+        localStorage.setItem('sanskritChat', JSON.stringify(chatHistory));
+        loadChatHistory();
+    } catch (error) {
+        console.error('Error:', error);
+        chatHistory.pop();
+        chatHistory.push({ role: 'assistant', content: 'त्रुटिः! पुनः प्रयत्नं कुरुत।', timestamp: new Date().toISOString() });
+        loadChatHistory();
+    }
+}
+  // Toggle mobile menu
+  const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('hidden');
+            // Toggle between hamburger and close icon
+            if (navMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('ri-close-line');
+                menuIcon.classList.add('ri-menu-line');
+            } else {
+                menuIcon.classList.remove('ri-menu-line');
+                menuIcon.classList.add('ri-close-line');
+            }
+        });
+
+        // Close menu when clicking a link on mobile
+        const navLinks = navMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 768) { // Tailwind's md breakpoint
+                    navMenu.classList.add('hidden');
+                    menuIcon.classList.remove('ri-close-line');
+                    menuIcon.classList.add('ri-menu-line');
+                }
+            });
+        });
+
+        // Adjust menu visibility on resize
+        window.addEventListener('resize', () => {
+            if (window.innerWidth >= 768) {
+                navMenu.classList.remove('hidden');
+                menuIcon.classList.remove('ri-close-line');
+                menuIcon.classList.add('ri-menu-line');
+            } else {
+                navMenu.classList.add('hidden');
+            }
+        });
+
+document.getElementById('userInput').addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') sendMessage();
+});
+</script>
+</body>
+</html>

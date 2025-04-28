@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vyakarana Vedanga - Ancient Sanskrit Grammar</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#B8A6D9", secondary: "#8D7BB0" },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+          font-family: 'Inter', sans-serif;
+          scroll-behavior: smooth;
+      }
+      .hero-section {
+          background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://readdy.ai/api/search-image?query=ancient%20Sanskrit%20manuscripts%20on%20palm%20leaves%20with%20beautiful%20calligraphy%2C%20vedic%20scriptures%2C%20soft%20natural%20lighting%2C%20detailed%20view%20of%20ancient%20text%2C%20spiritual%20and%20scholarly%20atmosphere%2C%20high%20resolution%20professional%20photography&width=1920&height=1080&seq=1&orientation=landscape');
+          background-size: cover;
+          background-position: center;
+      }
+      .custom-checkbox {
+          appearance: none;
+          -webkit-appearance: none;
+          width: 20px;
+          height: 20px;
+          border: 2px solid #B8A6D9;
+          border-radius: 4px;
+          outline: none;
+          cursor: pointer;
+          position: relative;
+      }
+      .custom-checkbox:checked {
+          background-color: #B8A6D9;
+      }
+      .custom-checkbox:checked::after {
+          content: '';
+          position: absolute;
+          width: 5px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          top: 2px;
+          left: 6px;
+          transform: rotate(45deg);
+      }
+      .custom-radio {
+          appearance: none;
+          -webkit-appearance: none;
+          width: 20px;
+          height: 20px;
+          border: 2px solid #B8A6D9;
+          border-radius: 50%;
+          outline: none;
+          cursor: pointer;
+          position: relative;
+      }
+      .custom-radio:checked {
+          border-color: #B8A6D9;
+      }
+      .custom-radio:checked::after {
+          content: '';
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          background-color: #B8A6D9;
+          border-radius: 50%;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+      }
+      .sanskrit-divider {
+          position: relative;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, #B8A6D9, transparent);
+          margin: 2rem 0;
+      }
+      .sanskrit-divider::before {
+          content: "॥";
+          position: absolute;
+          top: -12px;
+          left: 50%;
+          transform: translateX(-50%);
+          color: #B8A6D9;
+          font-size: 1.5rem;
+      }
+      .chatbot-toggle {
+          position: fixed;
+          bottom: 2rem;
+          right: 2rem;
+          z-index: 100;
+      }
+      .chatbot-container {
+          position: fixed;
+          bottom: 6rem;
+          right: 2rem;
+          z-index: 99;
+          max-height: 400px;
+          width: 300px;
+          display: none;
+      }
+      .quote-block {
+          border-left: 4px solid #B8A6D9;
+          padding-left: 1rem;
+          font-style: italic;
+          margin: 1.5rem 0;
+      }
+      .custom-switch {
+          position: relative;
+          display: inline-block;
+          width: 46px;
+          height: 24px;
+      }
+      .custom-switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+      }
+      .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          transition: .4s;
+          border-radius: 24px;
+      }
+      .slider:before {
+          position: absolute;
+          content: "";
+          height: 18px;
+          width: 18px;
+          left: 3px;
+          bottom: 3px;
+          background-color: white;
+          transition: .4s;
+          border-radius: 50%;
+      }
+      input:checked + .slider {
+          background-color: #B8A6D9;
+      }
+      input:checked + .slider:before {
+          transform: translateX(22px);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 min-h-screen">
+    <!-- Header and Navigation -->
+    <header class="w-full bg-white shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center py-4 md:py-6">
+          
+          <!-- Title -->
+          <div class="font-['Pacifico'] text-3xl md:text-4xl text-primary">
+            Vyakarana Vedanga
+          </div>
+    
+          <!-- Desktop Navigation -->
+          <nav class="hidden md:flex items-center space-x-6">
+            <a href="../../Dashboard/dashboard.html" class="text-primary font-semibold hover:text-primary/80 transition-colors">
+              Home
+            </a>
+            <a href="../../Quiz/QuizMaster.html" class="text-gray-600 font-semibold hover:text-primary transition-colors">
+              Quiz
+            </a>
+            <a href="/profile" class="p-1.5 rounded-full hover:bg-gray-100 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 text-gray-600 hover:text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A4 4 0 019 16h6a4 4 0 013.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </a>
+          </nav>
+    
+          <!-- Mobile Menu Button -->
+          <div class="md:hidden flex items-center">
+            <button
+              type="button"
+              class="text-gray-600 hover:text-primary focus:outline-none"
+              id="mobile-menu-button"
+            >
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-menu-line ri-lg"></i>
+              </div>
+            </button>
+          </div>
+    
+        </div>
+    
+        <!-- Mobile Navigation Menu -->
+        <div class="md:hidden hidden" id="mobile-menu">
+          <div class="px-2 pt-2 pb-3 space-y-1 border-t border-b border-gray-100">
+            <a href="../../Dashboard/dashboard.html" class="block px-3 py-2 text-primary font-medium hover:text-primary/80 transition">
+              Home
+            </a>
+            <a href="../../Quiz/QuizMaster.html" class="block px-3 py-2 text-gray-600 font-medium hover:text-primary transition">
+              Quiz
+            </a>
+            <a href="/profile" class="block px-3 py-2 text-gray-600 font-medium hover:text-primary transition">
+              Profile
+            </a>
+          </div>
+        </div>
+    
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      class="hero-section h-[500px] flex items-center justify-center text-white"
+    >
+      <div class="container mx-auto px-4 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">
+          The Ancient Science of Sanskrit Grammar
+        </h1>
+        <p class="text-xl max-w-2xl mx-auto">
+          Explore the profound linguistic tradition that has preserved the
+          integrity of Vedic knowledge for millennia
+        </p>
+        <div class="mt-8">
+          <a
+            href="#content"
+            class="bg-primary hover:bg-opacity-90 text-white font-medium py-3 px-6 !rounded-button shadow-lg transition-all duration-300 whitespace-nowrap"
+            >Begin Your Journey</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="content" class="container mx-auto px-4 py-12">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6">
+          Understanding Vyakarana Vedanga
+        </h2>
+
+        <div class="prose prose-lg max-w-none">
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Vyakarana, one of the six Vedangas (limbs of the Veda), is the
+            ancient Indian science of grammar and linguistic analysis. It holds
+            a distinguished position among the auxiliary disciplines of Vedic
+            study, serving as the foundation for precise interpretation and
+            preservation of sacred texts.
+          </p>
+
+          <div class="sanskrit-divider"></div>
+
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+            Definition and Purpose
+          </h3>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            The word "Vyakarana" derives from the Sanskrit root "vi" + "ā" +
+            "kṛ," meaning "to analyze" or "to explain distinctly." As a
+            discipline, Vyakarana provides a comprehensive framework for
+            understanding the structure, formation, and correct usage of
+            Sanskrit words and sentences. Its primary purpose extends beyond
+            mere grammatical instruction—it serves as the guardian of the Vedic
+            message, ensuring that the sacred knowledge remains uncorrupted
+            through generations.
+          </p>
+
+          <div class="quote-block">
+            <p class="text-gray-600">
+              "Vyakaranam is the mouth of the Vedapurusha (the Veda personified
+              as a cosmic being). Just as food is first received through the
+              mouth, the Vedas are first approached through grammar."
+            </p>
+            <p class="text-sm text-gray-500 mt-2">
+              — Traditional Sanskrit saying
+            </p>
+          </div>
+
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+            Historical Development
+          </h3>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            The tradition of Sanskrit grammar predates written history, with
+            early grammatical discussions appearing in the Brahmanas and
+            Aranyakas (8th-6th centuries BCE). These early works contained
+            observations on correct pronunciation, word formation, and ritual
+            language. The pre-Paninian period saw numerous grammarians whose
+            works are now mostly lost but are referenced in later texts. Notable
+            among these early authorities were Apisali, Kasyapa, Gargya, and
+            Sakalya.
+          </p>
+
+          <p class="text-gray-700 leading-relaxed mb-6">
+            The watershed moment in the history of Vyakarana came with Panini's
+            composition of the Ashtadhyayi around the 4th century BCE, which
+            revolutionized not only Sanskrit grammar but the very science of
+            linguistics itself. This remarkable work, consisting of just under
+            4,000 sutras (aphorisms), provides a complete and mathematically
+            precise description of the Sanskrit language.
+          </p>
+
+          <div class="sanskrit-divider"></div>
+
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+            Panini's Monumental Contribution
+          </h3>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Panini's Ashtadhyayi represents one of the greatest intellectual
+            achievements in human history. Using a meticulously designed
+            metalanguage and a system of algebraic rules, Panini created a
+            generative grammar that could derive all possible Sanskrit words and
+            sentences from a limited set of roots and affixes. His work is
+            characterized by:
+          </p>
+
+          <ul class="list-disc pl-6 mb-6 text-gray-700 space-y-2">
+            <li>
+              Extraordinary economy of expression, with each rule precisely
+              formulated to minimize redundancy
+            </li>
+            <li>
+              A sophisticated metalanguage with special notation for linguistic
+              operations
+            </li>
+            <li>
+              Rule prioritization through principles like "antaranga-bahiranga"
+              (internal vs. external operations)
+            </li>
+            <li>Comprehensive coverage of both Vedic and Classical Sanskrit</li>
+            <li>
+              Algorithmic approach to language description that anticipates
+              modern computational linguistics
+            </li>
+          </ul>
+
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Following Panini, the grammatical tradition continued to develop
+            through commentaries and expansions. Katyayana (3rd century BCE)
+            composed the Varttikas, which clarified and occasionally corrected
+            Panini's rules. Patanjali's Mahabhashya (2nd century BCE), a
+            monumental commentary on selected Varttikas, further refined the
+            grammatical system and established the canonical interpretation of
+            the Ashtadhyayi.
+          </p>
+
+          <div class="sanskrit-divider"></div>
+
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+            Importance in Sanskrit Studies
+          </h3>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Vyakarana occupies a central position in traditional Sanskrit
+            education for several reasons:
+          </p>
+
+          <ol class="list-decimal pl-6 mb-6 text-gray-700 space-y-2">
+            <li>
+              It provides the methodological foundation for interpreting all
+              other sastras (disciplines)
+            </li>
+            <li>
+              It preserves the correct form of words, ensuring the integrity of
+              ritual formulas
+            </li>
+            <li>
+              It offers insights into the philosophy of language and the
+              relationship between words and meanings
+            </li>
+            <li>
+              It cultivates logical thinking through its analytical approach to
+              language
+            </li>
+            <li>
+              It connects all branches of traditional knowledge through a common
+              linguistic framework
+            </li>
+          </ol>
+
+          <p class="text-gray-700 leading-relaxed mb-6">
+            Beyond its technical aspects, Vyakarana also developed philosophical
+            dimensions. The Vaiyakarana school of thought explored profound
+            questions about the nature of language, the relationship between
+            words and reality, and the concept of sphota (the indivisible unit
+            of meaning that manifests through sound). These philosophical
+            inquiries influenced other darshanas (philosophical systems),
+            particularly Nyaya and Mimamsa.
+          </p>
+
+          <div class="quote-block">
+            <p class="text-gray-600">
+              "The study of grammar is considered the direct path to liberation.
+              Through purification of speech comes purification of mind; through
+              purification of mind comes direct knowledge of the Self."
+            </p>
+            <p class="text-sm text-gray-500 mt-2">
+              — Bhartrihari, Vakyapadiya (5th century CE)
+            </p>
+          </div>
+
+          <div class="sanskrit-divider"></div>
+
+          <h3 class="text-2xl font-semibold text-gray-800 mb-4">
+            Contemporary Relevance
+          </h3>
+          <p class="text-gray-700 leading-relaxed mb-6">
+            In the modern world, Vyakarana continues to be relevant in multiple
+            contexts:
+          </p>
+
+          <ul class="list-disc pl-6 mb-6 text-gray-700 space-y-2">
+            <li>
+              Academic linguistics: Paninian grammar anticipates many concepts
+              in modern linguistics and continues to influence linguistic theory
+            </li>
+            <li>
+              Computational linguistics: The rule-based, generative approach of
+              Panini provides models for natural language processing
+            </li>
+            <li>
+              Cultural preservation: Vyakarana maintains the living tradition of
+              Sanskrit as a vehicle for India's intellectual heritage
+            </li>
+            <li>
+              Spiritual practice: For many practitioners, the study of grammar
+              is itself a form of yoga, cultivating mental discipline and
+              clarity
+            </li>
+          </ul>
+
+          <p class="text-gray-700 leading-relaxed">
+            As we navigate the digital age with its emphasis on communication
+            and information processing, the ancient insights of Vyakarana offer
+            valuable perspectives on the nature of language and its relationship
+            to human cognition. The tradition reminds us that language is not
+            merely a tool for practical communication but a profound system that
+            shapes our understanding of reality itself.
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Video Section -->
+    <section class="bg-gray-100 py-16">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-10">
+          Explore Vyakarana Through Video
+        </h2>
+
+        <div
+          class="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden"
+        >
+          <div class="aspect-w-16 aspect-h-9 relative">
+            <div class="w-full h-0 pb-[56.25%] bg-gray-200 relative">
+              <div class="absolute inset-0 flex items-center justify-center">
+                <div class="text-center">
+                  <div
+                    class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto cursor-pointer"
+                  >
+                    <div class="w-10 h-10 flex items-center justify-center">
+                      <i class="ri-play-fill ri-2x text-white"></i>
+                    </div>
+                  </div>
+                  <p class="mt-4 text-gray-600">
+                    Click to play "The Genius of Panini: Understanding Sanskrit
+                    Grammar"
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="p-6">
+            <h3 class="text-xl font-semibold text-gray-800 mb-2">
+              The Genius of Panini: Understanding Sanskrit Grammar
+            </h3>
+            <p class="text-gray-600 mb-4">
+              A comprehensive lecture by Dr. Rajiv Malhotra exploring the
+              sophisticated linguistic system developed by Panini and its impact
+              on modern linguistics.
+            </p>
+
+            <div class="flex items-center justify-between">
+              <span class="text-sm text-gray-500">Duration: 48:32</span>
+
+              <div class="flex items-center">
+                <label class="custom-switch mr-2">
+                  <input type="checkbox" id="transcript-toggle" />
+                  <span class="slider"></span>
+                </label>
+                <span class="text-sm text-gray-700">Show Transcript</span>
+              </div>
+            </div>
+          </div>
+
+          <div id="transcript" class="p-6 pt-0 hidden">
+            <div class="border-t border-gray-200 pt-4 mt-2">
+              <h4 class="font-medium text-gray-800 mb-2">Lecture Transcript</h4>
+              <div class="text-sm text-gray-600 max-h-60 overflow-y-auto">
+                <p class="mb-2">
+                  00:00 - Introduction to Panini and the Ashtadhyayi
+                </p>
+                <p class="mb-2">
+                  03:45 - Historical context of Sanskrit grammar
+                </p>
+                <p class="mb-2">
+                  08:12 - The structure of the Ashtadhyayi and its
+                  organizational principles
+                </p>
+                <p class="mb-2">
+                  15:30 - Demonstration of rule application and derivation
+                </p>
+                <p class="mb-2">
+                  22:18 - Comparison with modern linguistic theories
+                </p>
+                <p class="mb-2">
+                  29:45 - Philosophical implications of Paninian grammar
+                </p>
+                <p class="mb-2">
+                  36:20 - Contemporary applications in computational linguistics
+                </p>
+                <p>42:15 - Conclusion and relevance for modern scholars</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-lg mt-10">
+    <h1 class="text-4xl font-bold text-center text-teal-600 mb-6">Vyakarana Vedanga Quiz</h1>
+
+    <form id="quiz-form">
+      <!-- Question 1 -->
+      <div class="mb-6">
+        <p class="font-medium text-lg mb-4">1. What is Vyakarana Vedanga primarily concerned with?</p>
+        <div class="space-y-4">
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer answer" id="q1a">A) Vedic phonetics and pronunciation</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer answer" id="q1b">B) Vedic grammar and linguistics</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer answer" id="q1c">C) Vedic rituals and ceremonies</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer answer" id="q1d">D) Vedic astronomy and calendar</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="mb-6">
+        <p class="font-medium text-lg mb-4">2. Which of the following is a key component of Vyakarana Vedanga?</p>
+        <div class="space-y-4">
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer answer" id="q2a">A) Syntax and grammar rules</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer answer" id="q2b">B) Vedic phonetics</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer answer" id="q2c">C) Vedic rituals</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer answer" id="q2d">D) Vedic mythology</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="mb-6">
+        <p class="font-medium text-lg mb-4">3. Which scholar is considered an authority in Vyakarana?</p>
+        <div class="space-y-4">
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer answer" id="q3a">A) Panini</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer answer" id="q3b">B) Yaska</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer answer" id="q3c">C) Bhartrihari</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer answer" id="q3d">D) Sayanacharya</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="mb-6">
+        <p class="font-medium text-lg mb-4">4. Vyakarana Vedanga is essential for understanding:</p>
+        <div class="space-y-4">
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer answer" id="q4a">A) Vedic grammar structure</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer answer" id="q4b">B) Vedic chanting and pronunciation</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer answer" id="q4c">C) Vedic rituals</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer answer" id="q4d">D) Vedic mythology</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="mb-6">
+        <p class="font-medium text-lg mb-4">5. What role does Vyakarana Vedanga play in understanding the Vedas?</p>
+        <div class="space-y-4">
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer answer" id="q5a">A) It helps decode the meaning of Vedic hymns</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer answer" id="q5b">B) It decodes the rituals</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer answer" id="q5c">C) It helps understand Vedic mythology</div>
+          </div>
+          <div class="flex items-center">
+            <div class="w-full p-4 rounded-lg border-2 border-gray-300 cursor-pointer answer" id="q5d">D) It helps in interpreting the rituals</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="flex justify-center">
+        <button type="submit" class="bg-teal-600 text-white py-3 px-6 rounded-lg shadow-lg hover:bg-teal-700 transition-colors">Submit Quiz</button>
+      </div>
+    </form>
+
+    <!-- Result Section -->
+    <div id="result-section" class="mt-8 hidden">
+      <h2 class="text-3xl font-semibold text-center text-teal-600">Quiz Result</h2>
+      <p id="score" class="text-center text-lg mt-4"></p>
+      <div class="w-full mt-6">
+        <div class="relative pt-1">
+          <div class="flex mb-2 items-center justify-between">
+            <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-teal-600 bg-teal-200">
+              Score
+            </span>
+            <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-teal-600 bg-teal-200">
+              5
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Handle answer selection
+    const answers = document.querySelectorAll('.answer');
+    answers.forEach(answer => {
+      answer.addEventListener('click', function() {
+        // Remove previous selections
+        answers.forEach(a => a.classList.remove('bg-teal-600', 'text-white', 'border-teal-600'));
+        // Highlight selected answer
+        this.classList.add('bg-teal-600', 'text-white', 'border-teal-600');
+      });
+    });
+
+    document.getElementById('quiz-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      let score = 0;
+      const correctAnswers = ['B', 'A', 'A', 'A', 'A'];  // Correct answers for the questions
+      const selectedAnswers = ['q1b', 'q2a', 'q3a', 'q4a', 'q5a'];
+
+      selectedAnswers.forEach((answer, index) => {
+        const selectedElement = document.getElementById(answer);
+        selectedElement.classList.add('bg-teal-600', 'text-white', 'border-teal-600');
+        if (selectedElement.id === 'q1b' && correctAnswers[index] === 'B') {
+          score++;
+        }
+      });
+
+      const resultSection = document.getElementById('result-section');
+      const scoreElement = document.getElementById('score');
+
+      scoreElement.textContent = `You scored ${score} out of 5.`;
+      resultSection.classList.remove('hidden');
+      window.scrollTo({ top: resultSection.offsetTop, behavior: 'smooth' });
+    });
+  </script>
+
+    <!-- Chatbot -->
+   
+      <!-- Right Sidebar - Chatbot -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+      <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+      
+      <!-- Chat Box Trigger Button -->
+      <div class="fixed bottom-6 right-6 z-50">
+          <button id="chatToggle" class="bg-primary text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all w-16 h-16 flex items-center justify-center">
+            <i class="fas fa-comment-dots text-2xl"></i>
+          </button>
+      </div>
+      
+      <!-- Chat Container -->
+      <div id="chatContainer" class="fixed bottom-24 right-6 w-full max-w-sm hidden z-50">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-[600px]">
+          <!-- Header -->
+          <div class="bg-primary text-white p-4 flex items-center justify-between">
+            <div class="flex items-center">
+              <div class="w-10 h-10 flex items-center justify-center bg-white/20 rounded-full mr-3">
+                <i class="fas fa-robot text-white"></i>
+              </div>
+              <div>
+                <h3 class="font-semibold">संस्कृत सहायक</h3>
+                <p class="text-xs text-white/80">संस्कृत सम्बन्धी प्रश्न पूछें</p>
+              </div>
+            </div>
+            <button id="closeChat" class="w-8 h-8 flex items-center justify-center bg-white/10 rounded-full hover:bg-white/20">
+              <i class="fas fa-times text-white"></i>
+            </button>
+          </div>
+      
+          <!-- Chat History -->
+          <div id="chatHistory" class="flex-1 p-4 overflow-y-auto space-y-4 bg-gray-50 custom-scrollbar">
+            <!-- Messages will be loaded here -->
+          </div>
+      
+          <!-- Input Box -->
+          <div class="border-t border-gray-200 p-4">
+            <div class="flex items-center">
+              <div class="flex-1 relative">
+                <input id="userInput" type="text" placeholder="Type your message..." class="w-full border-none bg-gray-100 rounded-full py-2 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-primary/50">
+                <button class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-primary">
+                  <i class="fas fa-smile"></i>
+                </button>
+              </div>
+              <button onclick="sendMessage()" class="ml-2 w-10 h-10 flex items-center justify-center bg-primary rounded-full text-white hover:bg-primary/80">
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- SCRIPT -->
+      <script>
+      // Load saved chat history
+      let chatHistory = JSON.parse(localStorage.getItem('sanskritChat')) || [];
+      
+      // Toggle Chat Box
+      document.getElementById('chatToggle').addEventListener('click', () => {
+          const chatContainer = document.getElementById('chatContainer');
+          chatContainer.classList.toggle('hidden');
+          loadChatHistory();
+      });
+      
+      // Close Chat
+      document.getElementById('closeChat').addEventListener('click', () => {
+          document.getElementById('chatContainer').classList.add('hidden');
+      });
+      
+      // Load Chat History
+      function loadChatHistory() {
+          const historyDiv = document.getElementById('chatHistory');
+          historyDiv.innerHTML = chatHistory.map(msg => `
+              <div class="flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}">
+                  <div class="max-w-[80%] ${msg.role === 'user' 
+                      ? 'bg-primary/10 text-gray-700 rounded-lg rounded-tr-none p-3'
+                      : 'bg-gray-100 text-gray-700 rounded-lg rounded-tl-none p-3'}">
+                      ${marked.parse(msg.content)}
+                      <div class="text-xs text-gray-400 mt-1 ${msg.role === 'user' ? 'text-right' : 'text-left'}">
+                        ${new Date(msg.timestamp).toLocaleTimeString()}
+                      </div>
+                  </div>
+              </div>
+          `).join('');
+          historyDiv.scrollTop = historyDiv.scrollHeight;
+      }
+      
+      // Send Message
+      async function sendMessage() {
+          const input = document.getElementById('userInput');
+          const message = input.value.trim();
+          if (!message) return;
+          input.value = '';
+      
+          // Push user message
+          chatHistory.push({ role: 'user', content: message, timestamp: new Date().toISOString() });
+      
+          // Show loading message
+          chatHistory.push({ role: 'assistant', content: 'प्रतीक्षा कुरु...', timestamp: new Date().toISOString() });
+          loadChatHistory();
+      
+          try {
+              const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+                  method: 'POST',
+                  headers: {
+                      'Authorization': 'Bearer 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',
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                      model: 'deepseek/deepseek-r1:free',
+                      messages: [{ role: 'user', content: message }],
+                  }),
+              });
+      
+              const data = await response.json();
+              const botResponse = data.choices?.[0]?.message?.content || 'उत्तरं प्राप्तुं अशक्यम्';
+      
+              chatHistory.pop(); // Remove loading
+              chatHistory.push({ role: 'assistant', content: botResponse, timestamp: new Date().toISOString() });
+              localStorage.setItem('sanskritChat', JSON.stringify(chatHistory));
+              loadChatHistory();
+          } catch (error) {
+              console.error('Error:', error);
+              chatHistory.pop();
+              chatHistory.push({ role: 'assistant', content: 'त्रुटिः! पुनः प्रयत्नं कुरुत।', timestamp: new Date().toISOString() });
+              loadChatHistory();
+          }
+      }
+      
+      // Send on Enter Key
+      document.getElementById('userInput').addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') sendMessage();
+      });
+      </script>
+      
+      <style>
+      /* Custom Scrollbar */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 8px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: rgba(0,0,0,0.2);
+        border-radius: 4px;
+      }
+      </style>
+      
+
+    <!-- Footer -->
+    
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 py-12 mt-auto">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Upveda Info -->
+          <div>
+            <h3 class="font-['Pacifico'] text-2xl text-primary mb-4">Veda</h3>
+            <p class="text-gray-600">
+              Preserving ancient wisdom for modern seekers. Explore the timeless
+              knowledge of the Vedas and discover practical applications for
+              contemporary life.
+            </p>
+          </div>
+    
+          <!-- Quick Links -->
+          <div>
+            <h4 class="text-lg font-semibold text-gray-900 mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary transition-colors">About Us</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary transition-colors">Vedic Resources</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary transition-colors">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary transition-colors">Terms of Service</a>
+              </li>
+            </ul>
+          </div>
+    
+          <!-- Contact Us (Generic) -->
+          <div>
+            <h4 class="text-lg font-semibold text-gray-900 mb-4">Contact Us</h4>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <div class="w-5 h-5 flex items-center justify-center mt-1 mr-3">
+                  <i class="ri-mail-line"></i>
+                </div>
+                <span class="text-gray-600">contact@upveda.org</span>
+              </li>
+              <li class="flex items-start">
+                <div class="w-5 h-5 flex items-center justify-center mt-1 mr-3">
+                  <i class="ri-phone-line"></i>
+                </div>
+                <span class="text-gray-600">+91 98765 43210</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+    
+        <!-- Footer Bottom Section -->
+        <div class="border-t border-gray-200 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-600 text-sm">&copy; 2025 Veda. All rights reserved.</p>
+          <div class="flex space-x-4 mt-4 md:mt-0">
+            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-facebook-fill ri-lg"></i>
+              </div>
+            </a>
+            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-twitter-x-fill ri-lg"></i>
+              </div>
+            </a>
+            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-instagram-fill ri-lg"></i>
+              </div>
+            </a>
+            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-youtube-fill ri-lg"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+
+
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById("mobile-menu-button");
+        const mobileMenu = document.getElementById("mobile-menu");
+
+        mobileMenuButton.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Transcript toggle
+        const transcriptToggle = document.getElementById("transcript-toggle");
+        const transcript = document.getElementById("transcript");
+
+        transcriptToggle.addEventListener("change", function () {
+          if (this.checked) {
+            transcript.classList.remove("hidden");
+          } else {
+            transcript.classList.add("hidden");
+          }
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Quiz functionality
+        const submitQuizButton = document.getElementById("submit-quiz");
+        const retakeQuizButton = document.getElementById("retake-quiz");
+        const quizContainer = document.getElementById("quiz-container");
+        const quizResults = document.getElementById("quiz-results");
+        const scoreDisplay = document.getElementById("score-display");
+
+        const correctAnswers = {
+          q1: "b",
+          q2: "c",
+          q3: "b",
+          q4: "c",
+          q5: "a",
+        };
+
+        submitQuizButton.addEventListener("click", function () {
+          let score = 0;
+
+          for (let question in correctAnswers) {
+            const selectedOption = document.querySelector(
+              `input[name="${question}"]:checked`,
+            );
+            if (selectedOption && selectedOption.value === correctAnswers[question]) {
+              score++;
+            }
+          }
+
+          scoreDisplay.innerHTML = `You scored <span class="font-bold text-primary">${score}</span> out of 5`;
+          quizContainer.classList.add("hidden");
+          quizResults.classList.remove("hidden");
+        });
+
+        retakeQuizButton.addEventListener("click", function () {
+          // Reset all selections
+          const allRadios = document.querySelectorAll('input[type="radio"]');
+          allRadios.forEach((radio) => {
+            radio.checked = false;
+          });
+
+          quizResults.classList.add("hidden");
+          quizContainer.classList.remove("hidden");
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Chatbot functionality
+        const chatbotButton = document.getElementById("chatbot-button");
+        const closeChatbotButton = document.getElementById("close-chatbot");
+        const chatbot = document.getElementById("chatbot");
+        const chatInput = document.getElementById("chat-input");
+        const sendMessageButton = document.getElementById("send-message");
+        const chatMessages = document.getElementById("chat-messages");
+
+        // Toggle chatbot visibility
+        chatbotButton.addEventListener("click", function () {
+          chatbot.style.display =
+            chatbot.style.display === "block" ? "none" : "block";
+        });
+
+        closeChatbotButton.addEventListener("click", function () {
+          chatbot.style.display = "none";
+        });
+
+        // Send message functionality
+        function sendMessage() {
+          const message = chatInput.value.trim();
+          if (message) {
+            // Add user message
+            chatMessages.innerHTML += `
+                              <div class="mb-4 text-right">
+                                  <div class="bg-primary text-white rounded-lg p-3 inline-block max-w-[80%]">
+                                      <p class="text-sm">${message}</p>
+                                  </div>
+                              </div>
+                          `;
+
+            chatInput.value = "";
+
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            // Simulate response after a short delay
+            setTimeout(function () {
+              let response =
+                "I'm sorry, I don't have specific information about that. Would you like to know more about Panini's grammar or the history of Vyakarana?";
+
+              // Simple keyword-based responses
+              if (message.toLowerCase().includes("panini")) {
+                response =
+                  "Panini was a Sanskrit grammarian who lived around the 4th century BCE. His work, the Ashtadhyayi, is considered one of the greatest intellectual achievements in linguistics.";
+              } else if (message.toLowerCase().includes("ashtadhyayi")) {
+                response =
+                  "The Ashtadhyayi is Panini's masterpiece, consisting of nearly 4,000 sutras (rules) that describe the entire Sanskrit language with remarkable precision and economy.";
+              } else if (message.toLowerCase().includes("sanskrit")) {
+                response =
+                  "Sanskrit is an ancient Indo-Aryan language that serves as the sacred language of Hinduism and the medium for much of India's classical literature.";
+              } else if (
+                message.toLowerCase().includes("grammar") ||
+                message.toLowerCase().includes("vyakarana")
+              ) {
+                response =
+                  "Vyakarana is one of the six Vedangas (auxiliary disciplines of Vedic study) focused on grammar and linguistic analysis. It's considered essential for proper interpretation of sacred texts.";
+              }
+
+              chatMessages.innerHTML += `
+                                  <div class="mb-4">
+                                      <div class="bg-gray-200 rounded-lg p-3 inline-block max-w-[80%]">
+                                          <p class="text-sm text-gray-800">${response}</p>
+                                      </div>
+                                  </div>
+                              `;
+
+              // Scroll to bottom again
+              chatMessages.scrollTop = chatMessages.scrollHeight;
+            }, 1000);
+          }
+        }
+
+        sendMessageButton.addEventListener("click", sendMessage);
+
+        chatInput.addEventListener("keypress", function (e) {
+          if (e.key === "Enter") {
+            sendMessage();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

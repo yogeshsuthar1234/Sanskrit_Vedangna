@@ -1,0 +1,192 @@
+:where([class^="ri-"])::before { content: "\f3c2"; }
+@media screen and (max-width: 640px) {
+  .rotating-circle {
+    width: 40px;
+    height: 40px;
+    margin-left: -20px;
+    margin-top: -20px;
+  }
+  
+  .tooltip {
+    width: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    margin-top: 1rem;
+  }
+  
+  .expertise-card {
+    padding: 1rem;
+  }
+  
+  .expertise-card h3 {
+    font-size: 1.125rem;
+  }
+  
+  .expertise-card p {
+    font-size: 0.875rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .rotating-circle {
+    width: 30px;
+    height: 30px;
+    margin-left: -15px;
+    margin-top: -15px;
+  }
+  
+  .tooltip {
+    width: 180px;
+  }
+}
+@keyframes progress {
+0% { width: 0; }
+100% { width: var(--progress); }
+}
+.expertise-card .progress-bar {
+animation: progress 1.5s ease-out forwards;
+animation-play-state: paused;
+}
+.expertise-card.visible .progress-bar {
+animation-play-state: running;
+}
+@media (max-width: 640px) {
+.container {
+padding-left: 1rem;
+padding-right: 1rem;
+}
+.expertise-card {
+padding: 1rem;
+}
+.expertise-card h3 {
+font-size: 1.1rem;
+}
+.expertise-card p {
+font-size: 0.9rem;
+}
+}
+@keyframes rotate {
+from { transform: rotate(0deg) translateX(200px) rotate(0deg); }
+to { transform: rotate(360deg) translateX(200px) rotate(-360deg); }
+}
+.rotating-circle {
+position: absolute;
+width: 80px;
+height: 80px;
+animation: rotate 20s linear infinite;
+transform-origin: center center;
+left: 50%;
+top: 50%;
+margin-left: -40px;
+margin-top: -40px;
+}
+@media (max-width: 768px) {
+.rotating-circle {
+width: 60px;
+height: 60px;
+margin-left: -30px;
+margin-top: -30px;
+}
+}
+.rotating-circle:hover {
+animation-play-state: paused;
+}
+.rotating-circle.paused {
+animation-play-state: paused;
+}
+.progress-bar {
+width: 0;
+transition: width 1.5s ease-in-out;
+}
+.tooltip {
+visibility: hidden;
+opacity: 0;
+transition: opacity 0.3s;
+}
+.rotating-circle:hover .tooltip {
+visibility: visible;
+opacity: 1;
+}
+.expertise-card:hover .progress-bar {
+width: var(--progress);
+}
+@keyframes float {
+0% { transform: translateY(0px); }
+50% { transform: translateY(-20px); }
+100% { transform: translateY(0px); }
+}
+.float-animation {
+animation: float 6s ease-in-out infinite;
+}
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideIn {
+from { transform: translateX(-100px); opacity: 0; }
+to { transform: translateX(0); opacity: 1; }
+}
+@keyframes scaleIn {
+from { transform: scale(0.8); opacity: 0; }
+to { transform: scale(1); opacity: 1; }
+}
+.fade-in {
+animation: fadeIn 1s ease-out forwards;
+}
+.expertise-card {
+opacity: 0;
+transform: translateY(20px);
+}
+.expertise-card.visible {
+animation: fadeIn 0.8s ease-out forwards;
+}
+.expertise-card:nth-child(odd).visible {
+animation: slideIn 0.8s ease-out forwards;
+}
+.expertise-card:nth-child(even).visible {
+animation: scaleIn 0.8s ease-out forwards;
+}
+.expertise-card:hover .progress-bar {
+width: var(--progress);
+transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.expertise-card:hover {
+transform: translateY(-5px);
+}
+.expertise-card .w-12 {
+transition: transform 0.3s ease;
+}
+.expertise-card:hover .w-12 {
+transform: scale(1.1) rotate(360deg);
+}
+
+    /* Custom Chat Styles */
+    .chat-message .timestamp {
+        margin-top: 2px !important;
+    }
+    
+    #chatHistory::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    #chatHistory::-webkit-scrollbar-thumb {
+        background: #4ECDC4;
+        border-radius: 4px;
+    }
+
+    .message-enter {
+        animation: messageSlide 0.2s ease-out;
+    }
+
+    @keyframes messageSlide {
+        from { transform: translateY(10px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Existing Dashboard Styles */
+    .menu-toggle { display: none; }
+    @media (max-width: 640px) {
+        .menu-toggle { display: block; }
+        .menu-items { display: none; }
+        .menu-open .menu-items { display: flex; }
+    }

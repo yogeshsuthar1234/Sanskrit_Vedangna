@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shilpa - Ancient Arts for Modern Inspiration</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { primary: "#D2691E", secondary: "#FFD700" }, // Earthy orange and golden tones for an artistic feel
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+          font-family: 'Roboto', sans-serif;
+      }
+      h1, h2, h3, h4 {
+          font-family: 'Playfair Display', serif;
+      }
+      .hero-section {
+          background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 40%, rgba(255, 255, 255, 0.2) 100%), url('https://readdy.ai/api/search-image?query=ancient%20indian%20art%20and%20sculpture%2C%20intricate%20stone%20carvings%2C%20vibrant%20paintings%2C%20traditional%20crafts%2C%20golden%20light%2C%20artistic%20atmosphere%2C%20high%20quality%2C%20photorealistic%2C%20serene&width=1920&height=1080&seq=shilpa1&orientation=landscape');
+          background-size: cover;
+          background-position: center;
+      }
+      input:focus, button:focus {
+          outline: none;
+      }
+      .custom-checkbox {
+          position: relative;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+      }
+      .custom-checkbox input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+      }
+      .checkmark {
+          height: 20px;
+          width: 20px;
+          background-color: #fff;
+          border: 2px solid #D2691E;
+          border-radius: 4px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+      .custom-checkbox input:checked ~ .checkmark {
+          background-color: #D2691E;
+      }
+      .checkmark:after {
+          content: "";
+          display: none;
+      }
+      .custom-checkbox input:checked ~ .checkmark:after {
+          display: block;
+          width: 5px;
+          height: 10px;
+          border: solid white;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
+      }
+      .custom-radio {
+          position: relative;
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+      }
+      .custom-radio input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+      }
+      .radiomark {
+          height: 20px;
+          width: 20px;
+          background-color: #fff;
+          border: 2px solid #D2691E;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+      .custom-radio input:checked ~ .radiomark {
+          background-color: #fff;
+      }
+      .radiomark:after {
+          content: "";
+          display: none;
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          background: #D2691E;
+      }
+      .custom-radio input:checked ~ .radiomark:after {
+          display: block;
+      }
+      .switch {
+          position: relative;
+          display: inline-block;
+          width: 50px;
+          height: 24px;
+      }
+      .switch input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+      }
+      .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          transition: .4s;
+          border-radius: 24px;
+      }
+      .slider:before {
+          position: absolute;
+          content: "";
+          height: 18px;
+          width: 18px;
+          left: 3px;
+          bottom: 3px;
+          background-color: white;
+          transition: .4s;
+          border-radius: 50%;
+      }
+      input:checked + .slider {
+          background-color: #D2691E;
+      }
+      input:checked + .slider:before {
+          transform: translateX(26px);
+      }
+      .chat-container {
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease-out;
+      }
+      .chat-container.open {
+          max-height: 400px;
+      }
+      .video-container {
+          position: relative;
+          padding-bottom: 56.25%;
+          height: 0;
+          overflow: hidden;
+      }
+      .video-container img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+      }
+      .play-button {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 80px;
+          height: 80px;
+          background-color: rgba(210, 105, 30, 0.8);
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+      }
+      .play-button:after {
+          content: "";
+          display: block;
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 15px 0 15px 25px;
+          border-color: transparent transparent transparent #ffffff;
+          margin-left: 5px;
+      }
+      .quiz-progress {
+          height: 6px;
+          background-color: #e2e8f0;
+          border-radius: 3px;
+          overflow: hidden;
+          margin-bottom: 20px;
+      }
+      .quiz-progress-bar {
+          height: 100%;
+          background-color: #D2691E;
+          width: 20%;
+          transition: width 0.3s ease;
+      }
+      .decorative-line {
+          position: relative;
+          height: 2px;
+          background-color: #D2691E;
+          width: 80px;
+          margin: 20px 0;
+      }
+      .decorative-line:before, .decorative-line:after {
+          content: "";
+          position: absolute;
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background-color: #D2691E;
+          top: -2px;
+      }
+      .decorative-line:before {
+          left: 0;
+      }
+      .decorative-line:after {
+          right: 0;
+      }
+    </style>
+  </head>
+  <body class="bg-white min-h-screen flex flex-col">
+    <!-- Header -->
+    <header class="w-full bg-white shadow-sm">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center py-4 md:py-6">
+          <div class="font-['Playfair Display'] text-3xl md:text-4xl text-primary">
+            Shilpa
+          </div>
+          <nav class="hidden md:flex items-center space-x-6">
+            <a href="../../Dashboard/dashboard.html" class="text-primary font-semibold hover:text-primary/80 transition-colors">
+              Home
+            </a>
+            <a href="../../Quiz/QuizMaster.html" class="text-gray-600 font-semibold hover:text-primary transition-colors">
+              Quiz
+            </a>
+            <a href="../../Dashboard/user.html" class="p-1.5 rounded-full hover:bg-gray-100 transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9 text-gray-600 hover:text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A4 4 0 019 16h6a4 4 0 013.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </a>
+          </nav>
+          <div class="md:hidden flex items-center">
+            <button
+              type="button"
+              class="text-gray-600 hover:text-primary focus:outline-none"
+              id="mobile-menu-button"
+            >
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-menu-line ri-lg"></i>
+              </div>
+            </button>
+          </div>
+        </div>
+        <div class="md:hidden hidden" id="mobile-menu">
+          <div class="px-2 pt-2 pb-3 space-y-1 border-t border-b border-gray-100">
+            <a href="../../Dashboard/dashboard.html" class="block px-3 py-2 text-primary font-medium hover:text-primary/80 transition">
+              Home
+            </a>
+            <a href="../../Quiz/QuizMaster.html" class="block px-3 py-2 text-gray-600 font-medium hover:text-primary transition">
+              Quiz
+            </a>
+            <a href="../../Dashboard/user.html" class="block px-3 py-2 text-gray-600 font-medium hover:text-primary transition">
+              Profile
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section w-full py-20 md:py-32">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="max-w-2xl">
+          <h2
+            class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+          >
+            Ancient Arts for Modern Inspiration
+          </h2>
+          <p class="text-lg md:text-xl text-gray-700 mb-8">
+            Discover the timeless traditions of Shilpa, the ancient Indian arts and crafts that inspire creativity, spirituality, and harmony through sculpture, painting, and iconography.
+          </p>
+          <button
+            class="bg-primary text-white px-6 py-3 font-medium !rounded-button hover:bg-primary/90 transition-colors shadow-md whitespace-nowrap"
+          >
+            Explore Shilpa
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section class="py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-gray-900 text-center mb-2">
+          Understanding Shilpa
+        </h2>
+        <div class="decorative-line mx-auto"></div>
+        <p class="text-lg text-gray-700 mt-8 mb-12">
+          Shilpa (Sanskrit: शिल्प) refers to the ancient Indian science of arts and crafts, encompassing disciplines like sculpture, painting, iconography, and design. It is deeply rooted in Vedic traditions, emphasizing the integration of aesthetics, spirituality, and functionality in artistic creation.
+        </p>
+
+        <h3 class="text-2xl font-semibold text-gray-900 mt-12 mb-4">
+          Key Aspects of Shilpa
+        </h3>
+        <p class="text-lg text-gray-700 mb-6">
+          Shilpa is a multidisciplinary field that includes several specialized branches, each contributing to India's rich artistic heritage:
+        </p>
+
+        <div class="space-y-8 mt-8">
+          <div class="bg-gray-50 p-6 rounded-lg border border-gray-100">
+            <h4 class="text-xl font-semibold text-primary mb-3">
+              Sculpture - The Art of Form
+            </h4>
+            <p class="text-gray-700">
+              Sculpture in Shilpa involves creating three-dimensional forms, often of deities, using materials like stone, bronze, and wood. Texts like the *Shilpa Shastras* provide detailed guidelines on proportions, iconography, and symbolism to ensure the sculptures embody spiritual significance.
+            </p>
+          </div>
+
+          <div class="bg-gray-50 p-6 rounded-lg border border-gray-100">
+            <h4 class="text-xl font-semibold text-primary mb-3">
+              Painting - The Art of Expression
+            </h4>
+            <p class="text-gray-700">
+              Shilpa includes traditional painting techniques like those seen in Ajanta caves and Tanjore art. These paintings often depict mythological narratives, using vibrant colors and intricate patterns to convey spiritual themes and cultural stories.
+            </p>
+          </div>
+
+          <div class="bg-gray-50 p-6 rounded-lg border border-gray-100">
+            <h4 class="text-xl font-semibold text-primary mb-3">
+              Iconography - The Art of Symbolism
+            </h4>
+            <p class="text-gray-700">
+              Iconography in Shilpa focuses on the symbolic representation of deities and spiritual concepts. It provides rules for depicting gods and goddesses, ensuring each element (e.g., posture, gestures, attributes) conveys a specific meaning.
+            </p>
+          </div>
+
+          <div class="bg-gray-50 p-6 rounded-lg border border-gray-100">
+            <h4 class="text-xl font-semibold text-primary mb-3">
+              Crafts - The Art of Utility
+            </h4>
+            <p class="text-gray-700">
+              Shilpa also encompasses practical crafts like pottery, weaving, and metalwork. These crafts blend aesthetics with functionality, creating objects that are both beautiful and useful, often imbued with cultural significance.
+            </p>
+          </div>
+        </div>
+
+        <h3 class="text-2xl font-semibold text-gray-900 mt-12 mb-4">
+          Historical Context
+        </h3>
+        <p class="text-lg text-gray-700 mb-6">
+          The traditions of Shilpa date back to the Vedic period (1500-500 BCE) and flourished during the Gupta Empire (4th-6th centuries CE), often called the Golden Age of Indian art. Shilpa Shastras, ancient texts on arts and crafts, were compiled to preserve this knowledge, guiding artisans in creating works that reflect spiritual harmony.
+        </p>
+        <p class="text-lg text-gray-700 mb-6">
+          These practices were passed down through generations in guilds and families of artisans, ensuring the continuity of techniques and artistic principles. Temples like Khajuraho and Ellora are testaments to the mastery of Shilpa during ancient times.
+        </p>
+
+        <h3 class="text-2xl font-semibold text-gray-900 mt-12 mb-4">
+          Significance in Indian Culture
+        </h3>
+        <p class="text-lg text-gray-700 mb-6">
+          Shilpa holds a central place in Indian culture as it bridges art and spirituality. Artistic creations in Shilpa are not merely decorative but serve as mediums for devotion, meditation, and cultural expression, reflecting the interconnectedness of beauty and divinity.
+        </p>
+        <p class="text-lg text-gray-700 mb-6">
+          The principles of Shilpa emphasize harmony, proportion, and symbolism, ensuring that every piece of art—whether a temple carving or a painted manuscript—carries a deeper meaning and contributes to spiritual upliftment.
+        </p>
+
+        <h3 class="text-2xl font-semibold text-gray-900 mt-12 mb-4">
+          Modern Relevance
+        </h3>
+        <p class="text-lg text-gray-700 mb-6">
+          Shilpa continues to inspire contemporary artists, designers, and architects around the world:
+        </p>
+        <ul class="list-disc pl-6 text-lg text-gray-700 space-y-3 mb-6">
+          <li>
+            Traditional Shilpa techniques are used in modern sculpture and painting, preserving cultural heritage while adapting to contemporary styles.
+          </li>
+          <li>
+            Shilpa’s principles of iconography influence the design of religious art, ensuring authenticity in depictions of deities.
+          </li>
+          <li>
+            Crafts techniques from Shilpa, such as handloom weaving and pottery, are being revived to promote sustainable and artisanal practices.
+          </li>
+          <li>
+            Shilpa’s emphasis on harmony and proportion inspires modern design fields like architecture and graphic design.
+          </li>
+        </ul>
+        <p class="text-lg text-gray-700 mb-6">
+          As the world seeks sustainable and meaningful artistic expressions, Shilpa offers timeless insights that blend creativity with cultural and spiritual depth, making it a valuable resource for modern creators.
+        </p>
+      </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-gray-900 text-center mb-2">
+          Artistic Legacy Explained
+        </h2>
+        <div class="decorative-line mx-auto"></div>
+        <p class="text-lg text-gray-700 text-center mt-6 mb-10">
+          Watch this insightful lecture on the significance of Shilpa in the modern artistic context
+        </p>
+
+        <div class="video-container rounded-lg overflow-hidden shadow-xl">
+          <img
+            src="https://readdy.ai/api/search-image?query=traditional%20indian%20artisan%20teaching%20sculpture%20in%20a%20workshop%2C%20intricate%20stone%20carvings%2C%20vibrant%20colors%2C%20artistic%20atmosphere%2C%20golden%20light%2C%20high%20quality%2C%20photorealistic&width=1280&height=720&seq=shilpa2&orientation=landscape"
+            alt="Shilpa Artistic Lecture"
+            class="object-top"
+          />
+          <div class="play-button"></div>
+        </div>
+
+        <div class="mt-6">
+          <h3 class="text-xl font-semibold text-gray-900">
+            The Living Art of Shilpa
+          </h3>
+          <p class="text-gray-700 mt-2">
+            Prof. Anjali Rao explores how ancient Shilpa techniques continue to inspire modern artists and offer timeless principles for creative expression.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section class="py-16 bg-white">
+      <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold text-primary text-center mb-6">Shilpa Quiz</h2>
+        <div class="decorative-line mx-auto"></div>
+        <p class="text-center text-gray-600 mt-4 mb-8">Test your knowledge of Shilpa!</p>
+
+        <div class="space-y-8">
+          <div class="quiz-progress">
+            <div id="progressBar" class="quiz-progress-bar" style="width: 20%;"></div>
+          </div>
+
+          <form id="quizForm" class="space-y-6">
+            <!-- Q1 -->
+            <div class="space-y-4 quiz-question hidden" data-question="1">
+              <p class="font-bold text-lg">1. What does the term 'Shilpa' primarily refer to in ancient Indian texts?</p>
+              <div class="grid gap-3">
+                <label class="custom-radio cursor-pointer bg-gray-50 hover:bg-gray-100 p-3 rounded-lg transition shadow-sm">
+                  <input type="radio" name="q1" value="a" class="hidden peer">
+                  <div class="radiomark"></div>
+                  <span class="ml-3 text-gray-700">Science of arts and crafts</span>
+                </label>
+                <label class="custom-radio cursor-pointer bg-gray-50 hover:bg-gray-100 p-3 rounded-lg transition shadow-sm">
+                  <input type="radio" name="q1" value="b" class="hidden peer">
+                  <div class="radiomark"></div>
+                  <span class="ml-3 text-gray-700">Study of astronomy</span>
+                </label>
+                <label class="custom-radio cursor-pointer bg-gray-50 hover:bg-gray-100 p-3 rounded-lg transition shadow-sm">
+                  <input type="radio" name="q1" value="c" class="hidden peer">
+                  <div class="radiomark"></div>
+                  <span class="ml-3 text-gray-700">Principles of warfare</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="space-y-4 quiz-question hidden" data-question="2">
+              <p class="font-bold text-lg">2. Which ancient text provides guidelines for Shilpa practices?</p>
+              <div class="grid gap-3">
+                <label class="custom-radio cursor-pointer bg-gray-50 hover:bg-gray-100 p-3 rounded-lg transition shadow-sm">
+                  <input type="radio" name="q2" value="a" class="hidden peer">
+                  <div class="radiomark"></div>
+                  <span class="ml-3 text-gray-700">Shilpa Shastras</span>
+                </label>
+                <label class="custom-radio cursor-pointer bg-gray-50 hover:bg-gray-100 p-3 rounded-lg transition shadow-sm">
+                  <input type="radio" name="q2" value="b" class="hidden peer">
+                  <div class="radiomark"></div>
+                  <span class="ml-3 text-gray-700">Arthashastra</span>
+                </label>
+                <label class="custom-radio cursor-pointer bg-gray-50 hover:bg-gray-100 p-3 rounded-lg transition shadow-sm">
+                  <input type="radio" name="q2" value="c" class="hidden peer">
+                  <div class="radiomark"></div>
+                  <span class="ml-3 text-gray-700">Rigveda</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="space-y-4 quiz-question hidden" data-question="3">
+              <p class="font-bold text-lg">3. Which period is often called the Golden Age of Shilpa due to its artistic achievements?</p>
+              <div class="grid gap-3">
+                <label class="custom-radio cursor-pointer bg-gray-50 hover:bg-gray-100 p-3 rounded-lg transition shadow-sm">
+                  <input type="radio" name="q3" value="a" class="hidden peer">
+                  <div class="radiomark"></div>
+                  <span class="ml-3 text-gray-700">Gupta Empire</span>
+                </label>
+                <label class="custom-radio cursor-pointer bg-gray-50 hover:bg-gray-100 p-3 rounded-lg transition shadow-sm">
+                  <input type="radio" name="q3" value="b" class="hidden peer">
+                  <div class="radiomark"></div>
+                  <span class="ml-3 text-gray-700">Maurya Empire</span>
+                </label>
+                <label class="custom-radio cursor-pointer bg-gray-50 hover:bg-gray-100 p-3 rounded-lg transition shadow-sm">
+                  <input type="radio" name="q3" value="c" class="hidden peer">
+                  <div class="radiomark"></div>
+                  <span class="ml-3 text-gray-700">Mughal Empire</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="space-y-4 quiz-question hidden" data-question="4">
+              <p class="font-bold text-lg">4. What is a key focus of Shilpa iconography?</p>
+              <div class="grid gap-3">
+                <label class="custom-radio cursor-pointer bg-gray-50 hover:bg-gray-100 p-3 rounded-lg transition shadow-sm">
+                  <input type="radio" name="q4" value="a" class="hidden peer">
+                  <div class="radiomark"></div>
+                  <span class="ml-3 text-gray-700">Symbolic representation of deities</span>
+                </label>
+                <label class="custom-radio cursor-pointer bg-gray-50 hover:bg-gray-100 p-3 rounded-lg transition shadow-sm">
+                  <input type="radio" name="q4" value="b" class="hidden peer">
+                  <div class="radiomark"></div>
+                  <span class="ml-3 text-gray-700">Agricultural practices</span>
+                </label>
+                <label class="custom-radio cursor-pointer bg-gray-50 hover:bg-gray-100 p-3 rounded-lg transition shadow-sm">
+                  <input type="radio" name="q4" value="c" class="hidden peer">
+                  <div class="radiomark"></div>
+                  <span class="ml-3 text-gray-700">Military strategies</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="space-y-4 quiz-question hidden" data-question="5">
+              <p class="font-bold text-lg">5. Which of these is an example of Shilpa craftsmanship?</p>
+              <div class="grid gap-3">
+                <label class="custom-radio cursor-pointer bg-gray-50 hover:bg-gray-100 p-3 rounded-lg transition shadow-sm">
+                  <input type="radio" name="q5" value="a" class="hidden peer">
+                  <div class="radiomark"></div>
+                  <span class="ml-3 text-gray-700">Handloom weaving</span>
+                </label>
+                <label class="custom-radio cursor-pointer bg-gray-50 hover:bg-gray-100 p-3 rounded-lg transition shadow-sm">
+                  <input type="radio" name="q5" value="b" class="hidden peer">
+                  <div class="radiomark"></div>
+                  <span class="ml-3 text-gray-700">Astrological forecasting</span>
+                </label>
+                <label class="custom-radio cursor-pointer bg-gray-50 hover:bg-gray-100 p-3 rounded-lg transition shadow-sm">
+                  <input type="radio" name="q5" value="c" class="hidden peer">
+                  <div class="radiomark"></div>
+                  <span class="ml-3 text-gray-700">Herbal medicine</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="flex justify-between items-center mt-6">
+              <button type="button" id="prevQuestion" class="bg-gray-500 hover:bg-gray-600 text-white font-semibold py-2 px-6 rounded-full shadow-md transition text-lg disabled:bg-gray-300 disabled:cursor-not-allowed">
+                Previous
+              </button>
+              <button type="button" id="nextQuestion" class="bg-primary hover:bg-primary/90 text-white font-semibold py-2 px-6 rounded-full shadow-md transition text-lg">
+                Next Question
+              </button>
+            </div>
+          </form>
+
+          <div id="resultSection" class="hidden space-y-6 text-center">
+            <h2 id="scoreText" class="text-3xl font-bold text-primary"></h2>
+            <div class="quiz-progress">
+              <div id="progressBarResult" class="quiz-progress-bar" style="width: 0%;"></div>
+            </div>
+            <p id="quizFeedback" class="text-lg text-gray-700"></p>
+            <button id="restartQuiz" class="mt-4 bg-gray-700 hover:bg-gray-800 text-white py-2 px-6 rounded-full text-lg transition">
+              Try Again
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 py-12 mt-auto">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="font-['Playfair Display'] text-2xl text-primary mb-4">Shilpa</h3>
+            <p class="text-gray-600">
+              Reviving the ancient art of Shilpa for modern creators. Explore the timeless traditions of Indian arts and crafts.
+            </p>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold text-gray-900 mb-4">Quick Links</h4>
+            <ul class="space-y-2">
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary transition-colors">About Us</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary transition-colors">Art Resources</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary transition-colors">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="#" class="text-gray-600 hover:text-primary transition-colors">Terms of Service</a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold text-gray-900 mb-4">Contact Us</h4>
+            <ul class="space-y-2">
+              <li class="flex items-start">
+                <div class="w-5 h-5 flex items-center justify-center mt-1 mr-3">
+                  <i class="ri-mail-line"></i>
+                </div>
+                <span class="text-gray-600">contact@shilpa.org</span>
+              </li>
+              <li class="flex items-start">
+                <div class="w-5 h-5 flex items-center justify-center mt-1 mr-3">
+                  <i class="ri-phone-line"></i>
+                </div>
+                <span class="text-gray-600">+91 98765 43210</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-200 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-600 text-sm">© 2025 Shilpa. All rights reserved.</p>
+          <div class="flex space-x-4 mt-4 md:mt-0">
+            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-facebook-fill ri-lg"></i>
+              </div>
+            </a>
+            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-twitter-x-fill ri-lg"></i>
+              </div>
+            </a>
+            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-instagram-fill ri-lg"></i>
+              </div>
+            </a>
+            <a href="#" class="text-gray-500 hover:text-primary transition-colors">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <i class="ri-youtube-fill ri-lg"></i>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Chatbot -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <div class="fixed bottom-6 right-6 z-50">
+      <button id="chatToggle" class="bg-primary text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all w-16 h-16 flex items-center justify-center">
+        <i class="fas fa-comment-dots text-2xl"></i>
+      </button>
+    </div>
+    <div id="chatContainer" class="fixed bottom-24 right-6 w-full max-w-sm hidden z-50">
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-[600px]">
+        <div class="bg-primary text-white p-4 flex items-center justify-between">
+          <div class="flex items-center">
+            <div class="w-10 h-10 flex items-center justify-center bg-white/20 rounded-full mr-3">
+              <i class="fas fa-robot text-white"></i>
+            </div>
+            <div>
+              <h3 class="font-semibold">संस्कृत सहायक</h3>
+              <p class="text-xs text-white/80">शिल्प सम्बन्धी प्रश्न पूछें</p>
+            </div>
+          </div>
+          <button id="closeChat" class="w-8 h-8 flex items-center justify-center bg-white/10 rounded-full hover:bg-white/20">
+            <i class="fas fa-times text-white"></i>
+          </button>
+        </div>
+        <div id="chatHistory" class="flex-1 p-4 overflow-y-auto space-y-4 bg-gray-50 custom-scrollbar">
+        </div>
+        <div class="border-t border-gray-200 p-4">
+          <div class="flex items-center">
+            <div class="flex-1 relative">
+              <input id="userInput" type="text" placeholder="Type your message..." class="w-full border-none bg-gray-100 rounded-full py-2 pl-4 pr-10 focus:outline-none focus:ring-2 focus:ring-primary/50">
+              <button class="absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-primary">
+                <i class="fas fa-smile"></i>
+              </button>
+            </div>
+            <button onclick="sendMessage()" class="ml-2 w-10 h-10 flex items-center justify-center bg-primary rounded-full text-white hover:bg-primary/80">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <style>
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 8px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: rgba(0,0,0,0.2);
+        border-radius: 4px;
+      }
+    </style>
+    <script>
+      let chatHistory = JSON.parse(localStorage.getItem('sanskritChat')) || [];
+      document.getElementById('chatToggle').addEventListener('click', () => {
+          const chatContainer = document.getElementById('chatContainer');
+          chatContainer.classList.toggle('hidden');
+          loadChatHistory();
+      });
+      document.getElementById('closeChat').addEventListener('click', () => {
+          document.getElementById('chatContainer').classList.add('hidden');
+      });
+      function loadChatHistory() {
+          const historyDiv = document.getElementById('chatHistory');
+          historyDiv.innerHTML = chatHistory.map(msg => `
+              <div class="flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}">
+                  <div class="max-w-[80%] ${msg.role === 'user' 
+                      ? 'bg-primary/10 text-gray-700 rounded-lg rounded-tr-none p-3'
+                      : 'bg-gray-100 text-gray-700 rounded-lg rounded-tl-none p-3'}">
+                      ${marked.parse(msg.content)}
+                      <div class="text-xs text-gray-400 mt-1 ${msg.role === 'user' ? 'text-right' : 'text-left'}">
+                        ${new Date(msg.timestamp).toLocaleTimeString()}
+                      </div>
+                  </div>
+              </div>
+          `).join('');
+          historyDiv.scrollTop = historyDiv.scrollHeight;
+      }
+      async function sendMessage() {
+          const input = document.getElementById('userInput');
+          const message = input.value.trim();
+          if (!message) return;
+          input.value = '';
+          chatHistory.push({ role: 'user', content: message, timestamp: new Date().toISOString() });
+          chatHistory.push({ role: 'assistant', content: 'प्रतीक्षा कुरु...', timestamp: new Date().toISOString() });
+          loadChatHistory();
+          try {
+              const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+                  method: 'POST',
+                  headers: {
+                      'Authorization': 'Bearer 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',
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({
+                      model: 'deepseek/deepseek-r1:free',
+                      messages: [{ role: 'user', content: message }],
+                  }),
+              });
+              const data = await response.json();
+              const botResponse = data.choices?.[0]?.message?.content || 'उत्तरं प्राप्तुं अशक्यम्';
+              chatHistory.pop();
+              chatHistory.push({ role: 'assistant', content: botResponse, timestamp: new Date().toISOString() });
+              localStorage.setItem('sanskritChat', JSON.stringify(chatHistory));
+              loadChatHistory();
+          } catch (error) {
+              console.error('Error:', error);
+              chatHistory.pop();
+              chatHistory.push({ role: 'assistant', content: 'त्रुटिः! पुनः प्रयत्नं कुरुत।', timestamp: new Date().toISOString() });
+              loadChatHistory();
+          }
+      }
+      document.getElementById('userInput').addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') sendMessage();
+      });
+      document.querySelector('.play-button').addEventListener('click', function () {
+          alert("In a complete implementation, this would play the video.");
+      });
+
+      // Quiz Logic
+      let currentQuestion = 1;
+      const totalQuestions = 5;
+      const correctAnswers = {
+        q1: "a", // Science of arts and crafts
+        q2: "a", // Shilpa Shastras
+        q3: "a", // Gupta Empire
+        q4: "a", // Symbolic representation of deities
+        q5: "a"  // Handloom weaving
+      };
+
+      function showQuestion(questionNumber) {
+        document.querySelectorAll('.quiz-question').forEach((q) => q.classList.add('hidden'));
+        document.querySelector(`.quiz-question[data-question="${questionNumber}"]`).classList.remove('hidden');
+        const progressBar = document.getElementById('progressBar');
+        progressBar.style.width = `${(questionNumber / totalQuestions) * 100}%`;
+        
+        const prevButton = document.getElementById('prevQuestion');
+        const nextButton = document.getElementById('nextQuestion');
+        prevButton.disabled = questionNumber === 1;
+        nextButton.textContent = questionNumber === totalQuestions ? "Submit Quiz" : "Next Question";
+        currentQuestion = questionNumber;
+      }
+
+      async function submitQuiz() {
+        let score = 0;
+        for (const [key, value] of Object.entries(correctAnswers)) {
+          const selected = document.querySelector(`input[name="${key}"]:checked`);
+          if (selected && selected.value === value) score++;
+        }
+        const resultSection = document.getElementById('resultSection');
+        document.getElementById('quizForm').classList.add('hidden');
+        resultSection.classList.remove('hidden');
+        document.getElementById('scoreText').textContent = `You scored ${score} out of ${totalQuestions}`;
+        const percentage = (score / totalQuestions) * 100;
+        document.getElementById('progressBarResult').style.width = `${percentage}%`;
+        let feedback = '';
+        if (score === totalQuestions) {
+          feedback = "Excellent! You have a deep understanding of Shilpa.";
+        } else if (score >= 3) {
+          feedback = "Good job! You have a solid grasp of the basics of Shilpa.";
+        } else {
+          feedback = "Keep learning! Shilpa has much more to offer.";
+        }
+        document.getElementById('quizFeedback').textContent = feedback;
+        try {
+          const userId = localStorage.getItem('userId');
+          if (!userId) {
+            console.warn('User not authenticated');
+            return;
+          }
+          await updateVedaSubtype('Shilpa', 'ShilpaQuiz', true);
+        } catch (error) {
+          console.error('Failed to update progress:', error);
+        }
+      }
+
+      async function updateVedaSubtype(vedaName, subtypeName, result) {
+        try {
+          const userId = localStorage.getItem('userId');
+          const response = await fetch('https://localhost:5002/api/progress/veda-subtype', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'X-User-Id': userId
+            },
+            body: JSON.stringify({
+              VedaName: vedaName,
+              SubtypeName: subtypeName,
+              Result: result
+            })
+          });
+          if (!response.ok) throw new Error('Failed to update progress');
+          return await response.json();
+        } catch (error) {
+          console.error('Shilpa update error:', error);
+          throw error;
+        }
+      }
+
+      document.getElementById('prevQuestion').addEventListener('click', () => {
+        if (currentQuestion > 1) {
+          showQuestion(currentQuestion - 1);
+        }
+      });
+
+      document.getElementById('nextQuestion').addEventListener('click', () => {
+        if (currentQuestion < totalQuestions) {
+          showQuestion(currentQuestion + 1);
+        } else {
+          submitQuiz();
+        }
+      });
+
+      document.getElementById('restartQuiz').addEventListener('click', () => {
+        document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+        document.getElementById('quizForm').classList.remove('hidden');
+        document.getElementById('resultSection').classList.add('hidden');
+        showQuestion(1);
+      });
+
+      document.addEventListener('DOMContentLoaded', () => showQuestion(1));
+      document.getElementById('mobile-menu-button').addEventListener('click', () => {
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu.classList.toggle('hidden');
+      });
+    </script>
+  </body>
+</html>

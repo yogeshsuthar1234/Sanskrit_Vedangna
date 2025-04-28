@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ancient Vedic Wisdom</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B4513',
+                        secondary: '#DAA520'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        
+        .flip-card {
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+        
+        .flip-card-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+        
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        
+        .flip-card-front, .flip-card-back {
+            backface-visibility: hidden;
+        }
+        
+        .flip-card-back {
+            transform: rotateY(180deg);
+        }
+        .quiz-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu {
+                display: none;
+            }
+            
+            .mobile-menu.active {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white">
+    <header class="fixed top-0 w-full bg-white shadow-md z-50">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-['Pacifico'] text-primary">logo</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="text-gray-700 hover:text-primary">Rigveda</a>
+                    <a href="#" class="text-gray-700 hover:text-primary">Samaveda</a>
+                    <a href="#" class="text-gray-700 hover:text-primary">Yajurveda</a>
+                    <a href="#" class="text-gray-700 hover:text-primary">Atharvaveda</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <input type="text" placeholder="Search..." class="pl-10 pr-4 py-2 rounded-full border-2 border-gray-200 focus:outline-none focus:border-primary">
+                        <i class="ri-search-line absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                    <button class="md:hidden" id="mobile-menu-button">
+                        <i class="ri-menu-line text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="mobile-menu md:hidden mt-4" id="mobile-menu">
+                <a href="#" class="block py-2 text-gray-700 hover:text-primary">Rigveda</a>
+                <a href="#" class="block py-2 text-gray-700 hover:text-primary">Samaveda</a>
+                <a href="#" class="block py-2 text-gray-700 hover:text-primary">Yajurveda</a>
+                <a href="#" class="block py-2 text-gray-700 hover:text-primary">Atharvaveda</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-20">
+        <section class="hero min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-gray-50">
+            <div class="container mx-auto px-6 py-12">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="text-center md:text-left">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-6">Discover Ancient Vedic Wisdom</h1>
+                        <p class="text-xl text-gray-600 mb-8">Explore the timeless knowledge of the Vedas through an immersive journey into their origins, teachings, and significance.</p>
+                        <button class="bg-primary text-white px-8 py-3 rounded-button hover:bg-opacity-90 transition-all pulse">Start Journey</button>
+                    </div>
+                    <div id="3d-scroll" class="h-96 relative">
+                        <!-- 3D scroll will be rendered here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 gap-8" id="mantrasContainer">
+              <!-- Mantras will be loaded here dynamically -->
+            </div>
+          </div>
+          <template id="mantraTemplate">
+            <div
+              class="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
+            >
+              <div class="flex justify-between items-start mb-4">
+                <div>
+                  <span
+                    class="px-3 py-1 bg-secondary text-white text-sm rounded-full"
+                  ></span>
+                </div>
+                <button
+                  class="text-gray-500 hover:text-primary"
+                  onclick="toggleFavorite(this)"
+                >
+                  <i class="ri-heart-line text-xl"></i>
+                </button>
+              </div>
+              <div class="space-y-4">
+                <div
+                  class="text-lg font-semibold text-gray-800 sanskrit-text"
+                ></div>
+                <div class="text-gray-600 transliteration"></div>
+                <div class="text-gray-700 translation"></div>
+                <div class="pt-4 border-t">
+                  <h4 class="font-medium text-gray-800 mb-2">Commentary</h4>
+                  <p class="text-gray-600 commentary"></p>
+                </div>
+                <audio controls class="w-full mt-4">
+                  <source src="" type="audio/mpeg" />
+                </audio>
+              </div>
+            </div>
+          </template>
+         
+
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">The Four Vedas</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Rigveda Card -->
+                    <div class="flip-card h-96">
+                        <div class="flip-card-inner relative w-full h-full">
+                            <div class="flip-card-front absolute w-full h-full bg-white rounded-lg shadow-lg p-6">
+                                <img src="https://public.readdy.ai/ai/img_res/5553c2ce6fdfa1c73ff465d27be1c506.jpg" class="w-full h-48 object-cover rounded-lg mb-4" alt="Rigveda">
+                                <h3 class="text-xl font-bold mb-2">Rigveda</h3>
+                                <p class="text-gray-600">The oldest of the Vedas, containing hymns, philosophies and ancient wisdom.</p>
+                            </div>
+                            <div class="flip-card-back absolute w-full h-full bg-white rounded-lg shadow-lg p-6">
+                                <h4 class="text-lg font-bold mb-4">Key Teachings</h4>
+                                <ul class="text-gray-600 space-y-2">
+                                    <li>• Divine hymns and mantras</li>
+                                    <li>• Philosophical concepts</li>
+                                    <li>• Natural phenomena</li>
+                                    <li>• Spiritual practices</li>
+                                </ul>
+                                <p class="mt-4 text-sm text-gray-500">Composed: circa 1500-1200 BCE</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Samaveda Card -->
+                    <div class="flip-card h-96">
+                        <div class="flip-card-inner relative w-full h-full">
+                            <div class="flip-card-front absolute w-full h-full bg-white rounded-lg shadow-lg p-6">
+                                <img src="https://public.readdy.ai/ai/img_res/697c33c33485b799a85fadda992ddf24.jpg" class="w-full h-48 object-cover rounded-lg mb-4" alt="Samaveda">
+                                <h3 class="text-xl font-bold mb-2">Samaveda</h3>
+                                <p class="text-gray-600">The book of melodies and chants, derived from the Rigveda.</p>
+                            </div>
+                            <div class="flip-card-back absolute w-full h-full bg-white rounded-lg shadow-lg p-6">
+                                <h4 class="text-lg font-bold mb-4">Key Teachings</h4>
+                                <ul class="text-gray-600 space-y-2">
+                                    <li>• Musical notations</li>
+                                    <li>• Ritual chants</li>
+                                    <li>• Melodic patterns</li>
+                                    <li>• Worship methods</li>
+                                </ul>
+                                <p class="mt-4 text-sm text-gray-500">Composed: circa 1200-1000 BCE</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Yajurveda Card -->
+                    <div class="flip-card h-96">
+                        <div class="flip-card-inner relative w-full h-full">
+                            <div class="flip-card-front absolute w-full h-full bg-white rounded-lg shadow-lg p-6">
+                                <img src="https://public.readdy.ai/ai/img_res/16e7eca804608cfd45561b567c47cc91.jpg" class="w-full h-48 object-cover rounded-lg mb-4" alt="Yajurveda">
+                                <h3 class="text-xl font-bold mb-2">Yajurveda</h3>
+                                <p class="text-gray-600">The book of ritual knowledge and sacrificial formulae.</p>
+                            </div>
+                            <div class="flip-card-back absolute w-full h-full bg-white rounded-lg shadow-lg p-6">
+                                <h4 class="text-lg font-bold mb-4">Key Teachings</h4>
+                                <ul class="text-gray-600 space-y-2">
+                                    <li>• Ritual procedures</li>
+                                    <li>• Sacrificial formulas</li>
+                                    <li>• Ceremonial methods</li>
+                                    <li>• Spiritual practices</li>
+                                </ul>
+                                <p class="mt-4 text-sm text-gray-500">Composed: circa 1000-800 BCE</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Featured Video</h2>
+                <div class="max-w-4xl mx-auto">
+                    <div class="aspect-w-16 aspect-h-9">
+                        <iframe class="w-full h-[500px]" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-8">Test Your Knowledge</h2>
+                <p class="text-xl text-gray-600 mb-8">Take our interactive quiz to test your understanding of the Vedas</p>
+                <button id="start-quiz" class="bg-primary text-white px-8 py-3 rounded-button hover:bg-opacity-90 transition-all">Start Quiz</button>
+            </div>
+        </section>
+    </main>
+
+    <div id="quiz-modal" class="quiz-modal">
+        <div class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-xl p-8 max-w-2xl w-full">
+            <h3 class="text-2xl font-bold mb-6">Vedic Knowledge Quiz</h3>
+            <div id="quiz-content">
+                <div class="mb-6">
+                    <p class="text-lg mb-4" id="question"></p>
+                    <div class="space-y-3" id="options"></div>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-gray-600" id="progress"></span>
+                    <button id="next-question" class="bg-primary text-white px-6 py-2 rounded-button hover:bg-opacity-90">Next</button>
+                </div>
+            </div>
+            <button class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" id="close-quiz">
+                <i class="ri-close-line text-2xl"></i>
+            </button>
+        </div>
+    </div>
+
+    <footer class="bg-white border-t">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h4 class="text-xl font-bold mb-4">About</h4>
+                    <p class="text-gray-600">Exploring and preserving ancient Vedic wisdom for modern times.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Home</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">About Vedas</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Resources</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-primary">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Connect</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-600 hover:text-primary">
+                            <i class="ri-facebook-fill text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-primary">
+                            <i class="ri-twitter-fill text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-primary">
+                            <i class="ri-instagram-fill text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-4">Newsletter</h4>
+                    <form class="space-y-4">
+                        <input type="email" placeholder="Enter your email" class="w-full px-4 py-2 rounded-lg border-2 border-gray-200 focus:outline-none focus:border-primary">
+                        <button type="submit" class="w-full bg-primary text-white px-6 py-2 rounded-button hover:bg-opacity-90">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t mt-12 pt-8 text-center">
+                <p class="text-gray-600">&copy; 2025 Vedic Wisdom. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+    const samavedaMantras = [
+        {
+          id: 1,
+          khanda: "Purvarchika",
+          sanskrit: "अग्न आ याहि वीतये गृणानो हव्यदातये । निहोता सत्सि बर्हिषि ॥",
+          transliteration:
+            "Agna A Yahi Vitaye Grnano Havyadataye | Ni Hota Satsi Barhisi ||",
+          translation:
+            "O Agni, come to the feast, being praised for giving oblations; as Hotr take your seat on the sacred grass.",
+          commentary:
+            "This mantra invokes Agni, the fire god, to come and accept the offerings. It emphasizes Agni's role as the divine priest (Hotr) who carries offerings to the gods.",
+          audioUrl: "https://example.com/mantras/1.mp3",
+        },
+        {
+          id: 2,
+          khanda: "Purvarchika",
+          sanskrit:
+            "इन्द्रं विश्वा अवीवृधन् समुद्रव्यचसं गिरः । रथीतमं रथीनां वाजानां सत्पतिं पतिम् ॥",
+          transliteration:
+            "Indram Visva Avivrdhana Samudravyacasam Girah | Rathitamam Rathinam Vajanam Satpatim Patim ||",
+          translation:
+            "All prayers have magnified Indra, vast as the ocean, the best of charioteers, the lord of strength.",
+          commentary:
+            "This verse glorifies Indra, king of the gods, highlighting his cosmic magnitude and supremacy in warfare and strength.",
+          audioUrl: "https://example.com/mantras/2.mp3",
+        },
+        {
+          id: 3,
+          khanda: "Uttararchika",
+          sanskrit:
+            "सोमः पवते जनिता मतीनां जनिता दिवो जनिता पृथिव्याः । जनिताग्नेर्जनिता सूर्यस्य जनितेन्द्रस्य जनितोत विष्णोः ॥",
+          transliteration:
+            "Somah Pavate Janita Matinam Janita Divo Janita Prthivyah | Janitagner Janita Suryasya Janitendrasya Janitota Visnoh ||",
+          translation:
+            "Soma flows, the creator of thoughts, creator of heaven, creator of earth, creator of fire, creator of the sun, creator of Indra, and indeed the creator of Vishnu.",
+          commentary:
+            "This profound mantra describes Soma as the universal creator, emphasizing its role in creating both physical and divine entities.",
+          audioUrl: "https://example.com/mantras/3.mp3",
+        },
+      ];
+      let currentMantras = [...samavedaMantras];
+      function renderMantras(mantras) {
+        const container = document.getElementById("mantrasContainer");
+        const template = document.getElementById("mantraTemplate");
+        container.innerHTML = "";
+
+        mantras.forEach((mantra) => {
+          const clone = template.content.cloneNode(true);
+
+          clone.querySelector(".bg-secondary").textContent = mantra.khanda;
+          clone.querySelector(".sanskrit-text").textContent = mantra.sanskrit;
+          clone.querySelector(".transliteration").textContent =
+            mantra.transliteration;
+          clone.querySelector(".translation").textContent = mantra.translation;
+          clone.querySelector(".commentary").textContent = mantra.commentary;
+          clone.querySelector("audio source").src = mantra.audioUrl;
+
+          container.appendChild(clone);
+        });
+      }
+      function filterByKhanda(khanda) {
+        currentMantras = samavedaMantras.filter((mantra) => mantra.khanda === khanda);
+        renderMantras(currentMantras);
+      }
+      function showAll() {
+        currentMantras = [...samavedaMantras];
+        renderMantras(currentMantras);
+      }
+      function searchMantras(query) {
+        if (!query) {
+          renderMantras(currentMantras);
+          return;
+        }
+
+        const filtered = currentMantras.filter(
+          (mantra) =>
+            mantra.sanskrit.toLowerCase().includes(query.toLowerCase()) ||
+            mantra.transliteration.toLowerCase().includes(query.toLowerCase()) ||
+            mantra.translation.toLowerCase().includes(query.toLowerCase()),
+        );
+        renderMantras(filtered);
+      }
+      function toggleFavorite(button) {
+        const icon = button.querySelector("i");
+        if (icon.classList.contains("ri-heart-line")) {
+          icon.classList.replace("ri-heart-line", "ri-heart-fill");
+          icon.classList.add("text-primary");
+        } else {
+          icon.classList.replace("ri-heart-fill", "ri-heart-line");
+          icon.classList.remove("text-primary");
+        }
+      }
+      // Initial render
+      document.addEventListener("DOMContentLoaded", () => {
+        renderMantras(samavedaMantras);
+      });
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('active');
+        });
+
+        // 3D Scroll Animation
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(document.getElementById('3d-scroll').offsetWidth, document.getElementById('3d-scroll').offsetHeight);
+        document.getElementById('3d-scroll').appendChild(renderer.domElement);
+        const geometry = new THREE.TorusKnotGeometry(10, 3, 100, 16);
+        const material = new THREE.MeshBasicMaterial({ color: 0x8B4513, wireframe: true });
+        const torusKnot = new THREE.Mesh(geometry, material);
+        scene.add(torusKnot);
+
+        camera.position.z = 30;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            torusKnot.rotation.x += 0.01;
+            torusKnot.rotation.y += 0.01;
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Quiz functionality
+        const quizQuestions = [
+            {
+                question: "Which is the oldest of the four Vedas?",
+                options: ["Rigveda", "Samaveda", "Yajurveda", "Atharvaveda"],
+                correct: 0
+            },
+            {
+                question: "What is the Samaveda primarily associated with?",
+                options: ["Rituals", "Melodies", "Medicines", "Mathematics"],
+                correct: 1
+            },
+            {
+                question: "Which Veda contains the sacrificial formulae?",
+                options: ["Rigveda", "Samaveda", "Yajurveda", "Atharvaveda"],
+                correct: 2
+            }
+        ];
+        let currentQuestion = 0;
+        let score = 0;
+
+        document.getElementById('start-quiz').addEventListener('click', () => {
+            document.getElementById('quiz-modal').style.display = 'block';
+            showQuestion();
+        });
+
+        document.getElementById('close-quiz').addEventListener('click', () => {
+            document.getElementById('quiz-modal').style.display = 'none';
+            currentQuestion = 0;
+            score = 0;
+        });
+
+        function showQuestion() {
+            if (currentQuestion >= quizQuestions.length) {
+                document.getElementById('quiz-content').innerHTML = `
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold mb-4">Quiz Complete!</h3>
+                        <p class="text-xl mb-6">Your score: ${score}/${quizQuestions.length}</p>
+                        <button onclick="resetQuiz()" class="bg-primary text-white px-6 py-2 rounded-button hover:bg-opacity-90">Try Again</button>
+                    </div>
+                `;
+                return;
+            }
+
+            const question = quizQuestions[currentQuestion];
+            document.getElementById('question').textContent = question.question;
+            
+            const optionsHtml = question.options.map((option, index) => `
+                <div class="flex items-center">
+                    <input type="radio" name="quiz-option" value="${index}" id="option-${index}" class="mr-2">
+                    <label for="option-${index}">${option}</label>
+                </div>
+            `).join('');
+            
+            document.getElementById('options').innerHTML = optionsHtml;
+            document.getElementById('progress').textContent = `Question ${currentQuestion + 1}/${quizQuestions.length}`;
+        }
+        document.getElementById('next-question').addEventListener('click', () => {
+            const selected = document.querySelector('input[name="quiz-option"]:checked');
+            if (!selected) return;
+
+            if (parseInt(selected.value) === quizQuestions[currentQuestion].correct) {
+                score++;
+            }
+
+            currentQuestion++;
+            showQuestion();
+        });
+
+        function resetQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            showQuestion();
+        }
+    </script>
+</body>
+</html>
