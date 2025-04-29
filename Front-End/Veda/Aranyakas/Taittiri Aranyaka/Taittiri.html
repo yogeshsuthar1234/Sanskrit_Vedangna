@@ -630,7 +630,7 @@ overflow-y: auto;
 async function updateVedaSubtype(vedaName, subtypeName, result) {
   try {
     const userId = localStorage.getItem('userId'); // Get from your auth system
-    const response = await fetch('https://localhost:5002/api/progress/veda-subtype', {
+    const response = await fetch('https://sanskrit-vedangna.onrender.com/api/progress/veda-subtype', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

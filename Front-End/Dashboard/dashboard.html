@@ -120,9 +120,8 @@ DEFAULT: '8px',
 <div class="text-3xl font-['Pacifico']">Vedangana</div>
 <div class="flex flex-wrap justify-center gap-4 sm:gap-6">
 <a href="#" class="hover:text-primary transition-colors">Home</a>
-<a href="#" class="hover:text-primary transition-colors">About</a>
 <a href="../Quiz/QuizMaster.html" class="hover:text-primary transition-colors">QuizMaster</a>
-<a href="#" class="hover:text-primary transition-colors">Contact</a>
+<a href="./user.html" class="hover:text-primary transition-colors">User</a>
 </div>
 </div>
 </nav>
@@ -429,7 +428,7 @@ Vedic Studies
                     return;
                 }
                 console.log("hi");
-                const response = await fetch('https://localhost:5002/api/progress/current-progress', {
+                const response = await fetch('https://sanskrit-vedangna.onrender.com/api/progress/current-progress', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

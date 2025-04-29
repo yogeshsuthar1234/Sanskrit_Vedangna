@@ -340,7 +340,7 @@
             }
         };
         const userId = localStorage.getItem('userId');
-        const API_BASE_URL = 'https://localhost:5002';
+        const API_BASE_URL = 'https://sanskrit-vedangna.onrender.com';
         const COURSE_DURATIONS = {
             "Temple Rituals": 600
         };
@@ -918,7 +918,7 @@
                     minutesPracticed: minutes,
                     userId: localStorage.getItem('userId')
                 })], {type: 'application/json'});
-                navigator.sendBeacon('https://localhost:5002/api/Progress/update', data);
+                navigator.sendBeacon('https://sanskrit-vedangna.onrender.com/api/Progress/update', data);
             }
         });
         document.addEventListener('DOMContentLoaded', initializeApp);

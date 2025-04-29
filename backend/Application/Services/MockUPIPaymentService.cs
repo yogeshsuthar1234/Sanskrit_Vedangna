@@ -17,7 +17,7 @@ namespace MockUPIPaymentGateway.Services
 
             // Construct UPI payment URL
             var upiUrl = $"upi://pay?pa={GOOGLE_PAY_UPI_ID}&pn={MERCHANT_NAME}&am={FIXED_AMOUNT}&cu=INR&tn=MockPayment&tr={paymentId}";
-            var paymentAppUrl = $"http://localhost:5000/mock-payment-app?paymentId={paymentId}&amount={FIXED_AMOUNT}";
+            var paymentAppUrl = $"https://sanskrit-vedangna.onrender.com/mock-payment-app?paymentId={paymentId}&amount={FIXED_AMOUNT}";
 
             _payments[paymentId] = new Payment
             {

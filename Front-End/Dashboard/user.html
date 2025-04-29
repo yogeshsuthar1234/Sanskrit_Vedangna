@@ -366,7 +366,7 @@
       // Fetch user data
       async function fetchUserData() {
         try {
-          const response = await fetch('https://localhost:5002/api/Auth/user', {
+          const response = await fetch('https://sanskrit-vedangna.onrender.com/api/Auth/user', {
             headers: { 'X-User-Id': userId }
           });
           if (!response.ok) {
@@ -384,7 +384,7 @@
       // Fetch progress data
       async function fetchProgressData() {
         try {
-          const response = await fetch('https://localhost:5002/api/progress/current-progress', {
+          const response = await fetch('https://sanskrit-vedangna.onrender.com/api/progress/current-progress', {
             headers: { 'X-User-Id': userId }
           });
           if (!response.ok) throw new Error('Failed to fetch progress: ' + response.statusText);
