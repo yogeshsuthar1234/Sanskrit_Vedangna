@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Priya Suthar\\OneDrive\\Desktop\\.NET\\Vedangna\\Persistence\\Persistence.csproj": {}
+    "C:\\Users\\Priya Suthar\\OneDrive\\Desktop\\.NET\\Vedangna\\backend\\Persistence\\Persistence.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Priya Suthar\\OneDrive\\Desktop\\.NET\\Vedangna\\Domain\\Domain.csproj": {
+    "C:\\Users\\Priya Suthar\\OneDrive\\Desktop\\.NET\\Vedangna\\backend\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Priya Suthar\\OneDrive\\Desktop\\.NET\\Vedangna\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Priya Suthar\\OneDrive\\Desktop\\.NET\\Vedangna\\backend\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Priya Suthar\\OneDrive\\Desktop\\.NET\\Vedangna\\Domain\\Domain.csproj",
+        "projectPath": "C:\\Users\\Priya Suthar\\OneDrive\\Desktop\\.NET\\Vedangna\\backend\\Domain\\Domain.csproj",
         "packagesPath": "C:\\Users\\Priya Suthar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Priya Suthar\\OneDrive\\Desktop\\.NET\\Vedangna\\Domain\\obj\\",
+        "outputPath": "C:\\Users\\Priya Suthar\\OneDrive\\Desktop\\.NET\\Vedangna\\backend\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -87,14 +87,14 @@
         }
       }
     },
-    "C:\\Users\\Priya Suthar\\OneDrive\\Desktop\\.NET\\Vedangna\\Persistence\\Persistence.csproj": {
+    "C:\\Users\\Priya Suthar\\OneDrive\\Desktop\\.NET\\Vedangna\\backend\\Persistence\\Persistence.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Priya Suthar\\OneDrive\\Desktop\\.NET\\Vedangna\\Persistence\\Persistence.csproj",
+        "projectUniqueName": "C:\\Users\\Priya Suthar\\OneDrive\\Desktop\\.NET\\Vedangna\\backend\\Persistence\\Persistence.csproj",
         "projectName": "Persistence",
-        "projectPath": "C:\\Users\\Priya Suthar\\OneDrive\\Desktop\\.NET\\Vedangna\\Persistence\\Persistence.csproj",
+        "projectPath": "C:\\Users\\Priya Suthar\\OneDrive\\Desktop\\.NET\\Vedangna\\backend\\Persistence\\Persistence.csproj",
         "packagesPath": "C:\\Users\\Priya Suthar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Priya Suthar\\OneDrive\\Desktop\\.NET\\Vedangna\\Persistence\\obj\\",
+        "outputPath": "C:\\Users\\Priya Suthar\\OneDrive\\Desktop\\.NET\\Vedangna\\backend\\Persistence\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -115,8 +115,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\Priya Suthar\\OneDrive\\Desktop\\.NET\\Vedangna\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Priya Suthar\\OneDrive\\Desktop\\.NET\\Vedangna\\Domain\\Domain.csproj"
+              "C:\\Users\\Priya Suthar\\OneDrive\\Desktop\\.NET\\Vedangna\\backend\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Priya Suthar\\OneDrive\\Desktop\\.NET\\Vedangna\\backend\\Domain\\Domain.csproj"
               }
             }
           }

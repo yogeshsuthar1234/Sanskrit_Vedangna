@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "K6g4FAG8rJ4=",
+  "dgSpecHash": "8Y10lunRynQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Priya Suthar\\OneDrive\\Desktop\\.NET\\Vedangna\\API\\API.csproj",
+  "projectFilePath": "C:\\Users\\Priya Suthar\\OneDrive\\Desktop\\.NET\\Vedangna\\backend\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Priya Suthar\\.nuget\\packages\\awssdk.core\\3.7.100.14\\awssdk.core.3.7.100.14.nupkg.sha512",
     "C:\\Users\\Priya Suthar\\.nuget\\packages\\awssdk.securitytoken\\3.7.100.14\\awssdk.securitytoken.3.7.100.14.nupkg.sha512",
